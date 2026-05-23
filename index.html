@@ -516,6 +516,111 @@ backface-visibility:hidden;
 .menu button:active{
   transform:scale(.98);
 }
+
+.btn-download{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    width:100%;
+    max-width:360px;
+
+    padding:17px 24px;
+    margin:22px auto;
+
+    border:none;
+    border-radius:50px;
+
+    background:
+    linear-gradient(135deg,#ff4fa3 0%,#ff2f92 45%,#ff0f7b 100%);
+
+    color:#fff;
+
+    font-size:1rem;
+    font-weight:800;
+    letter-spacing:.3px;
+    text-align:center;
+    text-decoration:none;
+
+    position:relative;
+    overflow:hidden;
+    isolation:isolate;
+
+    cursor:pointer;
+
+    box-shadow:
+    0 10px 25px rgba(255,20,120,.22),
+    0 4px 12px rgba(255,20,120,.18),
+    inset 0 1px 0 rgba(255,255,255,.18);
+
+    backdrop-filter:blur(10px);
+
+    transition:
+    transform .22s ease,
+    box-shadow .22s ease,
+    filter .22s ease;
+
+    animation: elegantFlow 4s cubic-bezier(.175,.885,.32,1.275) forwards;
+
+    will-change:transform;
+    transform:translateZ(0);
+}
+
+.btn-download:hover{
+    transform:translateY(-4px) scale(1.02);
+
+    box-shadow:
+    0 18px 40px rgba(255,20,120,.35),
+    0 8px 18px rgba(255,20,120,.22),
+    inset 0 1px 0 rgba(255,255,255,.22);
+
+    filter:brightness(1.03);
+}
+
+.btn-download:active{
+    transform:scale(.965);
+}
+
+.btn-download::before{
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    background:
+    linear-gradient(
+        120deg,
+        transparent 20%,
+        rgba(255,255,255,.22) 50%,
+        transparent 80%
+    );
+
+    transform:translateX(-140%) skewX(-18deg);
+
+    z-index:1;
+}
+
+.btn-download:hover::before{
+    animation:shine .9s ease forwards;
+}
+
+.btn-download::after{
+    content:"";
+
+    position:absolute;
+    inset:1.5px;
+
+    border-radius:999px;
+
+    background:
+    linear-gradient(
+        to bottom,
+        rgba(255,255,255,.08),
+        rgba(255,255,255,.02)
+    );
+
+    z-index:-1;
+}
 </style>
 </head>
 
@@ -528,9 +633,6 @@ backface-visibility:hidden;
   </div>
 
   <div class="menu">
-<button onclick="setTimeout(() => window.location.href='index1.html', 500)">
-  Downloads
-</button>
 
 <button onclick="setTimeout(() => window.location.href='eu1.html', 500)">
   Sobre 
@@ -750,7 +852,7 @@ backface-visibility:hidden;
 <h1>Importante!</h1>
 
 <div class="warning-card">
-      <p>Quando ir para a pagina de download, lembre-se, que:</p>
+      <p>Quando ir para a área de download, lembre-se, que:</p>
       <p>
         Este aplicativo é uma ferramenta complementar.<br>
         Ele não substitui serviços oficiais ou emergenciais.
@@ -765,6 +867,36 @@ backface-visibility:hidden;
     </div>
 </div>
 
+<div class="section">
+    <div class="shape line"></div>
+<h1 class="title">Então, o que me diz?</h1>
+
+    <p class="subtitle">
+      Depois disso aqui… não tem mais como voltar pro básico 😮‍🔥
+    </p>
+    
+    
+   <h1 class="title" id="motivar"></h1>
+
+<br><br><br><br>
+  <h1 class="title">
+    Botões de download:</h1>
+    
+    <a class="btn-download" href="2.apk" download>
+    Baixar aplicativo:<br><br>
+    Versão 2<br><br>
+   09:12 AM • 21/05/2026
+</a>
+
+<a class="btn-download" href="1.apk" download>
+    Baixar aplicativo:<br><br>
+    Versão 1<br><br>
+   02:15 PM • 20/05/2026
+</a>
+  
+
+  </div>
+</div>
 
 <br><br>
 
@@ -851,6 +983,156 @@ pirula.addEventListener("click", () => {
 
 </script>
 
+<script>
+const motivar = document.getElementById("motivar");
+
+const frases = [
+"Tá pronta, princesa?",
+"Gostou?, ok🥰",
+"Não gostou?, trocaremos elas pra você!",
+"Frases motivacionais em 3..., 2..., 1... e já!",
+"Você consegue evoluir um pouco todo dia.",
+"Grandes mudanças começam pequenas.",
+"Seu esforço vale a pena.",
+"Continue avançando.",
+"Você é mais forte do que pensa.",
+"Persistência cria resultados.",
+"Seu futuro agradece.",
+"Continue tentando.",
+"O progresso é diário.",
+"Você consegue aprender.",
+"Cada passo importa.",
+"Não pare agora.",
+"Você está evoluindo.",
+"Tudo melhora com prática.",
+"Disciplina muda vidas.",
+"Você já avançou muito.",
+"Continue firme.",
+"Seu potencial é enorme.",
+"Você consegue ir além.",
+"Pequenas vitórias contam.",
+"Você pode recomeçar.",
+"Seu foco importa.",
+"Continue construindo.",
+"Seu esforço soma.",
+"Você consegue superar.",
+"Todo aprendizado leva tempo.",
+"Você vai melhorar.",
+"Confie no processo.",
+"Você consegue crescer.",
+"Nada muda parado.",
+"Continue acreditando.",
+"Você pode mais.",
+"Se desafiar fortalece.",
+"Seu progresso é real.",
+"Continue praticando.",
+"Você está aprendendo.",
+"Não desista cedo.",
+"Você consegue vencer.",
+"Seu caminho importa.",
+"Você já começou.",
+"Continue evoluindo.",
+"Faça acontecer.",
+"Seu sonho merece esforço.",
+"Você pode conquistar.",
+"Continue focado.",
+"Você é resiliente.",
+"Cada dia conta.",
+"Você consegue mudar.",
+"Persistir vale a pena.",
+"Seu esforço tem valor.",
+"Você consegue melhorar.",
+"Seu amanhã começa hoje.",
+"Você consegue continuar.",
+"Treine sua mente.",
+"Seu foco cria resultados.",
+"Você pode alcançar mais.",
+"Continue tentando sempre.",
+"Você é capaz.",
+"Seu progresso inspira.",
+"Você consegue novamente.",
+"Continue avançando devagar.",
+"Seu esforço constrói.",
+"Você consegue aprender tudo.",
+"Você pode crescer muito.",
+"Continue forte.",
+"Seu objetivo importa.",
+"Você consegue persistir.",
+"Não pare de tentar.",
+"Você consegue evoluir.",
+"Seu esforço transforma.",
+"Você pode surpreender.",
+"Continue melhorando.",
+"Você consegue criar algo incrível.",
+"Seu foco vale ouro.",
+"Você consegue superar limites.",
+"Continue treinando.",
+"Você consegue mais.",
+"Seu potencial cresce.",
+"Você consegue conquistar sonhos.",
+"Continue acreditando em si.",
+"Você consegue vencer desafios.",
+"Seu progresso é importante.",
+"Você consegue seguir em frente.",
+"Continue brilhando.",
+"Você consegue transformar sua rotina.",
+"Seu esforço cria oportunidades.",
+"Você consegue alcançar objetivos.",
+"Continue persistindo.",
+"Você consegue crescer diariamente.",
+"Seu caminho está sendo construído.",
+"Você consegue continuar firme.",
+"Continue evoluindo sempre.",
+"Você consegue enfrentar dificuldades.",
+"Seu foco muda tudo.",
+"Você consegue dar a volta por cima.",
+"Continue criando hábitos.",
+"Você consegue vencer obstáculos.",
+"Seu progresso é único.",
+"Você consegue conquistar muito.",
+"Continue sendo constante."
+];
+
+let index = 0;
+
+function gerarCor(){
+    const hue = Math.floor(Math.random() * 360);
+    return `hsl(${hue}, 85%, 65%)`;
+}
+
+motivar.style.transition = `
+opacity .4s ease,
+transform .4s ease,
+color .6s ease
+`;
+
+function trocarFrase(){
+
+    motivar.style.opacity = "0";
+    motivar.style.transform = "translateY(15px) scale(.98)";
+
+    setTimeout(() => {
+
+        motivar.innerText = frases[index];
+
+        motivar.style.color = gerarCor();
+
+        motivar.style.opacity = "1";
+        motivar.style.transform = "translateY(0px) scale(1)";
+
+        index++;
+
+        if(index >= frases.length){
+            index = 0;
+        }
+
+    }, 400);
+}
+
+trocarFrase();
+
+setInterval(trocarFrase, 3500);
+</script>
 
 
 </body>
