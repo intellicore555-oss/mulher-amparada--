@@ -6,10 +6,7 @@
 
 <title>Mulher Amparada</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -17,255 +14,219 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Quicksand',sans-serif;
 }
 
 body{
     background:#000;
-    color:#fff;
-    overflow-x:hidden;
-    min-height:100vh;
-    opacity:0;
-    animation:fadeBody 1.2s ease forwards;
-}
+    color:white;
 
-/* HERO */
-
-.hero{
-    width:100%;
     min-height:100vh;
+
     display:flex;
-    justify-content:center;
     align-items:center;
-    padding:80px 25px;
-    position:relative;
-    overflow:hidden;
-}
+    justify-content:center;
 
-/* CONTAINER */
+    overflow-x:hidden;
 
-.container{
-    width:100%;
-    max-width:1000px;
-    position:relative;
-    z-index:2;
-    text-align:center;
-}
+    font-family:'Quicksand',sans-serif;
 
-/* LOGO */
-
-.logo{
-    width:95px;
-    height:95px;
-    border-radius:50%;
-    object-fit:cover;
-    border:3px solid #ff4f9a;
-    margin-bottom:30px;
-    box-shadow:0 0 35px rgba(255,79,154,.45);
-}
-
-/* TAG */
-
-.tag{
-    color:#ff4f9a;
-    letter-spacing:5px;
-    text-transform:uppercase;
-    font-size:14px;
-    margin-bottom:35px;
-    font-weight:700;
-}
-
-/* TITULO */
-
-.title-line{
-    display:block;
-    font-size:88px;
-    line-height:1;
-    font-weight:700;
-    letter-spacing:-4px;
-}
-
-.pink{
-    color:#ff4f9a;
-    text-shadow:0 0 20px rgba(255,79,154,.45);
-}
-
-/* TEXTO */
-
-.text{
-    margin-top:45px;
-}
-
-.text-line{
-    display:block;
-    font-size:23px;
-    color:#c8c8c8;
-    line-height:2;
-}
-
-/* MISSÃO */
-
-.mission{
-    margin-top:70px;
-}
-
-.mission h2{
-    font-size:34px;
-    color:#ff4f9a;
-    margin-bottom:25px;
-}
-
-.mission p{
-    font-size:20px;
-    line-height:2;
-    color:#bdbdbd;
-    max-width:800px;
-    margin:auto;
-}
-
-/* FOOTER */
-
-footer{
-    text-align:center;
     padding:25px;
-    color:#666;
-    font-size:14px;
-    border:1px solid rgba(255,255,255,.05);
-    background:#020202;
-    width:90%;
+}
+
+/* Container */
+.container{
+    width:min(92%, 850px);
+    text-align:center;
+}
+
+/* Avatar */
+.avatar{
+    width:220px;
+    height:220px;
+
+    margin:auto;
+    margin-bottom:42px;
+
+    border-radius:50%;
+
+    overflow:hidden;
+
     position:relative;
-    left:5%;
-    margin-bottom:5%;
-    border-radius:200px;
+
+    animation:float 5s ease-in-out infinite;
 }
 
-/* ANIMAÇÃO */
+/* Glow */
+.avatar::before{
+    content:"";
 
-@keyframes fadeBody{
+    position:absolute;
+    inset:-4px;
 
-    from{
-        opacity:0;
+    border-radius:50%;
+
+    background:
+    linear-gradient(
+        135deg,
+        #ffffff,
+        #7d5cff,
+        #87ceeb
+    );
+
+    z-index:-1;
+
+    filter:blur(12px);
+    opacity:.7;
+}
+
+/* Imagem */
+.avatar img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    border-radius:50%;
+
+    border:3px solid rgba(255,255,255,.12);
+}
+
+/* Texto pequeno */
+.text-top{
+    font-size:1.15rem;
+    color:rgba(255,255,255,.58);
+
+    line-height:1.8;
+
+    margin-bottom:28px;
+
+    letter-spacing:.4px;
+}
+
+/* Texto principal */
+.text-main{
+    font-size:clamp(2rem, 5vw, 3.5rem);
+    font-weight:700;
+
+    line-height:1.35;
+}
+
+/* Destaque */
+.highlight{
+    color:pink;
+}
+
+/* Linha */
+.line{
+    width:70px;
+    height:4px;
+
+    margin:28px auto;
+
+    border-radius:999px;
+
+    background:
+    linear-gradient(
+        90deg,
+        #7d5cff,
+        #87ceeb
+    );
+
+    box-shadow:
+    0 0 18px rgba(125,92,255,.35);
+}
+
+/* Footer */
+.footer{
+    margin-top:45px;
+
+    color:rgba(255,255,255,.22);
+
+    font-size:12px;
+
+    letter-spacing:1px;
+}
+
+/* Anim */
+@keyframes shine{
+
+    0%{
+        background-position:0% 50%;
     }
 
-    to{
-        opacity:1;
+    50%{
+        background-position:100% 50%;
+    }
+
+    100%{
+        background-position:0% 50%;
     }
 
 }
 
-/* RESPONSIVO */
+@keyframes float{
 
-@media(max-width:800px){
-
-    .title-line{
-        font-size:56px;
-        letter-spacing:-2px;
+    0%{
+        transform:translateY(0px);
     }
 
-    .text-line{
-        font-size:18px;
-        line-height:1.9;
+    50%{
+        transform:translateY(-8px);
     }
 
-    .mission h2{
-        font-size:28px;
-    }
-
-    .mission p{
-        font-size:17px;
+    100%{
+        transform:translateY(0px);
     }
 
 }
 
-@media(max-width:500px){
+/* Mobile */
+@media(max-width:600px){
 
-    .title-line{
-        font-size:42px;
+    .avatar{
+        width:180px;
+        height:180px;
     }
 
-    .tag{
-        font-size:12px;
-        letter-spacing:3px;
+    .text-top{
+        font-size:1rem;
     }
 
 }
+
 </style>
 </head>
 
 <body>
 
-<section class="hero">
+<div class="container">
 
-    <div class="blur"></div>
-
-    <div class="container">
-
-        <img src="user1.png" class="logo">
-
-        <div class="tag">
-            Liberdade Feminina
-        </div>
-
-        <h1>
-
-            <span class="title-line">
-                Muitos chamam de...
-            </span>
-
-<br><br>
-
-            <span class="title-line pink">
-                Mulher Amparada
-            </span>
-
-        </h1>
-
-        <div class="text">
-
-            <span class="text-line">
-                Porém, esse não é o verdadeiro nome.
-            </span>
-
-            <span class="text-line">
-                O nome real deste projeto é...
-            </span>
-
-<br><br>
-
-            <span class="title-line pink">
-                Mulher Amparada Pela Liberdade Feminina
-            </span>
-
-<br><br>
-
-            <span class="text-line">
-                Um espaço criado para representar acolhimento,
-                respeito, força, união e liberdade entre mulheres.
-            </span>
-
-        </div>
-
-        <div class="mission">
-
-            <h2>
-                Nossa Missão
-            </h2>
-
-            <p>
-                Inspirar mulheres a fortalecerem suas vozes,
-                acreditarem em si mesmas e construírem
-                um ambiente de apoio, respeito e liberdade.
-            </p>
-
-        </div>
-
+    <div class="avatar">
+        <img src="user1.png" alt="Usuário">
     </div>
 
-</section>
 
-<footer>
-    © 2026 Mulher Amparada Pela Liberdade Feminina
-</footer>
+    <div class="text-main">
+
+        <span class="highlight">
+            Mulher Amparada 
+        </span>
+        
+        <br><br>
+
+        <span class="highlight">
+            ✅️Mulher Amparada 
+        </span>
+        
+            <br><br>
+
+<span class="highlight">
+            Mulher Amparada pela liberdade feminina
+        </span>
+    <br><br>
+
+    </div>
+</div>
 
 </body>
 </html>
