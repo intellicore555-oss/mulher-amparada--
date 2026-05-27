@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QR Studio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Quicksand',sans-serif;
+}
+
+body{
+    background:#000;
+    color:#fff;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.app{
+    width:92%;
+    max-width:520px;
+}
+
+.header{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.header h1{
+    font-size:26px;
+    font-weight:700;
+}
+
+.header p{
+    color:#aaa;
+    font-size:13px;
+    margin-top:5px;
+}
+
+.card{
+    background:#0a0a0a;
+    border:1px solid #1c1c1c;
+    border-radius:16px;
+    padding:16px;
+    margin-bottom:15px;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    border-radius:10px;
+    border:1px solid #222;
+    background:#111;
+    color:#fff;
+    outline:none;
+}
+
+.buttons{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    margin-top:10px;
+}
+
+button{
+    padding:12px;
+    border-radius:10px;
+    border:none;
+    cursor:pointer;
+    font-weight:600;
+    transition:.2s;
+}
+
+.primary{
+    background:#fff;
+    color:#000;
+}
+
+.dark{
+    background:#111;
+    color:#fff;
+    border:1px solid #222;
+}
+
+button:hover{
+    transform:scale(1.02);
+}
+
+#qrBox{
+    display:none;
+    justify-content:center;
+    margin-top:15px;
+    padding:15px;
+    background:#fff;
+    border-radius:12px;
+}
+
+.history{
+    max-height:200px;
+    overflow:auto;
+}
+
+.item{
+    padding:10px;
+    border:1px solid #1f1f1f;
+    border-radius:10px;
+    margin-bottom:8px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:13px;
+    color:#ccc;
+}
+
+.smallBtn{
+    background:#222;
+    color:#fff;
+    border:none;
+    padding:6px 8px;
+    border-radius:6px;
+    font-size:11px;
+    cursor:pointer;
+}
+
+.footer{
+    text-align:center;
+    color:#555;
+    font-size:12px;
+    margin-top:10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+    <div class="header">
+        <h1>QR Studio</h1>
+        <p>Gerador de QR Code moderno e simples</p>
+    </div>
+
+    <div class="card">
+        <input id="text" placeholder="Digite link ou texto...">
+
+        <div class="buttons">
+            <button class="primary" onclick="generate()">Gerar QR</button>
+            <button class="dark" onclick="clearAll()">Limpar</button>
+        </div>
+
+        <div id="qrBox"></div>
+
+        <div class="buttons">
+            <button class="dark" onclick="downloadQR()">Baixar</button>
+            <button class="dark" onclick="copyText()">Copiar</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <h3 style="margin-bottom:10px;">Histórico</h3>
+        <div class="history" id="history"></div>
+    </div>
+
+    <div class="footer">
+        QR Studio • HTML puro + JavaScript
+    </div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<script>
+let qr;
+
+function generate(){
+    let text = document.getElementById("text").value;
+    if(!text) return;
+
+    let box = document.getElementById("qrBox");
+
+    box.innerHTML = "";
+    box.style.display = "flex"; // mostra só aqui
+
+    qr = new QRCode(box, {
+        text: text,
+        width: 200,
+        height: 200,
+        colorDark: "#000",
+        colorLight: "#fff"
+    });
+
+    saveHistory(text);
+}
+
+function saveHistory(text){
+    let data = JSON.parse(localStorage.getItem("qrHistory") || "[]");
+    data.unshift(text);
+    localStorage.setItem("qrHistory", JSON.stringify(data));
+    renderHistory();
+}
+
+function renderHistory(){
+    let data = JSON.parse(localStorage.getItem("qrHistory") || "[]");
+    let box = document.getElementById("history");
+    box.innerHTML = "";
+
+    data.forEach((t) => {
+        let div = document.createElement("div");
+        div.className = "item";
+
+        div.innerHTML = `
+            <span>${t.length > 30 ? t.slice(0,30)+"..." : t}</span>
+            <button class="smallBtn" onclick="useItem('${t.replace(/'/g,"")}')">usar</button>
+        `;
+
+        box.appendChild(div);
+    });
+}
+
+function useItem(text){
+    document.getElementById("text").value = text;
+    generate();
+}
+
+function downloadQR(){
+    let img = document.querySelector("#qrBox img");
+    if(!img) return;
+
+    let a = document.createElement("a");
+    a.href = img.src;
+    a.download = "qr-code.png";
+    a.click();
+}
+
+function copyText(){
+    let text = document.getElementById("text").value;
+    navigator.clipboard.writeText(text);
+}
+
+function clearAll(){
+    localStorage.removeItem("qrHistory");
+    document.getElementById("history").innerHTML = "";
+
+    let box = document.getElementById("qrBox");
+    box.innerHTML = "";
+    box.style.display = "none";
+}
+
+renderHistory();
+</script>
+
+</body>
+</html>
