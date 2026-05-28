@@ -197,6 +197,54 @@ left: 5%;
 margin-top: 5%;
 position: relative;
 }
+
+.card{
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:28px;
+
+    background:#0d0d0d;
+
+    border:1px solid rgba(255,255,255,.08);
+    width: 90%;
+margin-left: 5%;
+    transition:
+        transform .4s ease,
+        box-shadow .4s ease;
+}
+
+.card:hover{
+    transform:
+        translateY(-10px)
+        scale(1.02);
+
+    box-shadow:
+        0 25px 60px rgba(255,255,255,.08);
+}
+
+.card img{
+    width:100%;
+    height:100%;
+
+    min-height:550px;
+
+    object-fit:cover;
+
+    display:block;
+
+    transition:
+        transform .5s ease,
+        filter .5s ease;
+}
+
+.card:hover img{
+    transform:scale(1.05);
+
+    filter:brightness(1.08);
+}
+
 </style>
 </head>
 
@@ -217,7 +265,7 @@ position: relative;
 <section id="sobre">
 
     <div class="card">
-        <h2>Sobre o projeto</h2>
+        <h2>Sobre o projeto:</h2>
         <p>
             Desenvolvi este projeto de forma independente, utilizando ferramentas de IA e muita dedicação pessoal.
             O objetivo é criar uma solução útil, acessível e com impacto real.
@@ -230,8 +278,16 @@ position: relative;
     </div>
     
 <div class="card">
-    <h2>Sobre mim</h2>
+    <h2>Sobre mim:</h2>
     <p>Sou autista nível 1, criei esse projeto aos 15 anos e sim... sou um menino lindinho 😎</p>
+
+<br>
+<p style="font-size: 25px;">Prova:</p>
+<br>
+    <div class="card">
+        <img src="prova.png" alt="Print 1">
+    </div>
+    
 </div>
 
 <div class="card">
