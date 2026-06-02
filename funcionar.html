@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>App de Apoio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Quicksand', sans-serif;
+}
+
+body{
+  background:#000;
+  color:#fff;
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+/* fundo suave decorativo */
+.bg{
+  position:fixed;
+  inset:0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255,0,80,0.25), transparent 40%),
+    radial-gradient(circle at 80% 30%, rgba(0,200,255,0.18), transparent 45%),
+    radial-gradient(circle at 50% 80%, rgba(140,0,255,0.18), transparent 50%);
+  filter:blur(30px);
+  z-index:-1;
+  bottom: 0;
+}
+
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:40px 20px;
+}
+
+.header{
+  text-align:center;
+  margin-bottom:30px;
+}
+
+.header h1{
+  font-size:2.2rem;
+  letter-spacing:1px;
+}
+
+.header p{
+  opacity:0.7;
+  margin-top:8px;
+}
+
+/* cards estilo glass */
+.card{
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.12);
+  backdrop-filter: blur(12px);
+  border-radius:16px;
+  padding:18px;
+  margin:16px 0;
+  transition:0.3s ease;
+}
+
+.card:hover{
+  transform:translateY(-4px);
+  border-color:rgba(255,255,255,0.3);
+}
+
+/* destaque botão simulado */
+.emergency{
+  background:linear-gradient(135deg,#ff003c,#ff5e00);
+  border:none;
+  padding:14px 18px;
+  border-radius:12px;
+  color:#fff;
+  font-weight:700;
+  width:100%;
+  margin-top:10px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.emergency:hover{
+  transform:scale(1.02);
+  filter:brightness(1.1);
+}
+
+.tag{
+  display:inline-block;
+  padding:4px 10px;
+  font-size:12px;
+  border-radius:999px;
+  background:rgba(255,255,255,0.08);
+  margin-bottom:8px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg"></div>
+
+<div class="container">
+
+  <div class="header">
+    <h1>Aplicativo de Apoio</h1>
+    <p>Informação, proteção e suporte em momentos de risco</p>
+  </div>
+
+<div class="card">
+  <h1>Funções:</h1>
+  <h2 style="color:red;">Aviso: Todas as funções só estarão desbloqueadas na versão 1!</h2>
+</div>
+
+<div class="card">
+  <div class="tag">Botão de Pânico</div>
+  <p>Botão de Pânico, com ligação ao 180 de forma direta no primeiro clique.</p>
+</div>
+
+<div class="card">
+  <div class="tag">Proteção por Barulho</div>
+  <p>Ative a proteção, faça barulho alto e ele liga para o 180.</p>
+</div>
+
+<div class="card">
+  <div class="tag">Balançar o Celular para Pedir Ajuda</div>
+  <p>Ative e, ao chacoalhar o celular, ele liga para o 180.</p>
+</div>
+
+<div class="card">
+  <div class="tag">Área Protegida</div>
+  <p>Se estiver cadastrado no celular, com Biometric Prompt junto com Device Credential e autenticação weak, pode desbloquear essa área com impressão digital, rosto, PIN, padrão, senha e outros métodos.</p>
+  
+  <div class="card">
+  <div class="tag">Calendário Menstrual</div>
+  <p>Registre como dói cada dia e, com isso, o aplicativo monta um calendário.</p>
+</div>
+
+<div class="card">
+  <div class="tag">Calendário de eventos</div>
+  <p>Registra eventos da usuária quando ela precisar</p>
+</div>
+
+<div class="card">
+  <div class="tag">Rotina</div>
+  <p>Sistema de pontos, com registro de comidas e bebidas boas e ruins, bem como a adição de registro de exercícios físicos fáceis, médios ou difíceis e contagem de tempo de cada um deles, além de sistema de nível e conquistas.</p>
+</div>
+
+<div class="card">
+  <div class="tag">Mapa</div>
+  <p>Mostra um mapa da região da usuária</p>
+</div>
+
+<div class="card">
+  <div class="tag">Diário</div>
+  <p>Usando LocalStorage, a usuária poderá anotar o que quiser. Com a senha, ficará seguro e também não some, pois estará guardado.</p>
+</div>
+
+<div class="card">
+  <div class="tag">Relógio</div>
+  <p>Mostra o mapa do local atual, o país e outros dados, bem como o ano, semestre, bimestre, mês, quinzena, semana, dia, hora, minuto e segundo.</p>
+</div>
+
+<div class="card">
+  <div class="tag">Além disso</div>
+  <p>Além de mostrar hora, minuto e segundo de todos os países.</p>
+</div>
+
+<div class="card">
+  <div class="tag">Calculadora</div>
+  <p>A calculadora pode ser usada para cálculos rápidos do dia a dia.</p>
+</div>
+
+<div class="card">
+  <div class="tag">Tarefas</div>
+  <p>O sistema permite categorizar tarefas em áreas como estudos, trabalho, pessoal e saúde.</p>
+  <p>As tarefas podem ser marcadas como concluídas para acompanhamento do progresso.</p>
+  <p>Todas as tarefas são salvas diretamente no navegador do usuário.</p>
+  <p>Os dados ficam armazenados localmente no dispositivo do usuário.</p>
+</div>
+
+<div class="card">
+  <div class="tag">Gravador de voz</div>
+  <p>Usando uma activity (uma tela) em kotlin, é possivel ter um gravador de voz no app, sendo possível registrar evidências e provas, além do que a usuária quiser, sempre usando permissoes android e com o consentimento da usuária!</p>
+</div>
+
+<div class="card">
+  <div class="tag">Meus arquivos</div>
+  <p>Dentro do app, ele só visualiza as pastas e ao clicar em um arquivo, abre um seletor de apps para executar/visualizar ele</p>
+</div>
+  
+</div>
+
+
+
+<div class="card">
+  <div class="tag">Emergência</div>
+  <p>Saindo dessa área, existem botões que abrem o aplicativo nativo do telefone nos números 190, 191, 192 e 180.</p>
+</div>
+
+<div class="card">
+  <div class="tag">Contatos de Confiança</div>
+  <p>Além dos contatos de confiança, clicando no primeiro botão você seleciona e salva o contato. O botão abaixo envia um pedido de ajuda para ele.</p>
+</div>
+
+<div class="card">
+  <div class="tag">Widgets</div>
+  <p>Já saindo do app, temos os widgets.</p>
+</div>
+
+<div class="card">
+  <div class="tag">Widget SOS</div>
+  <p>O primeiro é um widget de SOS que, quando clicado, abre o aplicativo de telefone com o número 180 já discado.</p>
+</div>
+
+<div class="card">
+  <div class="tag">Widget de Localização</div>
+  <p>O segundo, o de localização, monta o link do Google Maps, e a usuária pode mandar para quem quiser.</p>
+</div>
+
+<div class="card">
+  <div class="tag">Widget de Proteção Sonora</div>
+  <p>E o terceiro é apenas um acesso rápido para o serviço de proteção por palmas.</p>
+</div>
+
+<div class="card">
+  <div class="tag">Compartilhamento Rápido de Localização</div>
+  <p>Além disso, existe um botão dentro do app que pega a localização atual, monta um link do Google Maps e já manda para o WhatsApp do 180, precisando apenas clicar no botão de enviar.</p>
+</div>
+
+</div>
+
+</body>
+</html>
