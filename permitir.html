@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Permissões Android</title>
+
+  <!-- Fonte Quicksand -->
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      background: #000;
+      color: #ffc0cb;
+      font-family: 'Quicksand', sans-serif;
+    }
+
+    .header {
+      text-align: center;
+      padding: 24px 16px;
+      font-size: 22px;
+      font-weight: 700;
+      color: #ffb6c1;
+      border-bottom: 1px solid #222;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      padding: 20px;
+    }
+
+    .card {
+      border: 1px solid #ffb6c1;
+      border-radius: 12px;
+      padding: 14px;
+      background: #0a0a0a;
+    }
+
+    .title {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #ff9db5;
+    }
+
+    code {
+      font-size: 12px;
+      word-break: break-word;
+      color: #ffd6de;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="header">
+    Permissões Android
+  </div>
+
+  <div class="container">
+
+    <div class="card">
+      <div class="title">QUERY_ALL_PACKAGES</div>
+      <code>&lt;uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"/&gt;</code>
+    </div>
+
+    <div class="card">
+      <div class="title">INTERNET</div>
+      <code>&lt;uses-permission android:name="android.permission.INTERNET" /&gt;</code>
+    </div>
+
+    <div class="card">
+      <div class="title">LOCALIZAÇÃO</div>
+      <code>&lt;uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /&gt;</code>
+    </div>
+
+    <div class="card">
+      <div class="title">LIGAÇÃO</div>
+      <code>&lt;uses-permission android:name="android.permission.CALL_PHONE" /&gt;</code>
+    </div>
+
+    <div class="card">
+      <div class="title">BIOMETRIA</div>
+      <code>&lt;uses-permission android:name="android.permission.USE_BIOMETRIC" /&gt;</code>
+    </div>
+
+    <div class="card">
+      <div class="title">CONTATOS</div>
+      <code>&lt;uses-permission android:name="android.permission.READ_CONTACTS" /&gt;</code>
+    </div>
+
+    <div class="card">
+      <div class="title">ÁUDIO</div>
+      <code>&lt;uses-permission android:name="android.permission.RECORD_AUDIO" /&gt;</code>
+    </div>
+
+    <div class="card">
+      <div class="title">WAKE LOCK</div>
+      <code>&lt;uses-permission android:name="android.permission.WAKE_LOCK" /&gt;</code>
+    </div>
+
+    <div class="card">
+      <div class="title">FOREGROUND SERVICE</div>
+      <code>&lt;uses-permission android:name="android.permission.FOREGROUND_SERVICE" /&gt;</code>
+    </div>
+
+    <div class="card">
+      <div class="title">MICROPHONE SERVICE</div>
+      <code>&lt;uses-permission android:name="android.permission.FOREGROUND_SERVICE_MICROPHONE" /&gt;</code>
+    </div>
+
+    <div class="card">
+      <div class="title">ARQUIVOS</div>
+      <code>&lt;uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" /&gt;</code>
+    </div>
+
+  </div>
+
+</body>
+</html>
