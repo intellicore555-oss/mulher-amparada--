@@ -1,313 +1,61 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Sobre Mim</title>
+<title>Modelo de Decisão</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">
+<!-- Fonte Quicksand -->
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Quicksand', sans-serif;
-    }
-
-    html {
-        scroll-behavior: smooth;
-    }
-
-    body {
-        min-height: 100vh;
-        color: #fff;
-        background: black;
-        background-size: 400% 400%;
-        animation: bgMove 10s ease infinite;
-        overflow-x: hidden;
-    }
-
-    @keyframes bgMove {
-        0% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
-    }
-
-    header {
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        padding: 20px;
-    }
-
-    header h1 {
-        font-size: 42px;
-        font-weight: 700;
-        letter-spacing: 1px;
-        margin-bottom: 12px;
-    }
-
-    header p {
-        font-size: 18px;
-        opacity: 0.8;
-        max-width: 500px;
-    }
-
-    .btn {
-        margin-top: 25px;
-        padding: 14px 30px;
-        background: rgba(255, 192, 203, 0.15);
-        color: #fff;
-        border: 1px solid rgba(255,255,255,0.2);
-        border-radius: 14px;
-        cursor: pointer;
-        font-weight: 600;
-        transition: 0.3s ease;
-        backdrop-filter: blur(12px);
-    }
-
-    .btn:hover {
-        transform: translateY(-4px) scale(1.02);
-        border-color: #fff;
-        box-shadow: 0 15px 35px rgba(0,0,0,0.4);
-    }
-
-    section {
-        padding: 80px 20px;
-        max-width: 900px;
-        margin: auto;
-    }
-
-    .card {
-        background: rgba(255, 255, 255, 0.06);
-        border: 1px solid rgba(255,255,255,0.1);
-
-        border-radius: 18px;
-        margin-bottom: 20px;
-        transition: 0.3s ease;
-        backdrop-filter: blur(12px);
-        box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-    }
-
-    .card:hover {
-        transform: translateY(-6px);
-        border-color: rgba(255,255,255,0.25);
-        box-shadow: 0 20px 45px rgba(0,0,0,0.6);
-    }
-
-    .card h2 {
-        margin-bottom: 10px;
-        font-size: 24px;
-        color: #ffb6c1;
-    }
-
-    .card p {
-        opacity: 0.85;
-        line-height: 1.7;
-    }
-
-    footer {
-        text-align: center;
-        padding: 40px;
-        opacity: 0.5;
-        font-size: 14px;
-    }
-
-.hub-buttons{
-    width:100%;
-    max-width:500px;
-    display:flex;
-    flex-direction:column;
-    gap:20px;
-background: rgba(255, 255, 255, 0.06);
-        border: 1px solid rgba(255,255,255,0.1);
-        padding: 26px;
-        border-radius: 18px;
-        margin-bottom: 20px;
-        transition: 0.3s ease;
-        backdrop-filter: blur(12px);
-        box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Quicksand', sans-serif;
+    padding: 20px;
+    line-height: 1.6;
 }
 
-    .hub-buttons:hover {
-        transform: translateY(-6px);
-        border-color: rgba(255,255,255,0.25);
-        box-shadow: 0 20px 45px rgba(0,0,0,0.6);
-    }
-
-   .hub-buttons h2 {
-        margin-bottom: 10px;
-        font-size: 24px;
-        color: #ffb6c1;
-    }
-
-.hub-btn{
-    width:100%;
-    padding:22px;
-    border-radius:202px;
-    text-decoration:none;
-    font-family:'Quicksand',sans-serif;
-    font-size:1.1rem;
-    font-weight:700;
-    text-align:center;
-    color:white;
-
-    background: rgba(255, 192, 203, 0.15);
-
-
-border: 1px solid rgba(255,255,255,0.2);
-    transition:
-    transform .25s ease,
-    box-shadow .25s ease,
-    opacity .25s ease;
+.container {
+    max-width: 800px;
+    margin: auto;
 }
 
-.hub-btn:hover{
-        transform: translateY(-4px) scale(1.02);
-        border-color: #fff;
-        box-shadow: 0 15px 35px rgba(0,0,0,0.4);
-
-
+h1 {
+    text-align: center;
+    font-weight: 600;
 }
 
-.hub-btn:active{
-    transform:scale(.98);
-    opacity:.9;
-}
-
-.eu-btn{
-    width:90%;
-    height:56px;
-    border:none;
-    border-radius:18px;
-    background:#111;
-    color:#fff;
-    font-size:16px;
-    font-weight:700;
-    cursor:pointer;
-    transition:.25s;
-    margin-bottom:30px;
-    border:1px solid rgba(255,255,255,.08);
-left: 5%;
-margin-top: 5%;
-position: relative;
-}
-
-.card{
-    position: relative;
-    overflow: hidden;
-    border-radius: 28px;
-    background: #0d0d0d;
-    padding: 26px;
-    border: 1px solid rgba(255,255,255,.08);
-    width: 90%;
+svg {
+    display: block;
     margin: 20px auto;
-    transition:
-        transform .4s ease,
-        box-shadow .4s ease;
 }
 
-.card:hover{
-    transform: translateY(-10px) scale(1.0);
-    box-shadow: 0 25px 60px rgba(255,255,255,.08);
-}
-
-.card img{
-    width:100%;
-    height:40%;
-
-    min-height:250px;
-
-    object-fit:cover;
-
-    display:block;
-
-    transition:
-        transform .5s ease,
-        filter .5s ease;
+a {
+    color: #7cc7ff;
 }
 </style>
 </head>
 
 <body>
 
+<div class="container">
 
-<header>
-    <h1>Olá, eu sou usuário do GitHub:
-<br><br>
- "Mulher-Amparada" 👋</h1>
-    <p>Um projeto criado com dedicação, propósito e tecnologia para ajudar e proteger.</p>
+<h1>Modelo da educação no ensino fundamental:</h1>
 
-    <button class="btn" onclick="document.getElementById('sobre').scrollIntoView({behavior:'smooth'})">
-        Explorar
-    </button>
-</header>
+<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M22 22L2 22" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"></path> <path d="M2 11L6.06296 7.74968M22 11L13.8741 4.49931C12.7784 3.62279 11.2216 3.62279 10.1259 4.49931L9.34398 5.12486" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"></path> <path d="M15.5 5.5V3.5C15.5 3.22386 15.7239 3 16 3H18.5C18.7761 3 19 3.22386 19 3.5V8.5" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"></path> <path d="M4 22V9.5" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"></path> <path d="M20 9.5V13.5M20 22V17.5" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"></path> <path d="M15 22V17C15 15.5858 15 14.8787 14.5607 14.4393C14.1213 14 13.4142 14 12 14C10.5858 14 9.87868 14 9.43934 14.4393M9 22V17" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M14 9.5C14 10.6046 13.1046 11.5 12 11.5C10.8954 11.5 10 10.6046 10 9.5C10 8.39543 10.8954 7.5 12 7.5C13.1046 7.5 14 8.39543 14 9.5Z" stroke="#ffffff" stroke-width="1.5"></path> </g></svg>
 
-<section id="sobre">
+<p>
+Este texto apresenta uma pergunta sobre a B.N.C.C
+</p>
 
-    <div class="card">
-        <h2>Sobre o projeto:</h2>
-        <p>
-            Desenvolvi este projeto de forma independente, utilizando ferramentas de IA e muita dedicação pessoal.
-            O objetivo é criar uma solução útil, acessível e com impacto real.
-            A divulgação contou com apoio da Escola Estadual Dom Pedro I, que foi essencial nesse processo.
-        </p>
-
-<br>
-<p>Aliás: ele tem um recurso que, quando a usuária fica sem internet, ele carrega a fonte Quicksand por arquivos da propria pasta assets do app.</p>
-
-<p>E quando digo que tem funções em telas separadas no app, entendam que to falando de acitvity em java ou kotlin!</p>
-        <br><br>
-    </div>
-
-<div class="card">
-    <h2>Sobre mim:</h2>
-    <p>Sou autista nível 1, criei esse projeto aos 15 anos e sim... sou um menino lindinho 😎</p>
-
-<br>
-<p style="font-size: 25px; margin-left: 32.5%;">Prova:</p>
-<br>
-    <div class="card" style="padding: 0%;">
-        <img src="prova.png" alt="Print 1">
-    </div>
+<p>
+Podemos colocar pelo ou menos o básico da filosofia no ensino fundamental?
+</p>
 
 </div>
-
-<div class="card">
-    <h2>Minha idade e e-mail para contato:</h2>
-    <p>NÃO VOU RELEVAR MINHA IDADE OFICIAL!, BEM COMO MEU E-MAIL OFICIAL!</p>
-</div>
-
-
-<div class="card">
-    <h2>Restaurantes que conquistaram meu coração:</h2>
-    <p>Bar e restaurante São Miguel: Nota 10!</p>
-    <p>Para ser sincero, o especial de bauru é nove reais, mas é um dinheiro que compensa muito, ele é enorme, massa fofinha, muito queijo e mortadela e tudo de bom!</p>
-    <div class="card" style="padding: 0%;">
-            <img src="comer1.png" alt="Print 1">
-            </div>
-            <div class="card" style="padding: 0%;">
-                        <img src="comer2.png" alt="Print 1">
-                        </div>
-</div>
-
-<div class="card" onclick="window.location.href='lei.html'">
-<h2>Algumas das minhas idéias!</h2>
-</section>
-
-<footer>
-    © 2026 - Mulher Amparada
-</footer>
 
 </body>
 </html>
