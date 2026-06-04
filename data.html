@@ -8,11 +8,6 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">
-
 <style>
 
 *{
@@ -22,56 +17,10 @@
     font-family:'Quicksand',sans-serif;
 }
 
-html{
-    scroll-behavior:smooth;
-}
-
 body{
     background:#000;
     color:#fff;
     overflow-x:hidden;
-}
-
-/* HEADER */
-
-header{
-    width:100%;
-    padding:20px 8%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    position:sticky;
-    top:0;
-    z-index:100;
-
-    background:rgba(0,0,0,0.7);
-    backdrop-filter:blur(18px);
-    border-bottom:1px solid rgba(255,255,255,0.05);
-}
-
-.logo{
-    font-size:20px;
-    font-weight:700;
-}
-
-.logo span{
-    color:#ff4fa3;
-}
-
-nav{
-    display:flex;
-    gap:18px;
-}
-
-nav a{
-    color:rgba(255,255,255,0.7);
-    text-decoration:none;
-    font-size:14px;
-}
-
-nav a:hover{
-    color:#fff;
 }
 
 /* HERO */
@@ -81,55 +30,31 @@ nav a:hover{
     display:flex;
     align-items:center;
     justify-content:center;
-    padding:120px 8% 80px;
+    padding:80px 8%;
 }
 
 .hero-content{
     width:100%;
-    max-width:1100px;
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:60px;
-    align-items:center;
+    max-width:900px;
+    text-align:center;
 }
 
-.badge{
-    display:inline-block;
-    padding:8px 16px;
-    border-radius:999px;
-    background:rgba(255,79,163,0.1);
-    border:1px solid rgba(255,79,163,0.2);
-    color:#ff79ba;
-    font-size:13px;
-    margin-bottom:20px;
-}
-
-h1{
-    font-size:60px;
-    line-height:1.1;
-    margin-bottom:20px;
-}
-
-p{
-    color:rgba(255,255,255,0.7);
-    line-height:1.7;
-    margin-bottom:14px;
-    font-size:17px;
-}
+/* BUTTONS */
 
 .buttons{
     display:flex;
-    gap:16px;
-    margin-top:25px;
-    flex-wrap:wrap;
+    flex-direction:column;
+    gap:14px;
+    margin-top:20px;
 }
 
 .btn{
-    padding:14px 22px;
-    border-radius:14px;
+    padding:14px 18px;
+    border-radius:104px;
     text-decoration:none;
     font-weight:700;
     transition:.25s;
+    display:block;
 }
 
 .btn-primary{
@@ -139,169 +64,17 @@ p{
 
 .btn-primary:hover{
     transform:translateY(-3px);
-}
-
-.btn-secondary{
-    background:rgba(255,255,255,0.05);
-    border:1px solid rgba(255,255,255,0.1);
-    color:#fff;
-}
-
-.btn-secondary:hover{
-    background:rgba(255,255,255,0.1);
-}
-
-/* CARD */
-
-.preview-card{
-    background:rgba(255,255,255,0.03);
-    border:1px solid rgba(255,255,255,0.08);
-    border-radius:25px;
-    padding:25px;
-}
-
-.card-top{
-    display:flex;
-    gap:8px;
-    margin-bottom:18px;
-}
-
-.dot{
-    width:12px;
-    height:12px;
-    border-radius:50%;
-}
-
-.red{background:#ff5f57;}
-.yellow{background:#ffbd2f;}
-.green{background:#28ca42;}
-
-.repo-title{
-    font-size:22px;
-    font-weight:700;
-    margin-bottom:12px;
-}
-
-.repo-desc{
-    color:rgba(255,255,255,0.65);
-    line-height:1.6;
-    margin-bottom:20px;
-}
-
-.repo-link{
-    background:rgba(255,255,255,0.05);
-    border:1px solid rgba(255,255,255,0.08);
-    padding:14px;
-    border-radius:14px;
-    overflow:hidden;
-}
-
-.repo-link a{
-    color:#fff;
-    text-decoration:none;
-    font-size:14px;
-    word-break:break-all;
-}
-
-/* FEATURES */
-
-.features{
-    padding:80px 8%;
-}
-
-.section-title{
-    font-size:38px;
-    margin-bottom:10px;
-}
-
-.section-subtitle{
-    color:rgba(255,255,255,0.6);
-    margin-bottom:40px;
-    line-height:1.6;
-}
-
-.features-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-    gap:20px;
-}
-
-.feature-card{
-    background:rgba(255,255,255,0.03);
-    border:1px solid rgba(255,255,255,0.06);
-    border-radius:20px;
-    padding:22px;
-    transition:.3s;
-}
-
-.feature-card:hover{
-    transform:translateY(-5px);
-    border-color:rgba(255,79,163,0.3);
-}
-
-.feature-icon{
-    font-size:28px;
-    margin-bottom:12px;
-}
-
-.feature-card h3{
-    margin-bottom:8px;
-}
-
-.feature-card p{
-    color:rgba(255,255,255,0.65);
-    font-size:15px;
+    background:#f2f2f2;
 }
 
 /* FOOTER */
 
 footer{
     padding:30px 8%;
-    border:1px solid rgba(255,255,255,0.05);
-    display:flex;
-    justify-content:space-between;
-    flex-wrap:wrap;
-    gap:10px;
-width: 90%;
-left: 5%;
-margin-bottom: 5%;
-position: relative;
-border-radius: 200px;
-}
-
-footer p{
+    text-align:center;
+    border-top:1px solid rgba(255,255,255,0.08);
+    margin-top:40px;
     color:rgba(255,255,255,0.5);
-}
-
-footer a{
-    color:#fff;
-    text-decoration:none;
-}
-
-/* RESPONSIVO */
-
-@media(max-width:900px){
-    .hero-content{
-        grid-template-columns:1fr;
-    }
-
-    h1{
-        font-size:44px;
-    }
-}
-
-@media(max-width:600px){
-    nav{
-        display:none;
-    }
-
-    .hero{
-        padding:100px 6% 60px;
-    }
-
-    h1{
-        font-size:36px;
-    }
 }
 
 </style>
@@ -309,53 +82,42 @@ footer a{
 
 <body>
 
-<section class="hero" id="inicio">
+<section class="hero">
 
     <div class="hero-content">
 
-        <div>
+        <h1>Mulher Amparada</h1>
+        <p>Onde você pode nos encontrar!</p>
 
-            <div class="badge">Repositório Oficial</div>
+        <div class="buttons">
 
-            <h1>Informações do projeto</h1>
+            <a class="btn btn-primary" href="https://dev.to/mulher_amparada/mulher-amparada-24eb" target="_blank">
+                Dev.to
+            </a>
 
-            <p>
-                Repositório com detalhes do aplicativo, funcionalidades e
-                imagens.
-            </p>
+            <a class="btn btn-primary" href="https://www.reddit.com/r/mulheramparada/" target="_blank">
+                Reddit
+            </a>
 
-            
+            <a class="btn btn-primary" href="https://medium.com/@mulheramparada/c1bc27ffddcc" target="_blank">
+                Medium
+            </a>
 
-            <div class="buttons">
-                <a class="btn btn-primary"
-                   href="https://github.com/mulher-amparada/sobre-o-mulher-amparada-"
-                   target="_blank">Abrir Repositório</a>
+            <a class="btn btn-primary" href="https://www.instagram.com/p/DYSjYMaqtf0lN4M7a2kbSA-h-B4IL4kSsgd45U0/?igsh=M2huaXowZ3RvZ2Rk" target="_blank">
+                Instagram
+            </a>
 
-                
-            </div>
+            <a class="btn btn-primary" href="https://vt.tiktok.com/ZSQeG2fon/" target="_blank">
+                TikTok
+            </a>
 
-        </div>
+            <a class="btn btn-primary" href="https://chat.whatsapp.com/GOhkROzwmGyBMUdKbmBLRt" target="_blank">
+                WhatsApp
+            </a>
 
-        <div class="preview-card">
-
-            <div class="card-top">
-                <div class="dot red"></div>
-                <div class="dot yellow"></div>
-                <div class="dot green"></div>
-            </div>
-
-            <div class="repo-title">sobre-o-mulher-amparada</div>
-
-            <div class="repo-desc">
-                Repositório GitHub com documentação e informações do projeto.
-            </div>
-
-            <div class="repo-link">
-                <a href="https://github.com/mulher-amparada/sobre-o-mulher-amparada-"
-                   target="_blank">
-                   github.com/mulher-amparada/sobre-o-mulher-amparada-
-                </a>
-            </div>
+            <a class="btn btn-primary" href="https://mulher-amparada.blogspot.com/2026/05/mulher-amparada-link.html?m=1" target="_blank">
+                Blogger
+            </a>
 
         </div>
 
@@ -363,11 +125,8 @@ footer a{
 
 </section>
 
-
-
 <footer>
-    <p>© 2026 Mulher Amparada</p>
-    
+    © 2026 Mulher Amparada
 </footer>
 
 </body>
