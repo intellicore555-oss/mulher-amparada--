@@ -1,0 +1,124 @@
+
+Botão de Pânico
+Botão de Pânico, com ligação ao 180 de forma direta no primeiro clique.
+
+
+
+Proteção por Barulho
+Ative a proteção, faça barulho alto e ele liga para o 180.
+
+
+
+Balançar o Celular para Pedir Ajuda
+Ative e, ao chacoalhar o celular, ele liga para o 180.
+
+
+
+Área Protegida
+Se estiver cadastrado no celular, com Biometric Prompt junto com Device Credential e autenticação weak, pode desbloquear essa área com impressão digital, rosto, PIN, padrão, senha e outros métodos.
+
+  
+
+🔐 Sistema Cripto (Segurança do App) = Antigo LocalStorage!: 
+Este sistema salva dados de forma segura usando criptografia nativa do Android. Quando você salva um dado no app, ele não fica em texto normal no celular. Ele é automaticamente criptografado antes de ser armazenado. Isso significa que mesmo acessando os arquivos do dispositivo, os dados aparecem como códigos ilegíveis. AES-256 (criptografia forte), Android Keystore (chave protegida pelo sistema) e EncryptedSharedPreferences garantem a segurança. salvar(chave, valor) guarda o dado criptografado, carregar(chave) recupera o valor original, remover(chave) apaga um dado específico e limparTudo() remove todos os dados. Os dados ficam protegidos por uma chave segura do Android e não podem ser lidos diretamente.
+  
+Calendário Menstrual
+Registre como dói cada dia e, com isso, o aplicativo monta um calendário.
+
+
+
+Calendário de eventos
+Registra eventos da usuária quando ela precisar
+
+
+
+Rotina
+Sistema de pontos, com registro de comidas e bebidas boas e ruins, bem como a adição de registro de exercícios físicos fáceis, médios ou difíceis e contagem de tempo de cada um deles, além de sistema de nível e conquistas.
+
+
+
+Mapa
+Mostra um mapa da região da usuária
+
+
+
+Diário
+Usando criptografia, a usuária poderá anotar o que quiser. Com a senha, ficará seguro e também não some, pois estará guardado.
+
+
+
+Relógio
+Mostra o mapa do local atual, o país e outros dados, bem como o ano, semestre, bimestre, mês, quinzena, semana, dia, hora, minuto e segundo.
+
+
+
+Além disso
+Além de mostrar hora, minuto e segundo de todos os países.
+
+
+
+Calculadora
+A calculadora pode ser usada para cálculos rápidos do dia a dia.
+
+
+
+Tarefas
+O sistema permite categorizar tarefas em áreas como estudos, trabalho, pessoal e saúde.
+As tarefas podem ser marcadas como concluídas para acompanhamento do progresso.
+Todas as tarefas são salvas diretamente no navegador do usuário.
+Os dados ficam armazenados localmente no dispositivo do usuário.
+
+
+
+Gravador de voz
+Usando uma activity (uma tela) em kotlin, é possivel ter um gravador de voz no app, sendo possível registrar evidências e provas, além do que a usuária quiser, sempre usando permissoes android e com o consentimento da usuária!
+
+
+
+Meus arquivos
+Dentro do app, ele só visualiza as pastas e ao clicar em um arquivo, abre um seletor de apps para executar/visualizar ele
+
+
+
+Escolher ícone do app
+Essa função abre uma acitvity (tela),
+e poderá trocar o ícone do app!, até mesmo para um ícone de calculadora, disfarçando o app!
+
+
+
+
+
+
+
+Emergência
+Saindo dessa área, existem botões que abrem o aplicativo nativo do telefone nos números 190, 191, 192 e 180.
+
+
+
+Contatos de Confiança
+Além dos contatos de confiança, clicando no primeiro botão você seleciona e salva o contato. O botão abaixo envia um pedido de ajuda para ele.
+
+
+
+Widgets
+Já saindo do app, temos os widgets.
+
+
+
+Widget SOS
+O primeiro é um widget de SOS que, quando clicado, abre o aplicativo de telefone com o número 180 já discado.
+
+
+
+Widget de Localização
+O segundo, o de localização, monta o link do Google Maps, e a usuária pode mandar para quem quiser.
+
+
+
+Widget de Proteção Sonora
+E o terceiro é apenas um acesso rápido para o serviço de proteção por palmas.
+
+
+
+Compartilhamento Rápido de Localização
+Além disso, existe um botão dentro do app que pega a localização atual, monta um link do Google Maps e já manda para o WhatsApp do 180, precisando apenas clicar no botão de enviar.
