@@ -50,13 +50,6 @@ Usando criptografia, a usuária poderá anotar o que quiser. Com a senha, ficar�
 Relógio
 Mostra o mapa do local atual, o país e outros dados, bem como o ano, semestre, bimestre, mês, quinzena, semana, dia, hora, minuto e segundo.
 
-
-
-Além disso
-Além de mostrar hora, minuto e segundo de todos os países.
-
-
-
 Calculadora
 A calculadora pode ser usada para cálculos rápidos do dia a dia.
 
