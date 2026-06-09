@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sobre Mim</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Quicksand', sans-serif;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        min-height: 100vh;
+        color: #fff;
+        background: black;
+        background-size: 400% 400%;
+        animation: bgMove 10s ease infinite;
+        overflow-x: hidden;
+    }
+
+    @keyframes bgMove {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    header {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+    }
+
+    header h1 {
+        font-size: 42px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        margin-bottom: 12px;
+    }
+
+    header p {
+        font-size: 18px;
+        opacity: 0.8;
+        max-width: 500px;
+    }
+
+    .btn {
+        margin-top: 25px;
+        padding: 14px 30px;
+        background: rgba(255, 192, 203, 0.15);
+        color: #fff;
+        border: 1px solid rgba(255,255,255,0.2);
+        border-radius: 14px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: 0.3s ease;
+        backdrop-filter: blur(12px);
+    }
+
+    .btn:hover {
+        transform: translateY(-4px) scale(1.02);
+        border-color: #fff;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    }
+
+    section {
+        padding: 80px 20px;
+        max-width: 900px;
+        margin: auto;
+    }
+
+    .card {
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255,255,255,0.1);
+
+        border-radius: 18px;
+        margin-bottom: 20px;
+        transition: 0.3s ease;
+        backdrop-filter: blur(12px);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
+
+    .card:hover {
+        transform: translateY(-6px);
+        border-color: rgba(255,255,255,0.25);
+        box-shadow: 0 20px 45px rgba(0,0,0,0.6);
+    }
+
+    .card h2 {
+        margin-bottom: 10px;
+        font-size: 24px;
+        color: #ffb6c1;
+    }
+
+    .card p {
+        opacity: 0.85;
+        line-height: 1.7;
+    }
+
+    footer {
+        text-align: center;
+        padding: 40px;
+        opacity: 0.5;
+        font-size: 14px;
+    }
+
+.hub-buttons{
+    width:100%;
+    max-width:500px;
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255,255,255,0.1);
+        padding: 26px;
+        border-radius: 18px;
+        margin-bottom: 20px;
+        transition: 0.3s ease;
+        backdrop-filter: blur(12px);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+    .hub-buttons:hover {
+        transform: translateY(-6px);
+        border-color: rgba(255,255,255,0.25);
+        box-shadow: 0 20px 45px rgba(0,0,0,0.6);
+    }
+
+   .hub-buttons h2 {
+        margin-bottom: 10px;
+        font-size: 24px;
+        color: #ffb6c1;
+    }
+
+.hub-btn{
+    width:100%;
+    padding:22px;
+    border-radius:202px;
+    text-decoration:none;
+    font-family:'Quicksand',sans-serif;
+    font-size:1.1rem;
+    font-weight:700;
+    text-align:center;
+    color:white;
+
+    background: rgba(255, 192, 203, 0.15);
+
+
+border: 1px solid rgba(255,255,255,0.2);
+    transition:
+    transform .25s ease,
+    box-shadow .25s ease,
+    opacity .25s ease;
+}
+
+.hub-btn:hover{
+        transform: translateY(-4px) scale(1.02);
+        border-color: #fff;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+
+
+}
+
+.hub-btn:active{
+    transform:scale(.98);
+    opacity:.9;
+}
+
+.eu-btn{
+    width:90%;
+    height:56px;
+    border:none;
+    border-radius:18px;
+    background:#111;
+    color:#fff;
+    font-size:16px;
+    font-weight:700;
+    cursor:pointer;
+    transition:.25s;
+    margin-bottom:30px;
+    border:1px solid rgba(255,255,255,.08);
+left: 5%;
+margin-top: 5%;
+position: relative;
+}
+
+.card{
+    position: relative;
+    overflow: hidden;
+    border-radius: 28px;
+    background: #0d0d0d;
+    padding: 26px;
+    border: 1px solid rgba(255,255,255,.08);
+    width: 90%;
+    margin: 20px auto;
+    transition:
+        transform .4s ease,
+        box-shadow .4s ease;
+}
+
+.card:hover{
+    transform: translateY(-10px) scale(1.0);
+    box-shadow: 0 25px 60px rgba(255,255,255,.08);
+}
+
+.card img{
+    width:100%;
+    height:40%;
+
+    min-height:250px;
+
+    object-fit:cover;
+
+    display:block;
+
+    transition:
+        transform .5s ease,
+        filter .5s ease;
+}
+</style>
+</head>
+
+<body>
+
+<section id="sobre">
+
+<div class="card">
+    <h2>Sobre mim:</h2>
+    <p>Sou autista nível 1, criei esse projeto aos 15 anos e sim... sou um menino lindinho 😎</p>
+
+<br>
+<p style="font-size: 25px; margin-left: 32.5%;">Prova:</p>
+<br>
+    <div class="card" style="padding: 0%;">
+        <img src="prova.png" alt="Print 1">
+    </div>
+
+</div>
+
+<div class="card">
+    <h2>Minha idade e e-mail para contato:</h2>
+    <p>NÃO VOU RELEVAR MINHA IDADE OFICIAL!, BEM COMO MEU E-MAIL OFICIAL!</p>
+</div>
+</section>
+
+</body>
+</html>
