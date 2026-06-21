@@ -1,120 +1,225 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Permissões Android</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <!-- Fonte Quicksand -->
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+<title>Mulher Amparada</title>
 
-  <style>
-    body {
-      margin: 0;
-      background: #000;
-      color: #ffc0cb;
-      font-family: 'Quicksand', sans-serif;
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#000;
+    color:white;
+
+    min-height:100vh;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    overflow-x:hidden;
+
+    font-family:'Quicksand',sans-serif;
+
+    padding:25px;
+}
+
+/* Container */
+.container{
+    width:min(92%, 850px);
+    text-align:center;
+}
+
+/* Avatar */
+.avatar{
+    width:220px;
+    height:220px;
+
+    margin:auto;
+    margin-bottom:42px;
+
+    border-radius:50%;
+
+    overflow:hidden;
+
+    position:relative;
+
+    animation:float 5s ease-in-out infinite;
+}
+
+/* Glow */
+.avatar::before{
+    content:"";
+
+    position:absolute;
+    inset:-4px;
+
+    border-radius:50%;
+
+    background:
+    linear-gradient(
+        135deg,
+        #ffffff,
+        #7d5cff,
+        #87ceeb
+    );
+
+    z-index:-1;
+
+    filter:blur(12px);
+    opacity:.7;
+}
+
+/* Imagem */
+.avatar img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    border-radius:50%;
+
+    border:3px solid rgba(255,255,255,.12);
+}
+
+/* Texto pequeno */
+.text-top{
+    font-size:1.15rem;
+    color:rgba(255,255,255,.58);
+
+    line-height:1.8;
+
+    margin-bottom:28px;
+
+    letter-spacing:.4px;
+}
+
+/* Texto principal */
+.text-main{
+    font-size:clamp(2rem, 5vw, 3.5rem);
+    font-weight:700;
+
+    line-height:1.35;
+}
+
+/* Destaque */
+.highlight{
+    color:pink;
+}
+
+/* Linha */
+.line{
+    width:70px;
+    height:4px;
+
+    margin:28px auto;
+
+    border-radius:999px;
+
+    background:
+    linear-gradient(
+        90deg,
+        #7d5cff,
+        #87ceeb
+    );
+
+    box-shadow:
+    0 0 18px rgba(125,92,255,.35);
+}
+
+/* Footer */
+.footer{
+    margin-top:45px;
+
+    color:rgba(255,255,255,.22);
+
+    font-size:12px;
+
+    letter-spacing:1px;
+}
+
+/* Anim */
+@keyframes shine{
+
+    0%{
+        background-position:0% 50%;
     }
 
-    .header {
-      text-align: center;
-      padding: 24px 16px;
-      font-size: 22px;
-      font-weight: 700;
-      color: #ffb6c1;
-      
+    50%{
+        background-position:100% 50%;
     }
 
-    .container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 16px;
-      padding: 20px;
+    100%{
+        background-position:0% 50%;
     }
 
-    .card {
-      border: 1px solid #ffb6c1;
-      border-radius: 12px;
-      padding: 14px;
-      background: #0a0a0a;
+}
+
+@keyframes float{
+
+    0%{
+        transform:translateY(0px);
     }
 
-    .title {
-      font-size: 14px;
-      font-weight: 700;
-      margin-bottom: 8px;
-      color: #ff9db5;
+    50%{
+        transform:translateY(-8px);
     }
 
-    code {
-      font-size: 12px;
-      word-break: break-word;
-      color: #ffd6de;
+    100%{
+        transform:translateY(0px);
     }
-  </style>
+
+}
+
+/* Mobile */
+@media(max-width:600px){
+
+    .avatar{
+        width:180px;
+        height:180px;
+    }
+
+    .text-top{
+        font-size:1rem;
+    }
+
+}
+
+</style>
 </head>
 
 <body>
 
-  <div class="header">
-    Permissões Android
-  </div>
+<div class="container">
 
-  <div class="container">
-
-
-
-    <div class="card">
-      <div class="title">INTERNET</div>
-      <code>&lt;uses-permission android:name="android.permission.INTERNET" /&gt;</code>
+    <div class="avatar">
+        <img src="user1.png" alt="Usuário">
     </div>
 
-    <div class="card">
-      <div class="title">LOCALIZAÇÃO</div>
-      <code>&lt;uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /&gt;</code>
-    </div>
 
-    <div class="card">
-      <div class="title">LIGAÇÃO</div>
-      <code>&lt;uses-permission android:name="android.permission.CALL_PHONE" /&gt;</code>
-    </div>
+    <div class="text-main">
 
-    <div class="card">
-      <div class="title">BIOMETRIA</div>
-      <code>&lt;uses-permission android:name="android.permission.USE_BIOMETRIC" /&gt;</code>
-    </div>
+<span class="highlight">
+            Mulher Amparada pela liberdade feminina
+        </span>
+    <br><br>
 
-    <div class="card">
-      <div class="title">CONTATOS</div>
-      <code>&lt;uses-permission android:name="android.permission.READ_CONTACTS" /&gt;</code>
     </div>
-
-    <div class="card">
-      <div class="title">ÁUDIO</div>
-      <code>&lt;uses-permission android:name="android.permission.RECORD_AUDIO" /&gt;</code>
-    </div>
-
-    <div class="card">
-      <div class="title">WAKE LOCK</div>
-      <code>&lt;uses-permission android:name="android.permission.WAKE_LOCK" /&gt;</code>
-    </div>
-
-    <div class="card">
-      <div class="title">FOREGROUND SERVICE</div>
-      <code>&lt;uses-permission android:name="android.permission.FOREGROUND_SERVICE" /&gt;</code>
-    </div>
-
-    <div class="card">
-      <div class="title">MICROPHONE SERVICE</div>
-      <code>&lt;uses-permission android:name="android.permission.FOREGROUND_SERVICE_MICROPHONE" /&gt;</code>
-    </div>
-
-    <div class="card">
-      <div class="title">ARQUIVOS</div>
-      <code>&lt;uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" /&gt;</code>
-    </div>
-
-  </div>
+</div>
 
 </body>
 </html>
