@@ -79,7 +79,8 @@ e poderá trocar o ícone do app!, até mesmo para um ícone de calculadora, dis
 
 
 
-
+Desligar o celular:
+Ao tocar neste botão, o aplicativo solicitará a permissão de Administrador do dispositivo, caso ela ainda não tenha sido concedida. Quando essa permissão estiver ativa, o aplicativo poderá bloquear imediatamente a tela do dispositivo.
 
 
 
@@ -115,3 +116,4 @@ E o terceiro é apenas um acesso rápido para o serviço de proteção por palma
 
 Compartilhamento Rápido de Localização
 Além disso, existe um botão dentro do app que pega a localização atual, monta um link do Google Maps e já manda para o WhatsApp do 180, precisando apenas clicar no botão de enviar.
+
