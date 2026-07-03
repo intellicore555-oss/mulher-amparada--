@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Importante - Mulher Amparada</title>
+
+<style>
+@font-face {
+  font-family: "Quicksand";
+  src: url("font.ttf") format("truetype");
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Quicksand", sans-serif;
+}
+
+body{
+  background:#000;
+  color:#fff;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:100vh;
+  padding:24px;
+}
+
+.section{
+  width:100%;
+  max-width:700px;
+  position:relative;
+}
+
+.shape.line{
+  width:80px;
+  height:4px;
+  border-radius:999px;
+  background:#d946ef;
+  margin:0 auto 20px;
+}
+
+h1{
+  text-align:center;
+  margin-bottom:24px;
+  font-size:2rem;
+}
+
+.warning-card{
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:24px;
+  padding:28px;
+  backdrop-filter:blur(12px);
+}
+
+.warning-card p{
+  line-height:1.8;
+  margin-bottom:18px;
+  color:#f3f3f3;
+}
+
+.warning-card p:last-child{
+  margin-bottom:0;
+}
+
+.note{
+  margin-top:24px;
+  text-align:center;
+}
+
+.note a{
+  display:inline-block;
+  padding:14px 24px;
+  border-radius:140px;
+  background:#d946ef;
+  color:#fff;
+  text-decoration:none;
+  font-weight:600;
+  transition:.25s;
+  width: 90%;
+  margin: 5%;
+  height: 20%;
+}
+
+.note a:hover{
+  transform:translateY(-2px);
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="section">
+  <div class="shape line"></div>
+
+  <h1>Importante!</h1>
+
+  <div class="warning-card">
+    <p><strong>Antes de acessar a área de download, lembre-se:</strong></p>
+
+    <p>
+      Este aplicativo é uma ferramenta complementar.<br>
+      Ele não substitui serviços oficiais ou emergenciais.
+    </p>
+
+    <p>
+      Algumas funções dependem de serviços externos, como internet, GPS e permissões do dispositivo.<br>
+      O aplicativo não garante proteção ou segurança imediata.
+    </p>
+
+    <p>
+      Para acessar a página de downloads, role até o final do site e clique em um dos botões "Downloads".
+    </p>
+
+    <p>
+      Com o celular desligado, sem bateria ou sem acesso aos serviços necessários, as funções do aplicativo não estarão disponíveis.
+    </p>
+    
+      <div class="note">
+    <a onclick="window.location.href='download.html'">Ir para Downloads</a>
+  </div>
+  </div>
+
+
+</div>
+
+</body>
+</html>
