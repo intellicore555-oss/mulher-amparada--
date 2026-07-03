@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>Mulher Amparada | App de Segurança para Mulheres</title>
+
+<link rel="icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#000">
+
+<style>
+@font-face {
+  font-family: "Quicksand";
+  src: url("font.ttf") format("truetype");
+}
+
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:40px 20px;
+}
+
+.header{
+  text-align:center;
+  margin-bottom:30px;
+}
+
+.header h1{
+  font-size:2.2rem;
+  letter-spacing:1px;
+}
+
+.header p{
+  opacity:0.7;
+  margin-top:8px;
+}
+
+/* cards estilo glass */
+.card{
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.12);
+  backdrop-filter: blur(12px);
+  border-radius:16px;
+  padding:18px;
+  margin:16px 0;
+  transition:0.3s ease;
+}
+
+.card:hover{
+  transform:translateY(-4px);
+  border-color:rgba(255,255,255,0.3);
+}
+
+/* destaque botão simulado */
+.emergency{
+  background:linear-gradient(135deg,#ff003c,#ff5e00);
+  border:none;
+  padding:14px 18px;
+  border-radius:120px;
+  color:#fff;
+  font-weight:700;
+  width:100%;
+  margin-top:10px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.emergency:hover{
+  transform:scale(1.02);
+  filter:brightness(1.1);
+}
+
+.tag{
+  display:inline-block;
+  padding:4px 10px;
+  font-size:12px;
+  border-radius:999px;
+  background:rgba(255,255,255,0.08);
+  margin-bottom:8px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+}
+
+body {
+    background: #000;
+    color: #fff;
+    overflow-x: hidden;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* SEÇÕES */
+.section {
+    position: relative;
+
+    min-height: 100vh;
+    width: min(92%, 1200px);
+
+    margin: 0 auto;
+    padding: 70px 24px;
+
+    border-radius: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    text-align: center;
+
+    opacity: 0;
+    transform: translateY(50px) scale(0.98);
+
+    transition:
+    opacity .6s cubic-bezier(0.22, 1, 0.36, 1),
+    transform .6s cubic-bezier(0.22, 1, 0.36, 1);
+
+    overflow: hidden;
+}
+
+/* animação de entrada */
+.section.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* título */
+.section h1 {
+    font-size: clamp(28px, 4vw, 40px);
+    color: #ff4da6;
+
+    margin-bottom: 16px;
+    letter-spacing: 0.5px;
+
+    text-shadow: 0 0 20px rgba(255, 77, 166, 0.25);
+}
+
+/* texto */
+.section p {
+    max-width: 680px;
+    margin: 10px auto;
+
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 16px;
+    line-height: 1.8;
+
+    font-weight: 400;
+}
+
+/* destaque */
+.section p strong {
+    color: #ff7abf;
+    font-weight: 600;
+}
+
+/* responsivo melhor */
+@media (max-width: 600px) {
+    .section {
+        padding: 60px 18px;
+    }
+
+    .section p {
+        font-size: 15px;
+    }
+}
+
+/* SHAPES */
+.shape {
+    position: absolute;
+    opacity: 0.15;
+}
+
+.circle {
+    width: 200px;
+    height: 200px;
+    border: 2px solid #ff4da6;
+    border-radius: 50%;
+    top: 10%;
+    right: 10%;
+    animation: spin 20s linear infinite;
+}
+
+.line {
+    width: 300px;
+    height: 2px;
+    background: #ff4da6;
+    bottom: 20%;
+    left: -100px;
+    animation: moveLine 8s infinite alternate;
+}
+
+.triangle {
+    width: 0;
+    height: 0;
+    border-left: 60px solid transparent;
+    border-right: 60px solid transparent;
+    border-bottom: 100px solid #ff4da6;
+    top: 50%;
+    left: 70%;
+    animation: float 6s ease-in-out infinite;
+}
+
+/* ANIMAÇÕES */
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes moveLine { to { transform: translateX(120px); } }
+@keyframes float { 50% { transform: translateY(-30px); } }
+
+/* BOTÃO */
+.btn-download {
+    margin-top: 40px;
+    padding: 18px 40px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(135deg, #ff4da6, #ff1e85);
+    border-radius: 100px;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 0 25px #ff4da655;
+    animation: pulse 2s infinite, swing 3s infinite;
+    margin: 10px;
+}
+
+@keyframes pulse { 50% { transform: scale(1.08); } }
+@keyframes swing {
+    25% { transform: rotate(2deg); }
+    75% { transform: rotate(-2deg); }
+}
+
+/* FOGOS */
+#fogos {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+/* FORM */
+.box-form{
+  width: 90%;
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 20px;
+  border-radius: 16px;
+  background: #111;
+  text-align: center;
+}
+
+.botao{
+  display: inline-block;
+  padding: 12px 20px;
+  background: skyblue;
+  color: #000;
+  font-weight: bold;
+  border-radius: 120px;
+  text-decoration: none;
+}
+
+/* TOGGLE */
+
+
+svg {
+width: 30px;
+height: 30px;
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999999;
+}
+
+.popup.active {
+  display: flex;
+}
+
+.popup-box {
+  background: #000;
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  color: #fff;
+  animation: aparecer 0.4s ease;
+}
+
+.btn {
+  margin-top: 20px;
+  padding: 12px 20px;
+  background: #ff4da6;
+  border: none;
+  color: #fff;
+  border-radius: 100px;
+  font-weight: bold;
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.warning-card{
+  margin:30px auto;
+  padding:18px 20px;
+
+  border-radius:16px;
+  background:rgba(255,77,166,.06);
+  border:1px solid rgba(255,77,166,.25);
+
+  color:#ffd1e8;
+  font-size:14px;
+  line-height:1.6;
+
+  backdrop-filter:blur(12px);
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,.4),
+    inset 0 1px 0 rgba(255,255,255,.05);
+
+  position:relative;
+margin-top: 0;
+}
+
+.warning-card::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:10%;
+  width:3px;
+  height:80%;
+  background:linear-gradient(#ff4fa3,#ff1e85);
+  border-radius:10px;
+}
+
+.pill{
+  display:inline-block;
+  padding:12px 22px;
+
+  border-radius:999px;
+
+  color: pink;
+  font-weight:600;
+  letter-spacing:1px;
+
+  background:rgba(255,255,255,0.08);
+
+  border:1px solid gray;
+
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.4),
+    inset 0 1px 0 rgba(255,255,255,0.1);
+
+  transition:.3s ease;
+}
+
+.pill:hover{
+  transform:scale(1.05);
+  background:rgba(255,255,255,0.12);
+}
+
+@keyframes floatingPill{
+  0%{
+    transform:translateY(0px);
+  }
+  50%{
+    transform:translateY(-10px);
+  }
+  100%{
+    transform:translateY(0px);
+  }
+}
+
+.pirula{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:14px;
+
+  padding:12px 18px 12px 74px;
+
+  border-radius:40px;
+
+  color:pink;
+  font-weight:600;
+  letter-spacing:1px;
+
+  background:#444;
+
+  border:1px solid rgba(255,255,255,0.15);
+
+ 
+
+transition:
+  opacity .35s ease,
+  transform .35s ease;
+
+  will-change:transform;
+
+
+
+  animation:floatingPill 4s ease-in-out infinite;
+
+  position:fixed;
+  z-index:999999;
+
+  top:5%;
+  left:5%;
+
+  width:30%;
+  height:68px;
+}
+
+.pirula:hover{
+  box-shadow:
+    0 18px 40px rgba(0,0,0,0.5),
+    0 0 25px rgba(255,192,203,0.25);
+}
+
+.pirula.active{
+  width:90%;
+  height:90vh;
+
+  border-radius:40px;
+
+  animation:none;
+
+  background:#2c2c2c;
+
+  top:5%;
+  left:5%;
+
+  padding:24px;
+
+  overflow:auto;
+
+  box-shadow:
+    0 20px 60px rgba(0,0,0,0.6),
+    0 0 35px rgba(255,192,203,0.08);
+}
+ .icon{
+  width:52px;
+  height:52px;
+
+  border-radius:50%;
+  
+transform:translateZ(0);
+backface-visibility:hidden;
+-webkit-backface-visibility:hidden;
+  
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  flex-shrink:0;
+
+  border:2px solid rgba(255,255,255,0.18);
+
+  box-shadow:
+    0 4px 15px rgba(0,0,0,0.35),
+    0 0 18px rgba(255,192,203,0.15);
+
+  position:absolute;
+
+  left:8px;
+  top:8px;
+
+  transition:
+    width .35s ease,
+    height .35s ease,
+    top .35s ease,
+    left .35s ease;
+}
+
+.pirula.active .icon{
+  width:70px;
+  height:70px;
+
+  top:24px;
+  left:24px;
+  
+overflow:hidden;
+transform:translateZ(0);
+backface-visibility:hidden;
+-webkit-backface-visibility:hidden;
+  
+}
+
+.menu{
+  width:100%;
+
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+
+  margin-top:90px;
+
+  opacity:0;
+  pointer-events:none;
+
+  transform:translateY(20px);
+
+  transition:
+    opacity .35s ease,
+    transform .35s ease;
+}
+
+.pirula.active .menu{
+  opacity:1;
+  pointer-events:auto;
+
+  transform:translateY(0);
+}
+
+.menu button{
+  width:100%;
+
+  padding:16px 18px;
+
+  border:none;
+  outline:none;
+
+  border-radius:22px;
+
+  background:rgba(255,255,255,0.08);
+
+  color:#fff;
+
+  font-size:15px;
+  font-weight:700;
+
+  text-align:left;
+
+  border:1px solid rgba(255,255,255,0.08);
+
+  
+
+  box-shadow:
+    0 6px 20px rgba(0,0,0,.25),
+    inset 0 1px 0 rgba(255,255,255,.04);
+
+  cursor:pointer;
+
+  transition:
+    transform .25s ease,
+    background .25s ease,
+    box-shadow .25s ease;
+}
+
+.menu button:hover{
+  transform:translateX(6px);
+
+  background:rgba(255,255,255,0.14);
+
+  box-shadow:
+    0 10px 24px rgba(0,0,0,.35),
+    0 0 18px rgba(255,192,203,.15);
+}
+
+.menu button:active{
+  transform:scale(.98);
+}
+
+.btn-download{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    width:100%;
+    max-width:360px;
+
+    padding:17px 24px;
+    margin:22px auto;
+
+    border:none;
+    border-radius:50px;
+
+    background:
+    linear-gradient(135deg,#ff4fa3 0%,#ff2f92 45%,#ff0f7b 100%);
+
+    color:#fff;
+
+    font-size:1rem;
+    font-weight:800;
+    letter-spacing:.3px;
+    text-align:center;
+    text-decoration:none;
+
+    position:relative;
+    overflow:hidden;
+    isolation:isolate;
+
+    cursor:pointer;
+
+    box-shadow:
+    0 10px 25px rgba(255,20,120,.22),
+    0 4px 12px rgba(255,20,120,.18),
+    inset 0 1px 0 rgba(255,255,255,.18);
+
+    backdrop-filter:blur(10px);
+
+    transition:
+    transform .22s ease,
+    box-shadow .22s ease,
+    filter .22s ease;
+
+    animation: elegantFlow 4s cubic-bezier(.175,.885,.32,1.275) forwards;
+
+    will-change:transform;
+    transform:translateZ(0);
+}
+
+.btn-download:hover{
+    transform:translateY(-4px) scale(1.02);
+
+    box-shadow:
+    0 18px 40px rgba(255,20,120,.35),
+    0 8px 18px rgba(255,20,120,.22),
+    inset 0 1px 0 rgba(255,255,255,.22);
+
+    filter:brightness(1.03);
+}
+
+.btn-download:active{
+    transform:scale(.965);
+}
+
+.btn-download::before{
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    background:
+    linear-gradient(
+        120deg,
+        transparent 20%,
+        rgba(255,255,255,.22) 50%,
+        transparent 80%
+    );
+
+    transform:translateX(-140%) skewX(-18deg);
+
+    z-index:1;
+}
+
+.btn-download:hover::before{
+    animation:shine .9s ease forwards;
+}
+
+.btn-download::after{
+    content:"";
+
+    position:absolute;
+    inset:1.5px;
+
+    border-radius:999px;
+
+    background:
+    linear-gradient(
+        to bottom,
+        rgba(255,255,255,.08),
+        rgba(255,255,255,.02)
+    );
+
+    z-index:-1;
+}
+
+.btn-download1 {
+    margin-top: 40px;
+    padding: 18px 40px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(135deg, pink, hotpink);
+    border-radius: 50px;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 0 25px pink;
+    
+    margin: 10px;
+    border: 1px solid pink;
+}
+
+</style>
+</head>
+
+<body>
+
+
+
+<section class="section seo-section">
+
+<div class="pill">
+  Mulher Amparada
+</div>
+  
+  <div class="section">
+
+    <a class="btn-download" href="6.apk" download>
+    Baixar aplicativo:<br><br>
+    Versão 6<br><br>
+    02/07/2026
+</a>
+
+
+  </div>
+
+
+
+
+
+
+<script>
+// ================= SECTIONS (SCROLL) =================
+const sections = document.querySelectorAll('.section');
+
+function mostrar() {
+    const trigger = window.innerHeight * 0.85;
+
+    sections.forEach(sec => {
+        if (sec.getBoundingClientRect().top < trigger) {
+            sec.classList.add('show');
+        }
+    });
+}
+
+window.addEventListener('scroll', mostrar);
+window.addEventListener('load', mostrar);
+
+
+
+</script>
+
+
+<script>
+// força aceleração da GPU
+document.querySelectorAll(".pirula, .menu, .menu button").forEach(el => {
+  el.style.transform = "translateZ(0)";
+  el.style.backfaceVisibility = "hidden";
+  el.style.webkitBackfaceVisibility = "hidden";
+  el.style.perspective = "1000px";
+});
+
+// otimiza durante animação
+const pirula = document.querySelector(".pirula");
+
+pirula.addEventListener("click", () => {
+
+  pirula.style.willChange =
+  "width,height,transform,opacity";
+
+  requestAnimationFrame(() => {
+    pirula.classList.toggle("active");
+  });
+
+  // limpa depois da animação
+  setTimeout(() => {
+    pirula.style.willChange = "auto";
+  }, 500);
+
+});
+
+
+</script>
+
+</body>
+</html>
