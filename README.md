@@ -48,6 +48,10 @@ action_call: liga direto, so funciona com permissão
 
 action_dial: chama o telefone nativo com um número ja discado, precisando so apertar no botão 
 
+Sobre a parte de enviar a localização: ele usa a permissão, monta um intent no Google maps e envia pelo whatsapp para o número do 180, precisando só apertar no botão de enviar
+
+Sobre os contatos de confiança: ele chama o app nativo do telefone com a permissão ele salva o contato, e denovo monta link pelo google maps e envia
+
 sobre a área protegida:
 
 ela usa um código chamado (biometricPrompt), com a dependencia no build
