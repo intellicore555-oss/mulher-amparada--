@@ -25,3 +25,47 @@ Com o avanço da tecnologia, soluções digitais como o Mulher Amparada se torna
 O Mulher Amparada não é apenas um aplicativo, mas uma iniciativa que busca fazer a diferença na vida das mulheres, oferecendo suporte, segurança e praticidade. Ao unir tecnologia, acessibilidade e propósito, o projeto se posiciona como uma solução importante para quem busca mais proteção no dia a dia.
 
 https://mulher-amparada.github.io/mulher-amparada-app/
+
+**Como o código do app funciona?:**
+
+então, esse app foi feito em kotlin
+
+ é um app híbrido, ou seja, ele tem a MainActivity.kt carregando um layout de webview
+
+para o app funcionar com as funções, ele chama uma classe chamada WebAppInterface.kt, com declaração dela na MainActivity e metodos expostos para js com anotação (@javascriptinterface), com isso, o javascript do site chama o metodo android + o nome do metodo, e essa classe faz a comunicação junto com as permissões concedidas para o sistema executar determinada função, exemplo:
+
+botão de Pânico: primeiro é concedido a permissão de telefone, e o js chama o metodo android, que SÓ FUNCIONA COM ESSA PERMISSÃO, ou então pode ser que ele chama o telefone nativo com o respectivo número já discado, a classe faz a comunicação e pronto!
+
+porem, para a proteção por barulho temos um servico com BACKGROUND + FOREGROUND chamado PalmaService.kt
+
+e para o chacaolhar são métodos dentro da MainActivity que usam permissão de acelerômetro e chama o telefone nativo 
+
+entenda que:
+
+action_call: liga direto, so funciona com permissão 
+
+action_dial: chama o telefone nativo com um número ja discado, precisando so apertar no botão 
+
+sobre a área protegida:
+
+ela usa um código chamado (biometricPrompt), com a dependencia no build
+
+e ela possui device_credential + biometric_weak
+
+device_credential: é o pin/padrao/senha
+
+biometric_weak: é rosto + impressão digital
+
+quando ela é desbloqueada, a activity usa o media para tocar o som unlock.mp3, que foi feito no bandlab, 
+
+e com ela, tem funções separadas assim:
+
+funções na mesma tela: mesma activity, só troca o site
+
+funções em outras telas: outras activitys, ou seja, ele sai dos sites e vao pra outras telas
+
+da parte de EscolherIcone.kt, os icones sao activitys alias do manifest, puxados da pasta res/drawable
+
+a FileActivity.kt usa a permissão especiak de acesso a todos os arquivos e o codigo puxa disso
+
+a GravarActivity.java usa a permissao de microfone + icones que sao xml em res/drawable, para a gravacao + animação de fade in e out
