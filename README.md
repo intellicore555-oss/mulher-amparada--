@@ -76,6 +76,14 @@ a FileActivity.kt usa a permissão especiak de acesso a todos os arquivos e o co
 
 a GravarActivity.java usa a permissao de microfone + icones que sao xml em res/drawable, para a gravacao + animação de fade in e out
 
+**APPS DIFERENTES!:**
+
+**lembrando que, sobre esses apps, ja tem o código fonte dele dentro de um zip no site!:**
+
+**Lembrando que o app de gerenciador de arquivos so visualiza arquivos  nao copia, nao exclui, nao move e nao renomeia, e ele também precisa desbloquear com biometria**
+
+e o de comando de voz, também precisa desbloquear com biometria 
+
 # Gerenciador de Arquivos do Mulher Amparada 📁💗
 
 Conheça um gerenciador de arquivos pensado para ser leve, rápido e fácil de usar. Tudo foi desenvolvido para que você encontre seus documentos, fotos, vídeos e músicas sem complicação.
@@ -93,10 +101,6 @@ O Gerenciador de Arquivos do Mulher Amparada é totalmente gratuito e não exibe
 O foco é oferecer velocidade, organização e uma interface limpa, para que você encontre exatamente o que procura com poucos toques.
 
 Seja para abrir um documento, encontrar uma foto especial, ouvir uma música ou acessar um vídeo, o Gerenciador de Arquivos do Mulher Amparada reúne tudo em um único lugar, com praticidade e simplicidade.
-
-**lembrando que, sobre esses apps, ja tem o código fonte dele dentro de um zip no site!:**
-
-**APPS DIFERENTES!:**
 
 # Assistente Inteligente do Mulher Amparada 🤖💗
 
