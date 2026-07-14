@@ -94,7 +94,7 @@ O foco é oferecer velocidade, organização e uma interface limpa, para que voc
 
 Seja para abrir um documento, encontrar uma foto especial, ouvir uma música ou acessar um vídeo, o Gerenciador de Arquivos do Mulher Amparada reúne tudo em um único lugar, com praticidade e simplicidade.
 
-lembrando que, sobre esse app, ja tem o código fonte dele dentro de um zip no site...
+**lembrando que, sobre esses apps, ja tem o código fonte dele dentro de um zip no site!:**
 
 **APPS DIFERENTES!:**
 
