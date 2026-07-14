@@ -75,3 +75,134 @@ da parte de EscolherIcone.kt, os icones sao activitys alias do manifest, puxados
 a FileActivity.kt usa a permissão especiak de acesso a todos os arquivos e o codigo puxa disso
 
 a GravarActivity.java usa a permissao de microfone + icones que sao xml em res/drawable, para a gravacao + animação de fade in e out
+
+# Gerenciador de Arquivos do Mulher Amparada 📁💗
+
+Conheça um gerenciador de arquivos pensado para ser leve, rápido e fácil de usar. Tudo foi desenvolvido para que você encontre seus documentos, fotos, vídeos e músicas sem complicação.
+
+Com a permissão de acesso a todos os arquivos, o aplicativo consegue visualizar os arquivos armazenados no dispositivo e organizá-los de forma prática, facilitando a navegação pelas pastas.
+
+Visualize suas fotos em uma experiência imersiva, ocupando praticamente toda a tela para aproveitar cada detalhe das suas imagens.
+
+Ouça suas músicas utilizando o player integrado, sem precisar instalar outros aplicativos. A reprodução pode continuar em segundo plano, permitindo que você continue utilizando o celular enquanto escuta suas músicas favoritas.
+
+Também é possível reproduzir vídeos diretamente pelo aplicativo, oferecendo uma forma simples de acessar seus conteúdos multimídia.
+
+O Gerenciador de Arquivos do Mulher Amparada é totalmente gratuito e não exibe anúncios. Nada de propagandas interrompendo sua experiência ou ocupando espaço na tela.
+
+O foco é oferecer velocidade, organização e uma interface limpa, para que você encontre exatamente o que procura com poucos toques.
+
+Seja para abrir um documento, encontrar uma foto especial, ouvir uma música ou acessar um vídeo, o Gerenciador de Arquivos do Mulher Amparada reúne tudo em um único lugar, com praticidade e simplicidade.
+
+lembrando que, sobre esse app, ja tem o código fonte dele dentro de um zip no site...
+
+**APPS DIFERENTES!:**
+
+# Assistente Inteligente do Mulher Amparada 🤖💗
+
+        O Assistente Inteligente do Mulher Amparada permite controlar diversas funções do aplicativo utilizando comandos em linguagem natural, tornando o uso mais rápido e acessível.
+
+        Com apenas um comando, é possível abrir aplicativos instalados no dispositivo sem precisar procurá-los manualmente.
+
+        O assistente também pode ligar diretamente para a Central de Atendimento à Mulher (180), agilizando o acesso ao serviço em situações de necessidade.
+
+        Caso autorizado, é possível enviar sua localização pelo WhatsApp para o número oficial do Ligue 180, facilitando o compartilhamento da sua posição.
+
+        Você pode solicitar o envio de notificações personalizadas para lembrar compromissos, informações importantes ou qualquer mensagem desejada.
+
+        Também existe a opção de simular uma notificação de download com barra de progresso, exibindo o andamento até a conclusão.
+
+        Crie eventos no calendário do dispositivo utilizando comandos simples. O aplicativo abre a tela de criação do evento já preenchida para confirmação.
+
+        Inicie timers por tempo determinado e receba uma notificação quando o tempo terminar. O timer também pode ser cancelado por comando.
+
+        Consulte rapidamente os principais telefones de apoio e emergência disponíveis no Brasil diretamente pelo assistente.
+
+        Visualize quantas vezes números de emergência, como 180, 181, 188, 190, 191, 192, 193 e 156 foram acionados, utilizando o histórico de chamadas do dispositivo quando autorizado.
+
+        Abra fotos armazenadas no aparelho informando apenas o nome do arquivo.
+
+        Também é possível abrir músicas e vídeos diretamente pelo nome do arquivo, utilizando os aplicativos compatíveis instalados no dispositivo.
+
+        Verifique se o Bluetooth está ligado ou desligado por comando de voz ou texto.
+
+        Abra rapidamente as configurações do Bluetooth quando desejar conectar ou gerenciar dispositivos.
+
+        Consulte a lista de dispositivos Bluetooth pareados no aparelho de forma prática.
+
+        Quando configurado como Administrador do Dispositivo, o assistente também pode bloquear imediatamente a tela do celular.
+
+        Todas essas funções foram desenvolvidas para oferecer praticidade, rapidez e facilidade no dia a dia, mantendo uma experiência simples, intuitiva e totalmente gratuita, sem anúncios.
+    
+
+
+    
+        Comandos do Assistente Inteligente 🤖💗
+
+        O Assistente Inteligente reconhece comandos em linguagem natural. Veja alguns exemplos:
+
+        📱 Aplicativos
+        • Abrir WhatsApp
+        • Abrir Instagram
+        • Abrir Configurações
+
+        📞 Emergência
+        • Ligar para 180
+        • Ligar para o 180
+
+        📍 Localização
+        • Enviar minha localização para o 180
+        • Mandar minha localização para o 180
+
+        🔔 Notificações
+        • Me mande uma notificação Estou chegando.
+        • Me mande uma notificação Lembrete importante.
+
+        ⬇️ Download fictício
+        • Me envie uma notificação de download de mentira
+        • Me mande uma notificação de download de mentira
+
+        📅 Calendário
+        • Criar evento Reunião
+        • Crie um evento Consulta médica
+        • Adicionar evento Aniversário
+        • Marcar compromisso Academia
+
+        ⏲️ Timer
+        • Inicie um timer de 5 minutos
+        • Inicie um timer de 30 minutos
+        • Cancelar timer
+
+        ☎️ Telefones de apoio
+        • Quais são os meus apoios
+        • Quais sao os meus apoios
+        • Meus apoios
+
+        📋 Histórico de ajuda
+        • Quantas vezes liguei para pedir ajuda
+        • Ligações de ajuda
+        • Histórico de ajuda
+
+        🖼️ Fotos
+        • Abrir foto viagem.jpg
+        • Abrir foto imagem.png
+
+        🎵 Músicas
+        • Abrir música musica.mp3
+
+        🎬 Vídeos
+        • Abrir vídeo video.mp4
+
+        📶 Bluetooth
+        • Bluetooth está ligado
+        • Bluetooth esta ligado
+        • Abrir Bluetooth
+        • Configurações do Bluetooth
+        • Listar dispositivos Bluetooth
+        • Quais dispositivos Bluetooth
+        • Dispositivos pareados
+
+        🔒 Bloqueio do aparelho
+        • Bloquear celular
+        • Bloquear aparelho
+    
