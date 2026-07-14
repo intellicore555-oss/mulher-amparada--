@@ -10,21 +10,133 @@ O **Mulher Amparada** é um aplicativo de segurança e proteção desenvolvido e
 
 O aplicativo foi pensado para funcionar como um apoio digital em momentos críticos, permitindo acesso rápido a serviços essenciais como **Polícia (190)**, **SAMU (192)** e **Central de Atendimento à Mulher (180)**. Com apenas alguns toques, a usuária pode realizar ligações de emergência, reduzindo o tempo de reação em situações onde cada segundo é importante. Essa agilidade pode ser decisiva para evitar agravamentos e garantir assistência o mais rápido possível.
 
-Além das ligações diretas, o Mulher Amparada também oferece a funcionalidade de envio de localização em tempo real. Essa função permite que a usuária compartilhe sua posição atual com contatos de confiança ou serviços de apoio, facilitando o resgate e aumentando a precisão no atendimento. Em situações de perigo, muitas vezes a pessoa não consegue explicar onde está, e essa funcionalidade resolve esse problema de forma automática e eficiente.
+**Funções:**
 
-Outro ponto importante do aplicativo é a simplicidade da interface. O design foi desenvolvido para ser intuitivo, direto e fácil de usar, mesmo sob pressão. Em momentos de estresse ou medo, a usuária não pode perder tempo tentando entender como o aplicativo funciona. Por isso, cada elemento foi pensado para ser acessado rapidamente, com botões grandes, claros e objetivos, garantindo que qualquer pessoa consiga utilizar sem dificuldade.
+Botão de Pânico
+Botão de Pânico, com ligação ao 180 de forma direta no primeiro clique.
 
-O botão de emergência (**SOS**) é um dos principais destaques do sistema. Ele foi criado para oferecer uma ação rápida em situações críticas, permitindo que a usuária inicie um pedido de ajuda com apenas um toque. Esse tipo de recurso é essencial em momentos onde não há tempo para navegar por menus ou realizar várias ações, garantindo rapidez e eficiência no acionamento de suporte.
+Proteção por Barulho
+Ative a proteção, faça barulho alto e ele liga para o 180.
 
-O Mulher Amparada também se preocupa com a privacidade e segurança da usuária. O aplicativo pode incluir áreas protegidas, como conteúdos acessíveis apenas por biometria, garantindo que informações sensíveis fiquem protegidas contra acessos não autorizados. Essa camada adicional de segurança ajuda a preservar dados importantes e aumenta a confiança no uso da ferramenta.
+Balançar o Celular para Pedir Ajuda
+Ative e, ao chacoalhar o celular, ele liga para o 180.
 
-Além de ser útil em situações extremas, o aplicativo também funciona como uma ferramenta preventiva. Ele pode ser utilizado no dia a dia, trazendo mais tranquilidade ao sair de casa, viajar, estudar ou trabalhar. Saber que existe um recurso pronto para ser usado em caso de necessidade gera uma sensação maior de controle e segurança.
+Área Protegida
+Se estiver cadastrado no celular, com Biometric Prompt junto com Device Credential e autenticação weak, pode desbloquear essa área com impressão digital, rosto, PIN, padrão, senha e outros métodos.
 
-O projeto Mulher Amparada nasce com a proposta de utilizar a tecnologia como aliada na proteção feminina. Em vez de depender apenas de ações externas, o aplicativo coloca um recurso direto nas mãos da usuária, permitindo que ela tenha mais autonomia para agir em situações de risco. Essa abordagem fortalece a prevenção e contribui para um ambiente mais seguro.
 
-Com o avanço da tecnologia, soluções digitais como o Mulher Amparada se tornam cada vez mais relevantes. A possibilidade de integrar comunicação, localização e acesso a serviços essenciais em um único lugar torna o aplicativo uma ferramenta poderosa no apoio à segurança. O objetivo é continuar evoluindo, adicionando novas funcionalidades e melhorando a experiência para atender cada vez melhor as necessidades das usuárias.
+🔐 Sistema Cripto (Segurança do App) = Antigo LocalStorage!:
 
-O Mulher Amparada não é apenas um aplicativo, mas uma iniciativa que busca fazer a diferença na vida das mulheres, oferecendo suporte, segurança e praticidade. Ao unir tecnologia, acessibilidade e propósito, o projeto se posiciona como uma solução importante para quem busca mais proteção no dia a dia.
+
+Este sistema salva dados de forma segura usando criptografia nativa do Android.
+
+
+🧠 Como funciona:
+
+
+Quando você salva um dado no app, ele não fica em texto normal no celular. Ele é automaticamente criptografado antes de ser armazenado.
+
+
+Isso significa que mesmo acessando os arquivos do dispositivo, os dados aparecem como códigos ilegíveis.
+
+
+🔑 Tecnologia usada:
+
+
+
+AES-256 (criptografia forte)
+
+Android Keystore (chave protegida pelo sistema)
+
+EncryptedSharedPreferences
+
+
+⚙️ O que cada função faz:
+
+
+salvar(chave, valor) → guarda o dado de forma criptografada
+
+carregar(chave) → recupera o dado original
+
+remover(chave) → apaga um dado específico
+
+limparTudo() → remove todos os dados salvos
+
+
+🔒 Segurança:
+
+
+Os dados são protegidos por uma chave segura do próprio Android e não ficam visíveis diretamente no armazenamento do aparelho.
+
+Calendário Menstrual
+Registre como dói cada dia e, com isso, o aplicativo monta um calendário.
+
+Calendário de eventos
+Registra eventos da usuária quando ela precisar
+
+Rotina
+Sistema de pontos, com registro de comidas e bebidas boas e ruins, bem como a adição de registro de exercícios físicos fáceis, médios ou difíceis e contagem de tempo de cada um deles, além de sistema de nível e conquistas.
+
+Mapa
+Mostra um mapa da região da usuária
+
+Diário
+Usando criptografia, a usuária poderá anotar o que quiser. Com a senha, ficará seguro e também não some, pois estará guardado.
+
+Relógio
+Mostra o mapa do local atual, o país e outros dados, bem como o ano, semestre, bimestre, mês, quinzena, semana, dia, hora, minuto e segundo.
+
+Além disso
+Além de mostrar hora, minuto e segundo de todos os países.
+
+Calculadora
+A calculadora pode ser usada para cálculos rápidos do dia a dia.
+
+Tarefas
+O sistema permite categorizar tarefas em áreas como estudos, trabalho, pessoal e saúde.
+
+As tarefas podem ser marcadas como concluídas para acompanhamento do progresso.
+
+Todas as tarefas são salvas diretamente no navegador do usuário.
+
+Os dados ficam armazenados localmente no dispositivo do usuário.
+
+Gravador de voz
+Usando uma activity (uma tela) em kotlin, é possivel ter um gravador de voz no app, sendo possível registrar evidências e provas, além do que a usuária quiser, sempre usando permissoes android e com o consentimento da usuária!
+
+Meus arquivos
+Dentro do app, ele só visualiza as pastas e ao clicar em um arquivo, abre um seletor de apps para executar/visualizar ele
+
+Escolher ícone do app:
+Essa função abre uma acitvity (tela) e poderá trocar o ícone do app!, até mesmo para um ícone de calculadora, disfarçando o app!
+
+Desligar o celular:
+Ao tocar neste botão, o aplicativo solicitará a permissão de Administrador do dispositivo, caso ela ainda não tenha sido concedida. Quando essa permissão estiver ativa, o aplicativo poderá bloquear imediatamente a tela do dispositivo.
+
+Para desinstalar o aplicativo, primeiro será necessário desativar a permissão de Administrador do dispositivo. Em alguns aparelhos, também poderá ser necessário permitir Configurações restritas. Se essa opção estiver disponível, pressione e segure o ícone do aplicativo, toque em Informações do aplicativo, abra o menu de três pontos e ative Permitir configurações restritas.
+
+Antes de conceder essa permissão, leia atentamente as informações exibidas pelo Android e só prossiga se compreender as funcionalidades e os efeitos dessa autorização.
+
+Emergência
+Saindo dessa área, existem botões que abrem o aplicativo nativo do telefone nos números 190, 191, 192 e 180.
+
+Contatos de Confiança
+Além dos contatos de confiança, clicando no primeiro botão você seleciona e salva o contato. O botão abaixo envia um pedido de ajuda para ele.
+
+Widgets
+Já saindo do app, temos os widgets.
+
+Widget SOS
+O primeiro é um widget de SOS que, quando clicado, abre o aplicativo de telefone com o número 180 já discado.
+
+Widget de Localização
+O segundo, o de localização, monta o link do Google Maps, e a usuária pode mandar para quem quiser.
+
+Widget de Proteção Sonora
+E o terceiro é apenas um acesso rápido para o serviço de proteção por palmas.
+
+Compartilhamento Rápido de Localização
+Além disso, existe um botão dentro do app que pega a localização atual, monta um link do Google Maps e já manda para o WhatsApp do 180, precisando apenas clicar no botão de enviar.
 
 https://mulher-amparada.github.io/mulher-amparada-app/
 
