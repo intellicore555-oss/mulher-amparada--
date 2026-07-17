@@ -186,7 +186,7 @@ da parte de EscolherIcone.kt, os icones sao activitys alias do manifest, puxados
 
 a FileActivity.kt usa a permissão especiak de acesso a todos os arquivos e o codigo puxa disso
 
-a GravarActivity.java usa a permissao de microfone + icones que sao xml em res/drawable, para a gravacao + animação de fade in e out
+a GravarActivity.kt usa a permissao de microfone + icones que sao xml em res/drawable, para a gravacao + animação de fade in e out
 
 **APPS DIFERENTES!:**
 
