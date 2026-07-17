@@ -275,8 +275,15 @@ Seja para abrir um documento, encontrar uma foto especial, ouvir uma música ou 
         • Me mande uma notificação Lembrete importante.
 
         ⬇️ Download fictício
-        • Me envie uma notificação de download de mentira
-        • Me mande uma notificação de download de mentira
+        
+        • me envie uma notificação de download ficticio
+        • Me envie uma notificação de download ficticio
+        • me envie uma notificação de download fictício
+                • Me envie uma notificação de download fictício
+        • me mande uma notificação de download fictício
+                • Me mande uma notificação de download fictício
+        • me mande uma notificação de download ficticio
+                • Me mande uma notificação de download ficticio
 
         📅 Calendário
         • Criar evento Reunião
