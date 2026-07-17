@@ -329,4 +329,7 @@ Seja para abrir um documento, encontrar uma foto especial, ouvir uma música ou 
         • Bloquear celular
         • Bloquear aparelho
         
+# Sobre a permissão de sms:
+
+é um avanço, pois é uma permissão a menos pro app!, deixei esses registros dessa permissão nesse repositório porque pode ser que precise...
        
