@@ -328,4 +328,15 @@ Seja para abrir um documento, encontrar uma foto especial, ouvir uma música ou 
         🔒 Bloqueio do aparelho
         • Bloquear celular
         • Bloquear aparelho
-    
+        
+        
+
+
+# Links dos Repositórios
+
+Lembrando que existe um projeto chamado **Amparo da Mulher**, que é uma versão experimental do Mulher Amparada, e não a versão principal.
+
+- https://github.com/mulher-amparada/Website-To-APP
+- https://github.com/mulher-amparada/AndroidWebviewTemplate
+        
+      
