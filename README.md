@@ -4,8 +4,6 @@
 
 **Aviso:** Sempre considerem que um menino de 15 anos, autista nível 1 e um menino é o próprio desenvolvedor
 
-**Aviso:** Como o desenvolvedor tem 15 anos, ele não poderia lançar esse app na play store porque precisa ter 18 anos, mas no futuro possívelmente lançarei na play store... (e nao vou postar até fazer 18 anos...), e lembrando, que as páginas desse site estão na internet, mas as paginas do webView do app não estão, são paginas internas da pasta assets...
-
 O **Mulher Amparada** é um aplicativo de segurança e proteção desenvolvido especialmente para mulheres que desejam se sentir mais seguras em situações do dia a dia. O objetivo principal do aplicativo é oferecer suporte rápido, eficiente e acessível em momentos de risco, permitindo que a usuária consiga pedir ajuda de forma simples e imediata. Em um cenário onde muitas mulheres enfrentam situações de vulnerabilidade, ter uma ferramenta confiável pode fazer toda a diferença, e é exatamente isso que o Mulher Amparada busca proporcionar.
 
 O aplicativo foi pensado para funcionar como um apoio digital em momentos críticos, permitindo acesso rápido a serviços essenciais como **Polícia (190)**, **SAMU (192)** e **Central de Atendimento à Mulher (180)**. Com apenas alguns toques, a usuária pode realizar ligações de emergência, reduzindo o tempo de reação em situações onde cada segundo é importante. Essa agilidade pode ser decisiva para evitar agravamentos e garantir assistência o mais rápido possível.
@@ -331,5 +329,5 @@ Seja para abrir um documento, encontrar uma foto especial, ouvir uma música ou 
         
 # Sobre a permissão de sms:
 
-é um avanço, pois é uma permissão a menos pro app!, deixei esses registros dessa permissão nesse repositório porque pode ser que precise...
+é um avanço, pois é uma permissão a menos pro app!, deixei esses registros dessa permissão nesse repositório porque pode ser que precise... (esse aviso serve apenas pro app do Mulher Amparada!)
        
