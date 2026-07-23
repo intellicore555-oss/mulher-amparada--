@@ -326,10 +326,14 @@ Seja para abrir um documento, encontrar uma foto especial, ouvir uma música ou 
         🔒 Bloqueio do aparelho
         • Bloquear celular
         • Bloquear aparelho
+
+        🔍 Pesquisa
+        • Pesquisar + termo a ser pesquisado (e ai ele abre o navegador com a pesquisa feita no google)
         
+
+
+
 # Sobre a permissão de sms:
 
 é um avanço, pois é uma permissão a menos pro app!, deixei esses registros dessa permissão nesse repositório porque pode ser que precise... (esse aviso serve apenas pro app do Mulher Amparada!)
-
-
        
