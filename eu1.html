@@ -6,286 +6,179 @@
 
 <title>Sobre Mim</title>
 
-
-
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 
 <style>
-@font-face {
-  font-family: "Quicksand";
-  src: url("font.ttf") format("truetype");
+
+@font-face{
+    font-family:"Quicksand";
+    src:url("font.ttf") format("truetype");
 }
 
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Quicksand', sans-serif;
-    }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Quicksand",sans-serif;
+}
 
-    html {
-        scroll-behavior: smooth;
-    }
+html{
+    scroll-behavior:smooth;
+}
 
-    body {
-        min-height: 100vh;
-        color: #fff;
-        background: black;
-        background-size: 400% 400%;
-        animation: bgMove 10s ease infinite;
-        overflow-x: hidden;
-    }
+body{
+    background:#050505;
+    color:#fff;
+    overflow-x:hidden;
+display: flex;
+align-items: center;
+flex-direction: column;
+}
 
-    @keyframes bgMove {
-        0% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
-    }
-
-    header {
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        padding: 20px;
-    }
-
-    header h1 {
-        font-size: 42px;
-        font-weight: 700;
-        letter-spacing: 1px;
-        margin-bottom: 12px;
-    }
-
-    header p {
-        font-size: 18px;
-        opacity: 0.8;
-        max-width: 500px;
-    }
-
-    .btn {
-        margin-top: 25px;
-        padding: 14px 30px;
-        background: rgba(255, 192, 203, 0.15);
-        color: #fff;
-        border: 1px solid rgba(255,255,255,0.2);
-        border-radius: 14px;
-        cursor: pointer;
-        font-weight: 600;
-        transition: 0.3s ease;
-        backdrop-filter: blur(12px);
-    }
-
-    .btn:hover {
-        transform: translateY(-4px) scale(1.02);
-        border-color: #fff;
-        box-shadow: 0 15px 35px rgba(0,0,0,0.4);
-    }
-
-    section {
-        padding: 80px 20px;
-        max-width: 900px;
-        margin: auto;
-    }
-
-    .card {
-        background: rgba(255, 255, 255, 0.06);
-        border: 1px solid rgba(255,255,255,0.1);
-
-        border-radius: 18px;
-        margin-bottom: 20px;
-        transition: 0.3s ease;
-        backdrop-filter: blur(12px);
-        box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-    }
-
-    .card:hover {
-        transform: translateY(-6px);
-        border-color: rgba(255,255,255,0.25);
-        box-shadow: 0 20px 45px rgba(0,0,0,0.6);
-    }
-
-    .card h2 {
-        margin-bottom: 10px;
-        font-size: 24px;
-        color: #ffb6c1;
-    }
-
-    .card p {
-        opacity: 0.85;
-        line-height: 1.7;
-    }
-
-    footer {
-        text-align: center;
-        padding: 40px;
-        opacity: 0.5;
-        font-size: 14px;
-    }
-
-.hub-buttons{
-    width:100%;
-    max-width:500px;
+header{
+    min-height:100vh;
     display:flex;
     flex-direction:column;
-    gap:20px;
-background: rgba(255, 255, 255, 0.06);
-        border: 1px solid rgba(255,255,255,0.1);
-        padding: 26px;
-        border-radius: 18px;
-        margin-bottom: 20px;
-        transition: 0.3s ease;
-        backdrop-filter: blur(12px);
-        box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-}
-
-    .hub-buttons:hover {
-        transform: translateY(-6px);
-        border-color: rgba(255,255,255,0.25);
-        box-shadow: 0 20px 45px rgba(0,0,0,0.6);
-    }
-
-   .hub-buttons h2 {
-        margin-bottom: 10px;
-        font-size: 24px;
-        color: #ffb6c1;
-    }
-
-.hub-btn{
-    width:100%;
-    padding:22px;
-    border-radius:202px;
-    text-decoration:none;
-    font-family:'Quicksand',sans-serif;
-    font-size:1.1rem;
-    font-weight:700;
+    justify-content:center;
+    align-items:center;
     text-align:center;
-    color:white;
-
-    background: rgba(255, 192, 203, 0.15);
-
-
-border: 1px solid rgba(255,255,255,0.2);
-    transition:
-    transform .25s ease,
-    box-shadow .25s ease,
-    opacity .25s ease;
+    padding:30px;
+    background:
+    #000;
+width: 90%;
 }
 
-.hub-btn:hover{
-        transform: translateY(-4px) scale(1.02);
-        border-color: #fff;
-        box-shadow: 0 15px 35px rgba(0,0,0,0.4);
-
-
+header h1{
+    font-size:30px;
+    line-height:1.4;
+    margin-bottom:25px;
 }
 
-.hub-btn:active{
-    transform:scale(.98);
-    opacity:.9;
+header p{
+    max-width:650px;
+    font-size:19px;
+    color:#d6d6d6;
+    line-height:1.8;
 }
 
-.eu-btn{
-    width:90%;
-    height:56px;
+.btn{
+    margin-top:40px;
+    padding:16px 38px;
     border:none;
     border-radius:18px;
-    background:#111;
-    color:#fff;
-    font-size:16px;
-    font-weight:700;
+    background:#ffb6c1;
+    color:#000;
+    font-size:17px;
+    font-weight:bold;
     cursor:pointer;
-    transition:.25s;
-    margin-bottom:30px;
-    border:1px solid rgba(255,255,255,.08);
-left: 5%;
-margin-top: 5%;
-position: relative;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-5px);
+    box-shadow:0 15px 35px rgba(255,182,193,.35);
+}
+
+section{
+    width:min(950px,92%);
+    margin:auto;
+    padding:70px 0;
+}
+
+.intro{
+    text-align:center;
+    font-size:19px;
+    margin-bottom:45px;
+    color:#e8e8e8;
+    line-height:1.8;
 }
 
 .card{
-    position: relative;
-    overflow: hidden;
-    border-radius: 28px;
-    background: #0d0d0d;
-    padding: 26px;
-    border: 1px solid rgba(255,255,255,.08);
-    width: 90%;
-    margin: 20px auto;
-    transition:
-        transform .4s ease,
-        box-shadow .4s ease;
+    background:#111;
+    border:1px solid #222;
+    border-radius:22px;
+    padding:28px;
+    margin-bottom:22px;
+    cursor:pointer;
+    transition:.3s;
+width: 90%;
+margin-left: 5%;
 }
 
 .card:hover{
-    transform: translateY(-10px) scale(1.0);
-    box-shadow: 0 25px 60px rgba(255,255,255,.08);
+    transform:translateY(-6px);
+    border-color:#ffb6c1;
+    box-shadow:0 15px 35px rgba(255,182,193,.15);
 }
 
-.card img{
-    width:100%;
-    height:40%;
-
-    min-height:250px;
-
-    object-fit:cover;
-
-    display:block;
-
-    transition:
-        transform .5s ease,
-        filter .5s ease;
+.card h2{
+    color:#ffb6c1;
+    font-size:24px;
 }
+
+footer{
+    text-align:center;
+    padding:40px;
+    color:#777;
+    font-size:14px;
+}
+
 </style>
 </head>
 
 <body>
 
-
 <header>
-    <h1>Olá, eu sou usuário do GitHub:
-<br><br>
- "Mulher-Amparada" 👋</h1>
-    <p>Um projeto criado com dedicação, propósito e tecnologia para ajudar e proteger.</p>
 
-<br>
+<h1>
+Olá, eu sou o usuário do GitHub:<br><br>
+<strong>Mulher-Amparada</strong> 👋
+</h1>
 
-<p>(Uma idéia que eu tenho é que o crime de feminicídio deveria ser inafiançável!).</p>
+<p>
+Um projeto criado com dedicação, propósito e tecnologia para ajudar e proteger mulheres.
+</p>
 
+<button class="btn"
+onclick="document.getElementById('sobre').scrollIntoView({behavior:'smooth'})">
+Explorar
+</button>
 
-    <button class="btn" onclick="document.getElementById('sobre').scrollIntoView({behavior:'smooth'})">
-        Explorar
-    </button>
 </header>
 
 <section id="sobre">
 
+<p class="intro">
+Uma das minhas ideias <br> é que o crime de feminicídio deveria ser inafiançável.
+</p>
 
-<div class="card" onclick="window.location.href='avaliar.html'">
-<h2>Avaliações de restaurantes!</h2>
+<div class="card" onclick="location.href='avaliar.html'">
+<h2>🍽️ Avaliações de restaurantes</h2>
 </div>
 
-<div class="card" onclick="window.location.href='trabalhar.html'">
-<h2>Trabalho que tenho admiração...</h2>
+<div class="card" onclick="location.href='trabalhar.html'">
+<h2>💼 Trabalhos que tenho admiração</h2>
 </div>
 
-<div class="card" onclick="window.location.href='lei.html'">
-<h2>Algumas das minhas idéias!</h2>
+<div class="card" onclick="location.href='lei.html'">
+<h2>📜 Algumas das minhas ideias</h2>
 </div>
 
-<div class="card" onclick="window.location.href='ir.html'">
-<h2>Uma ideia minha para o imposto de renda</h2>
+<div class="card" onclick="location.href='ir.html'">
+<h2>💰 Minha ideia para o Imposto de Renda</h2>
 </div>
 
-<div class="card" onclick="window.location.href='gerenciador de arquivos.html'">
-<h2>Ocorrido com o projeto no dia 29/06/2026:</h2>
+<div class="card" onclick="location.href='gerenciador de arquivos.html'">
+<h2>📂 O que aconteceu com o projeto em 29/06/2026</h2>
 </div>
 
 </section>
+
+<footer>
+© 2026 • Mulher-Amparada
+</footer>
 
 </body>
 </html>
