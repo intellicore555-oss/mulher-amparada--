@@ -336,4 +336,12 @@ Seja para abrir um documento, encontrar uma foto especial, ouvir uma música ou 
 # Sobre a permissão de sms:
 
 é um avanço, pois é uma permissão a menos pro app!, deixei esses registros dessa permissão nesse repositório porque pode ser que precise... (esse aviso serve apenas pro app do Mulher Amparada!)
+
+# Livro Cartas Datilografadas:
+
+Nessa história,uma jovem garota chamada Isis Almeida estava em seu momento de lazer, até que em algumas horas,ela ficou impressionada por algo... .
+
+https://clubedeautores.com.br/livro/cartas-datilografadas
+
+(Sim, eu fiz ele em 2023, com 12 anos de idade..., e sou fã de undertale desde 2020!)
        
