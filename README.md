@@ -6,6 +6,8 @@
 
 **Aviso:** Sempre considerem que um menino de 15 anos, autista nível 1 e um menino é o próprio desenvolvedor
 
+**Dos meus 10 aos 15 anos⬇️**
+
 O que eu passei na Escola Parque Jardim Helena:
           
 ai ja no inicio do sexto ano, criei amizade com a ****
