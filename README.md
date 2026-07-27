@@ -352,3 +352,5 @@ https://clubedeautores.com.br/livro/cartas-datilografadas
 **Idéias sobre a lei que eu tenho (é um protótipo, não é oficial do governo, e só idéias minhas!**
 
 1. Crime de feminicídio deveria ser inafiançável!
+
+##E eu me inspiro em Martin Luther King para falar: "eu tenho um sonho, que as mulheres vivam em paz, sem nenhuma violência, porque todos somos iguais..."
