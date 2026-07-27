@@ -328,8 +328,7 @@ Seja para abrir um documento, encontrar uma foto especial, ouvir uma música ou 
         🔍 Pesquisa
         • Pesquisar + termo a ser pesquisado (e ai ele abre o navegador com a pesquisa feita no google)
         
-
-
+**E eu não fiz curso nem nada, só usei a I.A e o que aprendi de programação com ela!**
 
 # Sobre a permissão de sms:
 
