@@ -308,3 +308,5 @@ https://clubedeautores.com.br/livro/cartas-datilografadas
 **E eu me inspiro em Martin Luther King para falar:**
 
 # "eu tenho um sonho, que as mulheres vivam em paz, sem nenhuma violência, porque todos somos iguais..."
+
+# e eu me sinto lisongeado de cuidar de todas essas princesas!
