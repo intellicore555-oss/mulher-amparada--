@@ -309,4 +309,4 @@ https://clubedeautores.com.br/livro/cartas-datilografadas
 
 # "eu tenho um sonho, que as mulheres vivam em paz, sem nenhuma violência, porque todos somos iguais..."
 
-# e eu me sinto lisongeado de cuidar de todas essas princesas!
+# e eu me sinto lisongeado de cuidar de todas essas usuárias!
