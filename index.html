@@ -1055,55 +1055,9 @@ Antes de conceder essa permissão, leia atentamente as informações exibidas pe
   
 <br>
 
-      <h1>Como o código do app funciona? (do app, nao desse site!):</h1>
+      <h1>(como o código esta dentro do zip, nao precisarei explicar!)</h1>
 
-<p>então, esse app foi feito em kotlin</p>
 
-<br>
-<p> é um app híbrido, ou seja, ele tem a MainActivity.kt carregando um layout de webview</p>
-<br>
-<p>para o app funcionar com as funções, ele chama uma classe chamada WebAppInterface.kt, com declaração dela na MainActivity e metodos expostos para js com anotação (@javascriptinterface), com isso, o javascript do site chama o metodo android + o nome do metodo, e essa classe faz a comunicação junto com as permissões concedidas para o sistema executar determinada função, exemplo:</p>
-<br>
-<p>botão de Pânico: primeiro é concedido a permissão de telefone, e o js chama o metodo android, que SÓ FUNCIONA COM ESSA PERMISSÃO, ou então pode ser que ele chama o telefone nativo com o respectivo número já discado, a classe faz a comunicação e pronto!</p>
-<br>
-<p>porem, para a proteção por barulho temos um servico com BACKGROUND + FOREGROUND chamado PalmaService.kt</p>
-<br>
-<p>e para o chacaolhar são métodos dentro da MainActivity que usam permissão de acelerômetro e chama o telefone nativo </p>
-<br>
-<p>entenda que:</p>
-<br>
-<p>action_call: liga direto, so funciona com permissão </p>
-<br>
-<p>action_dial: chama o telefone nativo com um número ja discado, precisando so apertar no botão </p>
-<br>
-
-<p>Sobre a parte de enviar a localização: ele usa a permissão, monta um intent no Google maps e envia pelo whatsapp para o número do 180, precisando só apertar no botão de enviar</p>
-<br>
-<p>Sobre os contatos de confiança: ele chama o app nativo do telefone com a permissão ele salva o contato, e denovo monta link pelo google maps e envia</p>
-<br>
-<p>sobre a área protegida:</p>
-<br>
-<p>ela usa um código chamado (biometricPrompt), com a dependencia no build</p>
-<br>
-<p>e ela possui device_credential + biometric_weak</p>
-<br>
-<p>device_credential: é o pin/padrao/senha</p>
-<br>
-<p>biometric_weak: é rosto + impressão digital</p>
-<br>
-<p>quando ela é desbloqueada, a activity usa o media para tocar o som unlock.mp3, que foi feito no bandlab, </p>
-<br>
-<p>e com ela, tem funções separadas assim:</p>
-<br>
-<p>funções na mesma tela: mesma activity, só troca o site</p>
-<br>
-<p>funções em outras telas: outras activitys, ou seja, ele sai dos sites e vao pra outras telas</p>
-<br>
-<p>da parte de EscolherIcone.kt, os icones sao activitys alias do manifest, puxados da pasta res/drawable</p>
-<br>
-<p>a FileActivity.kt usa a permissão especiak de acesso a todos os arquivos e o codigo puxa disso</p>
-<br>
-<p>a GravarActivity.java usa a permissao de microfone + icones que sao xml em res/drawable, para a gravacao + animação de fade in e out</p>
 
 </div>
 
