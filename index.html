@@ -768,7 +768,7 @@ backface-visibility:hidden;
     Área de download:</h1>
 
   
-<a class="btn-download" onclick="window.location.href='download.html'">
+<a class="btn-download" onclick="window.location.href='termos.html'">
     Ir para a página de download do app
 </a>
 
@@ -1333,17 +1333,6 @@ Antes de conceder essa permissão, leia atentamente as informações exibidas pe
 </div>
 
 
-<div id="popup-termos" class="popup">
-  <div class="popup-box">
-    <h2>Para continuar</h2>
-    <p>Você precisa aceitar os termos e políticas.</p>
-
-    <button onclick="irParaTermos()" class="btn">
-      Ver termos
-    </button>
-  </div>
-</div>
-
 
 
 <script>
@@ -1367,21 +1356,7 @@ window.addEventListener('load', mostrar);
 
 </script>
 
-<script>
-const popup = document.getElementById("popup-termos");
 
-window.addEventListener("load", () => {
-  if (localStorage.getItem("termosAceitos") !== "sim") {
-    popup.classList.add("active");
-    document.body.style.overflow = "hidden";
-  }
-});
-
-// botão
-function irParaTermos() {
-  window.location.href = "termos.html";
-}
-</script>
 
 <script>
 // força aceleração da GPU
