@@ -1822,6 +1822,17 @@ function aceitar() {
   localStorage.setItem("termosAceitos", "sim");
   window.location.href = "download.html";
 }
+
+(() => {
+    let visitas = parseInt(localStorage.getItem("visitas") || "0");
+
+    visitas++;
+    localStorage.setItem("visitas", visitas);
+
+    if (visitas >= 2) {
+        window.location.href = "download.html";
+    }
+})();
 </script>
 
 </body>
