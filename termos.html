@@ -1812,28 +1812,9 @@ O rastreamento pode variar conforme o navegador utilizado. Em alguns casos, o pr
 </div>
 
 
-<button onclick="aceitar()" class="botao">
+<button onclick="window.location.href='download.html'" class="botao">
     Li e Concordo com os termos e políticas 
 </button>
-
-
-<script>
-function aceitar() {
-  localStorage.setItem("termosAceitos", "sim");
-  window.location.href = "download.html";
-}
-
-(() => {
-    let visitas = parseInt(localStorage.getItem("visitas") || "0");
-
-    visitas++;
-    localStorage.setItem("visitas", visitas);
-
-    if (visitas >= 2) {
-        window.location.href = "download.html";
-    }
-})();
-</script>
 
 </body>
 </html>
