@@ -287,6 +287,10 @@ Seja para abrir um documento, encontrar uma foto especial, ouvir uma música ou 
 
 é um avanço, pois é uma permissão a menos pro app!, deixei esses registros dessa permissão nesse repositório porque pode ser que precise... (esse aviso serve apenas pro app do Mulher Amparada!)
        
+# Sobre como os apps adicionais são abertos:
+
+Esses apps são abertos por intent (todos que não são o mulher amparada), e não está disponível na tela de aplicativos, aumentandk a segurança, já que só abre pelo app mulher amparada pela área protegida e para abrir o app pede a biometria dele!
+
 # Livro Cartas Datilografadas:
 
 Nessa história,uma jovem garota chamada Isis Almeida estava em seu momento de lazer, até que em algumas horas,ela ficou impressionada por algo... .
@@ -310,3 +314,4 @@ https://clubedeautores.com.br/livro/cartas-datilografadas
 # "eu tenho um sonho, que as mulheres vivam em paz, sem nenhuma violência, porque todos somos iguais..."
 
 # e eu me sinto lisongeado de cuidar de todas essas usuárias, (pra mim elas são princesas do jeitinho que elas são, e tenho um profundo amor incondicional por cada uma delas!, mas aqui tenho que lidar com linguagem certa..., então direi que são usuárias!)
+
