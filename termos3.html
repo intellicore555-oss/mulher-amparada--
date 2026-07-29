@@ -683,27 +683,9 @@ li{
     <p><strong>Cláusula 33.4:</strong> A nulidade de uma cláusula não prejudicará a validade das demais disposições deste documento.</p>
 </div>
 
-<button onclick="aceitar()" class="botao">
+<button onclick="window.location.href='download1.html'" class="botao">
     Li e Concordo com os termos e políticas 
 </button>
-
-<script>
-function aceitar() {
-  localStorage.setItem("termosAceitos", "sim");
-  window.location.href = "download1.html";
-}
-
-(() => {
-    let visitas = parseInt(localStorage.getItem("visitas") || "0");
-
-    visitas++;
-    localStorage.setItem("visitas", visitas);
-
-    if (visitas >= 2) {
-        window.location.href = "download1.html";
-    }
-})();
-</script>
 
 </body>
 </html>
