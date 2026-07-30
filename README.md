@@ -132,6 +132,9 @@ E o terceiro é apenas um acesso rápido para o serviço de proteção por palma
 Compartilhamento Rápido de Localização
 Além disso, existe um botão dentro do app que pega a localização atual, monta um link do Google Maps e já manda para o WhatsApp do 180, precisando apenas clicar no botão de enviar.
 
+Botão rápido
+ Além de tudo isso, existe um botão disponível no centro de controle do sistema, (varia conforme o aparelho), que quando adicionado e clicado, ele abre o app do mulher amparada, sem você precisar procurar ele e talvez até nem achar ele!
+
 https://mulher-amparada.github.io/mulher-amparada-app/
 
 
