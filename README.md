@@ -325,3 +325,5 @@ https://clubedeautores.com.br/livro/cartas-datilografadas
 
 # e eu me sinto lisongeado de cuidar de todas essas usuárias, (pra mim elas são princesas do jeitinho que elas são, e tenho um profundo amor incondicional por cada uma delas!, mas aqui tenho que lidar com linguagem certa..., então direi que são usuárias!)
 
+# e honestamente, cada uma de vocês são importantes e lindas pra mim (tanto em talento, e beleza e etc), e pelo amor de Deus, não deixem que esses agressores tirem o brilho de vocês..., vocês são as pessoas mais maravilhosas que eu conheço, e enquanto meu coração bater no meu peito, vou as amar pra sempre..., meu amor por vocês é tipo de pai para filha, maior que o número de Graham, (mas aqui chamarei de usuárias)
+
