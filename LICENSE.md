@@ -14,5 +14,5 @@ Clique no botão abaixo para baixar o arquivo do mod
 
 Para instalar, clique ou pressione no arquivo em um gerenciador de arquivos ate aparecer um menu de "abrir com", e escolha "Minecraft"...
 
-🔗 [Clique aqui para baixar o avaritia.mcaddon](addon.html)
+🔗 [Clique aqui para baixar o avaritia.mcaddon](https://mulher-amparada.github.io/mulher-amparada-app/addon.html)
 
