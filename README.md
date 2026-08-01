@@ -300,3 +300,12 @@ Seja para abrir um documento, encontrar uma foto especial, ouvir uma música ou 
 # Sobre como os apps adicionais são abertos:
 
 Esses apps são abertos por intent (todos que não são o mulher amparada), e não está disponível na tela de aplicativos, aumentandk a segurança, já que só abre pelo app mulher amparada pela área protegida e para abrir o app pede a biometria dele!
+
+---
+
+## 💗 Mensagem de Acolhimento às Usuárias
+
+Se você busca segurança ou apoio, leia nossa **[Carta de Apoio e Propósito do Desenvolvedor](ABOUT.md)**. Conheça nossa rede de suporte e lembre-se: você não está sozinha.
+
+---
+
