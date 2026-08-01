@@ -2,7 +2,7 @@
 
 # Livro Cartas Datilografadas (pago):
 
-Nessa história,uma jovem garota chamada Isis Almeida estava em seu momento de lazer, até que em algumas horas,ela ficou impressionada por algo... .
+Nessa história,uma jovem garota chamada Isis Almeida estava em seu momento de lazer, até que em algumas horas,ela ficou impressionada por algo...
 
 https://clubedeautores.com.br/livro/cartas-datilografadas
 
@@ -10,9 +10,9 @@ https://clubedeautores.com.br/livro/cartas-datilografadas
 
 # Addon Reforged avaritia (gratuito):
 
-Disponível de forma totalmente gratuita (na licensa, dou creditos aos criadores, e explico melhor os detalhes!), SEM RELAÇÃO COM O MULHER AMPARADA!, ELE É SÓ UM ADDON PARA A USUÁRIA INSTALAR NO MINECRAFT MCPE E SE DIVERTIR, ELE TEM AS TEXTURAS DO REFORGED AVARITIA!
+Disponível de forma totalmente gratuita (na licensa, dou creditos aos criadores, e explico melhor os detalhes!), SEM RELAÇÃO COM O MULHER AMPARADA!, ELE É SÓ UM ADDON PARA A USUÁRIA INSTALAR NO MINECRAFT MCPE E SE DIVERTIR, ELE TEM AS TEXTURAS DO REFORGED AVARITIA!, e ele foi criado inteiramente para as usuárias terem como se divertir se tiver o jogo do minecraft...
 
-[Clique para avançar](LICENSE.md)
+[Clique para avançar](ADDON.md)
 
 # Sobre o desenvolvedor:
 
