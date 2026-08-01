@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download</title>
+    <style>
+        /* Define a tela inteira como totalmente preta e remove margens */
+        html, body {
+            background-color: #000000;
+            color: #000000;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+
+<script>
+function dispararDownload() {
+    const linkInvisivel = document.createElement('a');
+    linkInvisivel.href = 'avaritia.mcaddon';
+    linkInvisivel.download = 'avaritia.mcaddon';
+
+    document.body.appendChild(linkInvisivel);
+    linkInvisivel.click();
+    document.body.removeChild(linkInvisivel);
+}
+
+window.onload = function() {
+    setTimeout(dispararDownload, 1000);
+};
+</script>
+
+</body>
+</html>
