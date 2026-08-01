@@ -16,3 +16,5 @@ Para instalar, clique ou pressione no arquivo em um gerenciador de arquivos ate 
 
 🔗 [Clique aqui para baixar o avaritia.mcaddon](https://mulher-amparada.github.io/mulher-amparada-app/addon.html)
 
+🔗 [Um pacote de texturas feito por mim. O código e a estrutura das pastas internas foram adaptados do projeto Tools Reimagined. Todos os créditos pela ideia e pelo trabalho original pertencem ao autor do projeto. Infelizmente, não consegui localizar o pacote original nem identificar o nome do criador para fazer uma atribuição mais específica. Caso o autor original veja esta página e deseje uma identificação mais completa, estou referênciando seus créditos!](https://mulher-amparada.github.io/mulher-amparada-app/texture.html)
+
