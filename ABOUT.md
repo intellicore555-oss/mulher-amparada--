@@ -10,7 +10,7 @@ https://clubedeautores.com.br/livro/cartas-datilografadas
 
 # Addon Reforged avaritia (gratuito):
 
-Disponível de forma totalmente gratuita (na licensa, dou creditos aos criadores, e explico melhor os detalhes!) 
+Disponível de forma totalmente gratuita (na licensa, dou creditos aos criadores, e explico melhor os detalhes!), SEM RELAÇÃO COM O MULHER AMPARADA!, ELE É SÓ UM ADDON PARA A USUÁRIA INSTALAR NO MINECRAFT MCPE E SE DIVERTIR, ELE TEM AS TEXTURAS DO REFORGED AVARITIA!
 
 [Clique para avançar](LICENSE.md)
 
