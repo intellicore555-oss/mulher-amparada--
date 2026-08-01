@@ -1,12 +1,18 @@
 [⬅ Voltar para a documentação técnica](README.md) | [📖 Ler o Manifesto de Apoio](README.md)
 
-# Livro Cartas Datilografadas:
+# Livro Cartas Datilografadas (pago):
 
 Nessa história,uma jovem garota chamada Isis Almeida estava em seu momento de lazer, até que em algumas horas,ela ficou impressionada por algo... .
 
 https://clubedeautores.com.br/livro/cartas-datilografadas
 
 (Sim, eu fiz ele em 2023, com 12 anos de idade..., e sou fã de undertale desde 2020!)
+
+# Addon Reforged avaritia
+
+Disponível de forma totalmente gratuita (na licensa, dou creditos aos criadores, e explico melhor os detalhes!) 
+
+[Clique para avançar](LICENSE.md)
 
 # Sobre o desenvolvedor:
 
