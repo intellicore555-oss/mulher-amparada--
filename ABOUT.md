@@ -1,6 +1,7 @@
-[⬅ Voltar para a documentação técnica](README.md) | [📖 Ler o Manifesto de Apoio](README.md)
 
-# Livro Cartas Datilografadas (pago):
+# Outras criações do desenvolvedor:
+
+* Livro Cartas Datilografadas (pago):
 
 Nessa história,uma jovem garota chamada Isis Almeida estava em seu momento de lazer, até que em algumas horas,ela ficou impressionada por algo...
 
