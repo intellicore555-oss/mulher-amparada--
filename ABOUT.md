@@ -8,7 +8,7 @@ https://clubedeautores.com.br/livro/cartas-datilografadas
 
 (Sim, eu fiz ele em 2023, com 12 anos de idade..., e sou fã de undertale desde 2020!)
 
-# Addon Reforged avaritia
+# Addon Reforged avaritia (gratuito):
 
 Disponível de forma totalmente gratuita (na licensa, dou creditos aos criadores, e explico melhor os detalhes!) 
 
