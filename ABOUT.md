@@ -33,3 +33,23 @@ https://clubedeautores.com.br/livro/cartas-datilografadas
 * Geralmente, o padrão do agressor é assim: te humilha, pede desculpas e fala que vai mudar, você acredita, te humilha denovo... (então, não acredite nas mentiras dele, acredite em si mesma e na esperança que você NÃO ESTÁ SOZINHA E QUE PODE SEMPRE PEDIR AJUDA!), (uma dica valiosa, se você estiver em sofrimento, ligue para o CVV = centro de Valorização da vida = 188, gratuito, sigiloso, funciona 24 horas, e você não precisa de créditos no chip para ligar pra esse número e tem profissionais com excelente qualificação para ouvir você!, mas ele serve para apoio emocional, e não um canal de denúncia como a polícia, se quiser denunciar algo, ligue para o 190 = polícia, e 180 = central de atendimento á mulher) 
 
 * E eu fico muito feliz quando vejo uma mulher sorrindo, é muito lindo e maravilhoso ver a felicidade de vocês, então lembre-se, que ainda tem gente que quer seu bem-estar!, (mds, até de pensar eu já me arrepio 🥰, saibam que vocês são muito lindas e poderosas!)
+
+# História do meu desenvolvimento:
+
+quando eu estava nos meus 10 anos, eu era tão tímido que eu literalmente falava com ninguém, e quase tive uma corda neural por causa de tanta lição 
+
+mas ao decorrer de 4 anos, eu fui me desenvolvendo e falando tanto que até da erros de timing nas conversas das aulas
+
+então, eu tinha 64gb de arquivos, por causa da falta de sincronização entre o my files da samsung e o google drive, perdi tudo, (so consegui recuperar algumas coisas)
+
+depois, foram mais 4 perdas de dadow
+
+depois, deixei meus dados na pasta segura, por causa do family link, perdi tudo e 7gb de dados (ate o mulher amparada), e sim, vou regularizar essa conta ainda
+
+Depois, fiz ele de novo e muito melhor
+
+perdi o lugar onde programava, mas o apk compilado nao
+
+depois, portei tudo do apk compilado para um projeto novo, e chegou nesse resultado até hoje...
+
+Ao todo na minha vida, perdi aproximadamente 110gb de dados...
