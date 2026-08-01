@@ -8,12 +8,6 @@ https://clubedeautores.com.br/livro/cartas-datilografadas
 
 (Sim, eu fiz ele em 2023, com 12 anos de idade..., e sou fã de undertale desde 2020!)
 
-# Addon Reforged avaritia (gratuito):
-
-Disponível de forma totalmente gratuita (na licensa, dou creditos aos criadores, e explico melhor os detalhes!), SEM RELAÇÃO COM O MULHER AMPARADA!, ELE É SÓ UM ADDON PARA A USUÁRIA INSTALAR NO MINECRAFT MCPE E SE DIVERTIR, ELE TEM AS TEXTURAS DO REFORGED AVARITIA!, e ele foi criado inteiramente para as usuárias terem como se divertir se tiver o jogo do minecraft...
-
-[Clique para avançar](ADDON.md)
-
 # Sobre o desenvolvedor:
 
 **Aviso:** esse Repositório é apenas o local onde você baixa o app, ele não é o proprio app em si!, essas funções só funcionarão quando você baixar, instalar e usar o app!
