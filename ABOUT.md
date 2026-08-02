@@ -11,6 +11,8 @@ https://clubedeautores.com.br/livro/cartas-datilografadas
 
 # Sobre o desenvolvedor:
 
+* Meu nome é: Samuel De Oliveira Rigueiro, prefiro ser chamado de Samuca...
+
 **Aviso:** esse Repositório é apenas o local onde você baixa o app, ele não é o proprio app em si!, essas funções só funcionarão quando você baixar, instalar e usar o app!
 
 **Aviso:** Sempre considerem que um menino de 15 anos, autista nível 1 e um menino é o próprio desenvolvedor
@@ -21,8 +23,6 @@ https://clubedeautores.com.br/livro/cartas-datilografadas
 
 # Sofrimento do desenvolvedor:
 
-ESCOLA ESTADUAL PARQUE JARDIM HELENA:
-
 e ai eu tinha terminado a amizade com ela para ficar com uma colega
 
 so que ai, eu nao percebia, maa segundo o que minha mae dizia: "ela me usava so para copiar licao minha e ganhar nota emcima de mim"
@@ -30,7 +30,6 @@ so que ai, eu nao percebia, maa segundo o que minha mae dizia: "ela me usava so 
 a diretora chamou ela e tudo, ate a mae
 
 so que ela, me ajudou com outra menina e como interagir
-
 
 Depois, uma aluna nova, que virou amiga da menina que me explorava chegou
 
@@ -60,7 +59,7 @@ sem contar daquela vez que eu emprestei um fone verde claro pra ele
 
 e ele quebrou
 
-chamaram a mae do marcos, e advertiu ela e se fazer denovo, ele vai ser expulso
+chamaram a mae dele, e advertiu ela e se fazer denovo, ele vai ser expulso
 
 porem, varias vezes eu desligava o computador dele (porem, ele desligava o meu tambem), e isso foi um erro meu. mas eu fazia isso porque queria interagir com ele, e brincar com ele
 
@@ -78,15 +77,7 @@ ate que ele falou palavras obscenas e escreveu no computador da escola:
 
 "samuel da a bunda..."
 
-foi chamado a mae dele, com a priscila, a conselheira tutelar, foi advertida e se acontecer seria expulso e falaram pra minha mae que se acontecer denovo pode abrir um boletim de ocorrencia
-
-depois ele se consertou quando chamaram o conselho tutelar
-
-e ai ele virou meu amigo escondido
-
-nos brincavamos de peteca e so naqueles momentos eu ria e sorria naquela escola
-
-eu via isso  
+foi chamado a mae dele, com a conselheira tutelar, foi advertida e se acontecer seria expulso e falaram pra minha mae que se acontecer denovo pode abrir um boletim de ocorrencia
 
 Só que aí minha vida virou um completo inferno quando conheci uma garota
 
@@ -139,7 +130,7 @@ Mas ela se afastou.
 
 Mais tarde, entrei na mesma eletiva que ela, sem esperar por isso: “O Mundo em Movimento”, com 2 professores
 
-Nessa disciplina, criamos um robô que se movia. Eu fiquei responsável pela parte de movimento com o professor Félix.
+Nessa disciplina, criamos um robô que se movia. Eu fiquei responsável pela parte de movimento com o professor.
 
 Em um momento, enquanto trabalhava no robô, machuquei o dedo.
 
@@ -177,7 +168,7 @@ Eles leram e disseram:
 
 Depois de um tempo, tive outra atitude errada: mandei mensagem no WhatsApp pedindo desculpas.
 
-Consegui o contato com ajuda de um professor
+Consegui o contato com ajuda de um outro professor
 
 Expliquei que minha intenção era só amizade.
 
@@ -203,12 +194,13 @@ No meu aniversário, ela respondeu apenas:
 
 “Não quero saber.”
 
-Em outro momento, pedi para uma professora intermediar uma conversa.
+Em outro momento, pedi para uma vice-diretora intermediar uma conversa.
 
 Ela disse que, se eu quisesse falar com ela, tudo bem.
 
 Em outra ocasião, a diretora interrompeu uma conversa em que eu tentaria explicar mais coisas, incluindo minha dor emocional. 
-Eu disse apenas:
+
+Eu só pude dizer apenas:
 
 “Você já sabe de tudo o que aconteceu, por isso peço desculpas.”
 
@@ -256,7 +248,7 @@ ele foi advertido pra nao fazer e parar com isso senao iria chamar a mae dele
 
 chegaram meninos novos
 
-chegou um menino que me irritava e fazia igual ao fabio
+chegou um menino que me irritava
 
 ele pediu um abacaxi e entreguei ele pra uma menina
 
@@ -377,9 +369,6 @@ sua mae veio aqui, deu mo b.o
 eh, fiote vai falar nada nao
 
 e ai, fizeram boletim de ocorrencia contra o colega que me chamou de verme e o que me chamou de cu aberto (2 pessoas diferentes)
-
-
-ESCOLA ESTADUAL ESTELA BORGES MORATO (JARDIM HELENA):
 
 e ai o que me chamou de cu aberto:
  
@@ -554,7 +543,7 @@ por causa disso, fiquei ≈02:20 minutos esperando...
 
 PORÉM, DEPOIS, O EX-PROFESSOR DE EDUCAÇÃO FINANCEIRA, A VICE-DIRETORA E O DIRETOR ME AJUDARAM A LEVAR O PROJETO MULHER AMPARADA PARA AS PESSOAS DO TOPO!
 
-
+* E, honestamente, o meu maior sonho e namorar, mas nunca consegui..., só recebi dor em troca...
 
 
 
