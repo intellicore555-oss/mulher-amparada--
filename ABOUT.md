@@ -17,7 +17,7 @@ https://clubedeautores.com.br/livro/cartas-datilografadas
 
 **Idéias sobre a lei que eu tenho (é um protótipo, não é oficial do governo, e só idéias minhas!**
 
-1. Crime de feminicídio deveria ser inafiançável!
+1. Tenho a idéia de um projeto que, quando a mulher tivesse naqueles dias, o governo poderia fazer uma parceria com as marcas de chocolate, e ai ela poderia escolher um totalmente de graça (e o unico requisito e apresentar o rg, para nao ter burocracia)
 
 
 **atenção: quando digo que as usuárias são princesas, NÃO SIGNIFICA FRAGILIDADE, PELO CONTRÁRIO, QUERO DIZER QUE ELAS TEM UM VALOR TIPO DE REALEZA, E AINDA MAIS, TEM UM PODER DE REALEZA TAMBÉM, É UMA METÁFORA PARA DIZER QUE ELAS TEM VALOR E SÃO EMPODERADAS..., PARA SEMPRE!**
