@@ -118,6 +118,9 @@ Para desinstalar o aplicativo, primeiro será necessário desativar a permissão
 
 Antes de conceder essa permissão, leia atentamente as informações exibidas pelo Android e só prossiga se compreender as funcionalidades e os efeitos dessa autorização.
 
+Controlar brilho
+com isso, voce pode controlar o brilho da tela virando o celular..., porém, ele não consegue apagar muito, e tem um certo delay...<
+
 Emergência
 Saindo dessa área, existem botões que abrem o aplicativo nativo do telefone nos números 190, 191, 192 e 180.
 
