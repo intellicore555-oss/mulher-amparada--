@@ -26,6 +26,14 @@ https://clubedeautores.com.br/livro/cartas-datilografadas
 
 3. Sobre o uso dos celulares (principalmente na sala de aula), já que existe controles parentais e etc, porque a Google, android, apple e etc nao se juntam para criar um "modo escola", (assim, primeiro os pais aceitam termos, e os alunos, a escola e os pais, os 3 juntos tem que estar de acordo), e ai, redes sociais, jogos e apps que causam distrações estariam bloqueados, mas nos intervalos a escola decide
 
+4. Honestamente, ODEIO os funks de promiscuidade, tudo bem se expressar, agora, colocar a mulher como uma máquina de sexo ou sei lá as coisas erradas que tem, NÃO!, VOU SER CONTRA ESSES TIPOS DE MÚSICA!, a não ser que a mulher queira essas músicas, aí nao se aplica
+
+5. dica: para as pessoas neurodivergentes que gostam de se balançar enquanto dormem (sou um deles), entao, se voces tiverem uma cama box bipartida, no momento que vocês balançam, ela se mexe, faz barulho (e na minha cabeça, se ela se soltar, pode ser que voce caia dela), então uma dica, tirem os pes da cama, coloquem um cobertor velho e grande para não mofar e coloquem a cama por cima (resolve o problema do barulho e outra, camas altas podem ocasioar acidentes mais facilmente)
+
+6. em momentos de enxaqueca: pergunte a si mesmo(a), bebi água hoje, e depois, sou uma pessoa nova em que meus dentes estão crescendo ainda?
+
+7. Para as pessoas que gostam de beber cafe com leite (eu incluiso): lembre-se, nao beba ele antes de comer algo, porque o café e acido e pode dar problemas de saude no futuro, dica: beba depois das refeições, como o almoço por exemplo..., e se beber so nas 3 refeições do dia, evita a ansiedade do que beber mais de 3 vezes... (conversem com profissionais antes, e combinem entre vocês...)
+
 # Sofrimento do desenvolvedor:
 
 e ai eu tinha terminado a amizade com ela para ficar com uma colega
