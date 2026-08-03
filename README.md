@@ -312,5 +312,3 @@ Se você busca segurança ou apoio, leia nossa **[Carta de Apoio e Propósito do
 
 ---
 
-* Mas honestamente, foi um completo inferno programar esse app, foi tão dificil que várias vezes eu pensei em desistir, mas eu lembrei de vocês...
-
