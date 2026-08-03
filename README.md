@@ -104,13 +104,13 @@ Usando uma activity (uma tela) em kotlin, é possivel ter um gravador de voz no 
 Meus arquivos
 Dentro do app, ele só visualiza as pastas e ao clicar em um arquivo, abre um seletor de apps para executar/visualizar ele
 
-Escolher ícone do app:
+Escolher ícone do app
 Essa função abre uma acitvity (tela) e poderá trocar o ícone do app!, até mesmo para um ícone de calculadora, disfarçando o app!
 
-Desligar o celular:
+Desligar o celular
 Ao tocar neste botão, o aplicativo solicitará a permissão de Administrador do dispositivo, caso ela ainda não tenha sido concedida. Quando essa permissão estiver ativa, o aplicativo poderá bloquear imediatamente a tela do dispositivo.
 
-Tela de aplicativos:
+Tela de aplicativos
 Ao tocar neste botão, o app mostrará um site dentro do app que lista todos os outros apps com a permissão query all packpages, combina muito se a usuária definir o app do mulher amparada como launcher padrão, assim, o agressor só acessa os outros apps com o mulher amparada, através da biometria desbloqueando a área segura!
 
 
@@ -119,7 +119,7 @@ Para desinstalar o aplicativo, primeiro será necessário desativar a permissão
 Antes de conceder essa permissão, leia atentamente as informações exibidas pelo Android e só prossiga se compreender as funcionalidades e os efeitos dessa autorização.
 
 Controlar brilho
-com isso, voce pode controlar o brilho da tela virando o celular..., porém, ele não consegue apagar muito, e tem um certo delay...<
+com isso, voce pode controlar o brilho da tela virando o celular..., porém, ele não consegue apagar tudo..., e tipo como se fosse o menor brilho do celular...
 
 Emergência
 Saindo dessa área, existem botões que abrem o aplicativo nativo do telefone nos números 190, 191, 192 e 180.
