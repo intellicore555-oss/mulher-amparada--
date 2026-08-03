@@ -49,8 +49,6 @@ https://clubedeautores.com.br/livro/cartas-datilografadas
 
 16. e para quem faz provas: leia o enunciado antes do texto
 
-**atenção: quando digo que as usuárias são princesas, NÃO SIGNIFICA FRAGILIDADE, PELO CONTRÁRIO, QUERO DIZER QUE ELAS TEM UM VALOR TIPO DE REALEZA, E AINDA MAIS, TEM UM PODER DE REALEZA TAMBÉM, É UMA METÁFORA PARA DIZER QUE ELAS TEM VALOR E SÃO EMPODERADAS..., PARA SEMPRE!**
-
 **E eu me inspiro em Martin Luther King para falar:**
 * "eu tenho um sonho, que as mulheres vivam em paz, sem nenhuma violência, porque todos somos iguais..."
 
