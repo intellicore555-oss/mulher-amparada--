@@ -45,6 +45,10 @@ https://clubedeautores.com.br/livro/cartas-datilografadas
 
 14. se existirem buracos brancos: e se, eles forem feitos de antimatéria, e nao gravidade repulsiva (ate porque materia e antimatéria sao desiguais)
 
+15. para quem usa alarme ao acordar: nao deixe o celular perto de voce, e sim bem longe, assim, para desligar ele, voce precisa necessariamente acordar
+
+16. e para quem faz provas: leia o enunciado antes do texto
+
 **atenção: quando digo que as usuárias são princesas, NÃO SIGNIFICA FRAGILIDADE, PELO CONTRÁRIO, QUERO DIZER QUE ELAS TEM UM VALOR TIPO DE REALEZA, E AINDA MAIS, TEM UM PODER DE REALEZA TAMBÉM, É UMA METÁFORA PARA DIZER QUE ELAS TEM VALOR E SÃO EMPODERADAS..., PARA SEMPRE!**
 
 **E eu me inspiro em Martin Luther King para falar:**
