@@ -596,6 +596,10 @@ tinha tudo isso de prova na sala do futuro (provas de recuperação era entre o 
 
 [Print 8](imagem8.jpg)
 
+* e...
+
+[Print 9](image1.jpg)
+
 * E, honestamente, o meu maior sonho e namorar, mas nunca consegui..., só recebi dor em troca...
 
 * E, meu sonho e que o android pegue o mulher amparada, crie um perfil tipo o perfil de trabalho, os apps ja vem com as permissões concedidas, e seria impossível de desinstalar (so a usuaria pode)
