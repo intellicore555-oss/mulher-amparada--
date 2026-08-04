@@ -635,3 +635,7 @@ mais complexo, pensem que voces tem 4 versões, versão humana, versão focada, 
 problema: o maior problema e excluir os modos, exemplo, se so tiver o modo focada, e nao tem o modo crianca, voce foca demais, se cansa e desiste porque nao deu pausa, 
 
 entao tem que fazer: ex: modo focada + cacadora de bugs, ou crianca + focada, nunca deixando algum de fora...
+
+* Sobre as funções do app!:
+
+honestamente, se a função de proteção por som tiver ativada, eu testei as 05:35 PM em 04/08/2026, e realmente existe a chance de por causa do agressor tacar o celular, ele ligar de fato!
