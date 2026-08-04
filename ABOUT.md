@@ -15,7 +15,7 @@ https://clubedeautores.com.br/livro/cartas-datilografadas
 
 **Aviso:** esse Repositório é apenas o local onde você baixa o app, ele não é o proprio app em si!, essas funções só funcionarão quando você baixar, instalar e usar o app!
 
-**Aviso:** Sempre considerem que um menino de 15 anos, autista nível 1 e um menino é o próprio desenvolvedor
+**Aviso:** Sempre considerem que um menino de 15 anos, autista nível 1 e um menino, que se considera de pele preta é o próprio desenvolvedor
 
 **Idéias sobre a lei que eu tenho (é um protótipo, não é oficial do governo, e só idéias minhas!**
 
