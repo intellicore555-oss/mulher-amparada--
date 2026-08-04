@@ -572,6 +572,24 @@ por causa disso, fiquei ≈02:20 minutos esperando...
 
 PORÉM, DEPOIS, O EX-PROFESSOR DE EDUCAÇÃO FINANCEIRA, A VICE-DIRETORA E O DIRETOR ME AJUDARAM A LEVAR O PROJETO MULHER AMPARADA PARA AS PESSOAS DO TOPO!
 
+tinha tudo isso de prova na sala do futuro (provas de recuperação era entre o 2 e 3 bimestre, e o resto do 1 ao 2 bimestre) + as 2 fisicas que ja fiz + os 20 resumos que ja fiz de geografia + 2 livros de biologia e português completo = completa exploração da escola!
+
+[Print 1](imagem1.jpg)
+
+[Print 2](imagem2.jpg)
+
+[Print 3](imagem3.jpg)
+
+[Print 4](imagem4.jpg)
+
+[Print 5](imagem5.jpg)
+
+[Print 6](imagem6.jpg)
+
+[Print 7](imagem7.jpg)
+
+[Print 8](imagem8.jpg)
+
 * E, honestamente, o meu maior sonho e namorar, mas nunca consegui..., só recebi dor em troca...
 
 * E, meu sonho e que o android pegue o mulher amparada, crie um perfil tipo o perfil de trabalho, os apps ja vem com as permissões concedidas, e seria impossível de desinstalar (so a usuaria pode)
