@@ -54,6 +54,8 @@ https://clubedeautores.com.br/livro/cartas-datilografadas
 
 # Sofrimento do desenvolvedor:
 
+Escola 1:
+
 e ai eu tinha terminado a amizade com ela para ficar com uma colega
 
 so que ai, eu nao percebia, maa segundo o que minha mae dizia: "ela me usava so para copiar licao minha e ganhar nota emcima de mim"
@@ -401,6 +403,8 @@ eh, fiote vai falar nada nao
 
 e ai, fizeram boletim de ocorrencia contra o colega que me chamou de verme e o que me chamou de cu aberto (2 pessoas diferentes)
 
+Escola 2:
+
 e ai o que me chamou de cu aberto:
  
  teve uma vez que eu estava na frente da lousa e ele nao conseguia copiar a licao
@@ -462,6 +466,8 @@ ela falou que na hora e para falar com o professor
 porque como vai saber quem foi
 
 e ai, os 3 foram na sala falar de respeito e ser alguém na vida...
+
+Escola 3:
 
 Um dia, um menino do 1º ano B dessa escola, na aula de Educação Física, quando eu estava na rampa indo para a sala, ele falou pra mim:
 
