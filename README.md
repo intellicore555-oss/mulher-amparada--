@@ -6,19 +6,19 @@ O aplicativo foi pensado para funcionar como um apoio digital em momentos críti
 
 **Funções:**
 
-Disfarce do app (calculadora falsa!)
+Disfarce do app (calculadora falsa!):
 tutorial: quando ele for iniciado, ele pedirá para criar uma senha (e salva em uma classe kt de criptografia), assim so acessa com a senha informada, para resetar essa senha (dê 5 toques em menos de 2 segundos, e digite como você gosta de ser chamada, e digite sua nova senha!)
 
-Botão de Pânico
+Botão de Pânico:
 Botão de Pânico, com ligação ao 180 de forma direta no primeiro clique.
 
-Proteção por Barulho
+Proteção por Barulho:
 Ative a proteção, faça barulho alto e ele liga para o 180.
 
-Balançar o Celular para Pedir Ajuda
+Balançar o Celular para Pedir Ajuda:
 Ative e, ao chacoalhar o celular, ele liga para o 180.
 
-Área Protegida
+Área Protegida:
 Se estiver cadastrado no celular, com Biometric Prompt junto com Device Credential e autenticação weak, pode desbloquear essa área com impressão digital, rosto, PIN, padrão, senha e outros métodos.
 
 
@@ -65,31 +65,31 @@ limparTudo() → remove todos os dados salvos
 
 Os dados são protegidos por uma chave segura do próprio Android e não ficam visíveis diretamente no armazenamento do aparelho.
 
-Calendário Menstrual
+Calendário Menstrual:
 Registre como dói cada dia e, com isso, o aplicativo monta um calendário.
 
-Calendário de eventos
+Calendário de eventos:
 Registra eventos da usuária quando ela precisar
 
-Rotina
+Rotina:
 Sistema de pontos, com registro de comidas e bebidas boas e ruins, bem como a adição de registro de exercícios físicos fáceis, médios ou difíceis e contagem de tempo de cada um deles, além de sistema de nível e conquistas.
 
-Mapa
+Mapa:
 Mostra um mapa da região da usuária
 
-Diário
+Diário:
 Usando criptografia, a usuária poderá anotar o que quiser. Com a senha, ficará seguro e também não some, pois estará guardado.
 
-Relógio
+Relógio:
 Mostra o mapa do local atual, o país e outros dados, bem como o ano, semestre, bimestre, mês, quinzena, semana, dia, hora, minuto e segundo.
 
-Além disso
+Além disso...,
 Além de mostrar hora, minuto e segundo de todos os países.
 
-Calculadora
+Calculadora:
 A calculadora pode ser usada para cálculos rápidos do dia a dia.
 
-Tarefas
+Tarefas:
 O sistema permite categorizar tarefas em áreas como estudos, trabalho, pessoal e saúde.
 
 As tarefas podem ser marcadas como concluídas para acompanhamento do progresso.
@@ -98,19 +98,19 @@ Todas as tarefas são salvas diretamente no navegador do usuário.
 
 Os dados ficam armazenados localmente no dispositivo do usuário.
 
-Gravador de voz
+Gravador de voz:
 Usando uma activity (uma tela) em kotlin, é possivel ter um gravador de voz no app, sendo possível registrar evidências e provas, além do que a usuária quiser, sempre usando permissoes android e com o consentimento da usuária!
 
-Meus arquivos
+Meus arquivos:
 Dentro do app, ele só visualiza as pastas e ao clicar em um arquivo, abre um seletor de apps para executar/visualizar ele
 
-Escolher ícone do app
+Escolher ícone do app:
 Essa função abre uma acitvity (tela) e poderá trocar o ícone do app!, até mesmo para um ícone de calculadora, disfarçando o app!
 
-Desligar o celular
+Desligar o celular:
 Ao tocar neste botão, o aplicativo solicitará a permissão de Administrador do dispositivo, caso ela ainda não tenha sido concedida. Quando essa permissão estiver ativa, o aplicativo poderá bloquear imediatamente a tela do dispositivo.
 
-Tela de aplicativos
+Tela de aplicativos:
 Ao tocar neste botão, o app mostrará um site dentro do app que lista todos os outros apps com a permissão query all packpages, combina muito se a usuária definir o app do mulher amparada como launcher padrão, assim, o agressor só acessa os outros apps com o mulher amparada, através da biometria desbloqueando a área segura!
 
 
@@ -118,35 +118,32 @@ Para desinstalar o aplicativo, primeiro será necessário desativar a permissão
 
 Antes de conceder essa permissão, leia atentamente as informações exibidas pelo Android e só prossiga se compreender as funcionalidades e os efeitos dessa autorização.
 
-Controlar brilho
+Controlar brilho:
 com isso, voce pode controlar o brilho da tela clicando em um botão..., porém, e tipo como se fosse o menor brilho do celular, e ai depois ele deixa a tela preta (nao com brilho e sim colocando a cor), (honestamente, antes aparecia as duas barras, agora elas se escondem e quando passa o efeito elas aparecem!)
 
-Emergência
+Emergência:
 Saindo dessa área, existem botões que abrem o aplicativo nativo do telefone nos números 190, 191, 192 e 180.
 
-Contatos de Confiança
+Contatos de Confiança:
 Além dos contatos de confiança, clicando no primeiro botão você seleciona e salva o contato. O botão abaixo envia um pedido de ajuda para ele.
 
-Widgets
+Widgets:
 Já saindo do app, temos os widgets.
 
-Widget SOS
+Widget SOS:
 O primeiro é um widget de SOS que, quando clicado, abre o aplicativo de telefone com o número 180 já discado.
 
-Widget de Localização
+Widget de Localização:
 O segundo, o de localização, monta o link do Google Maps, e a usuária pode mandar para quem quiser.
 
-Widget de Proteção Sonora
+Widget de Proteção Sonora:
 E o terceiro é apenas um acesso rápido para o serviço de proteção por palmas.
 
-Compartilhamento Rápido de Localização
+Compartilhamento Rápido de Localização:
 Além disso, existe um botão dentro do app que pega a localização atual, monta um link do Google Maps e já manda para o WhatsApp do 180, precisando apenas clicar no botão de enviar.
 
-Botão rápido
+Botão rápido:
  Além de tudo isso, existe um botão disponível no centro de controle do sistema, (varia conforme o aparelho), que quando adicionado e clicado, ele abre o app do mulher amparada, sem você precisar procurar ele e talvez até nem achar ele!
-
-https://mulher-amparada.github.io/mulher-amparada-app/
-
 
 (como o código esta dentro do zip, nao precisarei explicar!)
 
