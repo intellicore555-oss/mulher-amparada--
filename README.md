@@ -222,8 +222,13 @@ Seja para abrir um documento, encontrar uma foto especial, ouvir uma música ou 
         • Abrir Configurações
 
         📞 Emergência
-        • Ligar para 180
-        • Ligar para o 180
+        • Alô e da companhia de energia
+        • Alô é da energia
+        • Alô e da energia
+        • é da energia
+        • e da companhia de energia
+        • É da companhia de energia
+
 
         📍 Localização
         • Enviar minha localização para o 180
@@ -238,11 +243,11 @@ Seja para abrir um documento, encontrar uma foto especial, ouvir uma música ou 
         • me envie uma notificação de download ficticio
         • Me envie uma notificação de download ficticio
         • me envie uma notificação de download fictício
-                • Me envie uma notificação de download fictício
+        • Me envie uma notificação de download fictício
         • me mande uma notificação de download fictício
-                • Me mande uma notificação de download fictício
+        • Me mande uma notificação de download fictício
         • me mande uma notificação de download ficticio
-                • Me mande uma notificação de download ficticio
+        • Me mande uma notificação de download ficticio
 
         📅 Calendário
         • Criar evento Reunião
