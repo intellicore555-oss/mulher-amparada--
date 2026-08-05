@@ -13,6 +13,8 @@ https://clubedeautores.com.br/livro/cartas-datilografadas
 
 * Meu nome é: Samuel De Oliveira Rigueiro, prefiro ser chamado de Samuca...
 
+E eu gostaria muito de ser visto pelas mulheres como o irmão mais novo delas..., a criança linda que está virando o anjo da guarda delas!
+
 **Aviso:** esse Repositório é apenas o local onde você baixa o app, ele não é o proprio app em si!, essas funções só funcionarão quando você baixar, instalar e usar o app!
 
 **Aviso:** Sempre considerem que um menino de 15 anos, autista nível 1 e um menino, que se considera de pele preta é o próprio desenvolvedor
@@ -576,9 +578,11 @@ e a Vice-diretora falou que era para me buscar as 12:20 (horário normal), sendo
 
 por causa disso, fiquei ≈02:20 minutos esperando...
 
-PORÉM, DEPOIS, O EX-PROFESSOR DE EDUCAÇÃO FINANCEIRA, A VICE-DIRETORA E O DIRETOR ME AJUDARAM A LEVAR O PROJETO MULHER AMPARADA PARA AS PESSOAS DO TOPO!
+PORÉM, DEPOIS, O EX-PROFESSOR DE EDUCAÇÃO FINANCEIRA, A VICE-DIRETORA E O DIRETOR ME AJUDARAM A LEVAR O PROJETO MULHER AMPARADA PARA AS PESSOAS DO TOPO!, mas pra mim, ela escola continua sendo ruim..., e tem muitas coisas que eu aprendi melhor com o chatgpt do que com eles...
 
-tinha tudo isso de prova na sala do futuro (provas de recuperação era entre o 2 e 3 bimestre, e o resto do 1 ao 2 bimestre) + as 2 fisicas que ja fiz + os 20 resumos que ja fiz de geografia + 2 livros de biologia e português completo = completa exploração da escola!
+ E, honestamente, o meu maior sonho e namorar, mas nunca consegui..., só recebi dor em troca...
+
+tinha tudo isso de prova na sala do futuro (provas de recuperação era entre o 2 e 3 bimestre, e o resto do 1 ao 2 bimestre) + as 2 fisicas que ja fiz + os 20 resumos que ja fiz de geografia + 2 livros de biologia e português completo (mas as provas da sala do futuro,  as de recuperação e as outras eu não fiz!, menos a olisp!) = completa exploração da escola!
 
 [Print 1](imagem1.jpg)
 
