@@ -580,6 +580,16 @@ por causa disso, fiquei ≈02:20 minutos esperando...
 
 PORÉM, DEPOIS, O EX-PROFESSOR DE EDUCAÇÃO FINANCEIRA, A VICE-DIRETORA E O DIRETOR ME AJUDARAM A LEVAR O PROJETO MULHER AMPARADA PARA AS PESSOAS DO TOPO!, mas pra mim, ela escola continua sendo ruim..., e tem muitas coisas que eu aprendi melhor com o chatgpt do que com eles...
 
+# Outras dores:
+
+teve uma professora de esporte, musica e arte na escola 1, que me constrangeu em toda a sala, vamos ser melhor nesse bimestre, e ela me olhou e direcionou a fala, os alunos faltantes param de faltar!, (mas eu falto para fazer terapia!)
+
+e a professora de ingles dessa escola falou, é!, voce acha que eu nao sei que voce estava pedindo o contato daquela menina né (para mandar aquela mensagem do WhatsApp e eu tenho print do que falei com aquela menina)
+
+e essa mesma professora viu que eu tava usando ia para fazer o speak, me chamou no particular e falou que se eu nao parar, vai resetar todo o meu progresso e vai chamar a mae na escola..., tenho certeza que muitos outros alunos fazem e parece que fui o único chamado!
+
+e na escola 3, tava vendo o mulher amparada no celular e algumas lições e o professor de matemática invadiu minha privacidade olhando meu celular....
+
  E, honestamente, o meu maior sonho e namorar, mas nunca consegui..., só recebi dor em troca...
 
 tinha tudo isso de prova na sala do futuro (provas de recuperação era entre o 2 e 3 bimestre, e o resto do 1 ao 2 bimestre) + as 2 fisicas que ja fiz + os 20 resumos que ja fiz de geografia + 2 livros de biologia e português completo (mas as provas da sala do futuro,  as de recuperação e as outras eu não fiz!, menos a olisp!) = completa exploração da escola!
