@@ -644,18 +644,3 @@ entao tem que fazer: ex: modo focada + cacadora de bugs, ou crianca + focada, nu
 
 honestamente, se a função de proteção por som tiver ativada, eu testei as 05:35 PM em 04/08/2026, e realmente existe a chance de por causa do agressor tacar o celular, ele ligar de fato!
 
-Ai ai, honestamente, eu passei 198 pensamentos de cometer suicídio, saiu sangue de mim pela ansiedade e tive 4 tonturas emocionais, e parece que "ai, so porque a coitadinha teve isso do samuca..., vamos ficar do lado dela!", e eu desamparado por 3 anos, e vocês fazendo isso, e não so voces
-
-sou explorado pela educação e o minino que eu esperava era proteção, e nao teve, eles valorizam o agressor que me xingou de várias formas e nao eu, eu quase fui estrupado gente!
-
-e quando quero passar informações, a pessoa que ja foi grossa continua foi denovo 
-
-e ainda por cima me impede de denúnciar violência 
-
-os alunos me exploram por benefício próprio 
-
-e nao dao meus direitos de autismo, e ainda cobram que, "ai nao pode celular", e nao pode fazer essa violência com autista também 
-
-e pelos meus 417 pensamentos de suicídio, vejo que jao ter me matado antes foi o meu maior erro ate agora, por isso valorizo tanto esse sonho de morrer...
-
-e vocês ficam com essa bosta e completa arrogância de proibir recursos dos adolescentes!, mas elogio isso, so nao elogio a lei como pretexto para violência 
