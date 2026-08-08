@@ -594,6 +594,16 @@ e na escola 3, tava vendo o mulher amparada no celular e algumas lições e o pr
 
 tinha tudo isso de prova na sala do futuro (provas de recuperação era entre o 2 e 3 bimestre, e o resto do 1 ao 2 bimestre) + as 2 fisicas que ja fiz + os 20 resumos que ja fiz de geografia + 2 livros de biologia e português completo (mas as provas da sala do futuro,  as de recuperação e as outras eu não fiz!, menos a olisp!) = completa exploração da escola!
 
+No dia 07.08.2026 na escola 3: fui falar com o diretor sobre o projeto mulher amparada, e quando cheguei la fui perguntar pra vice-diretora se ele estava, e ela falou grossa, "tem 2 pessoas na sua frente, é comigo?", falei que não 
+
+depois perguntei pro coordenador, homem e de cabelos pretos e ele foi super educado e falou que o diretor vai estar as 11:30 porque estava na diretoria de ensino, aos meados do 12:00 daquele dia fui ate a sala dele, mas ele estava em reunião...
+
+eu queria ir ate la porque tava com o material de divulgação para colocar em toda a escola...
+
+Antes disso:
+
+mas eles já estão levando o projeto adiante, ate fizeram reunião..., mas era só com os funcionários...
+
 [Print 1](imagem1.jpg)
 
 [Print 2](imagem2.jpg)
