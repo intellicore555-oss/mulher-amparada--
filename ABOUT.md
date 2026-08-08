@@ -604,6 +604,18 @@ Antes disso:
 
 mas eles já estão levando o projeto adiante, ate fizeram reunião..., mas era só com os funcionários...
 
+e antes eles queriam qur fizesse uma apresentação, ah mas pra escola?, nao, so pra mimha sala com a desculpa que conheço todo mundo, o que e mentira
+
+e iria ficar so por isso mesmo
+
+e o programador no dia programado tiveram a cara de pau de fazer uma reunião bem nesse horario no dia
+
+e ai, nem pra chamar outro programador como combinado, o administrador de desenvolvimento de sistemas da escola veio, falando que a apresentação e porque eu sou de menor, (sendo que da para colocar um representante legal e problema resolvido!)
+
+ah, e eles falaram qur ganharia uma nota a mais pelo projeto
+
+e cade?, nao veio ate agora
+
 [Print 1](imagem1.jpg)
 
 [Print 2](imagem2.jpg)
