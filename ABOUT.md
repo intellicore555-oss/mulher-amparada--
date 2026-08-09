@@ -614,6 +614,79 @@ ah, e eles falaram qur ganharia uma nota a mais pelo projeto
 
 e cade?, nao veio ate agora
 
+
+honestamente, uma vez ja toquei a musica ost 080 de undertale, a metade dela, no piano, mas eu desaprendi
+
+ah, e ouvi dizer que uma pessoa da creche ou o lugar que eu iria quando eu era da primeira infância falou sobre mim que: "esse menino nao fala, ele nao vai ser nada na vida!"
+
+e quando fui fazer a perícia do inss para o bpc eu tava com o cordão do autismo na cabeça, e o perito faloi: "você ta com esse cordão na cabeça para passar na perícia ou você é assim mesmo?", (e nao, ele nem de uniforme medico tava, so de bone, blusa e eu acho que era calça jeans tambem!)
+
+e quando eu ia pra minha igreja, era barulho literalmente ensurdecedor por horas, gente gritando, louvor alto, e sentia triste quando ia pra la e nao chorava, ninguém me abraçou quando tava triste, menos os outros
+
+ah, e na escola 1 uma menina (NAO EU, OUTRA MENINA!) sofreu racismo ate literalmente desmaiar, e o que a escola fez?, falou pra aplicar os 4 pilares (mas ai tem que investigar pra ver se foi isso mesmo..., ate onde eu lembro sim), e nessa mesma escola, tive que comer um macarrão com cheiro de cocô, ai nao sei se foi dengue ou o macarrão, mas fiquei doente por 1 ou 2 semanas, com dores de cabeça e vomito so de comer qualquer coisa, e nao so eu, mas varios alunos e ate funcionarios...
+
+ah, e sem contar qur meu autismo foi diagnosticado aos 11 ou 12 anos, porque os medicos falavam: "ah mae, quando ele crescer ele vai mudar!", agora acredito que um dos motivos das violências foi a falta de diagnostico (antes da história da menina que desprezou aquela carta e etc)
+
+ah, e sem contar que um amigo meu perdeu uma fortuna avaliada em alguns mil reais porque parece que o banco tirou so porque ele e menor e tava fazendo investimento...
+
+ah, e ja teve uma vez que tava usando o a05 da samsung e fazendo operação de arquivos, eu quase ou ate perdi muitos arquivos porque ele nao aguentou, e reiniciou no meio da operacao, sem contar o inferno de um ano de programar com ele
+
+honestamente, teve um dia que uma atendente mulher tava me chamando, a voz fofa, carinhosa, ai nossa mds, so comprei por causa disso, ou seja, pelo bom atendimento, (e porque eu tava precisando de cueca e meia)
+
+teve um dia que acordei umas 5h da manha para ir no neurologista para fazer eletroencefalograma, e paguei caro para vir aoenas 1 folha de laudo (35 reais em uma consulta que o atendimento demorou, letra feia do medico e em apenas um papel), depois fui no dentista do UPA de jardim helena, porque tinha um dente torto que tava crescendo e rasgando a gengiva, a doutora falou que era eu escovando forte, (nao era...), eu senti ele crescendo e rasgando, agora por causa disso tem esse final boss na minha boca!, ah, e tem um dente desse e mais 3 tortos, parece que nao ta com a gengiva rasgada esses 3
+
+e outra, toda vez que vou nesse UPA demora no mínimo 1 hora, com a desculpa que tem gente que tem mais prioridade qur eu, (crianças sem nada), e quando eles nao passam pessoas na minha frente
+
+ja chegou uma vez que os profissionais na triagem falaram: ele vai esperar o tempo que for necessário...
+
+e ai a moça de pele negra falou, ah, nao da para tirar o paciente da sala para colocar ele
+
+e todos os médicos me colocam em preferencial, mas sou prioridade 
+
+outra, uma vez comprei uma arte na internet, 75 reais em uma imagem de desenho, (nao contente fazendo esse crime com um menor autista, ela me expos, menos o meu nome falando que foi na delegacia de crimes cibernéticos, ai ai, se eu decido contar isso pro delegado ela vai presa, e nao to falando na raiva, to falando o que ta na lei!), mas ai ela excluiu...
+
+sem contar qusndo fiz a prova de vida em agosto de 2026 em um banco, 01:40 esperando para ser atendido, e mais 20 minutos fazendo algo no caixa
+
+agora falando de um certo local literalmente feito para autistas ai:
+
+tava tocando piano, e uma moca falou para largar ele no meu hiperfoco para dancar quadrilha, (nao gosto e vai contra a minha religião), e ela insistindo, mas ai ela deixou eu nao fazer
+
+e uk professor de capoeira insistindo falando que as musicas tem jada de mais, (tem sim)!
+
+e sobre um certo centro de terapia ai
+
+1, queriam que eu fizesse terapia num completo frio
+
+2. que eu saisse na rua sozinho, num bairro perigoso como o jardim helena
+
+3. e queriam que eu ficasse com a desculpa para eu aprender a pegar onibus, sendo que vou pra escola 3 todo dia!
+
+e outra, todos os fones que compro (aqueles com fio,) todos eles nao duraram mais de 1 mes
+
+no caso
+
+toda a dor, das 3 escolas e etc
+
+ah, e sobre esse centro ai
+
+a psicóloga viu a minha dor e falou:
+
+ele tem que enfrentar seus medos
+
+com todo o respeito, ela nao enfrenta nem os dela, senao falava isso na minha cara, e nao fez!
+
+mas, uma vez vi no tiktok uma mulher de pele preta com seus cabelos (com esse comentário no video de outra pessoa: amiga, pesquisei cabelo de bombril e apareceu voce), postei esses 2 comentários:
+
+1:
+
+pra ser honesto 
+
+toda vez que vou pra escola, eu uso toca por causa que nao me sinto bem com meu cabelo e também porque nao cuido muito bem dele, ate porque acordo 5 horas da manha e eu ja completei 4 apostilas e mais de 20 resumos de geografia..., e nao me sinto muito bem com ele porque nao cuido bem dele...
+
+2:
+
+seu cabelo e maravilhoso sim, e essas pessoas más que estão feridas e que querem ferir, fique bem como você já é!, uma mulher empoderada!, nao deixe a maldade dos outros te definir, a unica que pode te definir e você mesma!
+
 [Print 1](imagem1.jpg)
 
 [Print 2](imagem2.jpg)
