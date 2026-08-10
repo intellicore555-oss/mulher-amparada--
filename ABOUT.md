@@ -685,6 +685,18 @@ toda vez que vou pra escola, eu uso toca por causa que nao me sinto bem com meu 
 
 seu cabelo e maravilhoso sim, e essas pessoas más que estão feridas e que querem ferir, fique bem como você já é!, uma mulher empoderada!, nao deixe a maldade dos outros te definir, a unica que pode te definir e você mesma!
 
+no inicio desse dia, eu cheguei na aula de português, e falei alto, se tiver lição sobre a África (sendo qu3 ja teve no ensino fundamental, porque alem desse governo colocar texto longo, ele repete conteúdo...), e a professora falou, samuel..., cê tá bem?, e ai eu expliquei que fiz aproximadamente umas 115 aulas inteiras de apostilas no ano todo até esse dia, 16 resumos de geografia (com os dela e com os meus), 1 mapa tátil, 1 mapa mental de oriente e ocidente (sim, conteúdo do nono ano) 6 desenhos em cubismo com textura de arte, um desenho de cubismo com colagem, alguns são 3 imagens de cubismo e você junta numa só (e nao, nem pro professor variar a atividade, agora sim ele ta variando...), e ainda tem a prova da olisp pra fazer (parece que e a 2 fase, e isso que nem acabou o terceiro e quarto bimestre...)
+
+e isso que no inicio do ano, nao hoje..., o speak tava com aquele problema no servidor e nao sabia que se trocar a internet resolve, e ai eu expliquei pra professora que nao fiz antes por causa disso, ela rejeitou a verdade monstrando o sistema, (entao saiba que sistema nao trata essas excessoes), e ela falou que quem nao completar o speak vai pra coordenação e ficará com 0, já resolvi e fiz lição, pois então na próxima vez ela vai pra coordenação, e eu e minha mãe pra delegacia e pra seduc registrar denúncia...
+
+ah, e sem contar que fiz tudi isso em que uns 98% dos dias a sala estava pegando fogo (ou ate todos)...
+
+sem contar as tristezas e dores extremas no emocional, eu ia pra escola triste tinha dias...
+
+joguei volei no intervalo da escola depois as 4 aulas, na quadra de lá no dia 10.08.2026, so que quando eu jogava e eu era bom, mas os colegas eram melhores, e quando eu errava uns molekes, que nem homem é, ficavam dando gritinho fino quando eu errava, e continuei mesmo assim, ate falei pra eles, hey mano, vem tentar então!
+
+tinha tudo isso de prova na sala do futuro (provas de recuperação era entre o 2 e 3 bimestre, e o resto do 1 ao 2 bimestre) + as 2 fisicas que ja fiz + os 20 resumos que ja fiz de geografia + 2 livros de biologia e português completo (mas as provas da sala do futuro,  as de recuperação e as outras eu não fiz!, menos a olisp!) = completa exploração da escola!:
+
 [Print 1](imagem1.jpg)
 
 [Print 2](imagem2.jpg)
