@@ -13,7 +13,9 @@ https://clubedeautores.com.br/livro/cartas-datilografadas
 
 * Meu nome é: Samuel De Oliveira Rigueiro, prefiro ser chamado de Samuca...
 
-E eu gostaria muito de ser visto pelas mulheres como o irmão mais novo delas..., a criança linda que está virando o anjo da guarda delas!
+E eu gostaria muito de ser visto pelas mulheres como o irmão mais novo delas..., a criança linda que está virando o anjo da guarda delas!, um menino com coração de ouro que é tão fofo que dá vontade de fazer cosquinha!
+
+Um fato curioso que já cantei um corinho de fogo (literalmente em grego), e programei antes do mulher amparada xom um samsung galaxy a05 e durante e depois dele com um a16 5g...
 
 **Aviso:** esse Repositório é apenas o local onde você baixa o app, ele não é o proprio app em si!, essas funções só funcionarão quando você baixar, instalar e usar o app!
 
