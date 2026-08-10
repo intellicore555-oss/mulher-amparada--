@@ -499,9 +499,7 @@ Ela respondeu:
 
 Depois ela disse:
 
-“Pode deixar que vou ficar de olho nele.”
-
-Só isso que ela fez.
+“Pode deixar que vou ficar de olho nele.”, e chamou ele para conversar...
 
 Na aula de Artes, depois da aula de Geografia, outro menino, um de camisa branca e calça jeans cinza, me pediu meu caderno de Artes.
 
