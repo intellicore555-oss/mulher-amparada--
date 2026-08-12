@@ -493,7 +493,7 @@ backface-visibility:hidden;
 
   position:absolute;
 
-  left:8px;
+  right:8px;
   top:8px;
 }
 
@@ -511,73 +511,7 @@ backface-visibility:hidden;
   
 }
 
-.menu{
-  width:100%;
 
-  display:flex;
-  flex-direction:column;
-  gap:14px;
-
-  margin-top:90px;
-
-  opacity:0;
-  pointer-events:none;
-
-  transform:translateY(20px);
-}
-
-.pirula.active .menu{
-  opacity:1;
-  pointer-events:auto;
-
-  transform:translateY(0);
-}
-
-.menu button{
-  width:100%;
-
-  padding:16px 18px;
-
-  border:none;
-  outline:none;
-
-  border-radius:202px;
-
-  background:rgba(255,255,255,0.08);
-
-  color:#fff;
-
-  font-size:15px;
-  font-weight:700;
-
-  text-align:left;
-
-  border:1px solid rgba(255,255,255,0.08);
-
-  
-
-  box-shadow:
-    0 6px 20px rgba(0,0,0,.25),
-    inset 0 1px 0 rgba(255,255,255,.04);
-
-  cursor:pointer;
-
- 
-}
-
-.menu button:hover{
-  transform:translateX(6px);
-
-  background:rgba(255,255,255,0.14);
-
-  box-shadow:
-    0 10px 24px rgba(0,0,0,.35),
-    0 0 18px rgba(255,192,203,.15);
-}
-
-.menu button:active{
-  transform:scale(.98);
-}
 
 .btn-download{
     display:flex;
@@ -705,47 +639,13 @@ backface-visibility:hidden;
 
 <body>
 
-<div class="pirula">
+<div class="pirula" onclick="setTimeout(() => window.location.href='home.html', 500)">
 
   <div class="topo">
     <img class="icon" src="user1.png">
   </div>
 
-  <div class="menu">
 
-<button onclick="setTimeout(() => window.location.href='eu1.html', 500)">
-  Sobre o desenvolvedor
-</button>
-
-<button onclick="setTimeout(() => window.location.href='qr.html', 500)">
-  Gerador de QR CODE
-</button>
-
-<button onclick="setTimeout(() => window.location.href='a.html', 500)">
-  Explicação do projeto
-</button>
-
-<button onclick="setTimeout(() => window.location.href='a.html', 500)">
-  Sobre o desenvolvimento do projeto e versões do app
-</button>
-
-<button onclick="setTimeout(() => window.location.href='final.html', 500)">
-  Dia da conclusão do app
-</button>
-
-<button onclick="setTimeout(() => window.location.href='nome.html', 500)">
-  Nome verdadeiro do app
-</button>
-
-<button onclick="setTimeout(() => window.location.href='codigo.html', 500)">
-  Código usado para fazer o app
-</button>
-
-<button onclick="setTimeout(() => window.location.href='data.html', 500)">
-  Onde nos encontrar?
-</button>
-    
-  </div>
 
 </div>
 
@@ -1358,37 +1258,6 @@ window.addEventListener('load', mostrar);
 </script>
 
 
-
-<script>
-// força aceleração da GPU
-document.querySelectorAll(".pirula, .menu, .menu button").forEach(el => {
-  el.style.transform = "translateZ(0)";
-  el.style.backfaceVisibility = "hidden";
-  el.style.webkitBackfaceVisibility = "hidden";
-  el.style.perspective = "1000px";
-});
-
-// otimiza durante animação
-const pirula = document.querySelector(".pirula");
-
-pirula.addEventListener("click", () => {
-
-  pirula.style.willChange =
-  "width,height,transform,opacity";
-
-  requestAnimationFrame(() => {
-    pirula.classList.toggle("active");
-  });
-
-  // limpa depois da animação
-  setTimeout(() => {
-    pirula.style.willChange = "auto";
-  }, 500);
-
-});
-
-
-</script>
 
 <script>
 const motivar = document.getElementById("motivar");
