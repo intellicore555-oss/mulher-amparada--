@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calendário Diário Completo</title>
+
+
+
+<style>
+/* Barra inteira */
+::-webkit-scrollbar{
+    width:10px;
+}
+
+/* Fundo */
+::-webkit-scrollbar-track{
+    background:#000;
+}
+
+/* Parte que desliza */
+::-webkit-scrollbar-thumb{
+    background:#000;
+    border-radius:999px;
+    border:2px solid #000;
+}
+
+/* Canto (quando há barra horizontal e vertical) */
+::-webkit-scrollbar-corner{
+    background:#000;
+}
+
+@font-face {
+  font-family: "Quicksand";
+  src: url("font.ttf") format("truetype");
+}
+
+body{
+    margin:0;
+    font-family:'Quicksand',sans-serif;
+    
+    color:#fff;
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateX(-50%) translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateX(-50%) translateY(0);
+    }
+}
+
+/* BOTÃO VOLTAR (estável) */
+#voltar{
+    position:absolute;
+    top:15px;
+    left:50%;
+    transform:translateX(-50%);
+    padding:10px 16px;
+    border-radius:999px;
+    font-size:18px;
+    color:pink;
+    text-decoration:none;
+    font-weight:700;
+    z-index:10;
+    white-space:nowrap;
+
+    transition:0.2s;
+    animation:fadeUp 0.6s ease-out forwards;
+}
+
+#voltar:hover{
+    background:rgba(255,255,255,0.12);
+    transform:translateX(-50%) scale(1.05);
+}
+
+/* FADE SEM TRANSFORM (resolve o bug) */
+@keyframes fadeIn{
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container{
+    max-width:900px;
+    margin:90px auto;
+    padding:20px;
+    animation:fadeIn 0.6s ease-out forwards;
+}
+
+/* TOPBAR */
+.topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+button{
+    background:#111;
+    border:1px solid #333;
+    color:#fff;
+    padding:8px 12px;
+    border-radius:10px;
+    cursor:pointer;
+    transition:0.2s;
+}
+
+button:hover{
+    background:#1a1a1a;
+}
+
+/* TÍTULO */
+h1{
+    font-size:20px;
+    margin:0;
+    text-align:center;
+    flex:1;
+}
+
+/* GRID */
+.grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:10px;
+}
+
+/* DIA */
+.day{
+    background:#0b0b0b;
+    border:1px solid #1f1f1f;
+    border-radius:14px;
+    padding:14px;
+    transition:0.2s;
+    cursor:pointer;
+}
+
+.day:hover{
+    background:#151515;
+    transform:scale(1.01);
+}
+
+.date{
+    font-size:16px;
+    font-weight:600;
+    margin-bottom:6px;
+}
+
+.event{
+    font-size:13px;
+    color:#aaa;
+}
+
+</style>
+</head>
+
+<body>
+
+
+
+<div class="container">
+
+    <div class="topbar">
+        <button onclick="changeMonth(-1)"> < </button>
+        <h1 id="title"></h1>
+        <button onclick="changeMonth(1)"> > </button>
+    </div>
+
+    <div class="grid" id="grid"></div>
+</div>
+
+<script>
+
+let current = new Date();
+
+function getEvents(){
+
+    try {
+
+        const dados = Cripto.carregar("events");
+
+        return dados
+            ? JSON.parse(dados)
+            : {};
+
+    } catch(e) {
+
+        return {};
+    }
+}
+
+function saveEvents(data){
+
+    Cripto.salvar(
+        "events",
+        JSON.stringify(data)
+    );
+}
+
+function key(date){
+    return date.toISOString().split('T')[0];
+}
+
+function formatDate(date){
+    return new Intl.DateTimeFormat('pt-BR',{
+        weekday:'short',
+        day:'numeric',
+        month:'long',
+        year:'numeric'
+    }).format(date);
+}
+
+function render(){
+    const grid = document.getElementById("grid");
+    grid.innerHTML = "";
+
+    const events = getEvents();
+
+    const year = current.getFullYear();
+    const month = current.getMonth();
+
+    const lastDay = new Date(year, month + 1, 0);
+
+    document.getElementById("title").innerText =
+        current.toLocaleDateString('pt-BR',{month:'long',year:'numeric'});
+
+    for(let d=1; d<=lastDay.getDate(); d++){
+
+        const date = new Date(year, month, d);
+        const k = key(date);
+
+        const div = document.createElement("div");
+        div.className = "day";
+
+        const dateText = document.createElement("div");
+        dateText.className = "date";
+        dateText.innerText = formatDate(date);
+
+        const eventText = document.createElement("div");
+        eventText.className = "event";
+        eventText.innerText = events[k] || "Sem eventos";
+
+        div.appendChild(dateText);
+        div.appendChild(eventText);
+
+        div.onclick = () => {
+
+            const atual = events[k];
+
+            if(atual){
+                const op = confirm(`${dateText.innerText}\n\nEvento: ${atual}\n\nApagar?`);
+                if(op){
+                    delete events[k];
+                    saveEvents(events);
+                    render();
+                }
+            } else {
+                const novo = prompt("Criar evento para:\n" + dateText.innerText);
+
+                if(novo && novo.trim() !== ""){
+                    events[k] = novo.trim();
+                    saveEvents(events);
+                    render();
+                }
+            }
+        };
+
+        grid.appendChild(div);
+    }
+}
+
+function changeMonth(step){
+    current.setMonth(current.getMonth() + step);
+    render();
+}
+
+render();
+
+</script>
+
+<script>
+window.addEventListener("load", () => {
+
+    let wall = "";
+
+    try {
+        wall = Android.getWallpaperUrl();
+    } catch (e) {}
+
+    if (wall && wall.length > 0) {
+
+        document.body.style.backgroundImage = `url('${wall}')`;
+        document.body.style.backgroundSize = "cover";
+        document.body.style.backgroundPosition = "center";
+        document.body.style.backgroundRepeat = "no-repeat";
+        document.body.style.backgroundAttachment = "fixed";
+
+    } else {
+
+        document.body.style.background = "black";
+
+    }
+});
+</script>
+
+</body>
+</html>
