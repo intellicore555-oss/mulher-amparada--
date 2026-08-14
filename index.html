@@ -34,6 +34,10 @@
 <link rel="manifest" href="manifest.json">
 
 <style>
+main {
+margin-right: 5%;
+    margin-left: 5%;
+    }
 
 /* =========================================================
    FONTE
@@ -111,8 +115,7 @@ html {
 body {
     min-height: 100vh;
 
-    margin-right: 5%;
-    margin-left: 5%;
+    
 
     background: #000;
 
@@ -464,45 +467,6 @@ a {
     pointer-events: none;
 
     overflow: hidden;
-}
-
-.hero-grid::before {
-
-    content: "";
-
-    position: absolute;
-
-    width: 620px;
-    height: 620px;
-
-    top: 0;
-    right: -220px;
-
-    border:
-        1px solid rgba(255,63,159,.15);
-
-    border-radius: 50%;
-
-    box-shadow:
-        0 0 100px rgba(255,63,159,.025);
-}
-
-.hero-grid::after {
-
-    content: "";
-
-    position: absolute;
-
-    width: 430px;
-    height: 430px;
-
-    top: 95px;
-    right: -120px;
-
-    border:
-        1px dashed rgba(255,63,159,.12);
-
-    border-radius: 50%;
 }
 
 .hero-content {
