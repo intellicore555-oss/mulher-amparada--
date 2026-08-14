@@ -697,7 +697,10 @@ sem contar as tristezas e dores extremas no emocional, eu ia pra escola triste t
 
 joguei volei no intervalo da escola depois as 4 aulas, na quadra de lá no dia 10.08.2026, so que quando eu jogava e eu era bom, mas os colegas eram melhores, e quando eu errava uns molekes, que nem homem é, ficavam dando gritinho fino quando eu errava, e continuei mesmo assim, ate falei pra eles, hey mano, vem tentar então!
 
+E outra:
+
 tinha tudo isso de prova na sala do futuro (provas de recuperação era entre o 2 e 3 bimestre, e o resto do 1 ao 2 bimestre) + as 2 fisicas que ja fiz + os 20 resumos que ja fiz de geografia + 2 livros de biologia e português completo (mas as provas da sala do futuro,  as de recuperação e as outras eu não fiz!, menos a olisp!) = completa exploração da escola!:
+
 
 [Print 1](imagem1.jpg)
 
@@ -718,6 +721,20 @@ tinha tudo isso de prova na sala do futuro (provas de recuperação era entre o 
 * e...
 
 [Print 9](image1.jpg)
+
+Dia 14.08.2026:
+
+Então 
+
+Quando eu estava na aula de biologia (a terceira), pedi pra ir no banheiro
+
+O professor roberto nao deixou porque um aluno ja tinha saído para resolver a presença dele, então eu falei:
+
+Professor, eu tenho autismo e na lei tenho direito de prioridade, e tenho literalmente autorização da direção pra ir no banheiro
+
+Ele falou:
+
+Eu sei que você precisa ir no banheiro, mas tem certas coisas que dá pra esperar ne (honestamente, caguei pra essa fala dele...)
 
 * E, honestamente, o meu maior sonho e namorar, mas nunca consegui..., só recebi dor em troca...
 
