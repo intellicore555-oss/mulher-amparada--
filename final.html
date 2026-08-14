@@ -1,329 +1,1271 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>Mulher Amparada — Aplicativo Finalizado</title>
+<meta charset="UTF-8">
 
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+>
 
+<meta
+    name="theme-color"
+    content="#050505"
+>
 
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 
+<title>Mulher Amparada — Aplicativo Finalizado</title>
+
+
 <style>
-@font-face {
-  font-family: "Quicksand";
-  src: url("font.ttf") format("truetype");
+
+/* =========================================================
+   FONTE
+========================================================= */
+
+@font-face{
+
+    font-family:"Quicksand";
+
+    src:url("font.ttf")
+        format("truetype");
+
+    font-display:swap;
+
 }
+
+
+/* =========================================================
+   RESET
+========================================================= */
 
 *{
+
     margin:0;
     padding:0;
+
     box-sizing:border-box;
+
 }
+
+
+html{
+
+    scroll-behavior:smooth;
+
+    background:#050505;
+
+}
+
 
 body{
-    font-family:'Quicksand',sans-serif;
-    background:#000;
-    color:white;
+
     min-height:100vh;
+
+    background:#050505;
+
+    color:#fff;
+
+    font-family:"Quicksand",sans-serif;
+
     overflow-x:hidden;
-    position:relative;
-    padding:70px 25px;
+
+    -webkit-font-smoothing:antialiased;
+
 }
 
-/* FUNDO */
 
+/* =========================================================
+   FUNDO
+========================================================= */
 
-/* CONTEUDO */
+body::before{
 
-main{
-    position:relative;
-    z-index:2;
-    max-width:950px;
-    margin:auto;
-}
+    content:"";
 
-/* TOPO */
+    position:fixed;
 
-.hero{
-    margin-bottom:70px;
-}
+    width:650px;
+    height:650px;
 
-.top-title{
-    display:inline-flex;
-    align-items:center;
-    gap:15px;
+    top:-450px;
+    left:50%;
 
-    padding:14px 22px;
+    transform:translateX(-50%);
 
-    border:2px dashed rgba(255,255,255,0.22);
-    border-radius:999px;
-
-    margin-bottom:35px;
-
-    animation:fadeUp 1s ease;
-}
-
-/* BOLINHA */
-
-.app-icon{
-    width:58px;
-    height:58px;
     border-radius:50%;
-    overflow:hidden;
-    flex-shrink:0;
-margin-right: 20px;
-    border:2px solid rgba(255,255,255,0.12);
 
-    box-shadow:
-    0 0 25px rgba(255,79,163,0.35),
-    0 0 60px rgba(255,79,163,0.15);
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,79,163,.16),
+            transparent 68%
+        );
+
+    filter:blur(25px);
+
+    pointer-events:none;
+
+    z-index:0;
+
 }
 
-.app-icon img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
+
+body::after{
+
+    content:"";
+
+    position:fixed;
+
+    width:500px;
+    height:500px;
+
+    right:-350px;
+    bottom:-300px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(151,79,255,.10),
+            transparent 70%
+        );
+
+    filter:blur(35px);
+
+    pointer-events:none;
+
+    z-index:0;
+
 }
 
-.top-title span{
-    font-size:0.95rem;
-    letter-spacing:3px;
-    font-weight:700;
-    text-transform:uppercase;
-    color:#ff93c7;
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.page{
+
+    position:relative;
+
+    z-index:1;
+
+    width:90%;
+
+    max-width:1000px;
+
+    margin:0 auto;
+
+    padding:
+        34px 0
+        70px;
+
 }
 
-/* TITULO */
 
-h1{
-    font-size:clamp(3rem,8vw,6rem);
-    line-height:1;
-    margin-bottom:30px;
-    font-weight:700;
+/* =========================================================
+   TOP BAR
+========================================================= */
 
-    animation:fadeUp 1.2s ease;
-}
-
-.highlight{
-    color:#ff4fa3;
-    text-shadow:0 0 30px rgba(255,79,163,0.4);
-}
-
-.line{
-    width:140px;
-    height:5px;
-    border-radius:999px;
-    background:#ff4fa3;
-    margin-bottom:40px;
-}
-
-/* TEXTO */
-
-.description{
-    font-size:1.2rem;
-    line-height:2;
-    color:#d8d8d8;
-    max-width:850px;
-
-    animation:fadeUp 1.4s ease;
-}
-
-.description strong{
-    color:white;
-    font-weight:700;
-}
-
-/* SECTIONS */
-
-.section{
-    margin-top:80px;
-}
-
-.section-title{
-    font-size:1.6rem;
-    font-weight:700;
-    margin-bottom:25px;
+.topbar{
 
     display:flex;
+
     align-items:center;
-    gap:12px;
+
+    justify-content:space-between;
+
+    margin-bottom:75px;
+
 }
+
+
+.brand{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+
+.brand-icon{
+
+    width:42px;
+    height:42px;
+
+    border-radius:14px;
+
+    overflow:hidden;
+
+    border:
+        1px solid
+        rgba(255,255,255,.10);
+
+    box-shadow:
+        0 8px 25px
+        rgba(255,79,163,.16);
+
+}
+
+
+.brand-icon img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+
+.brand-name{
+
+    font-size:13px;
+
+    font-weight:800;
+
+    color:#dedee2;
+
+}
+
+
+.brand-sub{
+
+    margin-top:2px;
+
+    font-size:9px;
+
+    color:#5d5d64;
+
+    letter-spacing:1.2px;
+
+    text-transform:uppercase;
+
+}
+
+
+/* STATUS */
+
+.status{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:7px;
+
+    padding:
+        8px 12px;
+
+    border:
+        1px solid
+        rgba(80,220,145,.13);
+
+    border-radius:999px;
+
+    background:
+        rgba(80,220,145,.035);
+
+    color:#777;
+
+    font-size:9px;
+
+    font-weight:800;
+
+    letter-spacing:1px;
+
+    text-transform:uppercase;
+
+}
+
+
+.status-dot{
+
+    width:6px;
+    height:6px;
+
+    border-radius:50%;
+
+    background:#54dc92;
+
+    box-shadow:
+        0 0 12px
+        rgba(84,220,146,.7);
+
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+
+    padding-bottom:80px;
+
+}
+
+
+.hero-label{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:9px;
+
+    margin-bottom:24px;
+
+    color:#ff79b0;
+
+    font-size:10px;
+
+    font-weight:800;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+}
+
+
+.hero-label::before{
+
+    content:"";
+
+    width:24px;
+    height:2px;
+
+    border-radius:999px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff4fa3,
+            #a855f7
+        );
+
+}
+
+
+h1{
+
+    max-width:850px;
+
+    font-size:
+        clamp(
+            46px,
+            9vw,
+            92px
+        );
+
+    line-height:.98;
+
+    letter-spacing:-4px;
+
+    font-weight:800;
+
+}
+
+
+.highlight{
+
+    color:#ff4fa3;
+
+    text-shadow:
+        0 0 45px
+        rgba(255,79,163,.24);
+
+}
+
+
+.hero-line{
+
+    width:110px;
+    height:4px;
+
+    margin:
+        32px 0;
+
+    border-radius:999px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff4fa3,
+            #a855f7
+        );
+
+    box-shadow:
+        0 0 20px
+        rgba(255,79,163,.20);
+
+}
+
+
+.hero-description{
+
+    max-width:760px;
+
+    color:#bcbcc2;
+
+    font-size:
+        clamp(
+            16px,
+            2vw,
+            19px
+        );
+
+    line-height:1.9;
+
+}
+
+
+.hero-description strong{
+
+    color:#fff;
+
+}
+
+
+.update-notice{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:13px;
+
+    max-width:760px;
+
+    margin-top:30px;
+
+    padding:18px 20px;
+
+    border:
+        1px solid
+        rgba(255,79,163,.12);
+
+    border-radius:18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,79,163,.055),
+            rgba(168,85,247,.035)
+        );
+
+}
+
+
+.update-icon{
+
+    width:28px;
+    height:28px;
+
+    flex-shrink:0;
+
+    display:grid;
+
+    place-items:center;
+
+    border-radius:9px;
+
+    background:
+        rgba(255,79,163,.10);
+
+    color:#ff79b0;
+
+    font-size:13px;
+
+}
+
+
+.update-notice p{
+
+    color:#99999f;
+
+    font-size:12px;
+
+    line-height:1.7;
+
+}
+
+
+.update-notice strong{
+
+    color:#eee;
+
+}
+
+
+/* =========================================================
+   DATA
+========================================================= */
+
+.date-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    padding:30px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.07);
+
+    border-radius:24px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.045),
+            rgba(255,255,255,.015)
+        );
+
+    box-shadow:
+        0 25px 70px
+        rgba(0,0,0,.25);
+
+}
+
+
+.date-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:180px;
+    height:180px;
+
+    right:-100px;
+    top:-100px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,79,163,.12),
+            transparent 70%
+        );
+
+}
+
+
+.date-label{
+
+    color:#606067;
+
+    font-size:9px;
+
+    font-weight:800;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    margin-bottom:12px;
+
+}
+
+
+.date{
+
+    font-size:
+        clamp(
+            32px,
+            6vw,
+            52px
+        );
+
+    line-height:1;
+
+    font-weight:800;
+
+    letter-spacing:-2px;
+
+}
+
+
+.date span{
+
+    color:#ff4fa3;
+
+}
+
+
+/* =========================================================
+   SEÇÕES
+========================================================= */
+
+.sections{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(0,1fr)
+        );
+
+    gap:16px;
+
+    margin-top:70px;
+
+}
+
+
+.section{
+
+    position:relative;
+
+    min-height:240px;
+
+    padding:28px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.065);
+
+    border-radius:24px;
+
+    background:#0a0a0a;
+
+    transition:
+        transform .25s ease,
+        border-color .25s ease,
+        background .25s ease;
+
+}
+
+
+.section:hover{
+
+    transform:translateY(-4px);
+
+    border-color:
+        rgba(255,79,163,.18);
+
+    background:#0d0d0d;
+
+}
+
+
+.section-number{
+
+    color:#45454b;
+
+    font-size:10px;
+
+    font-weight:800;
+
+    letter-spacing:2px;
+
+    margin-bottom:28px;
+
+}
+
+
+.section-title{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin-bottom:17px;
+
+    font-size:20px;
+
+    font-weight:800;
+
+}
+
 
 .section-title::before{
+
     content:"";
-    width:12px;
-    height:12px;
+
+    width:8px;
+    height:8px;
+
+    flex-shrink:0;
+
     border-radius:50%;
+
     background:#ff4fa3;
 
-    box-shadow:0 0 15px #ff4fa3;
+    box-shadow:
+        0 0 13px
+        rgba(255,79,163,.55);
+
 }
+
 
 .section p{
-    font-size:1.1rem;
-    line-height:2;
-    color:#cfcfcf;
+
+    color:#909096;
+
+    font-size:14px;
+
+    line-height:1.9;
+
 }
 
-/* DESTAQUES IMPORTANTES */
 
-.important{
-    color:white;
-    font-weight:700;
-    font-size:1.15rem;
+/* =========================================================
+   FINALIZAÇÃO
+========================================================= */
+
+.final-section{
+
+    margin-top:16px;
+
+    padding:35px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.07);
+
+    border-radius:24px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,79,163,.06),
+            rgba(168,85,247,.035)
+        );
+
 }
 
-.final-date{
-    margin-top:80px;
-    font-size:1rem;
-    letter-spacing:4px;
-    text-transform:uppercase;
-    color:#8f8f8f;
+
+.final-header{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    margin-bottom:15px;
+
 }
 
-/* FOOTER */
+
+.final-check{
+
+    width:38px;
+    height:38px;
+
+    display:grid;
+
+    place-items:center;
+
+    border-radius:12px;
+
+    background:
+        rgba(84,220,146,.08);
+
+    border:
+        1px solid
+        rgba(84,220,146,.13);
+
+    color:#54dc92;
+
+    font-size:18px;
+
+}
+
+
+.final-header h2{
+
+    font-size:20px;
+
+}
+
+
+.final-section p{
+
+    color:#aaaab0;
+
+    font-size:14px;
+
+    line-height:1.8;
+
+}
+
+
+.final-section strong{
+
+    color:#fff;
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
 
 footer{
-    margin-top:90px;
-    padding-top:30px;
-    border-top:1px solid rgba(255,255,255,0.08);
 
-    color:#666;
-    font-size:0.95rem;
+    margin-top:70px;
+
+    padding-top:25px;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.06);
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+
+    color:#4e4e54;
+
+    font-size:10px;
+
+    letter-spacing:1px;
+
+    text-transform:uppercase;
+
 }
 
-/* ANIMACAO */
 
-@keyframes fadeUp{
+.footer-right{
+
+    color:#38383d;
+
+}
+
+
+/* =========================================================
+   ANIMAÇÕES
+========================================================= */
+
+@keyframes appear{
 
     from{
+
         opacity:0;
-        transform:translateY(35px);
+
+        transform:
+            translateY(25px);
+
     }
 
     to{
+
         opacity:1;
-        transform:translateY(0);
+
+        transform:
+            translateY(0);
+
     }
 
 }
 
-/* RESPONSIVO */
+
+.topbar{
+
+    animation:
+        appear .6s ease both;
+
+}
+
+
+.hero{
+
+    animation:
+        appear .7s .08s ease both;
+
+}
+
+
+.date-card{
+
+    animation:
+        appear .7s .16s ease both;
+
+}
+
+
+.section{
+
+    animation:
+        appear .7s .24s ease both;
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
 
 @media(max-width:700px){
 
-    body{
-        padding:50px 20px;
+    .page{
+
+        width:90%;
+
+        padding-top:22px;
+
+        padding-bottom:50px;
+
     }
 
-    .description{
-        font-size:1rem;
+
+    .topbar{
+
+        margin-bottom:55px;
+
     }
 
-    .section p{
-        font-size:1rem;
+
+    .brand-sub{
+
+        display:none;
+
     }
 
-    .top-title{
-        width:100%;
-        justify-content:center;
+
+    .status{
+
+        font-size:8px;
+
+        padding:7px 9px;
+
+    }
+
+
+    h1{
+
+        font-size:
+            clamp(
+                43px,
+                13vw,
+                65px
+            );
+
+        letter-spacing:-2.8px;
+
+    }
+
+
+    .hero{
+
+        padding-bottom:55px;
+
+    }
+
+
+    .hero-description{
+
+        font-size:15px;
+
+        line-height:1.8;
+
+    }
+
+
+    .date-card{
+
+        padding:24px;
+
+    }
+
+
+    .sections{
+
+        grid-template-columns:1fr;
+
+        margin-top:50px;
+
+    }
+
+
+    .section{
+
+        min-height:auto;
+
+        padding:25px;
+
+    }
+
+
+    .final-section{
+
+        padding:25px;
+
+    }
+
+
+    footer{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+    }
+
+}
+
+
+@media(prefers-reduced-motion:reduce){
+
+    *{
+
+        animation:none !important;
+
+        transition:none !important;
+
     }
 
 }
 
 </style>
+
 </head>
+
+
 <body>
 
-<main>
 
-    <section class="hero">
+<div class="page">
 
-        <div class="top-title">
 
-            <div class="app-icon">
-                <img src="user1.png" alt="Ícone Mulher Amparada">
+    <!-- =================================================
+         TOPO
+    ================================================= -->
+
+
+
+
+
+    <!-- =================================================
+         HERO
+    ================================================= -->
+
+    <main>
+
+
+        <section class="hero">
+
+
+            <div class="hero-label">
+                Conclusão oficial
             </div>
 
-            <span>Mulher Amparada</span>
+
+            <h1>
+
+                Aplicativo
+
+                <br>
+
+                <span class="highlight">
+                    Finalmente Finalizado
+                </span>
+
+            </h1>
+
+
+            <div class="hero-line"></div>
+
+
+            <p class="hero-description">
+
+                A partir do dia
+                <strong>13/08/2026</strong>,
+                o aplicativo
+                <strong>Mulher Amparada, o gerenciador de arquivos e assistente de voz dele</strong>
+                estão oficialmente finalizado.
+
+                <br><br>
+
+                Depois de muito desenvolvimento,
+                evolução constante e dedicação ao projeto,
+                a plataforma chega à sua versão completa.
+
+            </p>
+
+
+            <div class="update-notice">
+
+                <div class="update-icon">
+                    ↻
+                </div>
+
+                <p>
+
+                    <strong>
+                        O desenvolvimento não precisa parar aqui.
+                    </strong>
+
+                    O aplicativo ainda poderá receber
+                    novas atualizações caso sejam necessárias,
+                    incluindo correções de bugs,
+                    melhorias e ajustes futuros.
+
+                </p>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             DATA
+        ================================================= -->
+
+        <section class="date-card">
+
+            <div class="date-label">
+                Data da conclusão oficial
+            </div>
+
+            <div class="date">
+
+                13 de
+                <span>Agosto</span>
+                de 2026
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             SEÇÕES
+        ================================================= -->
+
+        <div class="sections">
+
+
+            <section class="section">
+
+                <div class="section-number">
+                    01 — PROPÓSITO
+                </div>
+
+                <h2 class="section-title">
+                    Objetivo do Projeto
+                </h2>
+
+                <p>
+
+                    O aplicativo foi desenvolvido para oferecer
+                    suporte, acolhimento e tecnologia voltada
+                    para proteção e segurança feminina.
+
+                </p>
+
+            </section>
+
+
+
+            <section class="section">
+
+                <div class="section-number">
+                    02 — CONSTRUÇÃO
+                </div>
+
+                <h2 class="section-title">
+                    Desenvolvimento
+                </h2>
+
+                <p>
+
+                    Cada atualização do projeto foi criada
+                    pensando em desempenho, estabilidade
+                    e uma experiência moderna para as usuárias.
+
+                </p>
+
+            </section>
+
 
         </div>
 
-        <h1>
-            Aplicativo
-            <br>
-            <span class="highlight">Finalmente Finalizado</span>
-        </h1>
 
-        <div class="line"></div>
 
-        <p class="description">
-            A partir do dia <strong>13/08/2026</strong>,
-            o aplicativo <strong>Mulher Amparada</strong>
-            está oficialmente finalizado.
-            <br><br>
-            Depois de muito desenvolvimento,
-            evolução constante e dedicação ao projeto,
-            a plataforma chega à sua versão completa.
-        </p>
+        <!-- =================================================
+             FINALIZAÇÃO
+        ================================================= -->
 
-<br><br>
+        <section class="final-section">
 
-<p class="description" style="color:red;">
-    Porém, eu ainda poderei atualizar ele mais se for preciso, se tiver algum bug ou etc!
-</p>
+            <div class="final-header">
 
-    </section>
 
-    <section class="section">
 
-        <h2 class="section-title">
-            Objetivo do Projeto
-        </h2>
+                <h2>
+                    Finalização Oficial
+                </h2>
 
-        <p>
-            O aplicativo foi desenvolvido para oferecer
-            suporte, acolhimento e tecnologia voltada
-            para proteção e segurança feminina.
-        </p>
+            </div>
 
-    </section>
 
-    <section class="section">
+            <p>
 
-        <h2 class="section-title">
-            Desenvolvimento
-        </h2>
+                O projeto foi oficialmente concluído em
+                <strong>13 de Agosto de 2026.</strong>
 
-        <p>
-            Cada atualização do projeto foi criada
-            pensando em desempenho, estabilidade
-            e uma experiência moderna para as usuárias.
-        </p>
+                <br><br>
 
-    </section>
+                Esta data representa a conclusão da versão
+                atual do aplicativo, mantendo aberta a
+                possibilidade de futuras atualizações,
+                correções e melhorias.
 
-    <section class="section">
+            </p>
 
-        <h2 class="section-title">
-            Finalização Oficial
-        </h2>
+        </section>
 
-        <p class="important">
-            O projeto foi oficialmente concluído em 13 de Agosto de 2026.
-        </p>
 
-    </section>
+    </main>
 
-    <div class="final-date">
-        FINALIZAÇÃO OFICIAL • 13/08/2026
-    </div>
 
-</main>
+
+    <!-- =================================================
+         FOOTER
+    ================================================= -->
+
+    <footer>
+
+        <span>
+            Ecossistema do Mulher Amparada 
+        </span>
+
+        <span class="footer-right">
+            Finalização oficial • 13/08/2026
+        </span>
+
+    </footer>
+
+
+</div>
+
 
 </body>
+
 </html>
