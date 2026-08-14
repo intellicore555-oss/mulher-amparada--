@@ -1,262 +1,680 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Sobre Mim</title>
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+>
+
+<title>Restaurantes • Mulher Amparada</title>
 
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 
 <style>
+
+/* =========================================================
+   FONTE
+========================================================= */
+
 @font-face {
-  font-family: "Quicksand";
-  src: url("font.ttf") format("truetype");
+    font-family: "Quicksand";
+    src: url("font.ttf") format("truetype");
+    font-display: swap;
 }
 
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Quicksand', sans-serif;
-    }
 
-    html {
-        scroll-behavior: smooth;
-    }
+/* =========================================================
+   RESET
+========================================================= */
 
-    body {
-        min-height: 100vh;
-        color: #fff;
-        background: black;
-        background-size: 400% 400%;
-        animation: bgMove 10s ease infinite;
-        overflow-x: hidden;
-    }
-
-    @keyframes bgMove {
-        0% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
-    }
-
-    header {
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        padding: 20px;
-    }
-
-    header h1 {
-        font-size: 42px;
-        font-weight: 700;
-        letter-spacing: 1px;
-        margin-bottom: 12px;
-    }
-
-    header p {
-        font-size: 18px;
-        opacity: 0.8;
-        max-width: 500px;
-    }
-
-    .btn {
-        margin-top: 25px;
-        padding: 14px 30px;
-        background: rgba(255, 192, 203, 0.15);
-        color: #fff;
-        border: 1px solid rgba(255,255,255,0.2);
-        border-radius: 14px;
-        cursor: pointer;
-        font-weight: 600;
-        transition: 0.3s ease;
-        backdrop-filter: blur(12px);
-    }
-
-    .btn:hover {
-        transform: translateY(-4px) scale(1.02);
-        border-color: #fff;
-        box-shadow: 0 15px 35px rgba(0,0,0,0.4);
-    }
-
-    section {
-        padding: 80px 20px;
-        max-width: 900px;
-        margin: auto;
-    }
-
-    .card {
-        background: rgba(255, 255, 255, 0.06);
-        border: 1px solid rgba(255,255,255,0.1);
-
-        border-radius: 18px;
-        margin-bottom: 20px;
-        transition: 0.3s ease;
-        backdrop-filter: blur(12px);
-        box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-    }
-
-    .card:hover {
-        transform: translateY(-6px);
-        border-color: rgba(255,255,255,0.25);
-        box-shadow: 0 20px 45px rgba(0,0,0,0.6);
-    }
-
-    .card h2 {
-        margin-bottom: 10px;
-        font-size: 24px;
-        color: #ffb6c1;
-    }
-
-    .card p {
-        opacity: 0.85;
-        line-height: 1.7;
-    }
-
-    footer {
-        text-align: center;
-        padding: 40px;
-        opacity: 0.5;
-        font-size: 14px;
-    }
-
-.hub-buttons{
-    width:100%;
-    max-width:500px;
-    display:flex;
-    flex-direction:column;
-    gap:20px;
-background: rgba(255, 255, 255, 0.06);
-        border: 1px solid rgba(255,255,255,0.1);
-        padding: 26px;
-        border-radius: 18px;
-        margin-bottom: 20px;
-        transition: 0.3s ease;
-        backdrop-filter: blur(12px);
-        box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-    .hub-buttons:hover {
-        transform: translateY(-6px);
-        border-color: rgba(255,255,255,0.25);
-        box-shadow: 0 20px 45px rgba(0,0,0,0.6);
-    }
 
-   .hub-buttons h2 {
-        margin-bottom: 10px;
-        font-size: 24px;
-        color: #ffb6c1;
-    }
+/* =========================================================
+   BASE
+========================================================= */
 
-.hub-btn{
-    width:100%;
-    padding:22px;
-    border-radius:202px;
-    text-decoration:none;
-    font-family:'Quicksand',sans-serif;
-    font-size:1.1rem;
-    font-weight:700;
-    text-align:center;
-    color:white;
-
-    background: rgba(255, 192, 203, 0.15);
-
-
-border: 1px solid rgba(255,255,255,0.2);
-    transition:
-    transform .25s ease,
-    box-shadow .25s ease,
-    opacity .25s ease;
+html {
+    scroll-behavior: smooth;
 }
 
-.hub-btn:hover{
-        transform: translateY(-4px) scale(1.02);
-        border-color: #fff;
-        box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+body {
+    min-height: 100vh;
 
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(255, 182, 193, 0.08),
+            transparent 38%
+        ),
+        #000;
 
+    color: #fff;
+
+    font-family: "Quicksand", sans-serif;
+
+    overflow-x: hidden;
+
+    -webkit-font-smoothing: antialiased;
 }
 
-.hub-btn:active{
-    transform:scale(.98);
-    opacity:.9;
+
+/* =========================================================
+   PÁGINA
+========================================================= */
+
+.page {
+    width: min(100% - 40px, 900px);
+
+    margin: 0 auto;
+
+    padding:
+        70px 0
+        calc(70px + env(safe-area-inset-bottom));
 }
 
-.eu-btn{
-    width:90%;
-    height:56px;
-    border:none;
-    border-radius:18px;
-    background:#111;
-    color:#fff;
-    font-size:16px;
-    font-weight:700;
-    cursor:pointer;
-    transition:.25s;
-    margin-bottom:30px;
-    border:1px solid rgba(255,255,255,.08);
-left: 5%;
-margin-top: 5%;
-position: relative;
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    text-align: center;
+
+    margin-bottom: 45px;
+
+    animation: appear .7s ease both;
 }
 
-.card{
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+
+    padding: 8px 15px;
+
+    margin-bottom: 20px;
+
+    border: 1px solid rgba(255, 182, 193, .18);
+
+    border-radius: 999px;
+
+    background: rgba(255, 182, 193, .06);
+
+    color: #ffb6c1;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.eyebrow::before {
+    content: "";
+
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #ffb6c1;
+
+    box-shadow:
+        0 0 12px rgba(255, 182, 193, .8);
+}
+
+.hero h1 {
+    font-size: clamp(2rem, 6vw, 3.4rem);
+
+    line-height: 1.15;
+
+    font-weight: 700;
+
+    letter-spacing: -.8px;
+}
+
+.hero p {
+    max-width: 620px;
+
+    margin: 16px auto 0;
+
+    color: #85858d;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   CARD PRINCIPAL
+========================================================= */
+
+.restaurant {
     position: relative;
+
     overflow: hidden;
-    border-radius: 28px;
-    background: #0d0d0d;
-    padding: 26px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #121212,
+            #090909
+        );
+
     border: 1px solid rgba(255,255,255,.08);
-    width: 90%;
-    margin: 20px auto;
-    transition:
-        transform .4s ease,
-        box-shadow .4s ease;
+
+    border-radius: 30px;
+
+    padding: clamp(24px, 5vw, 42px);
+
+    box-shadow:
+        0 25px 80px rgba(0,0,0,.55);
+
+    animation: appear .8s ease .1s both;
 }
 
-.card:hover{
-    transform: translateY(-10px) scale(1.0);
-    box-shadow: 0 25px 60px rgba(255,255,255,.08);
+
+/* brilho superior */
+
+.restaurant::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 10%;
+    right: 10%;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,182,193,.55),
+            transparent
+        );
 }
 
-.card img{
-    width:100%;
-    height:40%;
 
-    min-height:250px;
+/* =========================================================
+   CABEÇALHO DO RESTAURANTE
+========================================================= */
 
-    object-fit:cover;
+.restaurant-header {
+    display: flex;
 
-    display:block;
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    gap: 25px;
+
+    margin-bottom: 28px;
+}
+
+.restaurant-info h2 {
+    color: #fff;
+
+    font-size: clamp(1.45rem, 4vw, 2rem);
+
+    line-height: 1.25;
+
+    margin-bottom: 9px;
+}
+
+.restaurant-info p {
+    color: #85858d;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   NOTA
+========================================================= */
+
+.rating {
+    flex-shrink: 0;
+
+    min-width: 92px;
+
+    padding: 13px 12px;
+
+    text-align: center;
+
+    border-radius: 18px;
+
+    background:
+        rgba(255,182,193,.08);
+
+    border:
+        1px solid rgba(255,182,193,.18);
+}
+
+.rating-number {
+    display: block;
+
+    color: #ffb6c1;
+
+    font-size: 25px;
+
+    font-weight: 700;
+
+    line-height: 1;
+}
+
+.rating-label {
+    display: block;
+
+    margin-top: 6px;
+
+    color: #77777f;
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   TEXTO
+========================================================= */
+
+.review {
+    color: #d2d2d6;
+
+    font-size: 16px;
+
+    line-height: 1.9;
+}
+
+.review strong {
+    color: #fff;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   DESTAQUE DO PREÇO
+========================================================= */
+
+.price-highlight {
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    margin: 25px 0;
+
+    padding: 18px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(255,255,255,.035);
+
+    border:
+        1px solid rgba(255,255,255,.06);
+}
+
+.price {
+    color: #ffb6c1;
+
+    font-size: 28px;
+
+    font-weight: 700;
+
+    line-height: 1;
+}
+
+.price-text {
+    color: #aaaab1;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   GALERIA
+========================================================= */
+
+.gallery {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 14px;
+
+    margin-top: 30px;
+}
+
+.image-card {
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    background: #080808;
+
+    border:
+        1px solid rgba(255,255,255,.07);
+
+    aspect-ratio: 4 / 3;
+}
+
+.image-card img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
 
     transition:
         transform .5s ease,
         filter .5s ease;
 }
+
+.image-card:hover img {
+    transform: scale(1.04);
+
+    filter: brightness(1.08);
+}
+
+
+/* =========================================================
+   SEPARADOR
+========================================================= */
+
+.divider {
+    width: 100%;
+
+    height: 1px;
+
+    margin: 30px 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.09),
+            transparent
+        );
+}
+
+
+/* =========================================================
+   RODAPÉ
+========================================================= */
+
+.footer {
+    text-align: center;
+
+    margin-top: 30px;
+
+    color: #48484f;
+
+    font-size: 12px;
+
+    letter-spacing: .4px;
+}
+
+
+/* =========================================================
+   ANIMAÇÃO
+========================================================= */
+
+@keyframes appear {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .page {
+        width: min(100% - 28px, 900px);
+
+        padding-top: 45px;
+    }
+
+    .restaurant {
+        border-radius: 24px;
+
+        padding: 22px;
+    }
+
+    .restaurant-header {
+        align-items: center;
+    }
+
+    .rating {
+        min-width: 78px;
+
+        padding: 11px 8px;
+    }
+
+    .rating-number {
+        font-size: 22px;
+    }
+
+    .review {
+        font-size: 15px;
+        line-height: 1.8;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;
+
+        gap: 12px;
+    }
+
+    .image-card {
+        aspect-ratio: 16 / 11;
+    }
+
+}
+
+
+/* =========================================================
+   ACESSIBILIDADE
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+
+}
+
 </style>
+
 </head>
+
 
 <body>
 
-<section id="sobre">
+<main class="page">
 
-<div class="card">
-    <h2>Restaurantes que conquistaram meu coração:</h2>
-    <p>Bar e restaurante São Miguel: Nota 10!</p>
-    <p>Para ser sincero, o especial de bauru é nove reais, mas é um dinheiro que compensa muito, ele é enorme, massa fofinha, muito queijo e mortadela e tudo de bom!</p>
-    <div class="card" style="padding: 0%;">
-            <img src="comer1.png" alt="Print 1">
+
+    <!-- =====================================================
+         TOPO
+    ====================================================== -->
+
+    <header class="hero">
+
+        <div class="eyebrow">
+            Avaliação pessoal
+        </div>
+
+        <h1>
+            Restaurantes que<br>
+            conquistaram meu coração
+        </h1>
+
+        <p>
+            Uma avaliação pessoal baseada na minha experiência
+            com o lugar e com a comida.
+        </p>
+
+    </header>
+
+
+    <!-- =====================================================
+         RESTAURANTE
+    ====================================================== -->
+
+    <article class="restaurant">
+
+
+        <div class="restaurant-header">
+
+            <div class="restaurant-info">
+
+                <h2>
+                    Bar e restaurante São Miguel
+                </h2>
+
+                <p>
+                    Minha avaliação pessoal
+                </p>
+
             </div>
-            <div class="card" style="padding: 0%;">
-                        <img src="comer2.png" alt="Print 1">
-                        </div>
-                        </div>
-</section>
+
+
+            <div class="rating">
+
+                <span class="rating-number">
+                    10
+                </span>
+
+                <span class="rating-label">
+                    Nota
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="divider"></div>
+
+
+        <div class="review">
+
+            <p>
+                <strong>Nota 10!</strong>
+            </p>
+
+            <br>
+
+            <p>
+                Para ser sincero, o especial de bauru é
+                nove reais, mas é um dinheiro que compensa
+                muito.
+            </p>
+
+            <br>
+
+            <p>
+                Ele é enorme, a massa é fofinha, tem muito
+                queijo e mortadela e tudo de bom!
+            </p>
+
+        </div>
+
+
+        <div class="price-highlight">
+
+            <span class="price">
+                R$ 9
+            </span>
+
+            <span class="price-text">
+                Especial de bauru<br>
+                na minha experiência
+            </span>
+
+        </div>
+
+
+        <!-- =================================================
+             FOTOS
+        ================================================== -->
+
+        <div class="gallery">
+
+            <div class="image-card">
+
+                <img
+                    src="comer1.png"
+                    alt="Foto da experiência no Bar e restaurante São Miguel"
+                    loading="lazy"
+                >
+
+            </div>
+
+
+            <div class="image-card">
+
+                <img
+                    src="comer2.png"
+                    alt="Outra foto da experiência no Bar e restaurante São Miguel"
+                    loading="lazy"
+                >
+
+            </div>
+
+        </div>
+
+
+    </article>
+
+
+    <footer class="footer">
+        Mulher Amparada • Avaliações pessoais
+    </footer>
+
+
+</main>
 
 </body>
+
 </html>
