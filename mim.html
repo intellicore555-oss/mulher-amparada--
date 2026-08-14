@@ -1,8 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+>
+
+<meta name="theme-color" content="#000000">
 
 <title>Sobre Mim</title>
 
@@ -11,258 +18,956 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 
 <style>
-@font-face {
-  font-family: "Quicksand";
-  src: url("font.ttf") format("truetype");
+
+@font-face{
+    font-family:"Quicksand";
+    src:url("font.ttf") format("truetype");
 }
 
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Quicksand', sans-serif;
-    }
 
-    html {
-        scroll-behavior: smooth;
-    }
+/* =========================================================
+   RESET
+========================================================= */
 
-    body {
-        min-height: 100vh;
-        color: #fff;
-        background: black;
-        background-size: 400% 400%;
-        animation: bgMove 10s ease infinite;
-        overflow-x: hidden;
-    }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Quicksand",sans-serif;
 
-    @keyframes bgMove {
-        0% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
-    }
-
-    header {
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        padding: 20px;
-    }
-
-    header h1 {
-        font-size: 42px;
-        font-weight: 700;
-        letter-spacing: 1px;
-        margin-bottom: 12px;
-    }
-
-    header p {
-        font-size: 18px;
-        opacity: 0.8;
-        max-width: 500px;
-    }
-
-    .btn {
-        margin-top: 25px;
-        padding: 14px 30px;
-        background: rgba(255, 192, 203, 0.15);
-        color: #fff;
-        border: 1px solid rgba(255,255,255,0.2);
-        border-radius: 14px;
-        cursor: pointer;
-        font-weight: 600;
-        transition: 0.3s ease;
-        backdrop-filter: blur(12px);
-    }
-
-    .btn:hover {
-        transform: translateY(-4px) scale(1.02);
-        border-color: #fff;
-        box-shadow: 0 15px 35px rgba(0,0,0,0.4);
-    }
-
-    section {
-        padding: 80px 20px;
-        max-width: 900px;
-        margin: auto;
-    }
-
-    .card {
-        background: rgba(255, 255, 255, 0.06);
-        border: 1px solid rgba(255,255,255,0.1);
-
-        border-radius: 18px;
-        margin-bottom: 20px;
-        transition: 0.3s ease;
-        backdrop-filter: blur(12px);
-        box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-    }
-
-    .card:hover {
-        transform: translateY(-6px);
-        border-color: rgba(255,255,255,0.25);
-        box-shadow: 0 20px 45px rgba(0,0,0,0.6);
-    }
-
-    .card h2 {
-        margin-bottom: 10px;
-        font-size: 24px;
-        color: #ffb6c1;
-    }
-
-    .card p {
-        opacity: 0.85;
-        line-height: 1.7;
-    }
-
-    footer {
-        text-align: center;
-        padding: 40px;
-        opacity: 0.5;
-        font-size: 14px;
-    }
-
-.hub-buttons{
-    width:100%;
-    max-width:500px;
-    display:flex;
-    flex-direction:column;
-    gap:20px;
-background: rgba(255, 255, 255, 0.06);
-        border: 1px solid rgba(255,255,255,0.1);
-        padding: 26px;
-        border-radius: 18px;
-        margin-bottom: 20px;
-        transition: 0.3s ease;
-        backdrop-filter: blur(12px);
-        box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    -webkit-tap-highlight-color:transparent;
 }
 
-    .hub-buttons:hover {
-        transform: translateY(-6px);
-        border-color: rgba(255,255,255,0.25);
-        box-shadow: 0 20px 45px rgba(0,0,0,0.6);
-    }
-
-   .hub-buttons h2 {
-        margin-bottom: 10px;
-        font-size: 24px;
-        color: #ffb6c1;
-    }
-
-.hub-btn{
-    width:100%;
-    padding:22px;
-    border-radius:202px;
-    text-decoration:none;
-    font-family:'Quicksand',sans-serif;
-    font-size:1.1rem;
-    font-weight:700;
-    text-align:center;
-    color:white;
-
-    background: rgba(255, 192, 203, 0.15);
-
-
-border: 1px solid rgba(255,255,255,0.2);
-    transition:
-    transform .25s ease,
-    box-shadow .25s ease,
-    opacity .25s ease;
+html{
+    background:#000;
+    color-scheme:dark;
+    scroll-behavior:smooth;
 }
 
-.hub-btn:hover{
-        transform: translateY(-4px) scale(1.02);
-        border-color: #fff;
-        box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+body{
+    min-height:100vh;
+    min-height:100dvh;
 
-
-}
-
-.hub-btn:active{
-    transform:scale(.98);
-    opacity:.9;
-}
-
-.eu-btn{
-    width:90%;
-    height:56px;
-    border:none;
-    border-radius:18px;
-    background:#111;
+    background:#000;
     color:#fff;
-    font-size:16px;
-    font-weight:700;
-    cursor:pointer;
-    transition:.25s;
-    margin-bottom:30px;
-    border:1px solid rgba(255,255,255,.08);
-left: 5%;
-margin-top: 5%;
-position: relative;
+
+    overflow-x:hidden;
+
+    -webkit-font-smoothing:antialiased;
 }
 
-.card{
-    position: relative;
-    overflow: hidden;
-    border-radius: 28px;
-    background: #0d0d0d;
-    padding: 26px;
-    border: 1px solid rgba(255,255,255,.08);
-    width: 90%;
-    margin: 20px auto;
-    transition:
-        transform .4s ease,
-        box-shadow .4s ease;
+
+/* =========================================================
+   FUNDO
+========================================================= */
+
+body::before{
+    content:"";
+
+    position:fixed;
+    z-index:-2;
+
+    width:500px;
+    height:500px;
+
+    top:-280px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,182,193,.13),
+            rgba(255,182,193,0) 68%
+        );
+
+    filter:blur(20px);
+
+    pointer-events:none;
 }
 
-.card:hover{
-    transform: translateY(-10px) scale(1.0);
-    box-shadow: 0 25px 60px rgba(255,255,255,.08);
+body::after{
+    content:"";
+
+    position:fixed;
+    z-index:-2;
+
+    width:400px;
+    height:400px;
+
+    right:-260px;
+    bottom:-200px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(132,92,255,.08),
+            transparent 70%
+        );
+
+    filter:blur(30px);
+
+    pointer-events:none;
 }
 
-.card img{
+
+/* =========================================================
+   APP
+========================================================= */
+
+.app{
     width:100%;
-    height:40%;
+    max-width:760px;
 
-    min-height:250px;
+    margin:0 auto;
 
-    object-fit:cover;
+    padding:
+        env(safe-area-inset-top)
+        5%
+        calc(55px + env(safe-area-inset-bottom));
+}
+
+
+/* =========================================================
+   APP BAR
+========================================================= */
+
+.topbar{
+    height:72px;
+
+    display:flex;
+    align-items:center;
+
+    justify-content:space-between;
+
+    position:relative;
+
+    margin-bottom:18px;
+}
+
+.topbar-left{
+    display:flex;
+    align-items:center;
+    gap:13px;
+}
+
+.app-mark{
+    width:42px;
+    height:42px;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:14px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #242424,
+            #101010
+        );
+
+    border:1px solid rgba(255,255,255,.08);
+
+    box-shadow:
+        0 8px 30px rgba(0,0,0,.35);
+
+    font-size:19px;
+}
+
+.topbar-title{
+    font-size:17px;
+    font-weight:700;
+
+    letter-spacing:-.3px;
+}
+
+.topbar-subtitle{
+    margin-top:2px;
+
+    color:#707074;
+
+    font-size:10px;
+
+    letter-spacing:.3px;
+}
+
+.topbar-line{
+    position:absolute;
+
+    left:0;
+    right:0;
+    bottom:0;
+
+    height:1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.09),
+            transparent
+        );
+}
+
+
+/* =========================================================
+   TÍTULO
+========================================================= */
+
+.page-heading{
+    padding:22px 0 28px;
+}
+
+.eyebrow{
+    display:flex;
+    align-items:center;
+    gap:8px;
+
+    margin-bottom:10px;
+
+    color:#77777d;
+
+    font-size:11px;
+    font-weight:700;
+
+    text-transform:uppercase;
+
+    letter-spacing:1.4px;
+}
+
+.eyebrow::before{
+    content:"";
+
+    width:18px;
+    height:2px;
+
+    border-radius:99px;
+
+    background:#ffb6c1;
+}
+
+.page-heading h1{
+    font-size:
+        clamp(
+            34px,
+            9vw,
+            52px
+        );
+
+    line-height:1;
+
+    letter-spacing:-2px;
+
+    font-weight:700;
+}
+
+.page-heading h1 span{
+    color:#ffb6c1;
+}
+
+
+/* =========================================================
+   CARD PRINCIPAL
+========================================================= */
+
+.profile-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    padding:28px;
+
+    border-radius:30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #151515 0%,
+            #0d0d0d 55%,
+            #101010 100%
+        );
+
+    border:1px solid rgba(255,255,255,.075);
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.48);
+
+}
+
+
+/* brilho interno */
+
+.profile-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:220px;
+    height:220px;
+
+    top:-150px;
+    right:-100px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,182,193,.18),
+            transparent 68%
+        );
+
+    filter:blur(8px);
+
+    pointer-events:none;
+}
+
+
+/* =========================================================
+   CABEÇALHO DO CARD
+========================================================= */
+
+.card-header{
+
+    position:relative;
+
+    display:flex;
+    align-items:flex-start;
+
+    gap:15px;
+
+    margin-bottom:21px;
+}
+
+.card-icon{
+
+    flex:none;
+
+    width:46px;
+    height:46px;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:15px;
+
+    background:
+        rgba(255,182,193,.09);
+
+    border:
+        1px solid
+        rgba(255,182,193,.12);
+
+    color:#ffb6c1;
+
+    font-size:20px;
+}
+
+.card-heading h2{
+
+    font-size:20px;
+
+    line-height:1.2;
+
+    letter-spacing:-.5px;
+}
+
+.card-heading small{
 
     display:block;
 
-    transition:
-        transform .5s ease,
-        filter .5s ease;
+    margin-top:4px;
+
+    color:#66666b;
+
+    font-size:10px;
+
+    letter-spacing:.5px;
 }
+
+
+/* =========================================================
+   TEXTO
+========================================================= */
+
+.about-text{
+
+    position:relative;
+
+    padding:19px 0 5px;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.055);
+}
+
+.about-text p{
+
+    color:#b1b1b5;
+
+    font-size:14px;
+
+    line-height:1.75;
+
+}
+
+.about-text p::first-line{
+    color:#ddd;
+}
+
+
+/* =========================================================
+   PROVA
+========================================================= */
+
+.proof-section{
+
+    margin-top:30px;
+}
+
+.proof-title{
+
+    display:flex;
+    align-items:center;
+
+    gap:10px;
+
+    margin-bottom:13px;
+}
+
+.proof-title span{
+
+    color:#fff;
+
+    font-size:15px;
+
+    font-weight:700;
+}
+
+.proof-title::after{
+
+    content:"";
+
+    flex:1;
+
+    height:1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.10),
+            transparent
+        );
+}
+
+
+/* =========================================================
+   IMAGEM
+========================================================= */
+
+.proof-frame{
+
+    position:relative;
+
+    overflow:hidden;
+
+    width:100%;
+
+    border-radius:21px;
+
+    background:#050505;
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    box-shadow:
+        inset 0 0 0 1px rgba(255,255,255,.015),
+        0 18px 45px rgba(0,0,0,.45);
+}
+
+.proof-frame::before{
+
+    content:"";
+
+    position:absolute;
+
+    z-index:2;
+
+    top:0;
+    left:0;
+    right:0;
+
+    height:45px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0,0,0,.18),
+            transparent
+        );
+
+    pointer-events:none;
+}
+
+.proof-frame img{
+
+    display:block;
+
+    width:100%;
+    height:auto;
+
+    max-height:700px;
+
+    object-fit:contain;
+
+    background:#050505;
+
+    transition:
+        transform .45s cubic-bezier(.2,.8,.2,1);
+}
+
+.proof-frame:active img{
+
+    transform:scale(.985);
+}
+
+
+/* =========================================================
+   SEGUNDO CARD
+========================================================= */
+
+.contact-card{
+
+    margin-top:14px;
+
+    position:relative;
+
+    padding:24px 28px;
+
+    border-radius:25px;
+
+    background:#0d0d0d;
+
+    border:
+        1px solid
+        rgba(255,255,255,.065);
+
+    overflow:hidden;
+}
+
+.contact-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    right:-70px;
+    top:-70px;
+
+    width:150px;
+    height:150px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,182,193,.10),
+            transparent 70%
+        );
+
+    pointer-events:none;
+}
+
+.contact-heading{
+
+    display:flex;
+    align-items:center;
+
+    gap:12px;
+
+    margin-bottom:13px;
+}
+
+.contact-icon{
+
+    width:40px;
+    height:40px;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:13px;
+
+    background:#171717;
+
+    border:
+        1px solid
+        rgba(255,255,255,.07);
+
+    font-size:17px;
+}
+
+.contact-heading h2{
+
+    font-size:17px;
+
+    line-height:1.3;
+
+    letter-spacing:-.3px;
+}
+
+.contact-card p{
+
+    color:#818186;
+
+    font-size:13px;
+
+    line-height:1.7;
+}
+
+
+/* =========================================================
+   RODAPÉ
+========================================================= */
+
+.footer{
+
+    padding:28px 0 10px;
+
+    text-align:center;
+
+    color:#3f3f43;
+
+    font-size:10px;
+
+    letter-spacing:.7px;
+}
+
+
+/* =========================================================
+   HOVER — APENAS DESKTOP
+========================================================= */
+
+@media (hover:hover){
+
+    .profile-card,
+    .contact-card{
+
+        transition:
+            border-color .25s ease,
+            box-shadow .25s ease;
+
+    }
+
+    .profile-card:hover{
+
+        border-color:
+            rgba(255,255,255,.11);
+
+        box-shadow:
+            0 30px 80px rgba(0,0,0,.55);
+
+    }
+
+    .contact-card:hover{
+
+        border-color:
+            rgba(255,255,255,.10);
+
+    }
+
+    .proof-frame:hover img{
+
+        transform:scale(1.012);
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:600px){
+
+    .app{
+
+        padding-left:5%;
+        padding-right:5%;
+
+    }
+
+    .topbar{
+
+        height:64px;
+
+    }
+
+    .page-heading{
+
+        padding:
+            20px 0
+            24px;
+
+    }
+
+    .page-heading h1{
+
+        font-size:36px;
+
+        letter-spacing:-1.5px;
+
+    }
+
+    .profile-card{
+
+        padding:21px;
+
+        border-radius:25px;
+
+    }
+
+    .card-heading h2{
+
+        font-size:18px;
+
+    }
+
+    .about-text p{
+
+        font-size:13.5px;
+
+    }
+
+    .proof-section{
+
+        margin-top:25px;
+
+    }
+
+    .proof-frame{
+
+        border-radius:17px;
+
+    }
+
+    .contact-card{
+
+        padding:21px;
+
+        border-radius:21px;
+
+    }
+
+}
+
+
+/* =========================================================
+   TELAS MUITO PEQUENAS
+========================================================= */
+
+@media(max-width:370px){
+
+    .profile-card{
+
+        padding:18px;
+
+    }
+
+    .card-header{
+
+        gap:11px;
+
+    }
+
+    .card-icon{
+
+        width:42px;
+        height:42px;
+
+    }
+
+    .page-heading h1{
+
+        font-size:32px;
+
+    }
+
+}
+
+
+/* =========================================================
+   REDUÇÃO DE MOVIMENTO
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    *,
+    *::before,
+    *::after{
+
+        animation:none !important;
+        transition:none !important;
+
+    }
+
+}
+
 </style>
 </head>
 
+
 <body>
 
-<section id="sobre">
+<main class="app">
 
-<div class="card">
-    <h2>Sobre mim:</h2>
-    <p>Sou autista nível 1, criei esse projeto aos 15 anos e sim... sou um menino lindinho 😎</p>
 
-<br>
-<p style="font-size: 25px; margin-left: 32.5%;">Prova:</p>
-<br>
-    <div class="card" style="padding: 0%;">
-        <img src="prova.png" alt="Print 1">
+    <!-- APP BAR -->
+
+    <div class="topbar">
+
+        <div class="topbar-left">
+
+
+
+            <div>
+
+                <div class="topbar-title">
+                    Sobre Mim
+                </div>
+
+                <div class="topbar-subtitle">
+                    Mulher Amparada
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="topbar-line"></div>
+
     </div>
 
-</div>
 
-<div class="card">
-    <h2>Minha idade e e-mail para contato:</h2>
-    <p>NÃO VOU RELEVAR MINHA IDADE OFICIAL!, BEM COMO MEU E-MAIL OFICIAL!</p>
-</div>
-</section>
+    <!-- TÍTULO -->
+
+    <header class="page-heading">
+
+        <div class="eyebrow">
+            Perfil
+        </div>
+
+        <h1>
+            Sobre <span>mim</span>
+        </h1>
+
+    </header>
+
+
+    <!-- SOBRE MIM -->
+
+    <section class="profile-card">
+
+
+        <div class="card-header">
+
+            <div class="card-icon">
+                ✦
+            </div>
+
+            <div class="card-heading">
+
+                <h2>
+                    Sobre mim:
+                </h2>
+
+                <small>
+                    UM POUCO SOBRE O CRIADOR
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <div class="about-text">
+
+            <p>
+                Sou autista nível 1, criei esse projeto aos 15 anos e sim... sou um menino lindinho 😎
+            </p>
+
+        </div>
+
+
+        <!-- PROVA -->
+
+        <div class="proof-section">
+
+            <div class="proof-title">
+
+                <span>
+                    Prova:
+                </span>
+
+            </div>
+
+
+            <div class="proof-frame">
+
+                <img
+                    src="prova.png"
+                    alt="Print 1"
+                >
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+    <!-- IDADE / E-MAIL -->
+
+    <section class="contact-card">
+
+        <div class="contact-heading">
+
+            <div class="contact-icon">
+                •••
+            </div>
+
+            <h2>
+                Minha idade e e-mail para contato:
+            </h2>
+
+        </div>
+
+
+        <p>
+            NÃO VOU RELEVAR MINHA IDADE OFICIAL!, BEM COMO MEU E-MAIL OFICIAL!
+        </p>
+
+    </section>
+
+
+    <footer class="footer">
+        Mulher Amparada
+    </footer>
+
+
+</main>
 
 </body>
 </html>
