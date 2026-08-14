@@ -1,10 +1,18 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Sobre Mim</title>
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+>
+
+<meta name="theme-color" content="#000000">
+
+<title>Mulher-Amparada</title>
 
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -12,165 +20,1004 @@
 
 <style>
 
-@font-face{
-    font-family:"Quicksand";
-    src:url("font.ttf") format("truetype");
+/* =========================================================
+   FONTE
+========================================================= */
+
+@font-face {
+    font-family: "Quicksand";
+    src: url("font.ttf") format("truetype");
+    font-display: swap;
 }
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:"Quicksand",sans-serif;
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Quicksand", sans-serif;
 }
 
-html{
-    scroll-behavior:smooth;
+html {
+    scroll-behavior: smooth;
 }
 
-body{
-    background:#050505;
-    color:#fff;
-    overflow-x:hidden;
-display: flex;
-align-items: center;
-flex-direction: column;
+body {
+    min-height: 100vh;
+    background: #000;
+    color: #fff;
+    overflow-x: hidden;
+
+    -webkit-tap-highlight-color: transparent;
 }
 
-header{
-    min-height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:30px;
+
+/* =========================================================
+   APP
+========================================================= */
+
+.app {
+    width: 100%;
+    max-width: 760px;
+    margin: auto;
+
+    min-height: 100vh;
+
+    padding:
+        env(safe-area-inset-top)
+        0
+        calc(90px + env(safe-area-inset-bottom));
+}
+
+
+/* =========================================================
+   TOPO
+========================================================= */
+
+.topbar {
+
+    width: 100%;
+
+    padding: 20px 20px 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: sticky;
+    top: 0;
+    z-index: 20;
+
+    background: rgba(0,0,0,.88);
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border-bottom: 1px solid rgba(255,255,255,.06);
+}
+
+
+.brand {
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+
+.brand-icon {
+
+    width: 44px;
+    height: 44px;
+
+    border-radius: 14px;
+
+    overflow: hidden;
+
+    background: #111;
+
+    border: 1px solid rgba(255,255,255,.1);
+
+    flex-shrink: 0;
+}
+
+
+.brand-icon img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+.brand-text {
+
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+
+.brand-title {
+
+    font-size: 16px;
+    font-weight: 800;
+
+    color: #fff;
+}
+
+
+.brand-subtitle {
+
+    font-size: 11px;
+
+    color: #777;
+
+    letter-spacing: .4px;
+}
+
+
+.menu-icon {
+
+    width: 42px;
+    height: 42px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #111;
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    font-size: 19px;
+
+    color: #aaa;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+
+    padding: 55px 22px 35px;
+}
+
+
+.hero-label {
+
+    display: inline-flex;
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 8px 12px;
+
+    border-radius: 999px;
+
+    background: rgba(255,182,193,.08);
+
+    border: 1px solid rgba(255,182,193,.14);
+
+    color: #ffb6c1;
+
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 20px;
+}
+
+
+.hero-label::before {
+
+    content: "";
+
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #ffb6c1;
+
+    box-shadow: 0 0 12px #ffb6c1;
+}
+
+
+.hero h1 {
+
+    font-size: clamp(34px, 9vw, 58px);
+
+    line-height: 1.05;
+
+    letter-spacing: -1.8px;
+
+    margin-bottom: 20px;
+
+    font-weight: 800;
+}
+
+
+.hero h1 strong {
+
+    color: #ffb6c1;
+
+}
+
+
+.hero-description {
+
+    max-width: 580px;
+
+    color: #999;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   CONTEÚDO
+========================================================= */
+
+.content {
+
+    padding: 15px 18px 0;
+}
+
+
+.section-heading {
+
+    padding: 15px 4px 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.section-heading h2 {
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    color: #fff;
+
+    letter-spacing: .3px;
+}
+
+
+.section-heading span {
+
+    font-size: 11px;
+
+    color: #555;
+}
+
+
+/* =========================================================
+   FRASE
+========================================================= */
+
+.statement {
+
+    margin: 0 0 30px;
+
+    padding: 22px;
+
+    border-radius: 22px;
+
     background:
-    #000;
-width: 90%;
+        linear-gradient(
+            145deg,
+            #111,
+            #090909
+        );
+
+    border: 1px solid rgba(255,255,255,.07);
+
+    position: relative;
+
+    overflow: hidden;
 }
 
-header h1{
-    font-size:30px;
-    line-height:1.4;
-    margin-bottom:25px;
+
+.statement::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+    width: 3px;
+
+    background: #ffb6c1;
 }
 
-header p{
-    max-width:650px;
-    font-size:19px;
-    color:#d6d6d6;
-    line-height:1.8;
+
+.statement p {
+
+    color: #d5d5d5;
+
+    font-size: 15px;
+
+    line-height: 1.8;
 }
 
-.btn{
-    margin-top:40px;
-    padding:16px 38px;
-    border:none;
-    border-radius:18px;
-    background:#ffb6c1;
-    color:#000;
-    font-size:17px;
-    font-weight:bold;
-    cursor:pointer;
-    transition:.3s;
+
+.statement strong {
+
+    color: #ffb6c1;
 }
 
-.btn:hover{
-    transform:translateY(-5px);
-    box-shadow:0 15px 35px rgba(255,182,193,.35);
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+.cards {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
 }
 
-section{
-    width:min(950px,92%);
-    margin:auto;
-    padding:70px 0;
+
+.card {
+
+    width: 100%;
+
+    min-height: 88px;
+
+    padding: 16px 17px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    border-radius: 21px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #121212,
+            #0b0b0b
+        );
+
+    border: 1px solid rgba(255,255,255,.07);
+
+    color: white;
+
+    cursor: pointer;
+
+    text-align: left;
+
+    transition:
+        transform .18s ease,
+        border-color .18s ease,
+        background .18s ease;
 }
 
-.intro{
-    text-align:center;
-    font-size:19px;
-    margin-bottom:45px;
-    color:#e8e8e8;
-    line-height:1.8;
+
+.card:active {
+
+    transform: scale(.975);
+
+    background: #151515;
 }
 
-.card{
-    background:#111;
-    border:1px solid #222;
-    border-radius:22px;
-    padding:28px;
-    margin-bottom:22px;
-    cursor:pointer;
-    transition:.3s;
-width: 90%;
-margin-left: 5%;
+
+.card-icon {
+
+    width: 52px;
+    height: 52px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 17px;
+
+    background: rgba(255,255,255,.055);
+
+    border: 1px solid rgba(255,255,255,.06);
+
+    font-size: 23px;
 }
 
-.card:hover{
-    transform:translateY(-6px);
-    border-color:#ffb6c1;
-    box-shadow:0 15px 35px rgba(255,182,193,.15);
+
+.card-content {
+
+    flex: 1;
+
+    min-width: 0;
 }
 
-.card h2{
-    color:#ffb6c1;
-    font-size:24px;
+
+.card-title {
+
+    font-size: 15px;
+
+    font-weight: 800;
+
+    line-height: 1.35;
+
+    color: #f5f5f5;
 }
 
-footer{
-    text-align:center;
-    padding:40px;
-    color:#777;
-    font-size:14px;
+
+.card-description {
+
+    margin-top: 4px;
+
+    color: #666;
+
+    font-size: 11px;
+
+    line-height: 1.4;
+}
+
+
+.card-arrow {
+
+    color: #555;
+
+    font-size: 25px;
+
+    font-weight: 300;
+
+    transition: .2s;
+}
+
+
+.card:hover {
+
+    border-color: rgba(255,182,193,.22);
+
+    background:
+        linear-gradient(
+            145deg,
+            #151515,
+            #0d0d0d
+        );
+}
+
+
+.card:hover .card-arrow {
+
+    color: #ffb6c1;
+
+    transform: translateX(3px);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+
+    margin-top: 45px;
+
+    padding: 0 20px;
+
+    text-align: center;
+
+    color: #444;
+
+    font-size: 11px;
+
+    letter-spacing: .5px;
+}
+
+
+.footer-line {
+
+    width: 35px;
+    height: 2px;
+
+    margin: 0 auto 14px;
+
+    border-radius: 99px;
+
+    background: #252525;
+}
+
+
+/* =========================================================
+   NAVEGAÇÃO INFERIOR
+========================================================= */
+
+.bottom-nav {
+
+    position: fixed;
+
+    left: 50%;
+    bottom: 0;
+
+    transform: translateX(-50%);
+
+    width: 100%;
+    max-width: 760px;
+
+    padding:
+        10px
+        18px
+        calc(10px + env(safe-area-inset-bottom));
+
+    z-index: 50;
+
+    background: rgba(5,5,5,.92);
+
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+
+    border-top: 1px solid rgba(255,255,255,.07);
+}
+
+
+.nav-inner {
+
+    display: flex;
+
+    justify-content: center;
+}
+
+
+.nav-item {
+
+    min-width: 90px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 4px;
+
+    color: #555;
+
+    font-size: 10px;
+
+    font-weight: 700;
+}
+
+
+.nav-item.active {
+
+    color: #ffb6c1;
+}
+
+
+.nav-icon {
+
+    font-size: 20px;
+
+    line-height: 1;
+}
+
+
+/* =========================================================
+   DESKTOP
+========================================================= */
+
+@media (min-width: 700px) {
+
+    body {
+
+        background:
+            radial-gradient(
+                circle at 50% 0%,
+                rgba(255,182,193,.055),
+                transparent 35%
+            ),
+            #000;
+    }
+
+    .hero {
+
+        padding-left: 28px;
+        padding-right: 28px;
+    }
+
+    .content {
+
+        padding-left: 28px;
+        padding-right: 28px;
+    }
+
+    .card:hover {
+
+        transform: translateY(-2px);
+    }
+}
+
+
+/* =========================================================
+   ANIMAÇÕES
+========================================================= */
+
+@keyframes appear {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(15px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+
+.hero,
+.statement,
+.card {
+
+    animation: appear .55s ease both;
+}
+
+
+.card:nth-child(2) {
+    animation-delay: .05s;
+}
+
+
+.card:nth-child(3) {
+    animation-delay: .10s;
+}
+
+
+.card:nth-child(4) {
+    animation-delay: .15s;
+}
+
+
+/* =========================================================
+   ACESSIBILIDADE
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation: none !important;
+
+        transition: none !important;
+
+        scroll-behavior: auto !important;
+    }
 }
 
 </style>
+
 </head>
+
 
 <body>
 
-<header>
 
-<h1>
-Olá, eu sou o usuário do GitHub:<br><br>
-<strong>Mulher-Amparada</strong> 👋
-</h1>
+<div class="app">
 
-<p>
-Um projeto criado com dedicação, propósito e tecnologia para ajudar e proteger mulheres.
-</p>
 
-<button class="btn"
-onclick="document.getElementById('sobre').scrollIntoView({behavior:'smooth'})">
-Explorar
-</button>
+    <!-- =====================================================
+         TOPO
+    ====================================================== -->
 
-</header>
+    <header class="topbar">
 
-<section id="sobre">
+        <div class="brand">
 
-<p class="intro">
-Uma das minhas ideias <br> é que o crime de feminicídio deveria ser inafiançável.
-</p>
+            <div class="brand-icon">
 
-<div class="card" onclick="location.href='avaliar.html'">
-<h2>🍽️ Avaliações de restaurantes</h2>
+                <img
+                    src="user1.png"
+                    alt="Mulher Amparada"
+                >
+
+            </div>
+
+            <div class="brand-text">
+
+                <div class="brand-title">
+                    muher-amparada
+                </div>
+
+                <div class="brand-subtitle">
+                    Projeto independente
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="menu-icon">
+            ⋯
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+    <section class="hero">
+
+        <div class="hero-label">
+            Sobre o projeto
+        </div>
+
+
+        <h1>
+
+            Olá, eu sou o usuário do GitHub:
+
+            <br>
+
+            <strong>Mulher-Amparada</strong> 👋
+
+        </h1>
+
+
+        <p class="hero-description">
+
+            Um projeto criado com dedicação,
+            propósito e tecnologia para ajudar
+            e proteger mulheres.
+
+        </p>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main class="content">
+
+
+        <div class="section-heading">
+
+            <h2>
+                UMA DAS MINHAS IDEIAS
+            </h2>
+
+            <span>
+                01
+            </span>
+
+        </div>
+
+
+        <!-- FRASE ORIGINAL -->
+
+        <div class="statement">
+
+            <p>
+
+                Uma das minhas ideias é que o
+                <strong>crime de feminicídio</strong>
+                deveria ser inafiançável.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="section-heading">
+
+            <h2>
+                SOBRE O DESENVOLVEDOR
+            </h2>
+
+            <span>
+                MENU
+            </span>
+
+        </div>
+
+
+
+        <!-- CARDS -->
+
+        <div class="cards">
+
+
+            <div
+                class="card"
+                onclick="abrirPagina('avaliar.html')"
+            >
+
+                <div class="card-icon">
+                    🍽️
+                </div>
+
+                <div class="card-content">
+
+                    <div class="card-title">
+                        Avaliações de restaurantes
+                    </div>
+
+                    <div class="card-description">
+                        Minhas avaliações e experiências.
+                    </div>
+
+                </div>
+
+                <div class="card-arrow">
+                    ›
+                </div>
+
+            </div>
+
+
+
+            <div
+                class="card"
+                onclick="abrirPagina('trabalhar.html')"
+            >
+
+                <div class="card-icon">
+                    💼
+                </div>
+
+                <div class="card-content">
+
+                    <div class="card-title">
+                        Trabalhos que tenho admiração
+                    </div>
+
+                    <div class="card-description">
+                        Projetos e trabalhos que admiro.
+                    </div>
+
+                </div>
+
+                <div class="card-arrow">
+                    ›
+                </div>
+
+            </div>
+
+
+
+            <div
+                class="card"
+                onclick="abrirPagina('gerenciador de arquivos.html')"
+            >
+
+                <div class="card-icon">
+                    📂
+                </div>
+
+                <div class="card-content">
+
+                    <div class="card-title">
+                        O que aconteceu com o projeto em 29/06/2026
+                    </div>
+
+                    <div class="card-description">
+                        Um acontecimento importante durante o desenvolvimento.
+                    </div>
+
+                </div>
+
+                <div class="card-arrow">
+                    ›
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         RODAPÉ
+    ====================================================== -->
+
+    <footer>
+
+        <div class="footer-line"></div>
+
+        © 2026 • Mulher-Amparada
+
+    </footer>
+
+
+
 </div>
 
-<div class="card" onclick="location.href='trabalhar.html'">
-<h2>💼 Trabalhos que tenho admiração</h2>
-</div>
 
-<div class="card" onclick="location.href='gerenciador de arquivos.html'">
-<h2>📂 O que aconteceu com o projeto em 29/06/2026</h2>
-</div>
 
-</section>
+<!-- =========================================================
+     NAVEGAÇÃO
+========================================================= -->
 
-<footer>
-© 2026 • Mulher-Amparada
-</footer>
+<nav class="bottom-nav">
+
+    <div class="nav-inner">
+
+        <div class="nav-item active">
+
+            <div class="nav-icon">
+                ⌂
+            </div>
+
+            Início
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<script>
+
+/* =========================================================
+   NAVEGAÇÃO
+========================================================= */
+
+function abrirPagina(pagina) {
+
+    document.body.style.opacity = "0.85";
+
+    document.body.style.transition = "opacity .15s ease";
+
+    setTimeout(function() {
+
+        window.location.href = pagina;
+
+    }, 150);
+
+}
+
+</script>
+
 
 </body>
+
 </html>
