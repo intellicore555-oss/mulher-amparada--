@@ -54,6 +54,8 @@ Um fato curioso que já cantei um corinho de fogo (literalmente em grego), e pro
 
 16. e para quem faz provas: leia o enunciado antes do texto
 
+17. e pra quem joga o jogo fluffly fall, fica muito mais divertido jogar ele com alguma música!
+
 # Sofrimento do desenvolvedor:
 
 Escola 1:
@@ -778,3 +780,14 @@ entao tem que fazer: ex: modo focada + cacadora de bugs, ou crianca + focada, nu
 
 honestamente, se a função de proteção por som tiver ativada, eu testei as 05:35 PM em 04/08/2026, e realmente existe a chance de por causa do agressor tacar o celular, ele ligar de fato!
 
+# Sobre o que acho dos vendedores de loja física que já vi (lembrando que só os que tive contato...):
+
+compro fone, quebra em menos de 2 meses
+
+quando algo quebra e queto devolver, vocês ficam grossos!
+
+vocês cobram o dobro ou ate o triplo do preço!
+
+agora, no dia 14.08.2026, um cara me vende um cabo otg o dobro do preço que já veio quebrado de fábrica!
+
+ENTÃO, SINTO MUITO, VOCÊS PERDERAM UM CLIENTE VALIOSO!
