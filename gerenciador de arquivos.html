@@ -1,259 +1,1036 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Sobre Mim</title>
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+>
+
+<meta name="theme-color" content="#050505">
 
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 
+<title>29/06/2026 • Mulher Amparada</title>
+
+
 <style>
-@font-face {
-  font-family: "Quicksand";
-  src: url("font.ttf") format("truetype");
+
+@font-face{
+    font-family:"Quicksand";
+    src:url("font.ttf") format("truetype");
+    font-display:swap;
 }
 
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Quicksand', sans-serif;
-    }
 
-    html {
-        scroll-behavior: smooth;
-    }
+/* =========================================================
+   RESET
+========================================================= */
 
-    body {
-        min-height: 100vh;
-        color: #fff;
-        background: black;
-        background-size: 400% 400%;
-        animation: bgMove 10s ease infinite;
-        overflow-x: hidden;
-    }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 
-    @keyframes bgMove {
-        0% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
-    }
+    font-family:"Quicksand",sans-serif;
 
-    header {
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        padding: 20px;
-    }
-
-    header h1 {
-        font-size: 42px;
-        font-weight: 700;
-        letter-spacing: 1px;
-        margin-bottom: 12px;
-    }
-
-    header p {
-        font-size: 18px;
-        opacity: 0.8;
-        max-width: 500px;
-    }
-
-    .btn {
-        margin-top: 25px;
-        padding: 14px 30px;
-        background: rgba(255, 192, 203, 0.15);
-        color: #fff;
-        border: 1px solid rgba(255,255,255,0.2);
-        border-radius: 14px;
-        cursor: pointer;
-        font-weight: 600;
-        transition: 0.3s ease;
-        backdrop-filter: blur(12px);
-    }
-
-    .btn:hover {
-        transform: translateY(-4px) scale(1.02);
-        border-color: #fff;
-        box-shadow: 0 15px 35px rgba(0,0,0,0.4);
-    }
-
-    section {
-        padding: 80px 20px;
-        max-width: 900px;
-        margin: auto;
-    }
-
-    .card {
-        background: rgba(255, 255, 255, 0.06);
-        border: 1px solid rgba(255,255,255,0.1);
-
-        border-radius: 18px;
-        margin-bottom: 20px;
-        transition: 0.3s ease;
-        backdrop-filter: blur(12px);
-        box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-    }
-
-    .card:hover {
-        transform: translateY(-6px);
-        border-color: rgba(255,255,255,0.25);
-        box-shadow: 0 20px 45px rgba(0,0,0,0.6);
-    }
-
-    .card h2 {
-        margin-bottom: 10px;
-        font-size: 24px;
-        color: #ffb6c1;
-    }
-
-    .card p {
-        opacity: 0.85;
-        line-height: 1.7;
-    }
-
-    footer {
-        text-align: center;
-        padding: 40px;
-        opacity: 0.5;
-        font-size: 14px;
-    }
-
-.hub-buttons{
-    width:100%;
-    max-width:500px;
-    display:flex;
-    flex-direction:column;
-    gap:20px;
-background: rgba(255, 255, 255, 0.06);
-        border: 1px solid rgba(255,255,255,0.1);
-        padding: 26px;
-        border-radius: 18px;
-        margin-bottom: 20px;
-        transition: 0.3s ease;
-        backdrop-filter: blur(12px);
-        box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    -webkit-tap-highlight-color:transparent;
 }
 
-    .hub-buttons:hover {
-        transform: translateY(-6px);
-        border-color: rgba(255,255,255,0.25);
-        box-shadow: 0 20px 45px rgba(0,0,0,0.6);
-    }
+html{
+    background:#050505;
+    color-scheme:dark;
 
-   .hub-buttons h2 {
-        margin-bottom: 10px;
-        font-size: 24px;
-        color: #ffb6c1;
-    }
-
-.hub-btn{
-    width:100%;
-    padding:22px;
-    border-radius:202px;
-    text-decoration:none;
-    font-family:'Quicksand',sans-serif;
-    font-size:1.1rem;
-    font-weight:700;
-    text-align:center;
-    color:white;
-
-    background: rgba(255, 192, 203, 0.15);
-
-
-border: 1px solid rgba(255,255,255,0.2);
-    transition:
-    transform .25s ease,
-    box-shadow .25s ease,
-    opacity .25s ease;
+    scroll-behavior:smooth;
 }
 
-.hub-btn:hover{
-        transform: translateY(-4px) scale(1.02);
-        border-color: #fff;
-        box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+body{
+    min-height:100dvh;
 
+    background:#050505;
 
-}
-
-.hub-btn:active{
-    transform:scale(.98);
-    opacity:.9;
-}
-
-.eu-btn{
-    width:90%;
-    height:56px;
-    border:none;
-    border-radius:18px;
-    background:#111;
     color:#fff;
-    font-size:16px;
-    font-weight:700;
-    cursor:pointer;
-    transition:.25s;
-    margin-bottom:30px;
-    border:1px solid rgba(255,255,255,.08);
-left: 5%;
-margin-top: 5%;
-position: relative;
+
+    overflow-x:hidden;
+
+    -webkit-font-smoothing:antialiased;
 }
 
-.card{
-    position: relative;
-    overflow: hidden;
-    border-radius: 28px;
-    background: #0d0d0d;
-    padding: 26px;
-    border: 1px solid rgba(255,255,255,.08);
-    width: 90%;
-    margin: 20px auto;
-    transition:
-        transform .4s ease,
-        box-shadow .4s ease;
+
+/* =========================================================
+   LUZ DE FUNDO
+========================================================= */
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    z-index:-1;
+
+    width:500px;
+    height:500px;
+
+    top:-330px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,105,170,.13),
+            transparent 68%
+        );
+
+    filter:blur(20px);
+
+    pointer-events:none;
 }
 
-.card:hover{
-    transform: translateY(-10px) scale(1.0);
-    box-shadow: 0 25px 60px rgba(255,255,255,.08);
+body::after{
+
+    content:"";
+
+    position:fixed;
+
+    z-index:-1;
+
+    width:420px;
+    height:420px;
+
+    right:-300px;
+    bottom:-250px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(155,90,245,.10),
+            transparent 70%
+        );
+
+    filter:blur(25px);
+
+    pointer-events:none;
 }
 
-.card img{
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.container{
+
     width:100%;
-    
+
+    max-width:760px;
+
+    margin:0 auto;
+
+    padding:
+        calc(18px + env(safe-area-inset-top))
+        5%
+        calc(40px + env(safe-area-inset-bottom));
+
+}
+
+
+/* =========================================================
+   TOPO
+========================================================= */
+
+.topbar{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    margin-bottom:22px;
+
+}
+
+.brand{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+.brand-icon{
+
+    width:40px;
+    height:40px;
+
+    display:grid;
+
+    place-items:center;
+
+    border-radius:13px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ff78ae,
+            #9855f4
+        );
+
+    box-shadow:
+        0 8px 25px
+        rgba(190,80,160,.18);
+
+    font-size:18px;
+
+}
+
+.brand-name{
+
+    color:#dedee1;
+
+    font-size:14px;
+
+    font-weight:800;
+
+}
+
+.brand-sub{
+
+    margin-top:2px;
+
+    color:#55555c;
+
+    font-size:9px;
+
+    letter-spacing:1px;
+
+    text-transform:uppercase;
+
+}
+
+
+/* =========================================================
+   BOTÃO VOLTAR
+========================================================= */
+
+.back{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:6px;
+
+    padding:9px 12px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.07);
+
+    border-radius:12px;
+
+    background:#101010;
+
+    color:#88888f;
+
+    font-family:inherit;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    text-decoration:none;
+
+    transition:.18s ease;
+
+}
+
+.back span{
+
+    font-size:18px;
+
+    line-height:10px;
+
+}
+
+.back:hover{
+
+    color:#fff;
+
+    border-color:
+        rgba(255,255,255,.15);
+
+    background:#151515;
+
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+
+    position:relative;
+
+    overflow:hidden;
+
+    padding:27px 23px 25px;
+
+    border-radius:26px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #151515,
+            #0b0b0b
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,.07);
+
+    box-shadow:
+        0 20px 55px
+        rgba(0,0,0,.42);
+
+    margin-bottom:12px;
+
+}
+
+.hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:230px;
+    height:230px;
+
+    top:-160px;
+    right:-90px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,110,174,.17),
+            transparent 68%
+        );
+
+    filter:blur(8px);
+
+}
+
+.eyebrow{
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    margin-bottom:11px;
+
+    color:#6b6b72;
+
+    font-size:9px;
+
+    font-weight:800;
+
+    letter-spacing:1.5px;
+
+    text-transform:uppercase;
+
+}
+
+.eyebrow i{
+
+    width:6px;
+    height:6px;
+
+    border-radius:50%;
+
+    background:#ff79b0;
+
+    box-shadow:
+        0 0 12px
+        rgba(255,121,176,.65);
+
+}
+
+.hero h1{
+
+    position:relative;
+
+    font-size:
+        clamp(
+            29px,
+            7vw,
+            42px
+        );
+
+    line-height:1.05;
+
+    letter-spacing:-1.5px;
+
+    font-weight:800;
+
+}
+
+.hero h1 span{
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff91bd,
+            #c084fc
+        );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    color:transparent;
+
+}
+
+.hero p{
+
+    position:relative;
+
+    margin-top:9px;
+
+    color:#77777e;
+
+    font-size:12px;
+
+    line-height:1.6;
+
+}
+
+
+/* =========================================================
+   DATA
+========================================================= */
+
+.date-card{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:13px;
+
+    padding:15px 17px;
+
+    margin-top:12px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.055);
+
+    border-radius:18px;
+
+    background:#0d0d0d;
+
+}
+
+.date-icon{
+
+    width:42px;
+    height:42px;
+
+    flex:none;
+
+    display:grid;
+
+    place-items:center;
+
+    border-radius:13px;
+
+    background:
+        rgba(255,120,175,.08);
+
+    border:
+        1px solid
+        rgba(255,120,175,.10);
+
+    font-size:18px;
+
+}
+
+.date-label{
+
+    color:#55555c;
+
+    font-size:9px;
+
+    text-transform:uppercase;
+
+    letter-spacing:1.2px;
+
+}
+
+.date-value{
+
+    margin-top:3px;
+
+    color:#eeeef0;
+
+    font-size:14px;
+
+    font-weight:800;
+
+}
+
+
+/* =========================================================
+   HISTÓRIA
+========================================================= */
+
+.story{
+
+    margin-top:12px;
+
+    padding:22px 20px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.06);
+
+    border-radius:23px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #111111,
+            #0b0b0b
+        );
+
+    box-shadow:
+        0 15px 40px
+        rgba(0,0,0,.25);
+
+}
+
+.story-head{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin-bottom:14px;
+
+}
+
+.story-number{
+
+    width:30px;
+    height:30px;
+
+    display:grid;
+
+    place-items:center;
+
+    border-radius:10px;
+
+    background:#181818;
+
+    border:
+        1px solid
+        rgba(255,255,255,.06);
+
+    color:#ff91ba;
+
+    font-size:10px;
+
+    font-weight:800;
+
+}
+
+.story-title{
+
+    color:#dedee2;
+
+    font-size:14px;
+
+    font-weight:800;
+
+}
+
+.story p{
+
+    color:#929298;
+
+    font-size:13px;
+
+    line-height:1.75;
+
+}
+
+.story p + p{
+
+    margin-top:14px;
+
+}
+
+
+/* =========================================================
+   IMAGEM
+========================================================= */
+
+.image-label{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    margin:
+        22px
+        2px
+        9px;
+
+}
+
+.image-label strong{
+
+    color:#d4d4d8;
+
+    font-size:10px;
+
+    text-transform:uppercase;
+
+    letter-spacing:1.1px;
+
+}
+
+.image-label span{
+
+    color:#4e4e54;
+
+    font-size:9px;
+
+}
+
+
+/* imagem */
+
+.image-frame{
+
+    position:relative;
+
+    overflow:hidden;
+
+    width:100%;
+
+    border-radius:19px;
+
+    background:#080808;
+
+    border:
+        1px solid
+        rgba(255,255,255,.07);
+
+    box-shadow:
+        0 18px 45px
+        rgba(0,0,0,.35);
+
+}
+
+
+/* brilho */
+
+.image-frame::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    pointer-events:none;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,.035),
+            transparent 20%,
+            transparent 80%,
+            rgba(0,0,0,.18)
+        );
+
+}
+
+.image-frame img{
+
+    width:100%;
+
+    height:auto;
 
     min-height:25px;
 
-    object-fit:contain;
-
     display:block;
 
-    transition:
-        transform .5s ease,
-        filter .5s ease;
+    object-fit:contain;
+
 }
+
+
+/* =========================================================
+   CONSEQUÊNCIA
+========================================================= */
+
+.notice{
+
+    margin-top:12px;
+
+    padding:17px 18px;
+
+    display:flex;
+
+    gap:12px;
+
+    align-items:flex-start;
+
+    border-radius:18px;
+
+    background:
+        rgba(255,255,255,.025);
+
+    border:
+        1px solid
+        rgba(255,255,255,.055);
+
+}
+
+.notice-icon{
+
+    width:30px;
+    height:30px;
+
+    flex:none;
+
+    display:grid;
+
+    place-items:center;
+
+    border-radius:10px;
+
+    background:
+        rgba(168,85,247,.08);
+
+    color:#c084fc;
+
+    font-size:14px;
+
+}
+
+.notice p{
+
+    color:#77777e;
+
+    font-size:11px;
+
+    line-height:1.65;
+
+}
+
+
+/* =========================================================
+   RODAPÉ
+========================================================= */
+
+.footer{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:8px;
+
+    margin-top:22px;
+
+    color:#414147;
+
+    font-size:9px;
+
+    letter-spacing:1px;
+
+    text-transform:uppercase;
+
+}
+
+.footer::before,
+.footer::after{
+
+    content:"";
+
+    width:25px;
+
+    height:1px;
+
+    background:#1b1b1e;
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:420px){
+
+    .container{
+
+        padding-left:5%;
+        padding-right:5%;
+
+    }
+
+    .brand-sub{
+
+        display:none;
+
+    }
+
+    .hero{
+
+        padding:23px 19px;
+
+        border-radius:23px;
+
+    }
+
+    .hero h1{
+
+        font-size:29px;
+
+    }
+
+    .story{
+
+        padding:19px 17px;
+
+        border-radius:20px;
+
+    }
+
+}
+
+
+/* =========================================================
+   REDUÇÃO DE MOVIMENTO
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    *{
+
+        scroll-behavior:auto !important;
+        transition:none !important;
+        animation:none !important;
+
+    }
+
+}
+
 </style>
+
 </head>
+
 
 <body>
 
-<section id="sobre">
 
-<div class="card">
-    <h2>No dia 29/06/2026:</h2>
-<p>por causa desse gerenciador de arquivos aqui:</p>
-    <div class="card" style="padding: 0%;">
-            <img src="gerenciar.png" alt="Print 1">
+<main class="container">
+
+
+    <!-- TOPO -->
+
+    <div class="topbar">
+
+        <div class="brand">
+
+
+
+            <div>
+
+                <div class="brand-name">
+                    Mulher Amparada
+                </div>
+
+                <div class="brand-sub">
+                    Histórico do projeto
+                </div>
+
             </div>
-            <p>Eu cliquei sem querer no botão de excluir e perdi todos os arquivos do projeto mulher amparada, ainda bem que da para baixar em zip no github...</p>
-</section>
-</div>
+
+        </div>
+
+
+        <a
+            href="javascript:history.back()"
+            class="back"
+        >
+            <span>‹</span>
+            Voltar
+        </a>
+
+    </div>
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="eyebrow">
+
+            <i></i>
+
+            Um acontecimento do projeto
+
+        </div>
+
+        <h1>
+            O dia em que <span>tudo foi apagado</span>
+        </h1>
+
+        <p>
+            Um registro de um momento importante
+            durante o desenvolvimento do Mulher Amparada.
+        </p>
+
+    </section>
+
+
+    <!-- DATA -->
+
+    <div class="date-card">
+
+        <div class="date-icon">
+            📅
+        </div>
+
+        <div>
+
+            <div class="date-label">
+                Data do acontecimento
+            </div>
+
+            <div class="date-value">
+                29 de junho de 2026
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- HISTÓRIA -->
+
+    <article class="story">
+
+        <div class="story-head">
+
+            <div class="story-number">
+                01
+            </div>
+
+            <div class="story-title">
+                O que aconteceu?
+            </div>
+
+        </div>
+
+
+        <p>
+            Por causa desse gerenciador de arquivos aqui:
+        </p>
+
+
+        <!-- IMAGEM -->
+
+        <div class="image-label">
+
+            <strong>
+                Registro
+            </strong>
+
+            <span>
+                Gerenciador de arquivos
+            </span>
+
+        </div>
+
+
+        <div class="image-frame">
+
+            <img
+                src="gerenciar.png"
+                alt="Gerenciador de arquivos"
+            >
+
+        </div>
+
+
+        <p>
+            Eu cliquei sem querer no botão de excluir
+            e perdi todos os arquivos do projeto
+            Mulher Amparada.
+        </p>
+
+
+    </article>
+
+
+    <!-- FINAL -->
+
+    <div class="notice">
+
+        <div class="notice-icon">
+            ✓
+        </div>
+
+        <p>
+            Ainda bem que era possível baixar uma cópia
+            do projeto em formato ZIP pelo GitHub.
+        </p>
+
+    </div>
+
+
+    <footer class="footer">
+
+        Secured By • Mulher Amparada
+
+    </footer>
+
+
+</main>
+
 
 </body>
+
 </html>
