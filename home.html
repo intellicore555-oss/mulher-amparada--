@@ -1223,22 +1223,9 @@ body::after{
 
 function navigate(page){
 
-    const buttons =
-        document.querySelectorAll(".menu button");
+    if(!page) return;
 
-    buttons.forEach(button => {
-
-        button.style.pointerEvents = "none";
-
-    });
-
-    document.body.style.opacity = ".65";
-
-    setTimeout(() => {
-
-        window.location.href = page;
-
-    }, 180);
+    window.location.href = page;
 
 }
 
