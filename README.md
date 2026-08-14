@@ -7,7 +7,7 @@ O aplicativo foi pensado para funcionar como um apoio digital em momentos críti
 **Funções:**
 
 Disfarce do app (calculadora falsa!):
-tutorial: quando ele for iniciado, ele pedirá para criar uma senha (e salva em uma classe kt de criptografia), assim so acessa com a senha informada, para resetar essa senha (dê 5 toques em menos de 2 segundos, e digite como você gosta de ser chamada, e digite sua nova senha!)
+tutorial: quando ele for iniciado, ele pedirá para criar uma senha (e salva em uma classe kt de criptografia), assim so acessa com a senha informada, para resetar essa senha (dê 5 toques em menos de 2 segundos, e digite como você gosta de ser chamada, e digite sua nova senha!), mas antes dessa tela, tem outra tipo uma gaveta de apps...
 
 Botão de Pânico:
 Botão de Pânico, com ligação ao 180 de forma direta no primeiro clique.
