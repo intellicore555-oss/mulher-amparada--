@@ -1,18 +1,29 @@
-self.addEventListener('install', e => {
-  e.waitUntil(
-    caches.open('app-cache').then(cache => {
-      return cache.addAll([
-        '/',
-        '/index.html',
-      ]);
-    })
-  );
+const CACHE_NAME = "mulher-amparada-v1";
+
+const FILES = [
+    "/mulher-amparada-app/",
+    "/mulher-amparada-app/index.html",
+    "/mulher-amparada-app/manifest.json"
+];
+
+self.addEventListener("install", event => {
+    event.waitUntil(
+        caches.open(CACHE_NAME).then(cache => {
+            return cache.addAll(FILES);
+        })
+    );
+
+    self.skipWaiting();
 });
 
-self.addEventListener('fetch', e => {
-  e.respondWith(
-    caches.match(e.request).then(response => {
-      return response || fetch(e.request);
-    })
-  );
+self.addEventListener("activate", event => {
+    event.waitUntil(self.clients.claim());
+});
+
+self.addEventListener("fetch", event => {
+    event.respondWith(
+        caches.match(event.request).then(cached => {
+            return cached || fetch(event.request);
+        })
+    );
 });
