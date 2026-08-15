@@ -1,8 +1,17 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+>
+
+<meta name="theme-color" content="#000000">
+
 <title>QR Studio</title>
 
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -11,256 +20,1294 @@
 <link rel="manifest" href="/site.webmanifest">
 
 <style>
+
+/* =========================================================
+   FONTE
+========================================================= */
+
 @font-face {
-  font-family: "Quicksand";
-  src: url("font.ttf") format("truetype");
+
+    font-family: "Quicksand";
+
+    src: url("font.ttf") format("truetype");
+
+    font-display: swap;
 }
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Quicksand',sans-serif;
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
 }
 
-body{
-    background:#000;
-    color:#fff;
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
+
+/* =========================================================
+   BASE
+========================================================= */
+
+html {
+
+    scroll-behavior: smooth;
 }
 
-.app{
-    width:92%;
-    max-width:520px;
+body {
+
+    min-height: 100vh;
+
+    background: #000;
+
+    color: #fff;
+
+    font-family: "Quicksand", sans-serif;
+
+    overflow-x: hidden;
+
+    -webkit-tap-highlight-color: transparent;
+
+    animation:
+        fadeUp .55s ease both;
 }
 
-.header{
-    text-align:center;
-    margin-bottom:20px;
+
+/* =========================================================
+   ANIMAÇÃO
+========================================================= */
+
+@keyframes fadeUp {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(0);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(15px);
+    }
 }
 
-.header h1{
-    font-size:26px;
-    font-weight:700;
+
+/* =========================================================
+   FUNDO
+========================================================= */
+
+.background {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: -1;
+
+    overflow: hidden;
 }
 
-.header p{
-    color:#aaa;
-    font-size:13px;
-    margin-top:5px;
+.background::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 330px;
+
+    height: 330px;
+
+    top: -170px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,105,169,.07),
+            transparent 70%
+        );
+
+    filter: blur(30px);
 }
 
-.card{
-    
-    border-radius:16px;
-    padding:16px;
-    margin-bottom:15px;
+.background::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 240px;
+
+    height: 240px;
+
+    right: -150px;
+
+    bottom: 5%;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,105,169,.035),
+            transparent 70%
+        );
+
+    filter: blur(30px);
 }
 
-input{
-    width:100%;
-    padding:12px;
-    border-radius:10px;
-    border:1px solid #222;
-    background:#111;
-    color:#fff;
-    outline:none;
+
+/* =========================================================
+   APP
+========================================================= */
+
+.app {
+
+    width: min(100% - 30px, 560px);
+
+    margin: 0 auto;
+
+    padding:
+        calc(25px + env(safe-area-inset-top))
+        0
+        calc(35px + env(safe-area-inset-bottom));
 }
 
-.buttons{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:10px;
-    margin-top:10px;
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header {
+
+    text-align: center;
+
+    padding: 18px 0 27px;
 }
 
-button{
-    padding:12px;
-    border-radius:10px;
-    border:none;
-    cursor:pointer;
-    font-weight:600;
-    transition:.2s;
+.logo {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    margin-bottom: 12px;
+
+    color: #ff70ad;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 2.5px;
+
+    text-transform: uppercase;
 }
 
-.primary{
-    background:#fff;
-    color:#000;
+.logo::before {
+
+    content: "";
+
+    width: 5px;
+
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: #ff70ad;
+
+    box-shadow:
+        0 0 9px rgba(255,105,169,.5);
 }
 
-.dark{
-    background:#111;
-    color:#fff;
-    border:1px solid #222;
+.header h1 {
+
+    font-size: clamp(29px, 8vw, 38px);
+
+    line-height: 1;
+
+    letter-spacing: -1.4px;
+
+    font-weight: 800;
 }
 
-button:hover{
-    transform:scale(1.02);
+.header h1 span {
+
+    color: #ff70ad;
 }
 
-#qrBox{
-    display:none;
-    justify-content:center;
-    margin-top:15px;
-    padding:15px;
-    background:#fff;
-    border-radius:12px;
+.header p {
+
+    max-width: 360px;
+
+    margin: 12px auto 0;
+
+    color: #707078;
+
+    font-size: 12px;
+
+    line-height: 1.65;
 }
 
-.history{
-    max-height:200px;
-    overflow:auto;
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.card {
+
+    position: relative;
+
+    padding: 18px;
+
+    margin-bottom: 10px;
+
+    border: 1px solid rgba(255,255,255,.065);
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.045),
+            rgba(255,255,255,.012)
+        );
+
+    box-shadow:
+        0 15px 45px rgba(0,0,0,.35);
 }
 
-.item{
-    padding:10px;
-    border:1px solid #1f1f1f;
-    border-radius:10px;
-    margin-bottom:8px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    font-size:13px;
-    color:#ccc;
+
+/* =========================================================
+   LABEL
+========================================================= */
+
+.label {
+
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: #7b7b83;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.8px;
+
+    text-transform: uppercase;
 }
 
-.smallBtn{
-    background:#222;
-    color:#fff;
-    border:none;
-    padding:6px 8px;
-    border-radius:600px;
-    font-size:11px;
-    cursor:pointer;
+
+/* =========================================================
+   INPUT
+========================================================= */
+
+.input-wrap {
+
+    position: relative;
 }
 
-.footer{
-    text-align:center;
-    color:#555;
-    font-size:12px;
-    margin-top:10px;
+input {
+
+    width: 100%;
+
+    height: 52px;
+
+    padding:
+        0 15px;
+
+    border:
+        1px solid rgba(255,255,255,.08);
+
+    border-radius: 14px;
+
+    outline: none;
+
+    background: #070707;
+
+    color: #fff;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    transition:
+        border-color .2s ease,
+        background .2s ease,
+        box-shadow .2s ease;
 }
+
+input::placeholder {
+
+    color: #4f4f56;
+}
+
+input:focus {
+
+    border-color:
+        rgba(255,105,169,.38);
+
+    background: #090909;
+
+    box-shadow:
+        0 0 0 3px rgba(255,105,169,.06);
+}
+
+
+/* =========================================================
+   BOTÕES
+========================================================= */
+
+.buttons {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 8px;
+
+    margin-top: 9px;
+}
+
+button {
+
+    min-height: 45px;
+
+    border-radius: 103px;
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform .2s ease,
+        border-color .2s ease,
+        background .2s ease,
+        opacity .2s ease;
+}
+
+button:active {
+
+    transform: scale(.97);
+}
+
+.primary {
+
+    border: 1px solid #ff70ad;
+
+    background: #ff70ad;
+
+    color: #090909;
+}
+
+.primary:hover {
+
+    background: #ff82b7;
+
+    border-color: #ff82b7;
+}
+
+.dark {
+
+    border:
+        1px solid rgba(255,255,255,.08);
+
+    background: #090909;
+
+    color: #dedee2;
+}
+
+.dark:hover {
+
+    border-color:
+        rgba(255,255,255,.16);
+
+    background: #0d0d0d;
+}
+
+
+/* =========================================================
+   QR
+========================================================= */
+
+.qr-area {
+
+    display: none;
+
+    margin-top: 13px;
+
+    padding: 18px;
+
+    border:
+        1px solid rgba(255,255,255,.07);
+
+    border-radius: 17px;
+
+    background: #fff;
+
+    justify-content: center;
+
+    align-items: center;
+
+    animation:
+        qrIn .3s ease both;
+        height: 300px;
+}
+
+.qr-area.visible {
+
+    display: flex;
+}
+
+.qr-area img,
+.qr-area canvas {
+
+    width: 200px !important;
+
+    height: 200px !important;
+
+    max-width: 100%;
+}
+
+@keyframes qrIn {
+
+    from {
+
+        opacity: 0;
+
+        transform: scale(.96);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: scale(1);
+    }
+}
+
+
+/* =========================================================
+   AÇÕES DO QR
+==================================================
+======= */
+ 
+.qr-actions {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 8px;
+
+    margin-top: 9px;
+}
+
+.qr-actions button {
+
+    display: none;
+}
+
+.qr-actions.active button {
+
+    display: block;
+}
+
+
+/* =========================================================
+   HISTÓRICO
+========================================================= */
+
+.history-header {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 12px;
+}
+
+.history-header h2 {
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    color: #e7e7ea;
+}
+
+.history-count {
+
+    color: #55555c;
+
+    font-size: 10px;
+}
+
+.history {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+
+    max-height: 230px;
+
+    overflow-y: auto;
+
+    scrollbar-width: thin;
+
+    scrollbar-color:
+        #222
+        transparent;
+}
+
+.history-empty {
+
+    padding: 18px;
+
+    border:
+        1px dashed rgba(255,255,255,.07);
+
+    border-radius: 14px;
+
+    color: #4e4e55;
+
+    font-size: 11px;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   ITEM
+========================================================= */
+
+.item {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    min-width: 0;
+
+    padding: 11px;
+
+    border:
+        1px solid rgba(255,255,255,.055);
+
+    border-radius: 13px;
+
+    background: #070707;
+}
+
+.item-text {
+
+    flex: 1;
+
+    min-width: 0;
+
+    overflow: hidden;
+
+    color: #8d8d95;
+
+    font-size: 11px;
+
+    white-space: nowrap;
+
+    text-overflow: ellipsis;
+}
+
+.smallBtn {
+
+    flex-shrink: 0;
+
+    min-height: 29px;
+
+    padding: 0 11px;
+
+    border:
+        1px solid rgba(255,105,169,.15);
+
+    border-radius: 999px;
+
+    background:
+        rgba(255,105,169,.06);
+
+    color: #ff78b1;
+
+    font-size: 9px;
+}
+
+.smallBtn:hover {
+
+    border-color:
+        rgba(255,105,169,.3);
+
+    background:
+        rgba(255,105,169,.1);
+}
+
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+.toast {
+
+    position: fixed;
+
+    left: 50%;
+
+    bottom:
+        calc(20px + env(safe-area-inset-bottom));
+
+    z-index: 20;
+
+    padding: 10px 15px;
+
+    border:
+        1px solid rgba(255,255,255,.08);
+
+    border-radius: 999px;
+
+    background: rgba(15,15,15,.94);
+
+    color: #ddd;
+
+    font-size: 10px;
+
+    box-shadow:
+        0 12px 35px rgba(0,0,0,.45);
+
+    transform:
+        translate(-50%, 20px);
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        opacity .25s ease,
+        transform .25s ease;
+}
+
+.toast.show {
+
+    opacity: 1;
+
+    transform:
+        translate(-50%, 0);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer {
+
+    padding-top: 10px;
+
+    color: #3d3d44;
+
+    font-size: 9px;
+
+    letter-spacing: 1px;
+
+    text-align: center;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+
+    .app {
+
+        width: calc(100% - 26px);
+    }
+
+    .card {
+
+        padding: 15px;
+
+        border-radius: 18px;
+    }
+
+    input {
+
+        height: 50px;
+    }
+
+    .qr-area {
+
+        padding: 15px;
+    }
+
+    .qr-area img,
+    .qr-area canvas {
+
+        width: 185px !important;
+
+        height: 185px !important;
+    }
+}
+
+
+
 </style>
+
 </head>
+
 
 <body>
 
-<div class="app">
 
-    <div class="header">
-        <h1>QR Studio</h1>
-        <p>Gerador de QR Code moderno e simples</p>
-    </div>
+<div class="background"></div>
 
-    <div class="card">
-        <input id="text" placeholder="Digite link ou texto...">
 
-        <div class="buttons">
-            <button class="primary" onclick="generate()">Gerar QR</button>
-            <button class="dark" onclick="clearAll()">Limpar</button>
+<main class="app">
+
+
+    <header class="header">
+
+        <div class="logo">
+            QR Studio
         </div>
 
-        <div id="qrBox"></div>
+        <h1>
+            Crie seu <span>QR Code</span>
+        </h1>
+
+        <p>
+            Gere códigos QR rapidamente, copie o conteúdo
+            ou salve a imagem para usar onde quiser.
+        </p>
+
+    </header>
+
+
+    <!-- GERADOR -->
+
+    <section class="card">
+
+        <label
+            class="label"
+            for="text"
+        >
+            Conteúdo
+        </label>
+
+        <div class="input-wrap">
+
+            <input
+                id="text"
+                type="text"
+                autocomplete="off"
+                placeholder="Digite um link ou texto..."
+                onkeydown="handleKey(event)"
+            >
+
+        </div>
+
 
         <div class="buttons">
-            <button class="dark" onclick="downloadQR()">Baixar</button>
-            <button class="dark" onclick="copyText()">Copiar</button>
+
+            <button
+                class="primary"
+                onclick="generate()"
+            >
+                Gerar QR
+            </button>
+
+            <button
+                class="dark"
+                onclick="clearAll()"
+            >
+                Limpar
+            </button>
+
         </div>
-    </div>
 
-    <div class="card">
-        <h3 style="margin-bottom:10px;">Histórico</h3>
-        <div class="history" id="history"></div>
-    </div>
 
-   
+        <div
+            id="qrBox"
+            class="qr-area"
+        ></div>
 
-</div>
+
+        <div
+            id="qrActions"
+            class="qr-actions"
+        >
+
+            <button
+                class="dark"
+                onclick="downloadQR()"
+            >
+                Baixar QR
+            </button>
+
+            <button
+                class="dark"
+                onclick="copyText()"
+            >
+                Copiar texto
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- HISTÓRICO -->
+
+    <section class="card">
+
+        <div class="history-header">
+
+            <h2>
+                Histórico
+            </h2>
+
+            <span
+                id="historyCount"
+                class="history-count"
+            >
+                0 itens
+            </span>
+
+        </div>
+
+
+        <div
+            id="history"
+            class="history"
+        ></div>
+
+    </section>
+
+
+    <footer class="footer">
+
+        QR Studio
+
+    </footer>
+
+
+</main>
+
+
+<div
+    id="toast"
+    class="toast"
+></div>
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
+
 <script>
-let qr;
 
-function generate(){
-    let text = document.getElementById("text").value;
-    if(!text) return;
+/* =========================================================
+   ESTADO
+========================================================= */
 
-    let box = document.getElementById("qrBox");
+let qr = null;
 
-    box.innerHTML = "";
-    box.style.display = "flex"; // mostra só aqui
+const input =
+    document.getElementById("text");
 
-    qr = new QRCode(box, {
+const qrBox =
+    document.getElementById("qrBox");
+
+const qrActions =
+    document.getElementById("qrActions");
+
+const historyBox =
+    document.getElementById("history");
+
+const historyCount =
+    document.getElementById("historyCount");
+
+const toast =
+    document.getElementById("toast");
+
+
+/* =========================================================
+   GERAR
+========================================================= */
+
+function generate() {
+
+    const text =
+        input.value.trim();
+
+    if (!text) {
+
+        showToast("Digite algum conteúdo.");
+
+        input.focus();
+
+        return;
+    }
+
+
+    qrBox.innerHTML = "";
+
+    qrBox.classList.add("visible");
+
+
+    qr = new QRCode(qrBox, {
+
         text: text,
+
         width: 200,
+
         height: 200,
-        colorDark: "#000",
-        colorLight: "#fff"
+
+        colorDark: "#000000",
+
+        colorLight: "#ffffff",
+
+        correctLevel:
+            QRCode.CorrectLevel.M
+
     });
 
+
+    qrActions.classList.add("active");
+
+
     saveHistory(text);
+
+    showToast("QR Code gerado.");
 }
 
-function saveHistory(text){
-    let data = JSON.parse(localStorage.getItem("qrHistory") || "[]");
+
+/* =========================================================
+   ENTER
+========================================================= */
+
+function handleKey(event) {
+
+    if (event.key === "Enter") {
+
+        generate();
+    }
+}
+
+
+/* =========================================================
+   HISTÓRICO
+========================================================= */
+
+function getHistory() {
+
+    try {
+
+        return JSON.parse(
+            localStorage.getItem("qrHistory") || "[]"
+        );
+
+    } catch {
+
+        return [];
+    }
+}
+
+
+function saveHistory(text) {
+
+    let data =
+        getHistory();
+
+
+    data =
+        data.filter(item => item !== text);
+
+
     data.unshift(text);
-    localStorage.setItem("qrHistory", JSON.stringify(data));
+
+
+    data =
+        data.slice(0, 20);
+
+
+    localStorage.setItem(
+        "qrHistory",
+        JSON.stringify(data)
+    );
+
+
     renderHistory();
 }
 
-function renderHistory(){
-    let data = JSON.parse(localStorage.getItem("qrHistory") || "[]");
-    let box = document.getElementById("history");
-    box.innerHTML = "";
 
-    data.forEach((t) => {
-        let div = document.createElement("div");
-        div.className = "item";
+function renderHistory() {
 
-        div.innerHTML = `
-            <span>${t.length > 30 ? t.slice(0,30)+"..." : t}</span>
-            <button class="smallBtn" onclick="useItem('${t.replace(/'/g,"")}')">usar</button>
-        `;
+    const data =
+        getHistory();
 
-        box.appendChild(div);
+
+    historyBox.innerHTML = "";
+
+
+    historyCount.textContent =
+        `${data.length} ${
+            data.length === 1
+                ? "item"
+                : "itens"
+        }`;
+
+
+    if (!data.length) {
+
+        const empty =
+            document.createElement("div");
+
+        empty.className =
+            "history-empty";
+
+        empty.textContent =
+            "Os QR Codes gerados aparecerão aqui.";
+
+        historyBox.appendChild(empty);
+
+        return;
+    }
+
+
+    data.forEach(text => {
+
+        const item =
+            document.createElement("div");
+
+        item.className =
+            "item";
+
+
+        const span =
+            document.createElement("span");
+
+        span.className =
+            "item-text";
+
+        span.textContent =
+            text;
+
+
+        const button =
+            document.createElement("button");
+
+        button.className =
+            "smallBtn";
+
+        button.textContent =
+            "Usar";
+
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                input.value = text;
+
+                generate();
+
+            }
+        );
+
+
+        item.appendChild(span);
+
+        item.appendChild(button);
+
+        historyBox.appendChild(item);
+
     });
 }
 
-function useItem(text){
-    document.getElementById("text").value = text;
-    generate();
+
+/* =========================================================
+   DOWNLOAD
+========================================================= */
+
+function downloadQR() {
+
+    const canvas =
+        qrBox.querySelector("canvas");
+
+    const img =
+        qrBox.querySelector("img");
+
+
+    if (!canvas && !img) {
+
+        showToast("Gere um QR Code primeiro.");
+
+        return;
+    }
+
+
+    const link =
+        document.createElement("a");
+
+
+    if (canvas) {
+
+        link.href =
+            canvas.toDataURL("image/png");
+
+    } else {
+
+        link.href =
+            img.src;
+    }
+
+
+    link.download =
+        "qr-code.png";
+
+
+    document.body.appendChild(link);
+
+    link.click();
+
+    link.remove();
+
+
+    showToast("QR Code salvo.");
 }
 
-function downloadQR(){
-    let img = document.querySelector("#qrBox img");
-    if(!img) return;
 
-    let a = document.createElement("a");
-    a.href = img.src;
-    a.download = "qr-code.png";
-    a.click();
+/* =========================================================
+   COPIAR
+========================================================= */
+
+async function copyText() {
+
+    const text =
+        input.value.trim();
+
+
+    if (!text) {
+
+        showToast("Não há texto para copiar.");
+
+        return;
+    }
+
+
+    try {
+
+        await navigator.clipboard.writeText(text);
+
+        showToast("Texto copiado.");
+
+    } catch {
+
+        showToast(
+            "Não foi possível copiar automaticamente."
+        );
+    }
 }
 
-function copyText(){
-    let text = document.getElementById("text").value;
-    navigator.clipboard.writeText(text);
+
+/* =========================================================
+   LIMPAR
+========================================================= */
+
+function clearAll() {
+
+    input.value = "";
+
+    qrBox.innerHTML = "";
+
+    qrBox.classList.remove("visible");
+
+    qrActions.classList.remove("active");
+
+    localStorage.removeItem(
+        "qrHistory"
+    );
+
+    renderHistory();
+
+    input.focus();
+
+    showToast("Tudo foi limpo.");
 }
 
-function clearAll(){
-    localStorage.removeItem("qrHistory");
-    document.getElementById("history").innerHTML = "";
 
-    let box = document.getElementById("qrBox");
-    box.innerHTML = "";
-    box.style.display = "none";
+/* =========================================================
+   TOAST
+========================================================= */
+
+let toastTimer;
+
+
+function showToast(message) {
+
+    clearTimeout(toastTimer);
+
+
+    toast.textContent =
+        message;
+
+
+    toast.classList.add("show");
+
+
+    toastTimer =
+        setTimeout(() => {
+
+            toast.classList.remove("show");
+
+        }, 2200);
 }
+
+
+/* =========================================================
+   INICIALIZAÇÃO
+========================================================= */
 
 renderHistory();
+
 </script>
 
+
 </body>
+
 </html>

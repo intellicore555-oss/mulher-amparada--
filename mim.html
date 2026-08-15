@@ -58,74 +58,29 @@ body{
 
 
 /* =========================================================
-   FUNDO
-========================================================= */
-
-body::before{
-    content:"";
-
-    position:fixed;
-    z-index:-2;
-
-    width:500px;
-    height:500px;
-
-    top:-280px;
-    left:50%;
-
-    transform:translateX(-50%);
-
-    border-radius:50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(255,182,193,.13),
-            rgba(255,182,193,0) 68%
-        );
-
-    filter:blur(20px);
-
-    pointer-events:none;
-}
-
-body::after{
-    content:"";
-
-    position:fixed;
-    z-index:-2;
-
-    width:400px;
-    height:400px;
-
-    right:-260px;
-    bottom:-200px;
-
-    border-radius:50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(132,92,255,.08),
-            transparent 70%
-        );
-
-    filter:blur(30px);
-
-    pointer-events:none;
-}
-
-
-/* =========================================================
    APP
 ========================================================= */
+
+@keyframes fadeUp {
+
+            from {
+                opacity: 0;
+                transform: translateY(0px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(15px);
+            }
+        }
 
 .app{
     width:100%;
     max-width:760px;
 
     margin:0 auto;
-
+animation:
+                fadeUp 0.55s ease both;
     padding:
         env(safe-area-inset-top)
         5%

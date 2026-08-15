@@ -86,6 +86,20 @@ body{
    CONTAINER
 ========================================================= */
 
+@keyframes fadeUp {
+
+            from {
+                opacity: 0;
+                transform: translateY(0px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(15px);
+            }
+        }
+        
+        
 .page{
 
     position:relative;
@@ -97,7 +111,8 @@ body{
     max-width:1000px;
 
     margin:0 auto;
-
+animation:
+                fadeUp 0.55s ease both;
     padding:
         34px 0
         70px;
@@ -795,57 +810,32 @@ footer{
    ANIMAÇÕES
 ========================================================= */
 
-@keyframes appear{
-
-    from{
-
-        opacity:0;
-
-        transform:
-            translateY(25px);
-
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:
-            translateY(0);
-
-    }
-
-}
 
 
 .topbar{
 
-    animation:
-        appear .6s ease both;
+    
 
 }
 
 
 .hero{
 
-    animation:
-        appear .7s .08s ease both;
+    
 
 }
 
 
 .date-card{
 
-    animation:
-        appear .7s .16s ease both;
+    
 
 }
 
 
 .section{
 
-    animation:
-        appear .7s .24s ease both;
+    
 
 }
 
@@ -963,17 +953,6 @@ footer{
 }
 
 
-@media(prefers-reduced-motion:reduce){
-
-    *{
-
-        animation:none !important;
-
-        transition:none !important;
-
-    }
-
-}
 
 </style>
 
@@ -1029,7 +1008,7 @@ footer{
 
                 A partir do dia
                 <strong>13/08/2026</strong>,
-                o aplicativo
+                o ecossistema do
                 <strong>Mulher Amparada</strong>
                 está oficialmente finalizado.
 

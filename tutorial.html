@@ -31,7 +31,8 @@
 
 @font-face {
 
-    font-family: "Quicksand";
+    font-family:
+        "Quicksand";
 
     src:
         url("font.ttf")
@@ -51,17 +52,11 @@
     --bg:
         #050505;
 
-    --bg-2:
-        #080808;
-
     --surface:
         #0d0d0e;
 
     --surface-2:
         #111112;
-
-    --surface-3:
-        #151416;
 
     --text:
         #f8f6f7;
@@ -99,11 +94,9 @@
     --radius:
         24px;
 
-    --radius-small:
-        17px;
-
     --max:
         880px;
+
 }
 
 
@@ -117,42 +110,77 @@
 
     box-sizing:
         border-box;
+
+    margin:
+        0;
+
+    padding:
+        0;
+
 }
 
+
+/* =========================================================
+   HTML
+========================================================= */
 
 html {
 
     background:
-        var(--bg);
+        #050505;
 
     scroll-behavior:
         smooth;
+
 }
 
+
+/* =========================================================
+   FADE UP
+========================================================= */
+
+@keyframes fadeUp {
+
+    from {
+
+        opacity:
+            0;
+
+        transform:
+            translateY(0);
+
+    }
+
+    to {
+
+        opacity:
+            1;
+
+        transform:
+            translateY(15px);
+
+    }
+
+}
+
+
+/* =========================================================
+   BODY
+========================================================= */
 
 body {
 
     min-height:
         100vh;
 
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-left:
+        5%;
+
+    margin-right:
+        5%;
 
     background:
-
-        radial-gradient(
-            circle at 50% -240px,
-            rgba(255,171,201,.11),
-            transparent 470px
-        ),
-
-        radial-gradient(
-            circle at 0% 45%,
-            rgba(255,171,201,.025),
-            transparent 330px
-        ),
-
-        var(--bg);
+        #000;
 
     color:
         var(--text);
@@ -173,6 +201,13 @@ body {
 
     text-rendering:
         optimizeLegibility;
+
+    animation:
+        fadeUp
+        .55s
+        ease
+        both;
+
 }
 
 
@@ -187,6 +222,7 @@ body {
 
     color:
         #000;
+
 }
 
 
@@ -209,6 +245,7 @@ main {
         28px
         0
         100px;
+
 }
 
 
@@ -247,6 +284,7 @@ main {
 
     text-transform:
         uppercase;
+
 }
 
 
@@ -254,6 +292,7 @@ main {
 
     color:
         var(--pink-dark);
+
 }
 
 
@@ -264,8 +303,6 @@ main {
 .hero {
 
     padding:
-        28px
-        28px
         30px;
 
     margin-bottom:
@@ -290,6 +327,7 @@ main {
 
         0 24px 80px
         rgba(0,0,0,.3);
+
 }
 
 
@@ -309,8 +347,7 @@ main {
         28px;
 
     padding:
-        0
-        12px;
+        0 12px;
 
     margin-bottom:
         17px;
@@ -339,6 +376,7 @@ main {
 
     text-transform:
         uppercase;
+
 }
 
 
@@ -347,9 +385,6 @@ main {
 ========================================================= */
 
 .hero h1 {
-
-    margin:
-        0;
 
     max-width:
         760px;
@@ -372,6 +407,7 @@ main {
 
     line-height:
         .98;
+
 }
 
 
@@ -396,6 +432,7 @@ main {
 
     line-height:
         1.75;
+
 }
 
 
@@ -414,6 +451,7 @@ main {
     border-top:
         1px solid
         var(--line);
+
 }
 
 
@@ -445,6 +483,7 @@ main {
 
     text-transform:
         uppercase;
+
 }
 
 
@@ -453,8 +492,6 @@ main {
     color:
         var(--pink);
 
-    font-weight:
-        900;
 }
 
 
@@ -474,6 +511,7 @@ main {
 
     overflow:
         hidden;
+
 }
 
 
@@ -498,6 +536,7 @@ main {
 
     transition:
         width .25s ease;
+
 }
 
 
@@ -531,6 +570,7 @@ main {
 
     border-radius:
         20px;
+
 }
 
 
@@ -549,8 +589,7 @@ main {
         center;
 
     padding:
-        0
-        8px;
+        0 8px;
 
     color:
         var(--muted-2);
@@ -585,6 +624,7 @@ main {
     transition:
         background .2s ease,
         color .2s ease;
+
 }
 
 
@@ -595,6 +635,7 @@ main {
 
     background:
         rgba(255,255,255,.04);
+
 }
 
 
@@ -609,17 +650,30 @@ main {
     box-shadow:
         0 5px 18px
         rgba(255,171,201,.14);
+
 }
 
 
 /* =========================================================
-   SEÇÃO
+   SEÇÕES
 ========================================================= */
 
 .section {
 
     scroll-margin-top:
         20px;
+
+    margin-bottom:
+        42px;
+
+}
+
+
+.section:last-of-type {
+
+    margin-bottom:
+        0;
+
 }
 
 
@@ -638,16 +692,12 @@ main {
         20px;
 
     margin:
-        0
-        2px
-        13px;
+        0 2px 13px;
+
 }
 
 
 .section-title {
-
-    margin:
-        0;
 
     color:
         var(--text);
@@ -660,15 +710,14 @@ main {
 
     letter-spacing:
         -.5px;
+
 }
 
 
 .section-description {
 
-    margin:
-        4px
-        0
-        0;
+    margin-top:
+        4px;
 
     color:
         var(--muted-2);
@@ -681,6 +730,7 @@ main {
 
     line-height:
         1.5;
+
 }
 
 
@@ -700,6 +750,7 @@ main {
 
     letter-spacing:
         1px;
+
 }
 
 
@@ -712,9 +763,11 @@ main {
     position:
         relative;
 
+    margin-bottom:
+        12px;
+
     padding:
-        22px
-        24px;
+        22px 24px;
 
     background:
 
@@ -734,7 +787,6 @@ main {
         var(--radius);
 
     box-shadow:
-
         0 10px 35px
         rgba(0,0,0,.18);
 
@@ -744,6 +796,7 @@ main {
         background .25s ease,
         border-color .25s ease,
         box-shadow .25s ease;
+
 }
 
 
@@ -766,16 +819,13 @@ main {
         var(--line-strong);
 
     box-shadow:
-
         0 17px 45px
         rgba(0,0,0,.25);
+
 }
 
 
 .text-card p {
-
-    margin:
-        0;
 
     color:
         var(--text-2);
@@ -788,14 +838,18 @@ main {
 
     line-height:
         1.76;
+
 }
 
 
 /* =========================================================
-   CARD DESTAQUE
+   CARD PRINCIPAL
 ========================================================= */
 
 .text-card.first {
+
+    padding:
+        25px 26px;
 
     background:
 
@@ -810,10 +864,6 @@ main {
     border-color:
         rgba(255,171,201,.14);
 
-    box-shadow:
-
-        0 18px 55px
-        rgba(0,0,0,.26);
 }
 
 
@@ -834,11 +884,12 @@ main {
 
     line-height:
         1.55;
+
 }
 
 
 /* =========================================================
-   ETIQUETA DO CARD
+   LABEL
 ========================================================= */
 
 .card-label {
@@ -863,11 +914,12 @@ main {
 
     text-transform:
         uppercase;
+
 }
 
 
 /* =========================================================
-   CARD DE SEGURANÇA
+   WARNING
 ========================================================= */
 
 .warning {
@@ -884,6 +936,7 @@ main {
 
     border-color:
         var(--warning-line);
+
 }
 
 
@@ -891,6 +944,7 @@ main {
 
     color:
         var(--pink);
+
 }
 
 
@@ -898,11 +952,12 @@ main {
 
     color:
         #e5dee1;
+
 }
 
 
 /* =========================================================
-   CARD IMPORTANTE
+   IMPORTANT
 ========================================================= */
 
 .important {
@@ -920,10 +975,6 @@ main {
     border-color:
         rgba(255,171,201,.17);
 
-    box-shadow:
-
-        0 17px 55px
-        rgba(255,120,170,.035);
 }
 
 
@@ -931,6 +982,7 @@ main {
 
     color:
         var(--pink);
+
 }
 
 
@@ -938,6 +990,7 @@ main {
 
     color:
         #f5e9ee;
+
 }
 
 
@@ -948,9 +1001,7 @@ main {
 .image-card {
 
     margin:
-        5px
-        0
-        22px;
+        5px 0 22px;
 
     padding:
         9px;
@@ -980,12 +1031,9 @@ main {
 
     overflow:
         hidden;
+
 }
 
-
-/* =========================================================
-   LABEL DA IMAGEM
-========================================================= */
 
 .image-label {
 
@@ -1002,9 +1050,7 @@ main {
         34px;
 
     padding:
-        0
-        6px
-        7px;
+        0 6px 7px;
 
     color:
         var(--muted-2);
@@ -1020,6 +1066,7 @@ main {
 
     text-transform:
         uppercase;
+
 }
 
 
@@ -1027,12 +1074,9 @@ main {
 
     color:
         var(--pink-dark);
+
 }
 
-
-/* =========================================================
-   IMAGEM
-========================================================= */
 
 .image-card img {
 
@@ -1061,21 +1105,11 @@ main {
         0 5px 25px
         rgba(0,0,0,.4);
 
-    transition:
-        transform .45s
-        cubic-bezier(.2,.8,.2,1);
-}
-
-
-.image-card:hover img {
-
-    transform:
-        scale(1.006);
 }
 
 
 /* =========================================================
-   BLOCO DE CONCLUSÃO
+   FINAL
 ========================================================= */
 
 .final-box {
@@ -1103,13 +1137,11 @@ main {
 
     border-radius:
         27px;
+
 }
 
 
 .final-box h2 {
-
-    margin:
-        0;
 
     color:
         var(--text);
@@ -1119,6 +1151,7 @@ main {
 
     font-weight:
         900;
+
 }
 
 
@@ -1128,9 +1161,7 @@ main {
         600px;
 
     margin:
-        10px
-        auto
-        0;
+        10px auto 0;
 
     color:
         var(--muted);
@@ -1140,6 +1171,7 @@ main {
 
     line-height:
         1.7;
+
 }
 
 
@@ -1176,38 +1208,7 @@ footer {
 
     text-transform:
         uppercase;
-}
 
-
-/* =========================================================
-   ANIMAÇÃO
-========================================================= */
-
-.reveal {
-
-    opacity:
-        0;
-
-    transform:
-        translateY(17px);
-
-    animation:
-        reveal .65s
-        cubic-bezier(.16,1,.3,1)
-        forwards;
-}
-
-
-@keyframes reveal {
-
-    to {
-
-        opacity:
-            1;
-
-        transform:
-            translateY(0);
-    }
 }
 
 
@@ -1223,34 +1224,22 @@ footer {
             calc(100% - 16px);
 
         padding:
-            17px
-            0
-            65px;
-    }
+            17px 0 65px;
 
-
-    .topbar {
-
-        margin-bottom:
-            12px;
-
-        font-size:
-            8px;
     }
 
 
     .hero {
 
         padding:
-            22px
-            19px
-            21px;
+            22px 19px 21px;
 
         margin-bottom:
             10px;
 
         border-radius:
             24px;
+
     }
 
 
@@ -1260,14 +1249,14 @@ footer {
             25px;
 
         padding:
-            0
-            9px;
+            0 9px;
 
         margin-bottom:
             14px;
 
         font-size:
             8px;
+
     }
 
 
@@ -1278,6 +1267,7 @@ footer {
 
         letter-spacing:
             -1.6px;
+
     }
 
 
@@ -1291,6 +1281,7 @@ footer {
 
         line-height:
             1.7;
+
     }
 
 
@@ -1301,6 +1292,7 @@ footer {
 
         padding-top:
             18px;
+
     }
 
 
@@ -1317,6 +1309,7 @@ footer {
 
         border-radius:
             17px;
+
     }
 
 
@@ -1330,13 +1323,15 @@ footer {
 
         font-size:
             8px;
+
     }
 
 
-    .section-header {
+    .section {
 
         margin-bottom:
-            10px;
+            34px;
+
     }
 
 
@@ -1344,6 +1339,7 @@ footer {
 
         font-size:
             18px;
+
     }
 
 
@@ -1351,6 +1347,7 @@ footer {
 
         font-size:
             10px;
+
     }
 
 
@@ -1358,17 +1355,18 @@ footer {
 
         font-size:
             9px;
+
     }
 
 
     .text-card {
 
         padding:
-            19px
-            18px;
+            19px 18px;
 
         border-radius:
             19px;
+
     }
 
 
@@ -1379,14 +1377,15 @@ footer {
 
         line-height:
             1.7;
+
     }
 
 
     .text-card.first {
 
         padding:
-            22px
-            20px;
+            22px 20px;
+
     }
 
 
@@ -1394,31 +1393,21 @@ footer {
 
         font-size:
             18px;
-    }
 
-
-    .card-label {
-
-        margin-bottom:
-            9px;
-
-        font-size:
-            8px;
     }
 
 
     .image-card {
 
         margin:
-            3px
-            0
-            15px;
+            3px 0 15px;
 
         padding:
             7px;
 
         border-radius:
             21px;
+
     }
 
 
@@ -1428,12 +1417,11 @@ footer {
             28px;
 
         padding:
-            0
-            4px
-            6px;
+            0 4px 6px;
 
         font-size:
             8px;
+
     }
 
 
@@ -1441,17 +1429,18 @@ footer {
 
         border-radius:
             14px;
+
     }
 
 
     .final-box {
 
         padding:
-            24px
-            18px;
+            24px 18px;
 
         border-radius:
             22px;
+
     }
 
 
@@ -1459,6 +1448,7 @@ footer {
 
         font-size:
             20px;
+
     }
 
 
@@ -1466,12 +1456,14 @@ footer {
 
         font-size:
             12px;
+
     }
+
 }
 
 
 /* =========================================================
-   TELAS PEQUENAS
+   TELAS MUITO PEQUENAS
 ========================================================= */
 
 @media (max-width: 360px) {
@@ -1480,14 +1472,15 @@ footer {
 
         width:
             calc(100% - 12px);
+
     }
 
 
     .hero {
 
         padding:
-            19px
-            16px;
+            19px 16px;
+
     }
 
 
@@ -1495,6 +1488,7 @@ footer {
 
         font-size:
             29px;
+
     }
 
 
@@ -1502,26 +1496,32 @@ footer {
 
         gap:
             5px;
+
     }
 
 
     .text-card {
 
+        margin-top:
+            20px;
+
+        margin-bottom:
+            20px;
+
         padding:
-            17px
-            16px;
-            margin-bottom: 20px;
-            margin-top: 20px;
-            border-radius:
+            17px 16px;
+
+        border-radius:
             17px;
+
     }
 
 
     .text-card.first {
 
         padding:
-            20px
-            18px;
+            20px 18px;
+
     }
 
 
@@ -1529,6 +1529,7 @@ footer {
 
         font-size:
             14.5px;
+
     }
 
 
@@ -1536,6 +1537,7 @@ footer {
 
         font-size:
             17px;
+
     }
 
 
@@ -1546,6 +1548,7 @@ footer {
 
         border-radius:
             18px;
+
     }
 
 
@@ -1553,43 +1556,9 @@ footer {
 
         border-radius:
             12px;
-    }
-}
 
-
-/* =========================================================
-   REDUCED MOTION
-========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-    html {
-
-        scroll-behavior:
-            auto;
     }
 
-
-    *,
-    *::before,
-    *::after {
-
-        animation:
-            none !important;
-
-        transition:
-            none !important;
-    }
-
-
-    .reveal {
-
-        opacity:
-            1;
-
-        transform:
-            none;
-    }
 }
 
 
@@ -1616,14 +1585,9 @@ footer {
 
         border-color:
             var(--line);
+
     }
 
-
-    .image-card:hover img {
-
-        transform:
-            none;
-    }
 }
 
 </style>
@@ -1637,20 +1601,11 @@ footer {
 <main>
 
 
-<div class="topbar">
+<!-- =======================================================
+     HERO
+======================================================= -->
 
-    <span>
-        FLEX COLUMN
-    </span>
-
-    <span>
-        INSTALAÇÃO
-    </span>
-
-</div>
-
-
-<header class="hero reveal">
+<header class="hero">
 
     <span class="hero-tag">
         Tutorial
@@ -1680,6 +1635,7 @@ footer {
 
         </div>
 
+
         <div class="progress-track">
 
             <div
@@ -1694,575 +1650,667 @@ footer {
 </header>
 
 
+<!-- =======================================================
+     NAVEGAÇÃO
+======================================================= -->
 
+<nav
+    class="steps-nav"
+    aria-label="Etapas do tutorial"
+>
+
+    <button
+        class="step-link active"
+        type="button"
+        data-target="step-1"
+    >
+        Início
+    </button>
+
+
+    <button
+        class="step-link"
+        type="button"
+        data-target="step-2"
+    >
+        Download
+    </button>
+
+
+    <button
+        class="step-link"
+        type="button"
+        data-target="step-3"
+    >
+        Instalação
+    </button>
+
+
+    <button
+        class="step-link"
+        type="button"
+        data-target="step-4"
+    >
+        Segurança
+    </button>
+
+</nav>
+
+
+<!-- =======================================================
+     ETAPA 01
+======================================================= -->
 
 <section
-    class="content"
+    class="section"
     id="step-1"
 >
 
 
-<div class="section-header">
+    <div class="section-header">
 
-    <div>
+        <div>
 
-        <h2 class="section-title">
-            Primeiros passos
-        </h2>
+            <h2 class="section-title">
+                Primeiros passos
+            </h2>
 
-        <p class="section-description">
-            Acesse a área inicial do site.
-        </p>
+            <p class="section-description">
+                Acesse a área inicial do site.
+            </p>
 
-    </div>
+        </div>
 
-    <span class="section-number">
-        01
-    </span>
-
-</div>
-
-
-<article class="text-card first reveal">
-
-    <p>
-        Ao entrar no site, esta será a tela inicial:
-    </p>
-
-</article>
-
-
-<div class="image-card reveal">
-
-    <div class="image-label">
-
-        <span>
-            Tela inicial
-        </span>
-
-        <span>
+        <span class="section-number">
             01
         </span>
 
     </div>
 
-    <img
-        src="tutorial1.png"
-        alt="Tela inicial do site"
-        loading="eager"
-        decoding="async"
-    >
 
-</div>
+    <article class="text-card first">
+
+        <p>
+            Ao entrar no site, esta será a tela inicial:
+        </p>
+
+    </article>
 
 
-<article class="text-card reveal">
+    <div class="image-card">
 
-    <p>
-        Toque no botão indicado, leia os termos com atenção e aceite apenas se estiver de acordo.
-    </p>
+        <div class="image-label">
 
-</article>
+            <span>
+                Tela inicial
+            </span>
 
+            <span>
+                01
+            </span>
+
+        </div>
+
+
+        <img
+            src="tutorial1.png"
+            alt="Tela inicial do site"
+            loading="eager"
+            decoding="async"
+        >
+
+    </div>
+
+
+    <article class="text-card">
+
+        <p>
+            Toque no botão indicado, leia os termos com atenção e aceite apenas se estiver de acordo.
+        </p>
+
+    </article>
 
 </section>
 
 
+<!-- =======================================================
+     ETAPA 02
+======================================================= -->
+
 <section
-    class="content section"
+    class="section"
     id="step-2"
 >
 
 
-<div class="section-header">
+    <div class="section-header">
 
-    <div>
+        <div>
 
-        <h2 class="section-title">
-            Download
-        </h2>
+            <h2 class="section-title">
+                Download
+            </h2>
 
-        <p class="section-description">
-            Encontre a versão desejada e inicie o download.
-        </p>
+            <p class="section-description">
+                Encontre a versão desejada e inicie o download.
+            </p>
 
-    </div>
+        </div>
 
-    <span class="section-number">
-        02
-    </span>
-
-</div>
-
-
-<article class="text-card reveal">
-
-    <p>
-        Depois disso, vai no topo do site, clique no botão da área de download, leia os avisos...
-    </p>
-
-</article>
-
-
-<article class="text-card reveal">
-
-    <p>
-        Você encontrará esta seção:
-    </p>
-
-</article>
-
-
-<div class="image-card reveal">
-
-    <div class="image-label">
-
-        <span>
-            Área de downloads
-        </span>
-
-        <span>
+        <span class="section-number">
             02
         </span>
 
     </div>
 
-    <img
-        src="tutorial2.png"
-        alt="Seção de downloads"
-        loading="lazy"
-        decoding="async"
-    >
 
-</div>
+    <article class="text-card">
 
+        <p>
+            Depois disso, vá no topo do site, clique no botão da área de download e leia os avisos.
+        </p>
 
-<article class="text-card reveal">
-
-    <p>
-        Escolha a versão que preferir. A versão recomendada normalmente oferece mais estabilidade e compatibilidade.
-    </p>
-
-</article>
+    </article>
 
 
-<article class="text-card reveal">
+    <article class="text-card">
 
-    <p>
-        Em seguida, toque no botão de download.
-    </p>
+        <p>
+            Você encontrará esta seção:
+        </p>
 
-</article>
+    </article>
 
 
-<div class="image-card reveal">
+    <div class="image-card">
 
-    <div class="image-label">
+        <div class="image-label">
 
-        <span>
-            Download
-        </span>
+            <span>
+                Área de downloads
+            </span>
 
-        <span>
+            <span>
+                02
+            </span>
+
+        </div>
+
+
+        <img
+            src="tutorial2.png"
+            alt="Seção de downloads"
+            loading="lazy"
+            decoding="async"
+        >
+
+    </div>
+
+
+    <article class="text-card">
+
+        <p>
+            Escolha a versão que preferir. A versão recomendada normalmente oferece mais estabilidade e compatibilidade.
+        </p>
+
+    </article>
+
+
+    <article class="text-card">
+
+        <p>
+            Em seguida, toque no botão de download.
+        </p>
+
+    </article>
+
+
+    <div class="image-card">
+
+        <div class="image-label">
+
+            <span>
+                Download
+            </span>
+
+            <span>
+                03
+            </span>
+
+        </div>
+
+
+        <img
+            src="tutorial3.png"
+            alt="Botão de download"
+            loading="lazy"
+            decoding="async"
+        >
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     ETAPA 03
+======================================================= -->
+
+<section
+    class="section"
+    id="step-3"
+>
+
+
+    <div class="section-header">
+
+        <div>
+
+            <h2 class="section-title">
+                Instalação
+            </h2>
+
+            <p class="section-description">
+                Siga as instruções exibidas pelo Android.
+            </p>
+
+        </div>
+
+        <span class="section-number">
             03
         </span>
 
     </div>
 
-    <img
-        src="tutorial3.png"
-        alt="Botão de download"
-        loading="lazy"
-        decoding="async"
-    >
 
-</div>
+    <article class="text-card warning">
 
+        <span class="card-label">
+            Aviso do Android
+        </span>
+
+        <p>
+            O Android pode exibir um aviso informando que aplicativos baixados fora da loja oficial podem representar riscos.
+        </p>
+
+    </article>
+
+
+    <article class="text-card">
+
+        <p>
+            Isso acontece porque o arquivo não foi instalado pela loja oficial do dispositivo.
+        </p>
+
+    </article>
+
+
+    <article class="text-card warning">
+
+        <span class="card-label">
+            Atenção
+        </span>
+
+        <p>
+            Instale apenas se você confiar totalmente na origem do aplicativo.
+        </p>
+
+    </article>
+
+
+    <article class="text-card">
+
+        <p>
+            Durante a instalação, o sistema pode solicitar autorização para instalar aplicativos do navegador ou permitir “fontes desconhecidas”.
+        </p>
+
+    </article>
+
+
+    <article class="text-card">
+
+        <p>
+            Essa opção existe para instalações manuais de arquivos APK.
+        </p>
+
+    </article>
+
+
+    <article class="text-card">
+
+        <p>
+            Se decidir continuar, siga as instruções exibidas pelo Android.
+        </p>
+
+    </article>
+
+
+    <article class="text-card warning">
+
+        <span class="card-label">
+            Segurança
+        </span>
+
+        <p>
+            Pode aparecer esse aviso durante a instalação. Siga as instruções de segurança do Android e continue apenas se confiar na fonte do aplicativo.
+        </p>
+
+    </article>
+
+
+    <div class="image-card">
+
+        <div class="image-label">
+
+            <span>
+                Tela de instalação
+            </span>
+
+            <span>
+                04
+            </span>
+
+        </div>
+
+
+        <img
+            src="10.png"
+            alt="Tela de instalação"
+            loading="lazy"
+            decoding="async"
+        >
+
+    </div>
+
+
+    <article class="text-card">
+
+        <p>
+            Senão, prossiga assim:
+        </p>
+
+    </article>
+
+
+    <article class="text-card">
+
+        <p>
+            Depois disso, poderá aparecer esta tela:
+        </p>
+
+    </article>
+
+
+    <div class="image-card">
+
+        <div class="image-label">
+
+            <span>
+                Permissão
+            </span>
+
+            <span>
+                05
+            </span>
+
+        </div>
+
+
+        <img
+            src="tutorial4.png"
+            alt="Tela de permissão"
+            loading="lazy"
+            decoding="async"
+        >
+
+    </div>
+
+
+    <article class="text-card">
+
+        <p>
+            Siga os passos mostrados na imagem.
+        </p>
+
+    </article>
+
+
+    <article class="text-card">
+
+        <p>
+            Em seguida, outra confirmação pode aparecer:
+        </p>
+
+    </article>
+
+
+    <div class="image-card">
+
+        <div class="image-label">
+
+            <span>
+                Confirmação
+            </span>
+
+            <span>
+                06
+            </span>
+
+        </div>
+
+
+        <img
+            src="tutorial5.png"
+            alt="Segunda confirmação"
+            loading="lazy"
+            decoding="async"
+        >
+
+    </div>
 
 </section>
 
 
+<!-- =======================================================
+     ETAPA 04
+======================================================= -->
+
 <section
-    class="content section"
-    id="step-3"
+    class="section"
+    id="step-4"
 >
 
 
-<div class="section-header">
+    <div class="section-header">
 
-    <div>
+        <div>
 
-        <h2 class="section-title">
-            Instalação
-        </h2>
+            <h2 class="section-title">
+                Segurança
+            </h2>
 
-        <p class="section-description">
-            Siga as instruções exibidas pelo Android.
-        </p>
+            <p class="section-description">
+                Revise os avisos antes de concluir.
+            </p>
 
-    </div>
+        </div>
 
-    <span class="section-number">
-        03
-    </span>
-
-</div>
-
-
-<article class="text-card warning reveal">
-
-    <span class="card-label">
-        Aviso do Android
-    </span>
-
-    <p>
-        O Android pode exibir um aviso informando que aplicativos baixados fora da loja oficial podem representar riscos.
-    </p>
-
-</article>
-
-
-<article class="text-card reveal">
-
-    <p>
-        Isso acontece porque o arquivo não foi instalado pela loja oficial do dispositivo.
-    </p>
-
-</article>
-
-
-<article class="text-card warning reveal">
-
-    <span class="card-label">
-        Atenção
-    </span>
-
-    <p>
-        Instale apenas se você confiar totalmente na origem do aplicativo.
-    </p>
-
-</article>
-
-
-<article class="text-card reveal">
-
-    <p>
-        Durante a instalação, o sistema pode solicitar autorização para instalar aplicativos do navegador ou permitir “fontes desconhecidas”.
-    </p>
-
-</article>
-
-
-<article class="text-card reveal">
-
-    <p>
-        Essa opção existe para instalações manuais de arquivos APK.
-    </p>
-
-</article>
-
-
-<article class="text-card reveal">
-
-    <p>
-        Se decidir continuar, siga as instruções exibidas pelo Android.
-    </p>
-
-</article>
-
-
-<article class="text-card warning reveal">
-
-    <span class="card-label">
-        Segurança
-    </span>
-
-    <p>
-        Pode aparecer esse aviso durante a instalação. Siga as instruções de segurança do Android e continue apenas se confiar na fonte do aplicativo.
-    </p>
-
-</article>
-
-
-<div class="image-card reveal">
-
-    <div class="image-label">
-
-        <span>
-            Tela de instalação
-        </span>
-
-        <span>
+        <span class="section-number">
             04
         </span>
 
     </div>
 
-    <img
-        src="10.png"
-        alt="Tela de instalação"
-        loading="lazy"
-        decoding="async"
-    >
 
-</div>
+    <article class="text-card warning">
 
-
-<article class="text-card reveal">
-
-    <p>
-        Senão, prossiga assim:
-    </p>
-
-</article>
-
-
-<article class="text-card reveal">
-
-    <p>
-        Depois disso, poderá aparecer esta tela:
-    </p>
-
-</article>
-
-
-<div class="image-card reveal">
-
-    <div class="image-label">
-
-        <span>
-            Permissão
+        <span class="card-label">
+            Play Protect
         </span>
 
-        <span>
-            05
-        </span>
+        <p>
+            Também é normal que o Google Play Protect exiba um aviso de segurança.
+        </p>
+
+    </article>
+
+
+    <article class="text-card">
+
+        <p>
+            Você pode revisar as informações do aplicativo antes de decidir instalar.
+        </p>
+
+    </article>
+
+
+    <article class="text-card">
+
+        <p>
+            Exemplo:
+        </p>
+
+    </article>
+
+
+    <div class="image-card">
+
+        <div class="image-label">
+
+            <span>
+                Play Protect
+            </span>
+
+            <span>
+                07
+            </span>
+
+        </div>
+
+
+        <img
+            src="tutorial7.png"
+            alt="Aviso do Play Protect"
+            loading="lazy"
+            decoding="async"
+        >
 
     </div>
 
-    <img
-        src="tutorial4.png"
-        alt="Tela de permissão"
-        loading="lazy"
-        decoding="async"
-    >
 
-</div>
+    <div class="image-card">
 
+        <div class="image-label">
 
-<article class="text-card reveal">
+            <span>
+                Play Protect
+            </span>
 
-    <p>
-        Siga os passos mostrados na imagem.
-    </p>
+            <span>
+                08
+            </span>
 
-</article>
+        </div>
 
 
-<article class="text-card reveal">
-
-    <p>
-        Em seguida, outra confirmação pode aparecer:
-    </p>
-
-</article>
-
-
-<div class="image-card reveal">
-
-    <div class="image-label">
-
-        <span>
-            Confirmação
-        </span>
-
-        <span>
-            06
-        </span>
+        <img
+            src="tutorial8.png"
+            alt="Segundo aviso do Play Protect"
+            loading="lazy"
+            decoding="async"
+        >
 
     </div>
 
-    <img
-        src="tutorial5.png"
-        alt="Segunda confirmação"
-        loading="lazy"
-        decoding="async"
-    >
 
-</div>
+    <div class="image-card">
 
+        <div class="image-label">
 
-</section>
+            <span>
+                Play Protect
+            </span>
 
+            <span>
+                09
+            </span>
 
-<section
-    class="content section"
-    id="step-4"
->
+        </div>
 
 
-<div class="section-header">
+        <img
+            src="tutorial9.png"
+            alt="Terceiro aviso do Play Protect"
+            loading="lazy"
+            decoding="async"
+        >
 
-    <div>
+    </div>
 
-        <h2 class="section-title">
-            Segurança
+
+    <article class="text-card warning">
+
+        <span class="card-label">
+            Importante
+        </span>
+
+        <p>
+            Leia todos os avisos com atenção e continue apenas se confiar no aplicativo e compreender os riscos envolvidos.
+        </p>
+
+    </article>
+
+
+    <article class="text-card important">
+
+        <span class="card-label">
+            Compatibilidade
+        </span>
+
+        <p>
+            Você poderá usar esse tutorial para todos os 3 apps. Porém, no app de assistente o sistema pode bloquear a instalação. Sempre siga as instruções do Android.
+        </p>
+
+    </article>
+
+
+    <article class="text-card important">
+
+        <span class="card-label">
+            Informação técnica
+        </span>
+
+        <p>
+            Não se preocupe se algum dos apps mostrar que foi instalado e não aparecer na tela de aplicativos. Isso acontece porque as Activities deles não possuem os filtros MAIN e LAUNCHER. Elas são abertas por Intent e, por isso, não aparecem normalmente na tela de aplicativos.
+        </p>
+
+    </article>
+
+
+    <div class="final-box">
+
+        <h2>
+            Instalação concluída
         </h2>
 
-        <p class="section-description">
-            Revise os avisos antes de concluir.
+        <p>
+            Revise as permissões e os avisos do Android antes de utilizar os aplicativos.
         </p>
 
     </div>
 
-    <span class="section-number">
-        04
-    </span>
-
-</div>
+</section>
 
 
-<article class="text-card warning reveal">
+<!-- =======================================================
+     FOOTER
+======================================================= -->
 
-    <span class="card-label">
-        Play Protect
-    </span>
+<footer>
 
-    <p>
-        Também é normal que o Google Play Protect exiba um aviso de segurança.
-    </p>
+    Flex Column • Tutorial de instalação
 
-</article>
-
-
-<article class="text-card reveal">
-
-    <p>
-        Você pode revisar as informações do aplicativo antes de decidir instalar.
-    </p>
-
-</article>
-
-
-<article class="text-card reveal">
-
-    <p>
-        Exemplo:
-    </p>
-
-</article>
-
-
-<div class="image-card reveal">
-
-    <div class="image-label">
-
-        <span>
-            Play Protect
-        </span>
-
-        <span>
-            07
-        </span>
-
-    </div>
-
-    <img
-        src="tutorial7.png"
-        alt="Aviso do Play Protect"
-        loading="lazy"
-        decoding="async"
-    >
-
-</div>
-
-
-<div class="image-card reveal">
-
-    <div class="image-label">
-
-        <span>
-            Play Protect
-        </span>
-
-        <span>
-            08
-        </span>
-
-    </div>
-
-    <img
-        src="tutorial8.png"
-        alt="Segundo aviso do Play Protect"
-        loading="lazy"
-        decoding="async"
-    >
-
-</div>
-
-
-<div class="image-card reveal">
-
-    <div class="image-label">
-
-        <span>
-            Play Protect
-        </span>
-
-        <span>
-            09
-        </span>
-
-    </div>
-
-    <img
-        src="tutorial9.png"
-        alt="Terceiro aviso do Play Protect"
-        loading="lazy"
-        decoding="async"
-    >
-
-</div>
-
-
-<article class="text-card warning reveal">
-
-    <span class="card-label">
-        Importante
-    </span>
-
-    <p>
-        Leia todos os avisos com atenção e continue apenas se confiar no aplicativo e compreender os riscos envolvidos.
-    </p>
-
-</article>
-
-
-<article class="text-card important reveal">
-
-    <span class="card-label">
-        Compatibilidade
-    </span>
-
-    <p>
-        Você poderá usar esse tutorial para todos os 3 apps, porém, o app de assistente o sistema pode bloquear a instalação, então sempre siga as instruções do android!
-    </p>
-
-</article>
-
-
-<article class="text-card important reveal">
-
-    <span class="card-label">
-        Informação técnica
-    </span>
-
-    <p>
-        E não se preocupe se algum dos apps mostrar que foi instalado e não apareceu na tela de aplicativos, a explicação tecnica disso é porque TODAS as activitys deles estão sem o filtro (MAIN E LAUNCHER), e só abre por intent, só saiba que eles não estão disponíveis na tela de aplicativos e só abre por código!
-    </p>
-
-</article>
-
+</footer>
 
 
 </main>
@@ -2271,7 +2319,7 @@ footer {
 <script>
 
 /* =========================================================
-   PROGRESSO DA PÁGINA
+   PROGRESSO
 ========================================================= */
 
 const progressBar =
@@ -2283,6 +2331,9 @@ const progressText =
     document.getElementById(
         "progressText"
     );
+
+let progressTicking =
+    false;
 
 
 function updateProgress() {
@@ -2301,10 +2352,12 @@ function updateProgress() {
         documentHeight -
         viewportHeight;
 
+
     const percentage =
         total > 0
             ? (scrollTop / total) * 100
             : 0;
+
 
     const value =
         Math.min(
@@ -2316,18 +2369,54 @@ function updateProgress() {
         );
 
 
-    progressBar.style.width =
-        value + "%";
+    if (progressBar) {
+
+        progressBar.style.width =
+            value + "%";
+
+    }
 
 
-    progressText.textContent =
-        Math.round(value) + "%";
+    if (progressText) {
+
+        progressText.textContent =
+            Math.round(value) + "%";
+
+    }
+
+}
+
+
+/* =========================================================
+   SCROLL
+========================================================= */
+
+function requestProgressUpdate() {
+
+    if (progressTicking) {
+        return;
+    }
+
+
+    progressTicking =
+        true;
+
+
+    requestAnimationFrame(() => {
+
+        updateProgress();
+
+        progressTicking =
+            false;
+
+    });
+
 }
 
 
 window.addEventListener(
     "scroll",
-    updateProgress,
+    requestProgressUpdate,
     {
         passive: true
     }
@@ -2336,7 +2425,10 @@ window.addEventListener(
 
 window.addEventListener(
     "resize",
-    updateProgress
+    requestProgressUpdate,
+    {
+        passive: true
+    }
 );
 
 
@@ -2357,11 +2449,18 @@ stepLinks.forEach(link => {
 
     link.addEventListener(
         "click",
-        () => {
+        event => {
+
+            event.preventDefault();
+
+
+            const targetId =
+                link.dataset.target;
+
 
             const target =
                 document.getElementById(
-                    link.dataset.target
+                    targetId
                 );
 
 
@@ -2371,8 +2470,23 @@ stepLinks.forEach(link => {
 
 
             target.scrollIntoView({
-                behavior: "smooth",
-                block: "start"
+
+                behavior:
+                    "smooth",
+
+                block:
+                    "start"
+
+            });
+
+
+            stepLinks.forEach(item => {
+
+                item.classList.toggle(
+                    "active",
+                    item === link
+                );
+
             });
 
         }
@@ -2391,41 +2505,90 @@ const sections =
     );
 
 
+let activeSection =
+    "step-1";
+
+
 const sectionObserver =
     new IntersectionObserver(
+
         entries => {
 
-            entries.forEach(entry => {
+            const visibleSections =
+                entries
 
-                if (
-                    entry.isIntersecting
-                ) {
+                    .filter(
+                        entry =>
+                            entry.isIntersecting
+                    )
 
-                    const id =
-                        entry.target.id;
-
-
-                    stepLinks.forEach(
-                        link => {
-
-                            link.classList.toggle(
-                                "active",
-                                link.dataset.target === id
-                            );
-
-                        }
+                    .sort(
+                        (a, b) =>
+                            b.intersectionRatio -
+                            a.intersectionRatio
                     );
 
-                }
+
+            if (
+                visibleSections.length === 0
+            ) {
+
+                return;
+
+            }
+
+
+            const section =
+                visibleSections[0]
+                    .target;
+
+
+            const id =
+                section.id;
+
+
+            if (
+                id === activeSection
+            ) {
+
+                return;
+
+            }
+
+
+            activeSection =
+                id;
+
+
+            stepLinks.forEach(link => {
+
+                link.classList.toggle(
+
+                    "active",
+
+                    link.dataset.target === id
+
+                );
 
             });
 
         },
+
         {
-            threshold: .2,
+
+            threshold: [
+                .15,
+                .25,
+                .4,
+                .6,
+                .8
+            ],
+
             rootMargin:
-                "-10% 0px -55% 0px"
+                "-12% 0px -50% 0px"
+
         }
+
     );
 
 
@@ -2439,91 +2602,21 @@ sections.forEach(section => {
 
 
 /* =========================================================
-   REVEAL
+   INICIALIZAÇÃO
 ========================================================= */
 
-const revealElements =
-    document.querySelectorAll(
-        ".reveal"
-    );
+window.addEventListener(
+    "load",
+    () => {
 
+        updateProgress();
 
-const reducedMotion =
-    window.matchMedia(
-        "(prefers-reduced-motion: reduce)"
-    ).matches;
-
-
-if (
-    !reducedMotion &&
-    "IntersectionObserver" in window
-) {
-
-    const revealObserver =
-        new IntersectionObserver(
-            entries => {
-
-                entries.forEach(
-                    entry => {
-
-                        if (
-                            entry.isIntersecting
-                        ) {
-
-                            entry.target.style.animationPlayState =
-                                "running";
-
-
-                            revealObserver.unobserve(
-                                entry.target
-                            );
-
-                        }
-
-                    }
-                );
-
-            },
-            {
-                threshold: .05,
-
-                rootMargin:
-                    "0px 0px -35px 0px"
-            }
-        );
-
-
-    revealElements.forEach(
-        element => {
-
-            element.style.animationPlayState =
-                "paused";
-
-            revealObserver.observe(
-                element
-            );
-
-        }
-    );
-
-} else {
-
-    revealElements.forEach(
-        element => {
-
-            element.style.opacity =
-                "1";
-
-            element.style.transform =
-                "none";
-
-            element.style.animation =
-                "none";
-
-        }
-    );
-
-}
+    },
+    {
+        once:
+            true
+    }
+);
 
 </script>
 

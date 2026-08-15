@@ -56,6 +56,19 @@
    BASE
 ========================================================= */
 
+@keyframes fadeUp {
+
+            from {
+                opacity: 0;
+                transform: translateY(0px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(15px);
+            }
+        }
+        
 html {
     scroll-behavior: smooth;
 }
@@ -89,6 +102,8 @@ body {
     padding:
         28px 0
         calc(60px + env(safe-area-inset-bottom));
+        animation:
+                fadeUp 0.55s ease both;
 }
 
 
@@ -1008,7 +1023,7 @@ footer {
 
 
         <article class="sos-card"
-        style="border-radius: 40px;"
+        style="border-radius: 16px;"
         >
 
             <div class="sos-mark">

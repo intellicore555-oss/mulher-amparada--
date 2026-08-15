@@ -18,7 +18,6 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 
-
 <style>
 
 /* =========================================================
@@ -68,127 +67,97 @@ body {
 
 
 /* =========================================================
-   BRILHO DE FUNDO
-========================================================= */
-
-body::before {
-
-    content: "";
-
-    position: fixed;
-
-    width: 520px;
-    height: 520px;
-
-    top: -300px;
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    background: #ff4fa3;
-
-    opacity: .055;
-
-    filter: blur(150px);
-
-    pointer-events: none;
-
-    z-index: -1;
-}
-
-
-/* =========================================================
    CONTAINER
 ========================================================= */
 
+@keyframes fadeUp {
+
+            from {
+                opacity: 0;
+                transform: translateY(0px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(15px);
+            }
+        }
+        
+        
 .container {
 
-    width: min(100%, 760px);
+    width: min(100%, 720px);
 
     margin: 0 auto;
 
     padding:
-        calc(35px + env(safe-area-inset-top))
-        20px
-        calc(45px + env(safe-area-inset-bottom));
+        calc(28px + env(safe-area-inset-top))
+        18px
+        calc(40px + env(safe-area-inset-bottom));
+        animation:
+                fadeUp 0.55s ease both;
 }
 
 
 /* =========================================================
-   CABEÇALHO
+   HEADER
 ========================================================= */
 
 .header {
 
+    padding: 28px 0 38px;
+
     text-align: center;
-
-    padding: 25px 0 35px;
 }
 
-.eyebrow {
-
-    display: inline-block;
-
-    margin-bottom: 16px;
-
-    color: #ff78b2;
-
-    font-size: 11px;
-
-    font-weight: 700;
-
-    letter-spacing: 2.8px;
-
-    text-transform: uppercase;
-}
 
 h1 {
 
-    font-size: clamp(32px, 8vw, 48px);
+    font-size: clamp(32px, 8vw, 46px);
 
     line-height: 1.05;
 
-    letter-spacing: -1.5px;
+    letter-spacing: -1.7px;
 
     font-weight: 800;
 }
 
 h1 span {
 
-    color: #ff6eab;
+    color: #ff70ad;
 }
 
 .subtitle {
 
-    max-width: 560px;
+    max-width: 500px;
 
-    margin: 16px auto 0;
+    margin: 15px auto 0;
 
-    color: #85858d;
+    color: #77777f;
 
-    font-size: 14px;
+    font-size: 13px;
 
     line-height: 1.7;
 }
 
 
 /* =========================================================
-   LINHA
+   INDICADOR
 ========================================================= */
 
 .line {
 
-    width: 44px;
-    height: 3px;
+    width: 34px;
 
-    margin: 25px auto 0;
+    height: 2px;
+
+    margin: 22px auto 0;
 
     border-radius: 999px;
 
-    background: #ff69a9;
+    background: #ff70ad;
 
-    box-shadow:
-        0 0 18px rgba(255,105,169,.45);
+    opacity: .8;
 }
 
 
@@ -202,7 +171,7 @@ h1 span {
 
     flex-direction: column;
 
-    gap: 10px;
+    gap: 7px;
 }
 
 
@@ -214,47 +183,39 @@ h1 span {
 
     position: relative;
 
-    width: 100%;
-
     overflow: hidden;
 
-    border:
-        1px solid rgba(255,255,255,.075);
+    width: 100%;
 
-    border-radius: 19px;
+    border: 1px solid rgba(255,255,255,.065);
 
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,255,255,.055),
-            rgba(255,255,255,.018)
-        );
+    border-radius: 16px;
+
+    background: #080808;
 
     transition:
         border-color .25s ease,
-        background .25s ease,
-        transform .25s ease,
-        box-shadow .25s ease;
+        background .25s ease;
 }
 
 
 /* =========================================================
-   CABEÇALHO DO CARD
+   CABEÇALHO
 ========================================================= */
 
 .card-header {
 
-    width: 100%;
+    min-height: 64px;
 
-    min-height: 70px;
-
-    padding: 17px 19px;
+    padding: 15px 16px 15px 18px;
 
     display: flex;
 
     align-items: center;
 
     justify-content: space-between;
+
+    gap: 15px;
 
     cursor: pointer;
 
@@ -263,18 +224,18 @@ h1 span {
 
 
 /* =========================================================
-   NOME
+   TÍTULO
 ========================================================= */
 
 .title {
 
-    color: #f5f5f7;
+    color: #ededf0;
 
-    font-size: 15px;
+    font-size: 14px;
 
     font-weight: 700;
 
-    letter-spacing: .1px;
+    line-height: 1.3;
 }
 
 
@@ -284,28 +245,38 @@ h1 span {
 
 .arrow {
 
-    width: 30px;
-    height: 30px;
+    flex: 0 0 28px;
 
-    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
 
     display: flex;
 
     align-items: center;
+
     justify-content: center;
-
-    color: #777;
-
-    font-size: 22px;
-
-    font-weight: 300;
 
     border-radius: 50%;
 
+    color: #73737a;
+
+    background: rgba(255,255,255,.035);
+
+    font-family: Arial, sans-serif;
+
+    font-size: 18px;
+
+    font-weight: 400;
+
+    line-height: 1;
+
+    /* garante que o símbolo fique visualmente centralizado */
+    padding: 0 0 2px 1px;
+
     transition:
-        transform .3s ease,
-        color .3s ease,
-        background .3s ease;
+        transform .3s cubic-bezier(.4,0,.2,1),
+        color .25s ease,
+        background .25s ease;
 }
 
 
@@ -320,10 +291,12 @@ h1 span {
     grid-template-rows: 0fr;
 
     transition:
-        grid-template-rows .35s ease;
+        grid-template-rows .32s cubic-bezier(.4,0,.2,1);
 }
 
 .desc-inner {
+
+    min-height: 0;
 
     overflow: hidden;
 }
@@ -331,19 +304,22 @@ h1 span {
 .desc {
 
     padding:
-        0 19px 0;
+        0 18px;
 
-    color: #92929a;
+    color: #85858c;
 
-    font-size: 13px;
+    font-size: 12.5px;
 
     line-height: 1.75;
 
     opacity: 0;
 
+    transform: translateY(-4px);
+
     transition:
-        opacity .25s ease,
-        padding .35s ease;
+        opacity .2s ease,
+        transform .3s ease,
+        padding .3s ease;
 }
 
 
@@ -353,18 +329,9 @@ h1 span {
 
 .card.active {
 
-    border-color:
-        rgba(255,105,169,.28);
+    border-color: rgba(255,105,169,.18);
 
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,105,169,.075),
-            rgba(255,255,255,.018)
-        );
-
-    box-shadow:
-        0 12px 35px rgba(0,0,0,.35);
+    background: #0a0809;
 }
 
 .card.active .desc-wrapper {
@@ -375,56 +342,20 @@ h1 span {
 .card.active .desc {
 
     padding:
-        0 19px 19px;
+        0 18px 18px;
 
     opacity: 1;
+
+    transform: translateY(0);
 }
 
 .card.active .arrow {
 
-    transform: rotate(90deg);
-
     color: #ff70ad;
 
-    background:
-        rgba(255,105,169,.08);
-}
+    background: rgba(255,105,169,.09);
 
-
-/* =========================================================
-   BARRA LATERAL
-========================================================= */
-
-.card::before {
-
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-
-    top: 50%;
-
-    width: 3px;
-
-    height: 0;
-
-    transform: translateY(-50%);
-
-    border-radius:
-        0 8px 8px 0;
-
-    background: #ff69a9;
-
-    box-shadow:
-        0 0 15px rgba(255,105,169,.45);
-
-    transition: height .25s ease;
-}
-
-.card.active::before {
-
-    height: 32px;
+    transform: rotate(90deg);
 }
 
 
@@ -436,42 +367,40 @@ h1 span {
 
     .card:hover {
 
-        transform: translateY(-2px);
+        border-color: rgba(255,255,255,.11);
 
-        border-color:
-            rgba(255,255,255,.14);
-
-        box-shadow:
-            0 10px 30px rgba(0,0,0,.3);
+        background: #090909;
     }
 
     .card:hover .arrow {
 
         color: #ff70ad;
+
+        background: rgba(255,105,169,.07);
     }
 }
 
 
 /* =========================================================
-   RODAPÉ
+   FOOTER
 ========================================================= */
 
 .footer {
 
-    margin-top: 32px;
+    margin-top: 30px;
 
-    padding-top: 24px;
+    padding-top: 20px;
 
     border-top:
-        1px solid rgba(255,255,255,.055);
+        1px solid rgba(255,255,255,.045);
+
+    color: #3f3f45;
+
+    font-size: 10px;
+
+    letter-spacing: .35px;
 
     text-align: center;
-
-    color: #45454d;
-
-    font-size: 11px;
-
-    letter-spacing: .4px;
 }
 
 
@@ -483,51 +412,56 @@ h1 span {
 
     .container {
 
-        padding-left: 15px;
-        padding-right: 15px;
+        padding-left: 14px;
+        padding-right: 14px;
     }
 
     .header {
 
         padding-top: 18px;
+
+        padding-bottom: 32px;
     }
 
     h1 {
 
-        font-size: 34px;
+        font-size: 33px;
     }
 
-    .card-header {
-
-        min-height: 64px;
-
-        padding:
-            15px 16px;
-    }
-
-    .title {
-
-        font-size: 14px;
-    }
-
-    .desc {
+    .subtitle {
 
         font-size: 12.5px;
     }
 
-}
+    .card-header {
 
+        min-height: 61px;
 
-/* =========================================================
-   REDUÇÃO DE MOVIMENTO
-========================================================= */
+        padding:
+            14px 14px 14px 16px;
+    }
 
-@media (prefers-reduced-motion: reduce) {
+    .title {
 
-    * {
-        transition: none !important;
+        font-size: 13.5px;
+    }
+
+    .arrow {
+
+        width: 27px;
+        height: 27px;
+
+        flex-basis: 27px;
+    }
+
+    .desc {
+
+        font-size: 12px;
     }
 }
+
+
+
 
 </style>
 
@@ -536,14 +470,10 @@ h1 span {
 
 <body>
 
-
 <main class="container">
 
 
-    <!-- CABEÇALHO -->
-
     <header class="header">
-
 
 
         <h1>
@@ -551,8 +481,8 @@ h1 span {
         </h1>
 
         <p class="subtitle">
-            Conheça as principais tecnologias utilizadas
-            no desenvolvimento e na estrutura do aplicativo.
+            Conheça as tecnologias que fazem parte
+            da construção do aplicativo.
         </p>
 
         <div class="line"></div>
@@ -560,50 +490,10 @@ h1 span {
     </header>
 
 
-    <!-- TECNOLOGIAS -->
-
     <section class="technologies">
 
 
-        <!-- SMALI -->
 
-        <article class="card">
-
-            <div
-                class="card-header"
-                onclick="toggle(this.parentElement)"
-            >
-
-                <span class="title">
-                    Smali
-                </span>
-
-                <span class="arrow">
-                    ›
-                </span>
-
-            </div>
-
-            <div class="desc-wrapper">
-
-                <div class="desc-inner">
-
-                    <p class="desc">
-                        Linguagem usada no nível baixo de
-                        aplicativos Android. É o código que
-                        aparece após descompilar APKs e permite
-                        manipulação direta da lógica interna
-                        do aplicativo.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </article>
-
-
-        <!-- KOTLIN -->
 
         <article class="card">
 
@@ -627,9 +517,9 @@ h1 span {
                 <div class="desc-inner">
 
                     <p class="desc">
-                        Uma das principais linguagens utilizadas
-                        no desenvolvimento Android. Possui uma
-                        sintaxe moderna, recursos de segurança
+                        Linguagem moderna utilizada no
+                        desenvolvimento Android, oferecendo
+                        sintaxe concisa, recursos de segurança
                         e integração com o ecossistema Android.
                     </p>
 
@@ -639,8 +529,6 @@ h1 span {
 
         </article>
 
-
-        <!-- JAVA -->
 
         <article class="card">
 
@@ -664,10 +552,10 @@ h1 span {
                 <div class="desc-inner">
 
                     <p class="desc">
-                        Linguagem tradicionalmente utilizada
-                        no desenvolvimento de aplicativos Android,
-                        especialmente em projetos que utilizam
-                        APIs e bibliotecas do ecossistema Java.
+                        Linguagem tradicional do desenvolvimento
+                        Android, utilizada em aplicações, APIs
+                        e bibliotecas que fazem parte do
+                        ecossistema Java.
                     </p>
 
                 </div>
@@ -676,8 +564,6 @@ h1 span {
 
         </article>
 
-
-        <!-- HTML CSS JS -->
 
         <article class="card">
 
@@ -701,10 +587,10 @@ h1 span {
                 <div class="desc-inner">
 
                     <p class="desc">
-                        Utilizados para criar páginas internas,
-                        interfaces web, componentes visuais
-                        e possíveis telas híbridas dentro
-                        do aplicativo.
+                        Tecnologias utilizadas para construir
+                        interfaces web, páginas internas,
+                        componentes visuais e experiências
+                        interativas dentro do aplicativo.
                     </p>
 
                 </div>
@@ -713,8 +599,6 @@ h1 span {
 
         </article>
 
-
-        <!-- XML -->
 
         <article class="card">
 
@@ -738,10 +622,10 @@ h1 span {
                 <div class="desc-inner">
 
                     <p class="desc">
-                        Utilizado na estruturação de layouts
-                        Android, permitindo definir elementos
-                        como telas, botões, listas e outros
-                        componentes da interface.
+                        Formato utilizado na estruturação de
+                        interfaces Android, permitindo definir
+                        layouts e diferentes componentes
+                        visuais das telas.
                     </p>
 
                 </div>
@@ -750,8 +634,6 @@ h1 span {
 
         </article>
 
-
-        <!-- SVG -->
 
         <article class="card">
 
@@ -775,10 +657,9 @@ h1 span {
                 <div class="desc-inner">
 
                     <p class="desc">
-                        Formato de imagens vetoriais utilizado
-                        para ícones e elementos gráficos.
-                        Mantém a qualidade visual em diferentes
-                        tamanhos sem perder nitidez.
+                        Formato vetorial utilizado para ícones
+                        e elementos gráficos, mantendo nitidez
+                        em diferentes tamanhos e resoluções.
                     </p>
 
                 </div>
@@ -808,20 +689,20 @@ function toggle(card) {
     const cards =
         document.querySelectorAll(".card");
 
+    const wasActive =
+        card.classList.contains("active");
+
     cards.forEach(item => {
-
-        if (item !== card) {
-            item.classList.remove("active");
-        }
-
+        item.classList.remove("active");
     });
 
-    card.classList.toggle("active");
+    if (!wasActive) {
+        card.classList.add("active");
+    }
 
 }
 
 </script>
-
 
 </body>
 

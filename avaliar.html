@@ -44,6 +44,20 @@
    BASE
 ========================================================= */
 
+@keyframes fadeUp {
+
+            from {
+                opacity: 0;
+                transform: translateY(0px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(15px);
+            }
+        }
+        
+        
 html {
     scroll-behavior: smooth;
 }
@@ -52,11 +66,7 @@ body {
     min-height: 100vh;
 
     background:
-        radial-gradient(
-            circle at 50% 0%,
-            rgba(255, 182, 193, 0.08),
-            transparent 38%
-        ),
+        
         #000;
 
     color: #fff;
@@ -75,7 +85,8 @@ body {
 
 .page {
     width: min(100% - 40px, 900px);
-
+animation:
+                fadeUp 0.55s ease both;
     margin: 0 auto;
 
     padding:
@@ -93,7 +104,7 @@ body {
 
     margin-bottom: 45px;
 
-    animation: appear .7s ease both;
+    
 }
 
 .eyebrow {
@@ -182,7 +193,7 @@ body {
     box-shadow:
         0 25px 80px rgba(0,0,0,.55);
 
-    animation: appear .8s ease .1s both;
+    
 }
 
 
@@ -448,19 +459,6 @@ body {
    ANIMAÇÃO
 ========================================================= */
 
-@keyframes appear {
-
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-}
 
 
 /* =========================================================
@@ -471,7 +469,8 @@ body {
 
     .page {
         width: min(100% - 28px, 900px);
-
+animation:
+                fadeUp 0.55s ease both;
         padding-top: 45px;
     }
 
@@ -628,7 +627,7 @@ body {
         <div class="price-highlight">
 
             <span class="price">
-                R$ 9
+                R$: 9
             </span>
 
             <span class="price-text">

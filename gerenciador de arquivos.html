@@ -32,6 +32,11 @@
    RESET
 ========================================================= */
 
+svg {
+width: 25px;
+height: 25px;
+}
+
 *{
     margin:0;
     padding:0;
@@ -61,69 +66,19 @@ body{
     -webkit-font-smoothing:antialiased;
 }
 
+@keyframes fadeUp {
 
-/* =========================================================
-   LUZ DE FUNDO
-========================================================= */
+            from {
+                opacity: 0;
+                transform: translateY(0px);
+            }
 
-body::before{
-
-    content:"";
-
-    position:fixed;
-
-    z-index:-1;
-
-    width:500px;
-    height:500px;
-
-    top:-330px;
-    left:50%;
-
-    transform:translateX(-50%);
-
-    border-radius:50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(255,105,170,.13),
-            transparent 68%
-        );
-
-    filter:blur(20px);
-
-    pointer-events:none;
-}
-
-body::after{
-
-    content:"";
-
-    position:fixed;
-
-    z-index:-1;
-
-    width:420px;
-    height:420px;
-
-    right:-300px;
-    bottom:-250px;
-
-    border-radius:50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(155,90,245,.10),
-            transparent 70%
-        );
-
-    filter:blur(25px);
-
-    pointer-events:none;
-}
-
+            to {
+                opacity: 1;
+                transform: translateY(15px);
+            }
+        }
+        
 
 /* =========================================================
    CONTAINER
@@ -134,6 +89,8 @@ body::after{
     width:100%;
 
     max-width:760px;
+    animation:
+                fadeUp 0.55s ease both;
 
     margin:0 auto;
 
@@ -839,23 +796,6 @@ body::after{
 
 }
 
-
-/* =========================================================
-   REDUÇÃO DE MOVIMENTO
-========================================================= */
-
-@media(prefers-reduced-motion:reduce){
-
-    *{
-
-        scroll-behavior:auto !important;
-        transition:none !important;
-        animation:none !important;
-
-    }
-
-}
-
 </style>
 
 </head>
@@ -901,7 +841,7 @@ body::after{
     <div class="date-card">
 
         <div class="date-icon">
-            📅
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M200-80q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h40v-40q0-17 11.5-28.5T280-880q17 0 28.5 11.5T320-840v40h320v-40q0-17 11.5-28.5T680-880q17 0 28.5 11.5T720-840v40h40q33 0 56.5 23.5T840-720v560q0 33-23.5 56.5T760-80H200Zm0-80h560v-400H200v400Zm0-480h560v-80H200v80Zm0 0v-80 80Zm120 240q-17 0-28.5-11.5T280-440q0-17 11.5-28.5T320-480h320q17 0 28.5 11.5T680-440q0 17-11.5 28.5T640-400H320Zm0 160q-17 0-28.5-11.5T280-280q0-17 11.5-28.5T320-320h200q17 0 28.5 11.5T560-280q0 17-11.5 28.5T520-240H320Z"/></svg>
         </div>
 
         <div>

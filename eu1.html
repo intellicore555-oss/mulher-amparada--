@@ -64,13 +64,28 @@ height: 25px;
    APP
 ========================================================= */
 
+@keyframes fadeUp {
+
+            from {
+                opacity: 0;
+                transform: translateY(0px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(15px);
+            }
+        }
+        
+        
 .app {
     width: 100%;
     max-width: 760px;
     margin: auto;
 
     min-height: 100vh;
-
+animation:
+                fadeUp 0.55s ease both;
     padding:
         env(safe-area-inset-top)
         0

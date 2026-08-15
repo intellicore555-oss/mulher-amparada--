@@ -129,6 +129,20 @@ body::after{
    APP
 ========================================================= */
 
+@keyframes fadeUp {
+
+            from {
+                opacity: 0;
+                transform: translateY(0px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(15px);
+            }
+        }
+        
+        
 .container{
 
     width:100%;
@@ -136,7 +150,8 @@ body::after{
     max-width:680px;
 
     margin:0 auto;
-
+animation:
+                fadeUp 0.55s ease both;
     padding:
         calc(22px + env(safe-area-inset-top))
         5%
@@ -894,22 +909,6 @@ body::after{
 }
 
 
-/* =========================================================
-   REDUÇÃO DE MOVIMENTO
-========================================================= */
-
-@media(prefers-reduced-motion:reduce){
-
-    *,
-    *::before,
-    *::after{
-
-        animation:none !important;
-        transition:none !important;
-
-    }
-
-}
 
 </style>
 
