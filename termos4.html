@@ -13,8 +13,6 @@
 <meta name="author" content="Seu nome">
 <title>Termos e Privacidade</title>
 
-
-
 <style>
 
 /* =========================================================
@@ -46,63 +44,60 @@
 ========================================================= */
 
 :root {
+    --black: #000000;
 
-    --bg: #070708;
-
-    --surface: #111116;
-    --surface-2: #17171d;
+    --surface: #0b0b0f;
+    --surface-2: #101014;
 
     --text: #ffffff;
-    --text-soft: #ddddE3;
-    --muted: #96969f;
+    --text-soft: #d7d7df;
+    --muted: #858590;
 
     --pink: #ff3f88;
-    --pink-2: #ff6aa5;
+    --pink-light: #ff78aa;
 
-    --purple: #9c4dff;
-    --purple-2: #c06cff;
+    --purple: #9147ff;
+    --purple-light: #b86aff;
 
-    --red: #ff365f;
+    --red: #ff3b5f;
 
-    --border: rgba(255,255,255,.10);
-    --border-pink: rgba(255,63,136,.35);
-
+    --border: rgba(255, 255, 255, .08);
+    --border-light: rgba(255, 255, 255, .12);
 }
 
 
 /* =========================================================
-   BASE
+   HTML
 ========================================================= */
 
 html {
+    width: 100%;
+    min-height: 100%;
+
+    background: #000;
+
     scroll-behavior: auto;
+
+    overflow-x: hidden;
 }
 
-@keyframes fadeUp {
 
-            from {
-                opacity: 0;
-                transform: translateY(0px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(15px);
-            }
-        }
-        
+/* =========================================================
+   BODY
+========================================================= */
 
 body {
-
+    width: 100%;
     min-height: 100vh;
-animation:
-                fadeUp 0.55s ease both;
-    padding: 20px;
 
-    background:
-        #000;
-        margin-left: 5%;
-    margin-right: 5%;
+    margin: 0;
+
+    padding:
+        18px
+        18px
+        130px;
+
+    background: #000;
 
     color: var(--text);
 
@@ -112,6 +107,27 @@ animation:
         sans-serif;
 
     overflow-x: hidden;
+
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+
+/* =========================================================
+   ANIMAÇÃO
+========================================================= */
+
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(15px);
+    }
 
 }
 
@@ -127,144 +143,74 @@ animation:
         900px
     );
 
-    margin: 0 auto;
-
-}
-
-
-/* =========================================================
-   HEADER
-========================================================= */
-
-.header {
-
-    text-align: center;
-
-    padding:
-        35px 10px 30px;
-
-}
-
-
-.logo {
-
-    width: 82px;
-    height: 82px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    margin: 0 auto 20px;
-
-    border-radius: 24px;
-
-    background:
-        linear-gradient(
-            135deg,
-            var(--purple),
-            var(--pink)
-        );
-
-    color: white;
-
-    font-size: 36px;
-    font-weight: 900;
-
-    box-shadow:
-        0 12px 30px
-        rgba(255,63,136,.20);
-
-}
-
-
-.header h1 {
-
-    margin-bottom: 9px;
-
-    color: white;
-
-    font-size:
-        clamp(27px, 6vw, 38px);
-
-    line-height: 1.1;
-
-    font-weight: 800;
-
-    letter-spacing: -.8px;
-
-}
-
-
-.header p {
-
-    max-width: 600px;
-
     margin:
         0 auto;
 
-    color: var(--muted);
-
-    font-size: 14px;
-
-    line-height: 1.7;
-
 }
 
 
 /* =========================================================
-   CARD
+   CARDS
 ========================================================= */
 
 .card {
 
     position: relative;
 
-    margin-bottom: 18px;
+    width: 90%;
 
-    padding: 26px;
+    margin-left: 5%;
+    margin-right: 5%;
+
+    padding:
+        24px 24px 25px;
 
     border:
         1px solid var(--border);
 
-    border-radius: 26px;
+    border-radius: 24px;
 
     background:
         linear-gradient(
             145deg,
-            rgba(255,255,255,.055),
-            rgba(255,255,255,.025)
+            #111116,
+            #08080b
         );
 
     box-shadow:
-        0 10px 30px
-        rgba(0,0,0,.28);
+        0 12px 35px
+        rgba(0,0,0,.45);
+
+    overflow: hidden;
+
+    animation:
+        fadeUp .55s ease both;
 
 }
 
 
 /* =========================================================
-   BORDA COLORIDA SUTIL
+   BRILHO LATERAL
 ========================================================= */
 
-.card::after {
+.card::before {
 
     content: "";
 
     position: absolute;
 
+    top: 20px;
     left: 0;
-    top: 18px;
 
     width: 3px;
-    height: 42px;
+    height: 46px;
 
-    border-radius: 0 10px 10px 0;
+    border-radius:
+        0 10px 10px 0;
 
     background:
         linear-gradient(
-            to bottom,
+            180deg,
             var(--pink),
             var(--purple)
         );
@@ -273,20 +219,92 @@ animation:
 
 
 /* =========================================================
+   BRILHO INTERNO
+========================================================= */
+
+.card::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: -100px;
+    right: -100px;
+
+    width: 180px;
+    height: 180px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(156,77,255,.08),
+            transparent 70%
+        );
+
+    pointer-events: none;
+
+}
+
+
+/* =========================================================
    TÍTULOS
 ========================================================= */
 
+.card h1,
+.card h2,
+.card h3 {
+
+    position: relative;
+
+    z-index: 1;
+
+    color: #fff;
+
+}
+
+
+.card h1 {
+
+    margin-bottom: 16px;
+
+    font-size: 28px;
+
+    line-height: 1.2;
+
+    font-weight: 900;
+
+    letter-spacing: -.6px;
+
+}
+
+
 .card h2 {
 
-    margin-bottom: 18px;
+    margin-bottom: 17px;
 
-    padding-left: 4px;
+    padding-left: 5px;
 
-    color: var(--pink-2);
+    color: var(--pink-light);
 
     font-size: 20px;
 
     line-height: 1.3;
+
+    font-weight: 900;
+
+    letter-spacing: -.3px;
+
+}
+
+
+.card h3 {
+
+    margin-top: 10px;
+    margin-bottom: 8px;
+
+    font-size: 16px;
 
     font-weight: 800;
 
@@ -299,6 +317,10 @@ animation:
 
 .card p {
 
+    position: relative;
+
+    z-index: 1;
+
     margin:
         10px 0;
 
@@ -306,48 +328,17 @@ animation:
 
     font-size: 14px;
 
-    line-height: 1.8;
+    line-height: 1.85;
 
 }
 
 
-.card strong {
+.card strong,
+.card b {
 
-    color: white;
+    color: #fff;
 
     font-weight: 800;
-
-}
-
-
-/* =========================================================
-   CLÁUSULAS
-========================================================= */
-
-.clausula {
-
-    margin-bottom: 15px;
-
-    padding: 16px 18px;
-
-    border:
-        1px solid rgba(255,255,255,.06);
-
-    border-radius: 18px;
-
-    background:
-        rgba(255,255,255,.025);
-
-}
-
-
-.clausula h3 {
-
-    margin-bottom: 8px;
-
-    color: white;
-
-    font-size: 16px;
 
 }
 
@@ -356,16 +347,21 @@ animation:
    LISTAS
 ========================================================= */
 
-ul {
+.card ul {
 
-    margin-top: 12px;
+    position: relative;
+
+    z-index: 1;
+
+    margin:
+        12px 0 8px;
 
     padding-left: 22px;
 
 }
 
 
-li {
+.card li {
 
     margin-bottom: 9px;
 
@@ -379,57 +375,31 @@ li {
 
 
 /* =========================================================
-   TAG
-========================================================= */
-
-.tag {
-
-    display: inline-flex;
-
-    align-items: center;
-
-    padding:
-        7px 13px;
-
-    margin-bottom: 16px;
-
-    border:
-        1px solid var(--border-pink);
-
-    border-radius: 200px;
-
-    background:
-        rgba(255,63,136,.09);
-
-    color:
-        #ff9dc2;
-
-    font-size: 12px;
-
-    font-weight: 700;
-
-}
-
-
-/* =========================================================
-   BOTÃO
+   BOTÃO FIXO
 ========================================================= */
 
 .botao {
 
     position: fixed;
 
-    z-index: 100;
+    z-index: 9999;
 
     left: 50%;
 
-    bottom: 18px;
+    bottom:
+        calc(
+            18px +
+            env(safe-area-inset-bottom)
+        );
 
-    transform: translateX(-50%);
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
 
     width:
         min(
-            calc(100% - 30px),
+            calc(100vw - 30px),
             440px
         );
 
@@ -438,10 +408,14 @@ li {
     padding:
         15px 22px;
 
-    border: 1px solid
-        rgba(255,255,255,.12);
+    transform:
+        translateX(-50%);
 
-    border-radius: 200px;
+    border:
+        1px solid
+        rgba(255,255,255,.14);
+
+    border-radius: 999px;
 
     background:
         linear-gradient(
@@ -450,7 +424,7 @@ li {
             var(--purple)
         );
 
-    color: white;
+    color: #fff;
 
     font-family:
         "Quicksand",
@@ -458,29 +432,60 @@ li {
 
     font-size: 15px;
 
-    font-weight: 800;
+    font-weight: 900;
+
+    line-height: 1.2;
+
+    text-align: center;
 
     cursor: pointer;
 
     box-shadow:
-        0 10px 30px
-        rgba(255,63,136,.25);
+        0 12px 35px
+        rgba(255,63,136,.28),
+        0 4px 15px
+        rgba(0,0,0,.5);
+
+    outline: none;
+
+    user-select: none;
+
+    -webkit-user-select: none;
 
     -webkit-tap-highlight-color:
         transparent;
+
+    appearance: none;
+
+    -webkit-appearance: none;
 
 }
 
 
 /* =========================================================
-   BOTÃO - CLIQUE
+   BOTÃO — HOVER
+========================================================= */
+
+.botao:hover {
+
+    filter:
+        brightness(1.08);
+
+}
+
+
+/* =========================================================
+   BOTÃO — CLIQUE
 ========================================================= */
 
 .botao:active {
 
     transform:
         translateX(-50%)
-        scale(.97);
+        scale(.96);
+
+    filter:
+        brightness(.95);
 
 }
 
@@ -491,18 +496,57 @@ li {
 
 .footer {
 
-    margin-top: 35px;
+    width: min(
+        100%,
+        850px
+    );
+
+    margin:
+        35px auto 0;
 
     padding:
-        10px 0 100px;
+        20px 8px 160px;
 
     text-align: center;
 
-    color: #777780;
+    color: #6f6f79;
 
     font-size: 12px;
 
-    line-height: 1.7;
+    line-height: 1.8;
+
+}
+
+
+.footer p {
+
+    margin:
+        10px 0;
+
+}
+
+
+/* =========================================================
+   SEPARADORES
+========================================================= */
+
+.footer br {
+
+    line-height: 1;
+
+}
+
+
+/* =========================================================
+   SELEÇÃO
+========================================================= */
+
+::selection {
+
+    background:
+        rgba(255,63,136,.30);
+
+    color: #fff;
 
 }
 
@@ -520,34 +564,21 @@ li {
 
 ::-webkit-scrollbar-track {
 
-    background: #08080a;
+    background: #000;
 
 }
 
 
 ::-webkit-scrollbar-thumb {
 
-    border-radius: 20px;
+    border-radius: 999px;
 
     background:
         linear-gradient(
+            180deg,
             var(--pink),
             var(--purple)
         );
-
-}
-
-
-/* =========================================================
-   SELEÇÃO
-========================================================= */
-
-::selection {
-
-    background:
-        rgba(255,63,136,.30);
-
-    color: white;
 
 }
 
@@ -560,93 +591,104 @@ li {
 
     body {
 
-        padding: 12px;
-
-    }
-
-
-    .header {
-
         padding:
-            25px 8px 24px;
-
-    }
-
-
-    .logo {
-
-        width: 70px;
-        height: 70px;
-
-        margin-bottom: 16px;
-
-        border-radius: 21px;
-
-        font-size: 30px;
-
-    }
-
-
-    .header h1 {
-
-        font-size: 27px;
-
-    }
-
-
-    .header p {
-
-        font-size: 13px;
+            12px
+            12px
+            125px;
 
     }
 
 
     .card {
 
-        padding: 21px 18px;
+        margin-bottom: 13px;
 
-        border-radius: 22px;
+        padding:
+            21px
+            18px
+            22px;
 
-        margin-bottom: 14px;
+        border-radius: 21px;
+
+    }
+
+
+    .card::before {
+
+        top: 17px;
+
+        height: 40px;
+
+    }
+
+
+    .card h1 {
+
+        font-size: 25px;
 
     }
 
 
     .card h2 {
 
-        font-size: 18px;
+        margin-bottom: 14px;
 
-        margin-bottom: 15px;
+        font-size: 18px;
 
     }
 
 
-    .card p,
-    li {
+    .card h3 {
+
+        font-size: 15px;
+
+    }
+
+
+    .card p {
 
         font-size: 13px;
 
-        line-height: 1.75;
+        line-height: 1.8;
 
     }
 
 
-    .clausula {
+    .card li {
 
-        padding: 14px;
+        font-size: 13px;
 
-        border-radius: 16px;
+        line-height: 1.7;
 
     }
 
 
     .botao {
 
-        bottom: 12px;
+        width:
+            calc(100vw - 30px);
 
         min-height: 56px;
 
+        padding:
+            14px 18px;
+
+        bottom:
+            calc(
+                15px +
+                env(safe-area-inset-bottom)
+            );
+
         font-size: 14px;
+
+    }
+
+
+    .footer {
+
+        padding-bottom: 145px;
+
+        font-size: 11.5px;
 
     }
 
@@ -654,28 +696,36 @@ li {
 
 
 /* =========================================================
-   TELAS MUITO PEQUENAS
+   TELAS PEQUENAS
 ========================================================= */
 
 @media (max-width: 380px) {
 
     body {
 
-        padding: 9px;
+        padding:
+            9px
+            9px
+            120px;
 
     }
 
 
     .card {
 
-        padding: 18px 15px;
+        padding:
+            18px
+            15px
+            19px;
+
+        border-radius: 19px;
 
     }
 
 
-    .header h1 {
+    .card h1 {
 
-        font-size: 24px;
+        font-size: 23px;
 
     }
 
@@ -687,25 +737,31 @@ li {
     }
 
 
-    .card p,
-    li {
+    .card p {
+
+        font-size: 12.5px;
+
+        line-height: 1.78;
+
+    }
+
+
+    .card li {
 
         font-size: 12.5px;
 
     }
 
-}
 
+    .botao {
 
-/* =========================================================
-   REDUÇÃO DE MOVIMENTO
-========================================================= */
+        width:
+            calc(60vw - 20px);
 
-@media (prefers-reduced-motion: reduce) {
+        min-height: 54px;
 
-    html {
-
-        scroll-behavior: auto;
+        font-size: 13px;
+        border: 1px solid mediumslateblue;
 
     }
 
@@ -713,21 +769,120 @@ li {
 
 
 /* =========================================================
-   EVITA SELEÇÃO ACIDENTAL NO BOTÃO
+   DISPOSITIVOS COM ÁREA SEGURA
+========================================================= */
+
+@supports (
+    padding-bottom:
+    env(safe-area-inset-bottom)
+) {
+
+    body {
+
+        padding-bottom:
+            calc(
+                120px +
+                env(safe-area-inset-bottom)
+            );
+
+    }
+
+}
+
+
+/* =========================================================
+   GARANTE BOTÃO ACIMA DE QUALQUER CONTEÚDO
 ========================================================= */
 
 .botao {
 
-    user-select: none;
-    -webkit-user-select: none;
+    isolation: isolate;
+
+}
+
+
+/* =========================================================
+   EVITA TRANSFORMAÇÃO EM ELEMENTOS PAI
+   QUE PODERIA ALTERAR O COMPORTAMENTO DO FIXED
+========================================================= */
+
+html,
+body {
+
+    transform: none !important;
+
+    filter: none !important;
+
+    perspective: none !important;
+
+}
+
+
+/* =========================================================
+   ANIMAÇÃO DOS CARDS
+========================================================= */
+
+.card:nth-of-type(1) {
+    animation-delay: .02s;
+}
+
+.card:nth-of-type(2) {
+    animation-delay: .04s;
+}
+
+.card:nth-of-type(3) {
+    animation-delay: .06s;
+}
+
+.card:nth-of-type(4) {
+    animation-delay: .08s;
+}
+
+.card:nth-of-type(5) {
+    animation-delay: .10s;
+}
+
+
+/* =========================================================
+   DEIXA O BOTÃO SEMPRE VISÍVEL
+========================================================= */
+
+.botao {
+
+    visibility: visible;
+
+    opacity: 1;
+
+}
+
+
+/* =========================================================
+   CORREÇÃO PARA WEBVIEW ANDROID
+========================================================= */
+
+@media (display-mode: standalone) {
+
+    .botao {
+
+        bottom:
+            calc(
+                18px +
+                env(safe-area-inset-bottom)
+            );
+
+    }
 
 }
 
 </style>
+
 </head>
 
 <body>
 
+<button onclick="window.location.href='download2.html'" class="botao">
+    Li e Concordo com os termos e políticas 
+</button>
 
 <div class="card">
     <h2>1. Finalidade do Aplicativo</h2>
@@ -952,16 +1107,6 @@ li {
 
     <p><strong>Cláusula 7.10:</strong> Em caso de divergência entre estes Termos de Uso e a legislação aplicável, prevalecerão as disposições previstas na Lei Geral de Proteção de Dados Pessoais (Lei nº 13.709/2018) e nas demais normas aplicáveis.</p>
 </div>
-
-
-
-
-<button onclick="window.location.href='download2.html'" class="botao">
-    Li e Concordo com os termos e políticas 
-</button>
-
-
-
 
 </body>
 </html>
