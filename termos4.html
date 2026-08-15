@@ -78,11 +78,25 @@ html {
     scroll-behavior: auto;
 }
 
+@keyframes fadeUp {
+
+            from {
+                opacity: 0;
+                transform: translateY(0px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(15px);
+            }
+        }
+        
 
 body {
 
     min-height: 100vh;
-
+animation:
+                fadeUp 0.55s ease both;
     padding: 20px;
 
     background:

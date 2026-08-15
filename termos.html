@@ -76,6 +76,19 @@ html {
     scroll-behavior: auto;
 }
 
+@keyframes fadeUp {
+
+            from {
+                opacity: 0;
+                transform: translateY(0px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(15px);
+            }
+        }
+        
 
 body {
 
@@ -89,7 +102,8 @@ body {
         #000;
 
     color: var(--text);
-
+animation:
+                fadeUp 0.55s ease both;
     font-family:
         "Quicksand",
         Arial,
