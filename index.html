@@ -50,13 +50,24 @@
     href="/apple-touch-icon.png"
 >
 
-<link rel="manifest" href="/manifest.json">
+<link rel="manifest" href="/mulher-amparada-app/manifest.json">
 
 <style>
+
+.hero-visual.reveal {
+    width: 100%;
+    height: 100%;
+    min-height: 430px;
+    justify-self: center;
+    display: grid;
+    place-items: center;
+}
+
 main {
-margin-right: 5%;
+    margin-right: 5%;
     margin-left: 5%;
-    }
+}
+
 
 /* =========================================================
    FONTE
@@ -67,6 +78,7 @@ margin-right: 5%;
     src: url("font.ttf") format("truetype");
     font-display: swap;
 }
+
 
 /* =========================================================
    VARIÁVEIS
@@ -132,9 +144,8 @@ html {
 }
 
 body {
-    min-height: 100vh;
 
-    
+    min-height: 100vh;
 
     background: #000;
 
@@ -159,8 +170,8 @@ img {
 }
 
 svg {
-width: 25px;
-height: 25px;
+    width: 25px;
+    height: 25px;
 }
 
 button,
@@ -183,7 +194,6 @@ button {
 a {
     color: inherit;
 }
-
 
 
 /* =========================================================
@@ -271,7 +281,9 @@ a {
 }
 
 .topbar:hover {
-    border-color: var(--pink-border);
+
+    border-color:
+        var(--pink-border);
 }
 
 .nav {
@@ -406,7 +418,8 @@ a {
 
     background: var(--surface-3);
 
-    transform: translateY(-1px);
+    transform:
+        translateY(-1px);
 }
 
 .nav-button {
@@ -451,7 +464,8 @@ a {
 
     color: #000;
 
-    transform: translateY(-2px);
+    transform:
+        translateY(-2px);
 
     box-shadow:
         0 8px 25px rgba(255,63,159,.2);
@@ -473,8 +487,6 @@ a {
     align-items: center;
 
     overflow: hidden;
-
-    
 }
 
 .hero-grid {
@@ -797,8 +809,6 @@ a {
     gap: 15px;
 
     padding-bottom: 18px;
-
-    
 }
 
 .hero-card-title {
@@ -855,7 +865,8 @@ a {
 
     place-items: center;
 
-    margin: 0 auto 22px;
+    margin:
+        0 auto 22px;
 
     border:
         1px solid rgba(255,63,159,.35);
@@ -886,7 +897,8 @@ a {
 
 .hero-card-main p {
 
-    margin: 9px auto 0;
+    margin:
+        9px auto 0;
 
     max-width: 270px;
 
@@ -1132,7 +1144,8 @@ a {
 
     opacity: 0;
 
-    transition: opacity .3s ease;
+    transition:
+        opacity .3s ease;
 }
 
 .feature:hover::after {
@@ -1750,8 +1763,8 @@ a {
         repeat(2, minmax(0, 1fr));
 
     gap: 12px;
-    
-        border:
+
+    border:
         1px solid var(--border);
 
     border-radius:
@@ -1759,7 +1772,6 @@ a {
 
     background:
         var(--surface);
-        
 }
 
 .command-card {
@@ -1768,10 +1780,13 @@ a {
 
     padding: 22px;
 
-
-
     transition:
         .25s var(--ease);
+        
+        border: 1px solid #222;
+        width: 90%;
+        border-radius: 20px;
+        margin-left: 5%;
 }
 
 .command-card:hover {
@@ -1805,11 +1820,7 @@ a {
     padding:
         10px 11px;
 
-    
-
     border-radius: 9px;
-
-    
 
     color:
         #d9d9df;
@@ -1897,8 +1908,6 @@ footer {
     padding:
         45px 0 30px;
 
-    
-
     background:
         #030304;
 }
@@ -1976,8 +1985,6 @@ footer {
     margin-top: 30px;
 
     padding-top: 18px;
-
-    
 
     color: var(--dim);
 
@@ -2091,15 +2098,20 @@ button:focus-visible {
 @media (max-width: 1050px) {
 
     .hero-layout {
-        grid-template-columns: 1fr;
+
+        grid-template-columns:
+            1fr;
+
         gap: 55px;
     }
 
     .hero-visual {
+
         min-height: 360px;
     }
 
     .hero-card {
+
         max-width: 390px;
     }
 
@@ -2108,18 +2120,23 @@ button:focus-visible {
     }
 
     .feature-grid {
+
         grid-template-columns:
             repeat(2, minmax(0, 1fr));
     }
 
     .feature-large {
+
         grid-column:
             span 2;
     }
 
     .emergency-layout,
     .security-layout {
-        grid-template-columns: 1fr;
+
+        grid-template-columns:
+            1fr;
+
         gap: 40px;
     }
 
@@ -2136,6 +2153,7 @@ button:focus-visible {
 @media (max-width: 700px) {
 
     .container {
+
         width:
             min(
                 calc(100% - 28px),
@@ -2162,8 +2180,10 @@ button:focus-visible {
     }
 
     .brand-icon {
+
         width: 39px;
         height: 39px;
+
         border-radius: 12px;
     }
 
@@ -2182,6 +2202,7 @@ button:focus-visible {
     }
 
     .hero-content {
+
         padding:
             80px 0 90px;
     }
@@ -2209,19 +2230,23 @@ button:focus-visible {
     }
 
     .hero-visual {
+
         min-height: 320px;
     }
 
     .hero-orbit {
+
         width: 290px;
         height: 290px;
     }
 
     .hero-card {
+
         max-width: 330px;
     }
 
     .section {
+
         padding:
             80px 0;
     }
@@ -2273,7 +2298,9 @@ button:focus-visible {
     }
 
     .footer-layout {
+
         flex-direction: column;
+
         align-items: flex-start;
     }
 
@@ -2305,12 +2332,14 @@ button:focus-visible {
     }
 
     .brand-icon {
+
         width: 36px;
         height: 36px;
     }
 
     .nav-button {
-        padding: 0 10px;
+        padding:
+            0 10px;
     }
 
     .hero-card {
@@ -2328,46 +2357,15 @@ button:focus-visible {
 
 
 /* =========================================================
-   REDUÇÃO DE MOVIMENTO
-========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-    html {
-        scroll-behavior: auto;
-    }
-
-    *,
-    *::before,
-    *::after {
-
-        animation-duration:
-            .01ms !important;
-
-        animation-iteration-count:
-            1 !important;
-
-        transition-duration:
-            .01ms !important;
-    }
-
-    .reveal {
-
-        opacity: 1;
-
-        transform: none;
-    }
-}
-
-
-/* =========================================================
    PRINT
 ========================================================= */
 
 @media print {
 
     body {
+
         background: #fff;
+
         color: #000;
     }
 
@@ -2380,8 +2378,11 @@ button:focus-visible {
     .download-panel,
     .emergency-panel,
     .hero-card {
+
         background: #fff;
+
         color: #000;
+
         box-shadow: none;
     }
 }
@@ -2530,96 +2531,6 @@ button:focus-visible {
 </div>
 
 
-<div class="hero-visual reveal">
-
-<div
-    class="hero-orbit"
-    aria-hidden="true"
-></div>
-
-<div class="hero-card">
-
-<div class="hero-card-top">
-
-<div class="hero-card-title">
-    Mulher Amparada
-</div>
-
-<div class="hero-card-status">
-    Sistema ativo
-</div>
-
-</div>
-
-
-<div class="hero-card-main">
-
-<div
-    class="hero-heart"
-    aria-hidden="true"
->
-    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M360-360q-100 0-170-70t-70-170q0-20 3-40t11-38q5-10 12.5-15t16.5-7q9-2 18.5.5T199-689l105 105 72-72-105-105q-8-8-10.5-17.5T260-797q2-9 7-16.5t15-12.5q18-8 38-11t40-3q100 0 170 70t70 170q0 23-4 43.5T584-516l202 200q29 29 29 71t-29 71q-29 29-71 29t-71-30L444-376q-20 8-40.5 12t-43.5 4Zm0-80q26 0 52-8t47-25l243 243q5 5 13.5 4.5T729-231q5-5 5-13.5t-5-13.5L486-500q18-20 26-46.5t8-53.5q0-60-38.5-104.5T386-758l74 74q12 12 12 28t-12 28L332-500q-12 12-28 12t-28-12l-74-74q9 57 53.5 95.5T360-440Zm109-51Z"/></svg>
-</div>
-
-<h3>
-    Tecnologia que cuida.
-</h3>
-
-<p>
-    Ferramentas de segurança,
-    privacidade, emergência e organização.
-</p>
-
-</div>
-
-
-<div class="hero-mini-grid">
-
-<div class="hero-mini">
-
-<strong>
-    24/7
-</strong>
-
-Acesso rápido
-
-</div>
-
-<div class="hero-mini">
-
-<strong>
-    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M223.5-423.5Q200-447 200-480t23.5-56.5Q247-560 280-560t56.5 23.5Q360-513 360-480t-23.5 56.5Q313-400 280-400t-56.5-23.5ZM280-240q-100 0-170-70T40-480q0-100 70-170t170-70q67 0 121.5 33t86.5 87h335q8 0 15.5 3t13.5 9l80 80q6 6 8.5 13t2.5 15q0 8-2.5 15t-8.5 13L805-325q-5 5-12 8t-14 4q-7 1-14-1t-13-7l-52-39-57 43q-5 4-11 6t-12 2q-6 0-12.5-2t-11.5-6l-61-43h-47q-32 54-86.5 87T280-240Zm0-80q56 0 98.5-34t56.5-86h125l58 41v.5-.5l82-61 71 55 75-75h-.5.5l-40-40v-.5.5H435q-14-52-56.5-86T280-640q-66 0-113 47t-47 113q0 66 47 113t113 47Z"/></svg>
-</strong>
-
-Privacidade
-
-</div>
-
-<div class="hero-mini">
-
-<strong>
-    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M200-160q-33 0-56.5-23.5T120-240v-280q0-74 28.5-139.5T226-774q49-49 114.5-77.5T480-880q74 0 139.5 28.5T734-774q49 49 77.5 114.5T840-520v400q0 33-23.5 56.5T760-40H520q-17 0-28.5-11.5T480-80q0-17 11.5-28.5T520-120h240v-40h-80q-33 0-56.5-23.5T600-240v-160q0-33 23.5-56.5T680-480h80v-40q0-116-82-198t-198-82q-116 0-198 82t-82 198v40h80q33 0 56.5 23.5T360-400v160q0 33-23.5 56.5T280-160h-80Zm0-80h80v-160h-80v160Zm480 0h80v-160h-80v160ZM200-400h80-80Zm480 0h80-80Z"/></svg>
-</strong>
-
-Assistência
-
-</div>
-
-<div class="hero-mini">
-
-<strong>
-    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M480-186q122-112 181-203.5T720-552q0-109-69.5-178.5T480-800q-101 0-170.5 69.5T240-552q0 71 59 162.5T480-186Zm-28 74q-14-5-25-15-65-60-115-117t-83.5-110.5q-33.5-53.5-51-103T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 45-17.5 94.5t-51 103Q698-301 648-244T533-127q-11 10-25 15t-28 5q-14 0-28-5Zm28-448Zm56.5 56.5Q560-527 560-560t-23.5-56.5Q513-640 480-640t-56.5 23.5Q400-593 400-560t23.5 56.5Q447-480 480-480t56.5-23.5Z"/></svg>
-</strong>
-
-Localização
-
-</div>
-
-</div>
-
-</div>
-
-</div>
 
 </div>
 
@@ -3869,6 +3780,8 @@ style="border-radius: 200px;"
 
         <code>Pesquisar + termo a ser pesquisado</code>
     </div>
+    
+    <br>
 
 </div>
 
