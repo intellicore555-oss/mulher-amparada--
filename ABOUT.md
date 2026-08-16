@@ -782,12 +782,4 @@ honestamente, se a função de proteção por som tiver ativada, eu testei as 05
 
 # Sobre o que acho dos vendedores de loja física que já vi (lembrando que só os que tive contato...):
 
-compro fone, quebra em menos de 2 meses
-
-quando algo quebra e queto devolver, vocês ficam grossos!
-
-vocês cobram o dobro ou ate o triplo do preço!
-
 agora, no dia 14.08.2026, um cara me vende um cabo otg o dobro do preço que já veio quebrado de fábrica!
-
-ENTÃO, SINTO MUITO, VOCÊS PERDERAM UM CLIENTE VALIOSO!
