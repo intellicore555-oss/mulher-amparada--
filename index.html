@@ -42,6 +42,8 @@ body {
     font-family: "Quicksand", Arial, sans-serif;
     min-height: 100vh;
     overflow-x: hidden;
+    
+    
 }
 
 
@@ -64,11 +66,12 @@ body {
 
     border: 1px solid #292929;
 
-    border-radius: 22px;
+    border-radius: 18px;
 
     box-shadow:
         0 12px 35px rgba(0,0,0,.35);
-
+animation:
+        fadeUp .7s ease forwards;
 }
 
 
@@ -346,14 +349,13 @@ body {
 ========================================================= */
 
 .hero {
-    min-height: 100vh;
+    min-height: auto;
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
 
-    padding:
-        80px 0;
+    padding: 55px 0 35px;
 
     position: relative;
 }
@@ -426,7 +428,7 @@ body {
 .meta {
     padding: 10px 14px;
 
-    border-radius: 12px;
+    border-radius: 102px;
 
     background: rgba(255,255,255,.035);
     border: 1px solid rgba(255,255,255,.07);
@@ -714,9 +716,9 @@ body {
         transform .2s ease,
         box-shadow .2s ease;
         
-        width: 50%;
+        width: 60%;
         
-       left: 25%;
+       left: 20%;
 }
 
 .button:hover {
@@ -767,13 +769,20 @@ body {
         width: min(100% - 22px, 900px);
     }
 
+    
+
     .hero {
-        padding-top: 70px;
+        min-height: auto;
+
+        padding:
+            35px 0
+            25px;
     }
 
     .hero h1 {
         letter-spacing: -2px;
     }
+
 
     .section {
         padding: 22px 18px;
