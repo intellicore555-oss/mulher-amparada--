@@ -1,20 +1,72 @@
-CONTRATO DE LICENÇA PROPRIETÁRIA - TODOS OS DIREITOS RESERVADOS
+CONTRATO DE LICENÇA DE SOFTWARE — ALGUNS DIREITOS RESERVADOS
 
-Copyright (c) 2026 Projeto feito por: Samuel De Oliveira Rigueiro/ Mulher Amparada.
+Copyright © 2026 — Projeto desenvolvido por Samuel De Oliveira Rigueiro / Mulher Amparada.
 
-Por meio deste termo, fica expressamente estabelecido que todos os direitos autorais, propriedade intelectual, código-fonte, interface gráfica, documentação e demais ativos contidos neste repositório pertencem exclusivamente ao detentor dos direitos autorais acima nomeado.
+Este projeto, incluindo seu código-fonte, estrutura, arquivos, recursos, funcionalidades, documentação e demais componentes, é protegido por direitos autorais e leis de propriedade intelectual, permanecendo de propriedade exclusiva de seu respectivo autor.
 
-É ESTRITAMENTE PROIBIDO:
-1. Copiar, modificar, publicar, sublicenciar, vender ou distribuir o código-fonte, parcial ou integralmente, para qualquer finalidade (comercial ou não comercial).
-2. Utilizar a lógica de negócios, design de telas ou marca "Mulher Amparada" sem autorização prévia, expressa e formal por escrito do autor.
-3. Utilizar este software ou partes dele como base para o desenvolvimento de produtos derivados ou concorrentes.
+1. CONCESSÃO DE USO
 
-PORÉM!: utilizar-se dos recursos desse repositório para a criação de auditorias ou contribuições benéficas para o projetos são aceitas e totalmente bem-vindas, e parq a distribuição, é necessário a comunicação com o desenvolvedor e dar total créditos a ele!
+O autor concede uma licença de uso gratuita e não exclusiva deste projeto, permitindo que terceiros utilizem, estudem, auditem, modifiquem, adaptem, executem e distribuam o projeto e suas versões modificadas, desde que sejam integralmente respeitadas as condições estabelecidas neste contrato.
 
-O uso, visualização ou download pública do código neste repositório não concede, sob nenhuma hipótese, qualquer licença de uso, transferência de direitos ou permissão de exploração por terceiros.
+Esta licença não transfere a propriedade intelectual do projeto nem concede ao usuário qualquer direito de reivindicar autoria sobre o projeto original.
 
-A violação de qualquer um dos termos desta licença sujeitará o infrator às sanções civis e criminais cabíveis, nos termos da Lei do Software (Lei nº 9.609/1998) e da Lei de Direitos Autorais (Lei nº 9.610/1998) vigentes na República Federativa do Brasil.
+2. CONDIÇÕES OBRIGATÓRIAS
 
-Para solicitações de uso, parcerias ou autorizações especiais, entre em contato diretamente com o autor:
+A autorização de uso, distribuição e modificação está estritamente condicionada ao cumprimento das seguintes regras:
 
-mulheramparada@gmail.com
+1. É expressamente proibida a venda ou cobrança direta do projeto às usuárias finais.
+2. O projeto deve permanecer completamente livre de anúncios, não podendo ser inseridos banners, pop-ups, sistemas de publicidade ou scripts de rastreamento comercial dentro do aplicativo.
+3. É permitido obter ganhos financeiros por outros meios indiretos (como serviços de suporte, customização técnica para entidades ou doações), desde que isso não resulte na venda ou cobrança direta das usuárias finais e não viole as demais condições desta licença.
+4. Qualquer versão distribuída, modificada ou adaptada deverá manter os devidos créditos ao autor original e ao projeto Mulher Amparada.
+5. Não é permitido remover, ocultar ou alterar os avisos de copyright, assinaturas de código e atribuição existentes no projeto com a finalidade de retirar ou ocultar sua autoria original.
+6. Modificações e versões derivadas podem ser realizadas, desde que não sejam apresentadas, divulgadas ou comercializadas como sendo a versão oficial original desenvolvida pelo autor.
+
+3. CRÉDITOS E ATRIBUIÇÃO
+
+Toda distribuição, publicação ou disponibilização pública do projeto ou de versões derivadas deverá preservar uma atribuição equivalente a:
+
+“Projeto originalmente desenvolvido por Samuel De Oliveira Rigueiro / Mulher Amparada.”
+
+Os créditos devem permanecer visíveis (em menus "Sobre", rodapés ou documentação) e não podem ser apresentados de maneira que sugira que o autor original endossa, patrocina ou é responsável por uma versão modificada sem sua autorização expressa.
+
+4. RESPONSABILIDADE PELO USO
+
+O projeto é disponibilizado "no estado em que se encontra" (AS IS), sem garantias de que sua utilização será ininterrupta, livre de erros ou adequada a todas as finalidades ou situações de emergência.
+
+O autor original não se responsabiliza por danos, prejuízos, perdas de dados, falhas de comunicação com serviços públicos de emergência (180, 190, 192), incidentes de segurança, crimes, infrações, violações de direitos ou quaisquer consequências decorrentes do uso, modificação, distribuição ou utilização indevida do projeto por terceiros, na medida permitida pela legislação aplicável.
+
+A responsabilidade civil e penal pelo uso do projeto, incluindo suas modificações, instalações e aplicações específicas, pertence exclusivamente à pessoa, organização ou entidade que realizou esse uso ou distribuição.
+
+Nenhuma disposição desta licença autoriza a utilização do projeto para fins ilegais ou para violar direitos de terceiros.
+
+5. VERSÕES MODIFICADAS (EFEITO VITALÍCIO)
+
+Quem modificar o projeto poderá distribuir sua própria versão, desde que a nova versão seja obrigatoriamente distribuída sob os termos desta mesma licença, garantindo que o código derivado também:
+
+- Mantenha os créditos do projeto original;
+- Respeite todas as condições e restrições desta licença;
+- Não seja apresentado como sendo a versão oficial original;
+- Não tenha seus avisos de copyright removidos ou alterados;
+- Permaneça completamente livre de anúncios;
+- Não seja vendido ou cobrado diretamente das usuárias finais.
+
+6. RESERVA DE DIREITOS E RESCISÃO
+
+Salvo os direitos expressamente concedidos por esta licença, todos os demais direitos permanecem estritamente reservados ao autor.
+
+Esta licença não deve ser interpretada como uma transferência de propriedade, cessão definitiva de direitos autorais ou renúncia aos direitos morais do autor sobre o projeto.
+
+7. ACEITAÇÃO DA LICENÇA
+
+Ao utilizar, copiar, modificar ou distribuir este projeto, o usuário declara que leu, compreendeu e concorda em cumprir integralmente os termos desta licença.
+
+O descumprimento de qualquer uma das condições estabelecidas nesta licença resultará na revogação automática e imediata da autorização concedida para utilização e distribuição do projeto, sujeitando o infrator às sanções civis e penais cabíveis conforme a legislação de direitos autorais vigente.
+
+---
+
+Copyright © 2026
+
+Autor: Samuel De Oliveira Rigueiro
+Projeto: Mulher Amparada
+
+Todos os direitos reservados, exceto aqueles expressamente concedidos por esta licença.

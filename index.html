@@ -7,223 +7,327 @@
 
 <meta
     name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
-
-<title>Mulher Amparada | Segurança e tecnologia</title>
-
-<meta
-    name="description"
-    content="Conheça o Mulher Amparada, aplicativo com recursos de segurança, emergência, privacidade, organização e assistência."
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
 >
 
 <meta
     name="theme-color"
-    content="#050507"
+    content="#000000"
 >
 
-<meta
-    name="color-scheme"
-    content="dark"
->
-
-<link rel="icon" type="image/x-icon" href="/favicon.ico">
-<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
-
-<link
-    rel="icon"
-    type="image/png"
-    sizes="32x32"
-    href="/favicon-32x32.png"
->
-
-<link
-    rel="icon"
-    type="image/png"
-    sizes="16x16"
-    href="/favicon-16x16.png"
->
-
-<link
-    rel="apple-touch-icon"
-    sizes="180x180"
-    href="/apple-touch-icon.png"
->
-
-<link rel="manifest" href="/mulher-amparada-app/manifest.json">
+<title>Licença de Software — Mulher Amparada</title>
 
 <style>
-
-.hero-visual.reveal {
-    width: 100%;
-    height: 100%;
-    min-height: 430px;
-    justify-self: center;
-    display: grid;
-    place-items: center;
-}
-
-main {
-    margin-right: 5%;
-    margin-left: 5%;
-}
-
-
-/* =========================================================
-   FONTE
-========================================================= */
 
 @font-face {
     font-family: "Quicksand";
     src: url("font.ttf") format("truetype");
-    font-display: swap;
+    font-weight: 100 900;
 }
 
-
-/* =========================================================
-   VARIÁVEIS
-========================================================= */
-
-:root {
-
-    --pink: #ff3f9f;
-    --pink-light: #ff72b9;
-    --pink-soft: #ff9aca;
-    --pink-dark: #d90065;
-
-    --red: #ff3157;
-    --red-light: #ff647c;
-
-    --black: #020203;
-    --bg: #050507;
-
-    --surface: #08080b;
-    --surface-2: #0b0b0f;
-    --surface-3: #101015;
-    --surface-4: #15151b;
-
-    --white: #ffffff;
-    --text: #f1f1f5;
-    --muted: #a1a1ad;
-    --dim: #686874;
-
-    --border: rgba(255,255,255,.075);
-    --border-light: rgba(255,255,255,.11);
-    --border-strong: rgba(255,255,255,.17);
-
-    --pink-border: rgba(255,63,159,.32);
-    --pink-border-strong: rgba(255,63,159,.52);
-
-    --red-border: rgba(255,49,87,.32);
-
-    --radius-sm: 12px;
-    --radius: 20px;
-    --radius-lg: 30px;
-
-    --container: 1180px;
-
-    --ease: cubic-bezier(.2,.8,.2,1);
-}
-
-
-/* =========================================================
-   RESET
-========================================================= */
-
-*,
-*::before,
-*::after {
+* {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
 }
 
 html {
     scroll-behavior: smooth;
-    background: var(--black);
-    color-scheme: dark;
-    scroll-padding-top: 100px;
 }
 
 body {
-
-    min-height: 100vh;
-
     background: #000;
-
-    color: var(--text);
-
-    font-family: "Quicksand", sans-serif;
-
+    color: #fff;
+    font-family: "Quicksand", Arial, sans-serif;
+    min-height: 100vh;
     overflow-x: hidden;
-
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-}
-
-::selection {
-    background: var(--pink);
-    color: #000;
-}
-
-img {
-    max-width: 100%;
-    display: block;
-}
-
-svg {
-    width: 25px;
-    height: 25px;
-}
-
-button,
-input,
-textarea,
-select,
-a {
-    font-family: inherit;
-}
-
-button,
-a {
-    -webkit-tap-highlight-color: transparent;
-}
-
-button {
-    cursor: pointer;
-}
-
-a {
-    color: inherit;
 }
 
 
 /* =========================================================
-   SCROLLBAR
+   AJUDA
 ========================================================= */
 
-::-webkit-scrollbar {
-    width: 9px;
+/* =========================================================
+   EMERGÊNCIA
+========================================================= */
+
+.emergency-bar {
+    width: min(900px, calc(100% - 32px));
+
+    margin: 20px auto 0;
+
+    padding: 18px;
+
+    background: #070707;
+
+    border: 1px solid #292929;
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 12px 35px rgba(0,0,0,.35);
+
 }
 
-::-webkit-scrollbar-track {
-    background: #020203;
+
+/* =========================================================
+   CABEÇALHO
+========================================================= */
+
+.emergency-header {
+    padding: 2px 3px 16px;
+
+    
 }
 
-::-webkit-scrollbar-thumb {
+.emergency-status {
+    display: flex;
 
-    background:
-        linear-gradient(
-            180deg,
-            var(--pink),
-            var(--pink-dark)
-        );
+    align-items: center;
 
-    border-radius: 999px;
+    gap: 8px;
 
-    border: 2px solid #020203;
+    color: #e8e8e8;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.2px;
 }
 
-::-webkit-scrollbar-thumb:hover {
-    background: var(--pink-light);
+.emergency-status span {
+    width: 7px;
+    height: 7px;
+
+    display: block;
+
+    border-radius: 50%;
+
+    background: #ff3d3d;
+
+    box-shadow:
+        0 0 0 3px rgba(255,61,61,.08);
+}
+
+.emergency-description {
+    margin-top: 7px;
+
+    color: #6f6f6f;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   BOTÕES
+========================================================= */
+
+.emergency-actions {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 9px;
+
+    padding-top: 15px;
+}
+
+.emergency-button {
+    min-height: 82px;
+
+    padding: 14px 12px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: flex-start;
+
+    gap: 3px;
+
+    border-radius: 105px;
+
+    background: #0b0b0b;
+
+    border: 1px solid #292929;
+
+    color: #fff;
+
+    text-decoration: none;
+
+    transition:
+        transform .18s ease,
+        background .18s ease,
+        border-color .18s ease;
+}
+
+.emergency-number {
+    font-size: 24px;
+
+    line-height: 1;
+
+    font-weight: 800;
+
+    letter-spacing: -.8px;
+}
+
+.emergency-name {
+    color: #777;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: .9px;
+
+    line-height: 1.3;
+}
+
+
+/* =========================================================
+   POLÍCIA
+========================================================= */
+
+.emergency-button.police {
+    border-color: #292929;
+}
+
+.emergency-button.police:hover {
+    background: #0e0e0e;
+
+    border-color: #505050;
+}
+
+
+/* =========================================================
+   SAMU
+========================================================= */
+
+.emergency-button.samu {
+    border-color: #292929;
+}
+
+.emergency-button.samu:hover {
+    background: #0e0e0e;
+
+    border-color: #505050;
+}
+
+
+/* =========================================================
+   MULHER
+========================================================= */
+
+.emergency-button.woman {
+    border-color: #38212e;
+}
+
+.emergency-button.woman .emergency-number {
+    color: #ff63b0;
+}
+
+.emergency-button.woman:hover {
+    background: #10090d;
+
+    border-color: #63364f;
+}
+
+
+/* =========================================================
+   INTERAÇÃO
+========================================================= */
+
+.emergency-button:hover {
+    transform: translateY(-2px);
+}
+
+.emergency-button:active {
+    transform: scale(.97);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .emergency-bar {
+        width: calc(100% - 22px);
+
+        margin-top: 14px;
+
+        padding: 15px;
+
+        border-radius: 19px;
+    }
+
+    .emergency-actions {
+        grid-template-columns: 1fr;
+
+        gap: 7px;
+
+        padding-top: 13px;
+    }
+
+    .emergency-button {
+        min-height: 62px;
+
+        padding: 11px 15px;
+
+        flex-direction: row;
+
+        align-items: center;
+
+        justify-content: space-between;
+    }
+
+    .emergency-number {
+        font-size: 22px;
+    }
+
+    .emergency-name {
+        font-size: 9px;
+
+        text-align: right;
+    }
+
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .emergency-bar {
+        width: calc(100% - 22px);
+
+        margin-top: 15px;
+
+        padding: 8px;
+
+        gap: 8px;
+
+        border-radius: 19px;
+    }
+
+    .emergency-button {
+        height: 48px;
+
+        border-radius: 13px;
+
+        font-size: 14px;
+    }
+
 }
 
 
@@ -232,243 +336,8 @@ a {
 ========================================================= */
 
 .container {
-
-    width:
-        min(
-            calc(100% - 40px),
-            var(--container)
-        );
-
-    margin-inline: auto;
-}
-
-
-/* =========================================================
-   HEADER
-========================================================= */
-
-.topbar {
-
-    position: relative;
-
-    top: 14px;
-
-    z-index: 1000;
-
-    width:
-        min(
-            calc(100% - 32px),
-            1280px
-        );
-
-    margin:
-        14px auto 0;
-
-    border:
-        1px solid var(--border-light);
-
-    border-radius: 999px;
-
-    background:
-        rgba(5,5,7,.94);
-
-    box-shadow:
-        0 20px 60px rgba(0,0,0,.35);
-
-    transition:
-        border-color .3s ease,
-        box-shadow .3s ease;
-}
-
-.topbar:hover {
-
-    border-color:
-        var(--pink-border);
-}
-
-.nav {
-
-    min-height: 70px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    gap: 20px;
-}
-
-.brand {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 11px;
-
-    min-width: max-content;
-
-    color: #fff;
-
-    text-decoration: none;
-}
-
-.brand-icon {
-
-    width: 42px;
-    height: 42px;
-
-    display: grid;
-
-    place-items: center;
-
-    flex-shrink: 0;
-
-    border:
-        1px solid rgba(255,255,255,.2);
-
-    border-radius: 14px;
-
-    background:
-        linear-gradient(
-            145deg,
-            var(--pink-light),
-            var(--pink)
-        );
-
-    color: #080006;
-
-    font-size: 21px;
-
-    font-weight: 900;
-
-    box-shadow:
-        0 0 28px rgba(255,63,159,.2);
-}
-
-.brand-text {
-
-    display: flex;
-
-    flex-direction: column;
-
-    line-height: 1;
-}
-
-.brand-text strong {
-
-    color: #fff;
-
-    font-size: 15px;
-
-    font-weight: 900;
-}
-
-.brand-text span {
-
-    margin-top: 5px;
-
-    color: var(--muted);
-
-    font-size: 9px;
-
-    font-weight: 700;
-
-    letter-spacing: 1.2px;
-
-    text-transform: uppercase;
-}
-
-.nav-links {
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 3px;
-}
-
-.nav-links a {
-
-    padding:
-        9px 12px;
-
-    border-radius: 999px;
-
-    color: var(--muted);
-
-    font-size: 12px;
-
-    font-weight: 800;
-
-    text-decoration: none;
-
-    transition:
-        color .2s ease,
-        background .2s ease,
-        transform .2s ease;
-}
-
-.nav-links a:hover {
-
-    color: #fff;
-
-    background: var(--surface-3);
-
-    transform:
-        translateY(-1px);
-}
-
-.nav-button {
-
-    display: inline-flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    min-height: 42px;
-
-    padding:
-        0 17px;
-
-    border:
-        1px solid var(--pink-border);
-
-    border-radius: 999px;
-
-    background:
-        #10090e;
-
-    color:
-        var(--pink-light);
-
-    font-size: 12px;
-
-    font-weight: 900;
-
-    text-decoration: none;
-
-    transition:
-        .25s var(--ease);
-}
-
-.nav-button:hover {
-
-    background: var(--pink);
-
-    border-color: var(--pink);
-
-    color: #000;
-
-    transform:
-        translateY(-2px);
-
-    box-shadow:
-        0 8px 25px rgba(255,63,159,.2);
+    width: min(900px, calc(100% - 32px));
+    margin: auto;
 }
 
 
@@ -477,479 +346,98 @@ a {
 ========================================================= */
 
 .hero {
-
-    position: relative;
-
-    min-height: 760px;
+    min-height: 100vh;
 
     display: flex;
-
-    align-items: center;
-
-    overflow: hidden;
-}
-
-.hero-grid {
-
-    position: absolute;
-
-    inset: 0;
-
-    pointer-events: none;
-
-    overflow: hidden;
-}
-
-.hero-content {
-
-    position: relative;
-
-    z-index: 2;
-
-    width: 100%;
-
-    padding:
-        110px 0 120px;
-}
-
-.hero-layout {
-
-    display: grid;
-
-    grid-template-columns:
-        minmax(0, 1.15fr)
-        minmax(320px, .85fr);
-
-    align-items: center;
-
-    gap: 80px;
-}
-
-.hero h1 {
-
-    max-width: 850px;
-
-    margin:
-        23px 0 22px;
-
-    color: #fff;
-
-    font-size:
-        clamp(50px, 7.3vw, 88px);
-
-    line-height: .94;
-
-    letter-spacing: -4.5px;
-
-    font-weight: 900;
-}
-
-.hero h1 span {
-
-    color: var(--pink);
-
-    text-shadow:
-        0 0 45px rgba(255,63,159,.2);
-}
-
-.eyebrow {
-
-    display: inline-flex;
-
-    align-items: center;
-
-    gap: 9px;
-
-    padding:
-        8px 12px;
-
-    border:
-        1px solid var(--pink-border);
-
-    border-radius: 999px;
-
-    background:
-        #0d080b;
-
-    color:
-        var(--pink-light);
-
-    font-size: 10px;
-
-    font-weight: 900;
-
-    letter-spacing: 1.4px;
-
-    text-transform: uppercase;
-}
-
-.eyebrow::before {
-
-    content: "";
-
-    width: 7px;
-    height: 7px;
-
-    border-radius: 50%;
-
-    background: var(--pink);
-
-    box-shadow:
-        0 0 14px var(--pink);
-}
-
-.hero-description {
-
-    max-width: 690px;
-
-    margin: 0;
-
-    color: var(--muted);
-
-    font-size:
-        clamp(15px, 1.8vw, 18px);
-
-    line-height: 1.85;
-}
-
-.hero-actions {
-
-    display: flex;
-
-    flex-wrap: wrap;
-
-    gap: 10px;
-
-    margin-top: 32px;
-}
-
-.primary-button,
-.secondary-button {
-
-    min-height: 54px;
-
-    display: inline-flex;
-
-    align-items: center;
-
+    flex-direction: column;
     justify-content: center;
 
     padding:
-        0 23px;
+        80px 0;
 
-    border-radius: 14px;
-
-    font-size: 13px;
-
-    font-weight: 900;
-
-    text-decoration: none;
-
-    transition:
-        .25s var(--ease);
+    position: relative;
 }
 
-.primary-button {
+.hero-label {
+    display: inline-flex;
+    align-items: center;
 
-    border:
-        1px solid var(--pink-soft);
+    width: fit-content;
 
-    background:
-        var(--pink);
+    padding: 8px 13px;
 
-    color: #080006;
+    border: 1px solid rgba(255,255,255,.09);
+    border-radius: 999px;
 
-    box-shadow:
-        0 14px 35px rgba(255,63,159,.14);
-}
+    background: rgba(255,255,255,.035);
 
-.primary-button:hover {
-
-    background: var(--pink-light);
-
-    transform:
-        translateY(-4px);
-
-    box-shadow:
-        0 20px 45px rgba(255,63,159,.24);
-}
-
-.secondary-button {
-
-    border:
-        1px solid var(--border-strong);
-
-    background:
-        var(--surface-2);
-
-    color: #fff;
-}
-
-.secondary-button:hover {
-
-    border-color:
-        var(--pink-border);
-
-    color:
-        var(--pink-light);
-
-    transform:
-        translateY(-4px);
-}
-
-.hero-note {
-
-    margin-top: 16px;
-
-    color: var(--dim);
+    color: #aaa;
 
     font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+
+    margin-bottom: 24px;
 }
 
-
-/* =========================================================
-   HERO VISUAL
-========================================================= */
-
-.hero-visual {
-
-    position: relative;
-
-    min-height: 430px;
-
-    display: grid;
-
-    place-items: center;
+.hero-label span {
+    color: #ff67b4;
 }
 
-.hero-orbit {
+.hero h1 {
+    max-width: 800px;
 
-    position: absolute;
+    font-size:
+        clamp(42px, 8vw, 82px);
 
-    width: 360px;
-    height: 360px;
+    line-height: .98;
 
-    border:
-        1px solid rgba(255,63,159,.12);
-
-    border-radius: 50%;
-}
-
-.hero-orbit::before {
-
-    content: "";
-
-    position: absolute;
-
-    inset: 35px;
-
-    border:
-        1px dashed rgba(255,63,159,.12);
-
-    border-radius: 50%;
-}
-
-.hero-card {
-
-    position: relative;
-
-    width:
-        min(
-            100%,
-            350px
-        );
-
-    padding: 25px;
-
-    border:
-        1px solid var(--pink-border);
-
-    border-radius: 26px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #100b0f,
-            #08080b
-        );
-
-    box-shadow:
-        0 30px 90px rgba(0,0,0,.55),
-        0 0 70px rgba(255,63,159,.06);
-
-    overflow: hidden;
-}
-
-.hero-card::before {
-
-    content: "";
-
-    position: absolute;
-
-    width: 220px;
-    height: 220px;
-
-    top: -150px;
-    right: -100px;
-
-    border:
-        1px solid rgba(255,63,159,.2);
-
-    border-radius: 50%;
-}
-
-.hero-card-top {
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    gap: 15px;
-
-    padding-bottom: 18px;
-}
-
-.hero-card-title {
-
-    color: #fff;
-
-    font-size: 15px;
-
-    font-weight: 900;
-}
-
-.hero-card-status {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 6px;
-
-    color: var(--pink-light);
-
-    font-size: 10px;
-
-    font-weight: 900;
-}
-
-.hero-card-status::before {
-
-    content: "";
-
-    width: 6px;
-    height: 6px;
-
-    border-radius: 50%;
-
-    background: var(--pink);
-
-    box-shadow:
-        0 0 10px var(--pink);
-}
-
-.hero-card-main {
-
-    padding:
-        25px 0;
-}
-
-.hero-heart {
-
-    width: 92px;
-    height: 92px;
-
-    display: grid;
-
-    place-items: center;
-
-    margin:
-        0 auto 22px;
-
-    border:
-        1px solid rgba(255,63,159,.35);
-
-    border-radius: 50%;
-
-    background:
-        #180b13;
-
-    color: var(--pink);
-
-    font-size: 36px;
-
-    box-shadow:
-        0 0 45px rgba(255,63,159,.1);
-}
-
-.hero-card-main h3 {
-
-    margin: 0;
-
-    color: #fff;
-
-    text-align: center;
-
-    font-size: 23px;
-}
-
-.hero-card-main p {
-
-    margin:
-        9px auto 0;
-
-    max-width: 270px;
-
-    color: var(--muted);
-
-    text-align: center;
-
-    font-size: 12px;
-
-    line-height: 1.7;
-}
-
-.hero-mini-grid {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(2, 1fr);
-
-    gap: 8px;
-}
-
-.hero-mini {
-
-    padding: 13px;
-
-    border:
-        1px solid var(--border);
-
-    border-radius: 130px;
-
-    background: #070709;
-
-    color: var(--muted);
-
-    font-size: 10px;
+    letter-spacing: -3px;
 
     font-weight: 800;
 
-    text-align: center;
+    margin-bottom: 25px;
 }
 
-.hero-mini strong {
+.hero h1 strong {
+    color: #ff64b1;
+}
 
-    display: block;
+.hero-description {
+    max-width: 650px;
 
-    margin-bottom: 4px;
+    color: #999;
 
-    color: var(--pink-light);
+    font-size:
+        clamp(15px, 2vw, 18px);
 
-    font-size: 13px;
+    line-height: 1.7;
+
+    margin-bottom: 35px;
+}
+
+.hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.meta {
+    padding: 10px 14px;
+
+    border-radius: 12px;
+
+    background: rgba(255,255,255,.035);
+    border: 1px solid rgba(255,255,255,.07);
+
+    color: #aaa;
+
+    font-size: 12px;
+}
+
+.meta b {
+    color: #fff;
 }
 
 
@@ -957,2967 +445,854 @@ a {
    SEÇÕES
 ========================================================= */
 
+.license {
+    padding: 30px 0 100px;
+}
+
 .section {
+    margin-bottom: 18px;
 
-    position: relative;
+    padding: 28px;
 
-    padding:
-        115px 0;
-}
-
-.section-header {
-
-    max-width: 780px;
-
-    margin-bottom: 55px;
-}
-
-.section-kicker {
-
-    margin-bottom: 12px;
-
-    color: var(--pink);
-
-    font-size: 10px;
-
-    font-weight: 900;
-
-    letter-spacing: 1.8px;
-
-    text-transform: uppercase;
-}
-
-.section-title {
-
-    margin: 0;
-
-    color: #fff;
-
-    font-size:
-        clamp(34px, 5vw, 58px);
-
-    line-height: 1.03;
-
-    letter-spacing: -2.5px;
-
-    font-weight: 900;
-}
-
-.section-title span {
-    color: var(--pink);
-}
-
-.section-description {
-
-    margin:
-        17px 0 0;
-
-    color: var(--muted);
-
-    font-size: 15px;
-
-    line-height: 1.9;
-}
-
-
-/* =========================================================
-   DIVISOR
-========================================================= */
-
-.divider {
-
-    width: 100%;
-    height: 1px;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            var(--border-strong),
-            transparent
-        );
-}
-
-
-/* =========================================================
-   FEATURES
-========================================================= */
-
-.feature-grid {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, minmax(0, 1fr));
-
-    gap: 13px;
-}
-
-.feature {
-
-    position: relative;
-
-    min-height: 240px;
-
-    padding: 25px;
-
-    border:
-        1px solid var(--border);
-
-    border-radius:
-        var(--radius);
+    border-radius: 24px;
 
     background:
         linear-gradient(
             145deg,
-            var(--surface),
-            #070709
+            rgba(255,255,255,.055),
+            rgba(255,255,255,.018)
         );
 
-    overflow: hidden;
+    border: 1px solid rgba(255,255,255,.075);
 
+    
     transition:
-        transform .3s var(--ease),
-        border-color .3s ease,
-        background .3s ease,
-        box-shadow .3s ease;
+        transform .3s ease,
+        border-color .3s ease;
 }
 
-.feature:hover {
-
-    transform:
-        translateY(-6px);
+.section:hover {
+    transform: translateY(-2px);
 
     border-color:
-        var(--pink-border);
-
-    background:
-        linear-gradient(
-            145deg,
-            #0d0d11,
-            #09090c
-        );
-
-    box-shadow:
-        0 20px 45px rgba(0,0,0,.2);
+        rgba(255,90,170,.18);
 }
 
-.feature::before {
+.section-number {
+    color: #ff5cab;
 
-    content: "";
+    font-size: 11px;
+    font-weight: 800;
 
-    position: absolute;
+    letter-spacing: 1.5px;
 
-    width: 180px;
-    height: 180px;
-
-    right: -110px;
-    bottom: -110px;
-
-    border:
-        1px solid rgba(255,63,159,.09);
-
-    border-radius: 50%;
-
-    pointer-events: none;
+    margin-bottom: 8px;
 }
 
-.feature::after {
-
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    left: 24px;
-    right: 24px;
-
-    height: 1px;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(255,63,159,.12),
-            transparent
-        );
-
-    opacity: 0;
-
-    transition:
-        opacity .3s ease;
-}
-
-.feature:hover::after {
-    opacity: 1;
-}
-
-.feature-icon {
-
-    width: 48px;
-    height: 48px;
-
-    display: grid;
-
-    place-items: center;
-
-    margin-bottom: 21px;
-
-    border:
-        1px solid rgba(255,63,159,.18);
-
-    border-radius: 14px;
-
-    background:
-        #160d13;
-
-    color:
-        var(--pink-light);
-
-    font-size: 19px;
-
-    font-weight: 900;
-}
-
-.feature h3 {
-
-    margin:
-        0 0 9px;
-
-    color: #fff;
-
-    font-size: 18px;
-
+.section h2 {
+    font-size: 23px;
     line-height: 1.25;
+
+    margin-bottom: 16px;
+
+    letter-spacing: -.5px;
 }
 
-.feature p {
+.section p {
+    color: #a9a9a9;
 
-    margin:
-        0 0 13px;
+    font-size: 14px;
+    line-height: 1.8;
 
-    color: var(--muted);
-
-    font-size: 13px;
-
-    line-height: 1.78;
+    margin-bottom: 14px;
 }
 
-.feature p:last-child {
+.section p:last-child {
     margin-bottom: 0;
 }
 
-.feature-large {
 
-    grid-column:
-        span 2;
+/* =========================================================
+   LISTAS
+========================================================= */
 
-    min-height: 310px;
-
+.rules {
     display: flex;
-
     flex-direction: column;
+    gap: 10px;
 
-    justify-content: center;
+    margin-top: 18px;
 }
 
-.feature-large .feature-content {
-    max-width: 700px;
-}
-
-.feature-large h3 {
-    font-size: 28px;
-}
-
-.feature-large p {
-    max-width: 670px;
-    font-size: 14px;
-}
-
-.feature-list {
-
+.rule {
     display: flex;
+    gap: 14px;
 
-    flex-wrap: wrap;
+    padding: 15px;
 
-    gap: 7px;
+    border-radius: 15px;
 
-    margin-top: 25px;
+    background: rgba(0,0,0,.25);
+
+    border: 1px solid rgba(255,255,255,.055);
 }
 
-.feature-tag {
-
-    padding:
-        8px 11px;
-
-    border:
-        1px solid var(--border);
-
-    border-radius: 999px;
-
-    background:
-        #070709;
-
-    color: var(--muted);
-
-    font-size: 10px;
-
-    font-weight: 800;
-}
-
-
-/* =========================================================
-   EMERGÊNCIA
-========================================================= */
-
-.emergency-section {
-    padding: 80px 0;
-}
-
-.emergency-panel {
-
-    position: relative;
-
-    padding:
-        clamp(30px, 6vw, 58px);
-
-    border:
-        1px solid var(--red-border);
-
-    border-radius:
-        var(--radius-lg);
-
-    background:
-        linear-gradient(
-            145deg,
-            #10090c,
-            #080709
-        );
-
-    overflow: hidden;
-
-    box-shadow:
-        0 30px 80px rgba(0,0,0,.2);
-}
-
-.emergency-panel::before {
-
-    content: "";
-
-    position: absolute;
-
-    width: 420px;
-    height: 420px;
-
-    top: -280px;
-    right: -130px;
-
-    border:
-        1px solid rgba(255,49,87,.18);
-
-    border-radius: 50%;
-}
-
-.emergency-panel::after {
-
-    content: "";
-
-    position: absolute;
-
-    width: 600px;
-    height: 1px;
-
-    left: -180px;
-    bottom: 42px;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(255,49,87,.3),
-            transparent
-        );
-}
-
-.emergency-layout {
-
-    position: relative;
-
-    z-index: 2;
-
-    display: grid;
-
-    grid-template-columns:
-        1.15fr .85fr;
-
-    align-items: center;
-
-    gap: 55px;
-}
-
-.emergency-title {
-
-    margin: 0;
-
-    color: #fff;
-
-    font-size:
-        clamp(30px, 5vw, 50px);
-
-    line-height: 1.03;
-
-    letter-spacing: -2px;
-}
-
-.emergency-title span {
-    color: var(--red-light);
-}
-
-.emergency-text {
-
-    max-width: 680px;
-
-    margin:
-        16px 0 0;
-
-    color: var(--muted);
-
-    line-height: 1.85;
-
-    font-size: 14px;
-}
-
-.emergency-buttons {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(2, 1fr);
-
-    gap: 9px;
-}
-
-.emergency-button {
-
-    min-height: 58px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    padding: 10px;
-
-    border:
-        1px solid rgba(255,49,87,.22);
-
-    border-radius: 14px;
-
-    background:
-        #11090c;
-
-    color:
-        #ff758a;
-
-    font-size: 12px;
-
-    font-weight: 900;
-
-    text-align: center;
-
-    text-decoration: none;
-
-    transition:
-        .25s var(--ease);
-}
-
-.emergency-button:hover {
-
-    transform:
-        translateY(-3px);
-
-    background:
-        var(--red);
-
-    border-color:
-        var(--red);
-
-    color:
-        #fff;
-
-    box-shadow:
-        0 12px 30px rgba(255,49,87,.18);
-}
-
-
-/* =========================================================
-   SEGURANÇA
-========================================================= */
-
-.security-layout {
-
-    display: grid;
-
-    grid-template-columns:
-        .75fr 1.25fr;
-
-    align-items: center;
-
-    gap: 70px;
-}
-
-.security-number {
-
-    font-size:
-        clamp(120px, 16vw, 200px);
-
-    line-height: .7;
-
-    color: #0e0a0d;
-
-    -webkit-text-stroke:
-        1px rgba(255,63,159,.18);
-
-    font-weight: 900;
-
-    user-select: none;
-}
-
-.security-content h2 {
-
-    margin: 0;
-
-    color: #fff;
-
-    font-size:
-        clamp(30px, 4vw, 48px);
-
-    line-height: 1.04;
-
-    letter-spacing: -2px;
-}
-
-.security-content h2 span {
-    color: var(--pink);
-}
-
-.security-content > p {
-
-    margin:
-        18px 0 0;
-
-    color: var(--muted);
-
-    line-height: 1.85;
-
-    font-size: 14px;
-}
-
-.security-points {
-
-    display: grid;
-
-    gap: 9px;
-
-    margin-top: 25px;
-}
-
-.security-point {
-
-    min-height: 52px;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 11px;
-
-    padding:
-        10px 13px;
-
-    border:
-        1px solid var(--border);
-
-    border-radius: 999px;
-
-    background:
-        #08080b;
-
-    color: var(--text);
-
-    font-size: 12px;
-
-    font-weight: 800;
-}
-
-.security-point::before {
-
-    content: "✓";
+.rule-number {
+    flex-shrink: 0;
 
     width: 27px;
     height: 27px;
 
     display: grid;
-
     place-items: center;
 
-    flex-shrink: 0;
+    border-radius: 9px;
 
-    border-radius: 50%;
+    background: rgba(255,76,168,.10);
 
-    background:
-        #180c13;
+    color: #ff67b4;
 
-    color:
-        var(--pink);
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.rule-text {
+    color: #aaa;
+
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.rule-text strong {
+    color: #eee;
 }
 
 
 /* =========================================================
-   DOWNLOAD
+   DESTAQUE
 ========================================================= */
 
-.download-section {
-    padding-top: 65px;
-}
+.highlight {
+    margin-top: 20px;
 
-.download-panel {
+    padding: 18px;
 
-    position: relative;
+    border-left:
+        2px solid #ff55aa;
 
-    padding:
-        clamp(35px, 7vw, 75px);
-
-    border:
-        1px solid var(--pink-border);
-
-    border-radius:
-        var(--radius-lg);
-
-    background:
-        radial-gradient(
-            circle at 50% 0%,
-            rgba(255,63,159,.08),
-            transparent 42%
-        ),
-        #09090d;
-
-    text-align: center;
-
-    overflow: hidden;
-}
-
-.download-panel::before {
-
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    left: 50%;
-
-    width: min(420px, 70%);
-
-    height: 1px;
-
-    transform:
-        translateX(-50%);
+    border-radius: 0 15px 15px 0;
 
     background:
         linear-gradient(
             90deg,
-            transparent,
-            var(--pink),
+            rgba(255,70,160,.08),
             transparent
         );
 
-    box-shadow:
-        0 0 28px var(--pink);
+    color: #b8b8b8;
+
+    font-size: 13px;
+    line-height: 1.7;
 }
 
-.download-panel h2 {
-
-    margin: 0;
-
+.highlight strong {
     color: #fff;
-
-    font-size:
-        clamp(30px, 5vw, 55px);
-
-    line-height: 1;
-
-    letter-spacing: -2px;
 }
 
-.download-panel h2 span {
-    color: var(--pink);
-}
 
-.download-panel p {
+/* =========================================================
+   CITAÇÃO
+========================================================= */
 
-    max-width: 650px;
+.quote {
+    margin-top: 18px;
 
-    margin:
-        18px auto 0;
+    padding: 20px;
 
-    color: var(--muted);
+    border-radius: 17px;
 
-    line-height: 1.8;
+    background: rgba(255,255,255,.025);
+
+    border: 1px solid rgba(255,255,255,.06);
+
+    color: #ddd;
 
     font-size: 14px;
+    line-height: 1.8;
+
+    font-style: italic;
 }
 
-.download-actions {
 
-    display: flex;
+/* =========================================================
+   ASSINATURA
+========================================================= */
 
-    flex-wrap: wrap;
-
-    justify-content: center;
-
-    gap: 10px;
-
+.signature {
     margin-top: 30px;
-}
 
-.download-button {
+    padding: 25px;
 
-    min-height: 54px;
-
-    display: inline-flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    padding:
-        0 23px;
-
-    border:
-        1px solid var(--pink-soft);
-
-    border-radius: 999px;
-
-    background:
-        var(--pink);
-
-    color:
-        #080006;
-
-    font-size: 12px;
-
-    font-weight: 900;
-
-    text-decoration: none;
-
-    transition:
-        .25s var(--ease);
-}
-
-.download-button:hover {
-
-    transform:
-        translateY(-4px);
-
-    background:
-        var(--pink-light);
-
-    box-shadow:
-        0 15px 35px rgba(255,63,159,.16);
-}
-
-.download-button.alt {
-
-    background:
-        #0b0b0e;
-
-    border-color:
-        var(--border-strong);
-
-    color:
-        #fff;
-}
-
-.download-button.alt:hover {
-
-    border-color:
-        var(--pink-border);
-
-    color:
-        var(--pink-light);
-
-    box-shadow: none;
-}
-
-
-/* =========================================================
-   ASSISTENTE
-========================================================= */
-
-.assistant {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(2, minmax(0, 1fr));
-
-    gap: 12px;
-
-    border:
-        1px solid var(--border);
-
-    border-radius:
-        var(--radius);
-
-    background:
-        var(--surface);
-}
-
-.command-card {
-
-    position: relative;
-
-    padding: 22px;
-
-    transition:
-        .25s var(--ease);
-        
-        border: 1px solid #222;
-        width: 90%;
-        border-radius: 20px;
-        margin-left: 5%;
-}
-
-.command-card:hover {
-
-    transform:
-        translateY(-4px);
-
-    border-color:
-        var(--pink-border);
-
-    background:
-        #0c0c10;
-}
-
-.command-card h3 {
-
-    margin: 0;
-
-    color:
-        var(--pink-light);
-
-    font-size: 15px;
-}
-
-.command-card code {
-
-    display: block;
-
-    margin-top: 11px;
-
-    padding:
-        10px 11px;
-
-    border-radius: 9px;
-
-    color:
-        #d9d9df;
-
-    font-family:
-        monospace;
-
-    font-size: 11px;
-
-    line-height: 1.5;
-
-    overflow-x: auto;
-}
-
-
-/* =========================================================
-   MOTIVAÇÃO
-========================================================= */
-
-.motivation {
-
-    padding:
-        125px 0;
+    border-radius: 22px;
 
     text-align: center;
-}
-
-.motivation-box {
-
-    max-width: 900px;
-
-    margin: auto;
-}
-
-.motivation-label {
-
-    color:
-        var(--pink);
-
-    font-size: 10px;
-
-    font-weight: 900;
-
-    letter-spacing: 2.2px;
-
-    text-transform: uppercase;
-}
-
-#motivar {
-
-    min-height: 90px;
-
-    margin:
-        20px 0 0;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    color: #fff;
-
-    font-size:
-        clamp(28px, 5vw, 52px);
-
-    line-height: 1.1;
-
-    letter-spacing: -2px;
-
-    font-weight: 900;
-
-    transition:
-        opacity .35s ease,
-        transform .35s ease;
-}
-
-
-/* =========================================================
-   FOOTER
-========================================================= */
-
-footer {
-
-    padding:
-        45px 0 30px;
 
     background:
-        #030304;
+        radial-gradient(
+            circle at center,
+            rgba(255,60,160,.10),
+            transparent 65%
+        );
+
+    border: 1px solid rgba(255,255,255,.07);
 }
 
-.footer-layout {
+.signature-title {
+    color: #888;
 
-    display: flex;
+    font-size: 11px;
+    text-transform: uppercase;
 
-    align-items: center;
+    letter-spacing: 1.5px;
 
-    justify-content: space-between;
-
-    gap: 25px;
+    margin-bottom: 10px;
 }
 
-.footer-brand {
-
-    color: #fff;
-
-    font-size: 15px;
-
-    font-weight: 900;
+.signature-name {
+    font-size: 21px;
+    font-weight: 800;
 }
 
-.footer-copy {
+.signature-project {
+    color: #ff62b1;
+
+    font-size: 13px;
+    font-weight: 700;
 
     margin-top: 5px;
-
-    color: var(--dim);
-
-    font-size: 11px;
-
-    line-height: 1.6;
-}
-
-.footer-links {
-
-    display: flex;
-
-    flex-wrap: wrap;
-
-    justify-content: flex-end;
-
-    gap: 8px;
-}
-
-.footer-links a {
-
-    padding:
-        8px 10px;
-
-    border-radius: 999px;
-
-    color: var(--muted);
-
-    font-size: 11px;
-
-    text-decoration: none;
-
-    transition:
-        color .2s ease,
-        background .2s ease;
-}
-
-.footer-links a:hover {
-
-    color: var(--pink-light);
-
-    background:
-        #0d0d11;
-}
-
-.footer-bottom {
-
-    margin-top: 30px;
-
-    padding-top: 18px;
-
-    color: var(--dim);
-
-    font-size: 10px;
-
-    text-align: center;
 }
 
 
 /* =========================================================
-   BOTÃO FLUTUANTE
+   BOTÃO
 ========================================================= */
 
-.floating-home {
-
+.button {
     position: fixed;
 
-    right: 22px;
-    bottom: 22px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 
-    z-index: 900;
+    min-height: 52px;
 
-    width: 52px;
-    height: 52px;
+    padding: 0 25px;
+    
+    bottom: 5%;
 
-    display: grid;
-
-    place-items: center;
-
-    border:
-        1px solid var(--pink-border);
-
-    border-radius: 16px;
+    border-radius: 150px;
 
     background:
-        #09090c;
-
-    color:
-        var(--pink-light);
-
-    font-size: 18px;
+        linear-gradient(
+            135deg,
+            #ff55aa,
+            #d92987
+        );
+        
+        border: 1px solid #d92987;
+    color: #fff;
 
     text-decoration: none;
 
+    font-size: 14px;
+    font-weight: 800;
+
     box-shadow:
-        0 15px 35px rgba(0,0,0,.5);
+        0 12px 35px rgba(255,50,150,.25);
 
     transition:
-        .25s var(--ease);
+        transform .2s ease,
+        box-shadow .2s ease;
+        
+        width: 50%;
+        
+       left: 25%;
 }
 
-.floating-home:hover {
+.button:hover {
+    transform: translateY(-2px);
 
-    transform:
-        translateY(-5px);
-
-    background:
-        var(--pink);
-
-    border-color:
-        var(--pink);
-
-    color:
-        #000;
+    box-shadow:
+        0 17px 45px rgba(255,50,150,.35);
 }
 
+.button:active {
+    transform: scale(.97);
+}
 
 /* =========================================================
-   REVEAL
+   ANIMAÇÃO
 ========================================================= */
 
-.reveal {
-
+.fade-up {
     opacity: 0;
+    transform: translateY(22px);
 
-    transform:
-        translateY(0px);
-
-    transition:
-        opacity .7s var(--ease),
-        transform .7s var(--ease);
+    animation:
+        fadeUp .7s ease forwards;
 }
 
-.reveal.visible {
+@keyframes fadeUp {
 
-    opacity: 1;
+    from {
+        opacity: 0;
+        transform: translateY(0);
+    }
 
-    transform:
-        translateY(15px);
-}
+    to {
+        opacity: 1;
+        transform: translateY(22px);
+    }
 
-
-/* =========================================================
-   FOCO
-========================================================= */
-
-a:focus-visible,
-button:focus-visible {
-
-    outline:
-        2px solid var(--pink-light);
-
-    outline-offset: 4px;
 }
 
 
 /* =========================================================
-   RESPONSIVO — 1050
+   MOBILE
 ========================================================= */
 
-@media (max-width: 1050px) {
-
-    .hero-layout {
-
-        grid-template-columns:
-            1fr;
-
-        gap: 55px;
-    }
-
-    .hero-visual {
-
-        min-height: 360px;
-    }
-
-    .hero-card {
-
-        max-width: 390px;
-    }
-
-    .nav-links {
-        display: none;
-    }
-
-    .feature-grid {
-
-        grid-template-columns:
-            repeat(2, minmax(0, 1fr));
-    }
-
-    .feature-large {
-
-        grid-column:
-            span 2;
-    }
-
-    .emergency-layout,
-    .security-layout {
-
-        grid-template-columns:
-            1fr;
-
-        gap: 40px;
-    }
-
-    .security-number {
-        display: none;
-    }
-}
-
-
-/* =========================================================
-   RESPONSIVO — 700
-========================================================= */
-
-@media (max-width: 700px) {
+@media (max-width: 600px) {
 
     .container {
-
-        width:
-            min(
-                calc(100% - 28px),
-                var(--container)
-            );
-    }
-
-    .topbar {
-
-        top: 8px;
-
-        width:
-            calc(100% - 16px);
-
-        margin-top: 8px;
-    }
-
-    .nav {
-        min-height: 62px;
-    }
-
-    .brand-text span {
-        display: none;
-    }
-
-    .brand-icon {
-
-        width: 39px;
-        height: 39px;
-
-        border-radius: 12px;
-    }
-
-    .nav-button {
-
-        min-height: 38px;
-
-        padding:
-            0 12px;
-
-        font-size: 10px;
+        width: min(100% - 22px, 900px);
     }
 
     .hero {
-        min-height: auto;
-    }
-
-    .hero-content {
-
-        padding:
-            80px 0 90px;
+        padding-top: 70px;
     }
 
     .hero h1 {
-
-        font-size:
-            clamp(43px, 14vw, 70px);
-
-        letter-spacing:
-            -3px;
-    }
-
-    .hero-description {
-        font-size: 14px;
-    }
-
-    .hero-actions {
-        flex-direction: column;
-    }
-
-    .primary-button,
-    .secondary-button {
-        width: 100%;
-    }
-
-    .hero-visual {
-
-        min-height: 320px;
-    }
-
-    .hero-orbit {
-
-        width: 290px;
-        height: 290px;
-    }
-
-    .hero-card {
-
-        max-width: 330px;
+        letter-spacing: -2px;
     }
 
     .section {
-
-        padding:
-            80px 0;
+        padding: 22px 18px;
+        border-radius: 20px;
     }
 
-    .section-title {
-
-        font-size:
-            clamp(33px, 10vw, 48px);
-
-        letter-spacing:
-            -1.5px;
+    .section h2 {
+        font-size: 20px;
     }
 
-    .section-header {
-        margin-bottom: 35px;
+    .rule {
+        padding: 13px;
     }
 
-    .feature-grid {
-        grid-template-columns: 1fr;
+    .final-card {
+        padding: 35px 20px;
     }
 
-    .feature-large {
-        grid-column:
-            span 1;
-    }
-
-    .feature {
-        min-height: auto;
-    }
-
-    .feature-large h3 {
-        font-size: 23px;
-    }
-
-    .emergency-buttons {
-        grid-template-columns: 1fr;
-    }
-
-    .assistant {
-        grid-template-columns: 1fr;
-    }
-
-    .download-actions {
-        flex-direction: column;
-    }
-
-    .download-button {
-        width: 100%;
-    }
-
-    .footer-layout {
-
-        flex-direction: column;
-
-        align-items: flex-start;
-    }
-
-    .footer-links {
-        justify-content: flex-start;
-    }
-
-    .floating-home {
-
-        right: 14px;
-        bottom: 14px;
-
-        width: 48px;
-        height: 48px;
-
-        border-radius: 14px;
-    }
 }
 
 
-/* =========================================================
-   RESPONSIVO — 400
-========================================================= */
-
-@media (max-width: 400px) {
-
-    .hero h1 {
-        font-size: 42px;
-    }
-
-    .brand-icon {
-
-        width: 36px;
-        height: 36px;
-    }
-
-    .nav-button {
-        padding:
-            0 10px;
-    }
-
-    .hero-card {
-        padding: 20px;
-    }
-
-    .hero-mini-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .security-point {
-        border-radius: 18px;
-    }
-}
-
-
-/* =========================================================
-   PRINT
-========================================================= */
-
-@media print {
-
-    body {
-
-        background: #fff;
-
-        color: #000;
-    }
-
-    .topbar,
-    .floating-home {
-        display: none;
-    }
-
-    .feature,
-    .download-panel,
-    .emergency-panel,
-    .hero-card {
-
-        background: #fff;
-
-        color: #000;
-
-        box-shadow: none;
-    }
-}
 
 </style>
 
 </head>
 
 
-<body id="top">
+<body>
 
 
-<!-- =====================================================
-     HEADER
-===================================================== -->
-
-<header class="topbar reveal">
-
-<nav class="nav container">
-
-<a
-    href="home.html"
-    class="brand"
-    aria-label="Mulher Amparada - Página inicial"
-    ">
-
-    <div
-        class="brand-icon"
-        aria-hidden="true"
-        style="border-radius: 200px;"
-    >
-        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M440-200h-40q-17 0-28.5-11.5T360-240q0-17 11.5-28.5T400-280h40v-84q-79-14-129.5-75.5T260-582q0-91 64.5-154.5T480-800q91 0 155.5 63.5T700-582q0 81-50.5 142.5T520-364v84h40q17 0 28.5 11.5T600-240q0 17-11.5 28.5T560-200h-40v40q0 17-11.5 28.5T480-120q-17 0-28.5-11.5T440-160v-40Zm139-281q41-41 41-99t-41-99q-41-41-99-41t-99 41q-41 41-41 99t41 99q41 41 99 41t99-41Z"/></svg>
-    </div>
-
-    <div class="brand-text">
-
-        <strong>
-            Mulher Amparada
-        </strong>
-
-        <span>
-            Segurança & tecnologia
-        </span>
-
-    </div>
-
-</a>
-
-
-<div class="nav-links">
-
-    <a href="#recursos">
-        Recursos
-    </a>
-
-    <a href="#seguranca">
-        Segurança
-    </a>
-
-    <a href="#assistente">
-        Assistente
-    </a>
-
-    <a href="#download">
-        Download
-    </a>
-
-</div>
-
-
-<a
-    href="home.html"
-    class="nav-button"
-    style="width: 70%;">
-    Ir para o hub
-</a>
-
-</nav>
-
-</header>
-
+<main>
 
 
 <!-- =====================================================
      HERO
 ===================================================== -->
 
-<main>
-
 <section class="hero">
 
-<div class="hero-grid"></div>
+<div class="container">
 
-<div class="hero-content container">
+    <div class="hero-label fade-up">
 
-<div class="hero-layout">
+        <span>©</span>
 
+        DIREITOS AUTORAIS · 2026
 
-<div class="reveal">
-
-<div class="eyebrow">
-    Projeto independente
-</div>
+    </div>
 
 
-<h1>
-    Tecnologia que
-    <span>cuida.</span>
-</h1>
+    <h1 class="fade-up">
+
+        Contrato de
+        <strong>Licença</strong>
+        de Software
+
+    </h1>
 
 
-<p class="hero-description">
+    <p class="hero-description fade-up">
 
-    O Mulher Amparada reúne ferramentas de segurança,
-    emergência, privacidade, organização e assistência
-    em uma experiência simples e direta.
+        Termos que estabelecem as condições de uso,
+        modificação, distribuição e atribuição do projeto
+        Mulher Amparada.
 
-</p>
-
-
-<div class="hero-actions">
-
-<a
-    href="#recursos"
-    style="border-radius: 200px;"
-    class="primary-button"
->
-    Conhecer recursos
-</a>
-
-<a
-    href="#download"
-    style="border-radius: 200px;"
-    class="secondary-button"
->
-    Ver a página de downloads
-</a>
-
-</div>
+    </p>
 
 
-<p class="hero-note">
-    Segurança, tecnologia e praticidade em um só lugar.
-</p>
+    <div class="hero-meta fade-up">
 
-</div>
+        <div class="meta">
+            Autor:
+            <b>Samuel De Oliveira Rigueiro</b>
+        </div>
 
+        <div class="meta">
+            Projeto:
+            <b>Mulher Amparada</b>
+        </div>
 
+        <div class="meta">
+            Ano:
+            <b>2026</b>
+        </div>
 
-</div>
+    </div>
 
 </div>
 
 </section>
 
 
+<div class="emergency-bar">
+
+    <div class="emergency-header">
+
+        <div class="emergency-status">
+            <span></span>
+            SERVIÇOS DE EMERGÊNCIA
+        </div>
+
+        <div class="emergency-description">
+            Acesso rápido aos principais canais de atendimento
+        </div>
+
+    </div>
+
+
+    <div class="emergency-actions">
+
+        <a href="tel:190" 
+        style="border-radius: 200px;"
+        class="emergency-button police">
+            <span class="emergency-number">190</span>
+            <span class="emergency-name">POLÍCIA</span>
+        </a>
+
+        <a href="tel:192" 
+        style="border-radius: 200px;"
+        class="emergency-button samu">
+            <span class="emergency-number">192</span>
+            <span class="emergency-name">SAMU</span>
+        </a>
+
+        <a href="tel:180" 
+        style="border-radius: 200px;"
+        class="emergency-button woman">
+            <span class="emergency-number">180</span>
+            <span class="emergency-name">CENTRAL DA MULHER</span>
+        </a>
+
+    </div>
+
+</div>
 
 <!-- =====================================================
-     PROJETO
+     LICENÇA
 ===================================================== -->
 
-<section class="section">
+<section class="license">
 
 <div class="container">
 
-<div class="section-header reveal">
 
-<div class="section-kicker">
-    Sobre o projeto
-</div>
-
-<h2 class="section-title">
-    Mais do que um app.
-    <span>Um conjunto de ferramentas.</span>
-</h2>
-
-<p class="section-description">
-
-    O Mulher Amparada foi pensado para reunir
-    diferentes funções em um único lugar, evitando
-    que a usuária precise procurar vários aplicativos
-    diferentes para tarefas importantes.
-
-</p>
-
-</div>
-
-
-<div class="feature-grid">
-
-
-<div class="feature feature-large reveal">
-
-<div class="feature-content">
-
-<div class="feature-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M440-200h-40q-17 0-28.5-11.5T360-240q0-17 11.5-28.5T400-280h40v-84q-79-14-129.5-75.5T260-582q0-91 64.5-154.5T480-800q91 0 155.5 63.5T700-582q0 81-50.5 142.5T520-364v84h40q17 0 28.5 11.5T600-240q0 17-11.5 28.5T560-200h-40v40q0 17-11.5 28.5T480-120q-17 0-28.5-11.5T440-160v-40Zm139-281q41-41 41-99t-41-99q-41-41-99-41t-99 41q-41 41-41 99t41 99q41 41 99 41t99-41Z"/></svg>
-</div>
-
-<h3>
-    Uma experiência construída em torno da praticidade
-</h3>
-
-<p>
-
-    A ideia é manter os recursos acessíveis,
-    organizados e fáceis de entender, desde
-    ferramentas de emergência até funções
-    de organização pessoal.
-
-</p>
-
-<div class="feature-list">
-
-<span class="feature-tag">
-    Segurança
-</span>
-
-<span class="feature-tag">
-    Emergência
-</span>
-
-<span class="feature-tag">
-    Privacidade
-</span>
-
-<span class="feature-tag">
-    Organização
-</span>
-
-<span class="feature-tag">
-    Assistência
-</span>
-
-</div>
-
-</div>
-
-</div>
-
-
-<div class="feature reveal">
-
-<div class="feature-icon">
-    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M109-120q-11 0-20-5.5T75-140q-5-9-5.5-19.5T75-180l370-640q6-10 15.5-15t19.5-5q10 0 19.5 5t15.5 15l370 640q6 10 5.5 20.5T885-140q-5 9-14 14.5t-20 5.5H109Zm69-80h604L480-720 178-200Zm330.5-51.5Q520-263 520-280t-11.5-28.5Q497-320 480-320t-28.5 11.5Q440-297 440-280t11.5 28.5Q463-240 480-240t28.5-11.5Zm0-120Q520-383 520-400v-120q0-17-11.5-28.5T480-560q-17 0-28.5 11.5T440-520v120q0 17 11.5 28.5T480-360q17 0 28.5-11.5ZM480-460Z"/></svg>
-</div>
-
-<h3>
-    Emergência
-</h3>
-
-<p>
-    Acesso rápido a números e ferramentas
-    de emergência disponíveis no aparelho.
-</p>
-
-</div>
-
-
-<div class="feature reveal">
-
-<div class="feature-icon">
-    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M722.5-297.5Q740-315 740-340t-17.5-42.5Q705-400 680-400t-42.5 17.5Q620-365 620-340t17.5 42.5Q655-280 680-280t42.5-17.5ZM680-160q31 0 57-14.5t42-38.5q-22-13-47-20t-52-7q-27 0-52 7t-47 20q16 24 42 38.5t57 14.5ZM480-80q-139-35-229.5-159.5T160-516v-244l320-120 320 120v227q-19-8-39-14.5t-41-9.5v-147l-240-90-240 90v188q0 47 12.5 94t35 89.5Q310-290 342-254t71 60q11 32 29 61t41 52q-1 0-1.5.5t-1.5.5Zm200 0q-83 0-141.5-58.5T480-280q0-83 58.5-141.5T680-480q83 0 141.5 58.5T880-280q0 83-58.5 141.5T680-80ZM480-494Z"/></svg>
-</div>
-
-<h3>
-    Proteção
-</h3>
-
-<p>
-    Recursos que podem ser ativados para
-    responder a determinados eventos.
-</p>
-
-</div>
-
-
-<div class="feature reveal">
-
-<div class="feature-icon">
-    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M446-446Zm106-95Zm-106 95Zm106-95Zm-106 95Zm106-95ZM763-84 84-763q-11-11-11-27.5T84-819q12-12 28.5-12t28.5 12l679 679q12 12 11.5 28T819-84q-12 11-28 11.5T763-84Zm-283-36q-151 0-255.5-46.5T120-280v-400q0-26 17.5-49.5T187-773l252 252q-72-3-133-18t-106-40v120q51 29 123 44t157 15q20 0 39-.5t38-2.5l70 70q-34 7-71 10t-76 3q-85 0-157-15t-123-44v99q9 29 97.5 54.5T480-200q64 0 128.5-13T715-245l58 58q-49 31-125.5 49T480-120Zm360-560v367q0 17-11.5 28.5T800-273q-17 0-28.5-11.5T760-313v-66q-11 6-22 11t-23 10q-14 5-29-1.5T666-380q-5-14 1.5-29t20.5-20q20-6 38-13.5t34-16.5v-120q-41 23-94 37t-116 19q-17 2-29-9t-14-28q-2-17 8.5-29t27.5-14q38-5 75-13t67-18q30-10 50.5-21.5T760-679q-11-29-100.5-55T480-760q-37 0-75.5 5T331-742q-17 4-31-4.5T282-772q-4-17 4.5-31t25.5-18q38-9 80.5-14t87.5-5q149 0 254.5 47T840-680Z"/></svg>
-</div>
-
-<h3>
-    Privacidade
-</h3>
-
-<p>
-    Recursos locais e mecanismos de proteção
-    para informações armazenadas no aparelho.
-</p>
-
-</div>
-
-
-<div class="feature reveal">
-
-<div class="feature-icon">
-    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M160-120q-33 0-56.5-23.5T80-200v-440q0-33 23.5-56.5T160-720h160v-80q0-33 23.5-56.5T400-880h160q33 0 56.5 23.5T640-800v80h160q33 0 56.5 23.5T880-640v440q0 33-23.5 56.5T800-120H160Zm0-80h640v-440H160v440Zm240-520h160v-80H400v80ZM160-200v-440 440Z"/></svg>
-</div>
-
-<h3>
-    Organização
-</h3>
-
-<p>
-    Calendário, tarefas, rotina, diário,
-    calculadora e outras ferramentas.
-</p>
-
-</div>
-
-
-<div class="feature reveal">
-
-<div class="feature-icon">
-    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M480-186q122-112 181-203.5T720-552q0-109-69.5-178.5T480-800q-101 0-170.5 69.5T240-552q0 71 59 162.5T480-186Zm-28 74q-14-5-25-15-65-60-115-117t-83.5-110.5q-33.5-53.5-51-103T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 45-17.5 94.5t-51 103Q698-301 648-244T533-127q-11 10-25 15t-28 5q-14 0-28-5Zm28-448Zm56.5 56.5Q560-527 560-560t-23.5-56.5Q513-640 480-640t-56.5 23.5Q400-593 400-560t23.5 56.5Q447-480 480-480t56.5-23.5Z"/></svg>
-</div>
-
-<h3>
-    Localização
-</h3>
-
-<p>
-    Recursos relacionados à localização
-    e compartilhamento de posição.
-</p>
-
-</div>
-
-
-<div class="feature reveal">
-
-<div class="feature-icon">
-    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M720-330q0 104-73 177T470-80q-104 0-177-73t-73-177v-370q0-75 52.5-127.5T400-880q75 0 127.5 52.5T580-700v350q0 46-32 78t-78 32q-46 0-78-32t-32-78v-330q0-17 11.5-28.5T400-720q17 0 28.5 11.5T440-680v330q0 13 8.5 21.5T470-320q13 0 21.5-8.5T500-350v-350q-1-42-29.5-71T400-800q-42 0-71 29t-29 71v370q-1 71 49 120.5T470-160q70 0 119-49.5T640-330v-350q0-17 11.5-28.5T680-720q17 0 28.5 11.5T720-680v350Z"/></svg>
-</div>
-
-<h3>
-    Multimídia
-</h3>
-
-<p>
-    Recursos para arquivos, áudio, vídeo
-    e gravações, conforme as permissões.
-</p>
-
-</div>
-
-
-<div class="feature reveal">
-
-<div class="feature-icon">
-    AI
-</div>
-
-<h3>
-    Assistente
-</h3>
-
-<p>
-    Comandos para controlar funções do
-    aplicativo usando linguagem natural.
-</p>
-
-</div>
-
+<article class="section fade-up">
+
+    <div class="section-number">
+        01 — CONCESSÃO
+    </div>
+
+    <h2>
+        Concessão de Uso
+    </h2>
+
+    <p>
+        O autor concede uma licença de uso gratuita e não
+        exclusiva deste projeto, permitindo que terceiros
+        utilizem, estudem, auditem, modifiquem, adaptem,
+        executem e distribuam o projeto e suas versões
+        modificadas, desde que sejam integralmente
+        respeitadas as condições estabelecidas neste contrato.
+    </p>
+
+    <p>
+        Esta licença não transfere a propriedade intelectual
+        do projeto nem concede ao usuário qualquer direito de
+        reivindicar autoria sobre o projeto original.
+    </p>
+
+</article>
+
+
+<article class="section fade-up">
+
+    <div class="section-number">
+        02 — CONDIÇÕES
+    </div>
+
+    <h2>
+        Condições Obrigatórias
+    </h2>
+
+    <p>
+        A autorização de uso, distribuição e modificação está
+        estritamente condicionada ao cumprimento das seguintes
+        regras:
+    </p>
+
+    <div class="rules">
+
+        <div class="rule">
+            <div class="rule-number">01</div>
+            <div class="rule-text">
+                É expressamente proibida a <strong>venda ou
+                cobrança direta do projeto às usuárias
+                finais.</strong>
+            </div>
+        </div>
+
+        <div class="rule">
+            <div class="rule-number">02</div>
+            <div class="rule-text">
+                O projeto deve permanecer completamente
+                <strong>livre de anúncios</strong>, não podendo
+                ser inseridos banners, pop-ups, sistemas de
+                publicidade ou scripts de rastreamento
+                comercial dentro do aplicativo.
+            </div>
+        </div>
+
+        <div class="rule">
+            <div class="rule-number">03</div>
+            <div class="rule-text">
+                É permitido obter ganhos financeiros por outros
+                meios indiretos, como serviços de suporte,
+                customização técnica para entidades ou
+                doações, desde que isso não resulte na venda ou
+                cobrança direta das usuárias finais.
+            </div>
+        </div>
+
+        <div class="rule">
+            <div class="rule-number">04</div>
+            <div class="rule-text">
+                Qualquer versão distribuída, modificada ou
+                adaptada deverá manter os devidos
+                <strong>créditos ao autor original e ao projeto
+                Mulher Amparada.</strong>
+            </div>
+        </div>
+
+        <div class="rule">
+            <div class="rule-number">05</div>
+            <div class="rule-text">
+                Não é permitido remover, ocultar ou alterar os
+                avisos de copyright, assinaturas de código e
+                atribuição existentes no projeto com a
+                finalidade de retirar ou ocultar sua autoria
+                original.
+            </div>
+        </div>
+
+        <div class="rule">
+            <div class="rule-number">06</div>
+            <div class="rule-text">
+                Modificações e versões derivadas podem ser
+                realizadas, desde que não sejam apresentadas,
+                divulgadas ou comercializadas como sendo a
+                versão oficial original desenvolvida pelo autor.
+            </div>
+        </div>
+
+    </div>
+
+</article>
+
+
+<article class="section fade-up">
+
+    <div class="section-number">
+        03 — ATRIBUIÇÃO
+    </div>
+
+    <h2>
+        Créditos e Atribuição
+    </h2>
+
+    <p>
+        Toda distribuição, publicação ou disponibilização
+        pública do projeto ou de versões derivadas deverá
+        preservar uma atribuição equivalente a:
+    </p>
+
+    <div class="quote">
+        “Projeto originalmente desenvolvido por Samuel De
+        Oliveira Rigueiro / Mulher Amparada.”
+    </div>
+
+    <p style="margin-top:18px;">
+        Os créditos devem permanecer visíveis, em menus
+        “Sobre”, rodapés ou documentação, e não podem ser
+        apresentados de maneira que sugira que o autor original
+        endossa, patrocina ou é responsável por uma versão
+        modificada sem sua autorização expressa.
+    </p>
+
+</article>
+
+
+<article class="section fade-up">
+
+    <div class="section-number">
+        04 — RESPONSABILIDADE
+    </div>
+
+    <h2>
+        Responsabilidade pelo Uso
+    </h2>
+
+    <p>
+        O projeto é disponibilizado <strong>“no estado em que
+        se encontra” (AS IS)</strong>, sem garantias de que sua
+        utilização será ininterrupta, livre de erros ou
+        adequada a todas as finalidades ou situações de
+        emergência.
+    </p>
+
+    <p>
+        O autor original não se responsabiliza por danos,
+        prejuízos, perdas de dados, falhas de comunicação com
+        serviços públicos de emergência (180, 190, 192),
+        incidentes de segurança, crimes, infrações, violações
+        de direitos ou quaisquer consequências decorrentes do
+        uso, modificação, distribuição ou utilização indevida
+        do projeto por terceiros, na medida permitida pela
+        legislação aplicável.
+    </p>
+
+    <p>
+        A responsabilidade civil e penal pelo uso do projeto,
+        incluindo suas modificações, instalações e aplicações
+        específicas, pertence exclusivamente à pessoa,
+        organização ou entidade que realizou esse uso ou
+        distribuição.
+    </p>
+
+    <div class="highlight">
+
+        <strong>Importante:</strong>
+        nenhuma disposição desta licença autoriza a utilização
+        do projeto para fins ilegais ou para violar direitos de
+        terceiros.
+
+    </div>
+
+</article>
+
+
+<article class="section fade-up">
+
+    <div class="section-number">
+        05 — EFEITO VITALÍCIO
+    </div>
+
+    <h2>
+        Versões Modificadas
+    </h2>
+
+    <p>
+        Quem modificar o projeto poderá distribuir sua própria
+        versão, desde que a nova versão seja obrigatoriamente
+        distribuída sob os termos desta mesma licença.
+    </p>
+
+    <div class="rules">
+
+        <div class="rule">
+            <div class="rule-number">✓</div>
+            <div class="rule-text">
+                Mantenha os créditos do projeto original.
+            </div>
+        </div>
+
+        <div class="rule">
+            <div class="rule-number">✓</div>
+            <div class="rule-text">
+                Respeite todas as condições e restrições desta
+                licença.
+            </div>
+        </div>
+
+        <div class="rule">
+            <div class="rule-number">✓</div>
+            <div class="rule-text">
+                Não apresente a versão modificada como sendo a
+                versão oficial original.
+            </div>
+        </div>
+
+        <div class="rule">
+            <div class="rule-number">✓</div>
+            <div class="rule-text">
+                Não remova ou altere os avisos de copyright.
+            </div>
+        </div>
+
+        <div class="rule">
+            <div class="rule-number">✓</div>
+            <div class="rule-text">
+                Mantenha a versão completamente livre de
+                anúncios.
+            </div>
+        </div>
+
+        <div class="rule">
+            <div class="rule-number">✓</div>
+            <div class="rule-text">
+                Não venda ou cobre diretamente das usuárias
+                finais.
+            </div>
+        </div>
+
+    </div>
+
+</article>
+
+
+<article class="section fade-up">
+
+    <div class="section-number">
+        06 — DIREITOS
+    </div>
+
+    <h2>
+        Reserva de Direitos e Rescisão
+    </h2>
+
+    <p>
+        Salvo os direitos expressamente concedidos por esta
+        licença, todos os demais direitos permanecem
+        estritamente reservados ao autor.
+    </p>
+
+    <p>
+        Esta licença não deve ser interpretada como uma
+        transferência de propriedade, cessão definitiva de
+        direitos autorais ou renúncia aos direitos morais do
+        autor sobre o projeto.
+    </p>
+
+</article>
+
+
+<article class="section fade-up">
+
+    <div class="section-number">
+        07 — ACEITAÇÃO
+    </div>
+
+    <h2>
+        Aceitação da Licença
+    </h2>
+
+    <p>
+        Ao utilizar, copiar, modificar ou distribuir este
+        projeto, o usuário declara que leu, compreendeu e
+        concorda em cumprir integralmente os termos desta
+        licença.
+    </p>
+
+    <p>
+        O descumprimento de qualquer uma das condições
+        estabelecidas neste contrato resultará na revogação
+        automática e imediata da autorização concedida para
+        utilização e distribuição do projeto, sujeitando o
+        infrator às sanções civis e penais cabíveis conforme a
+        legislação de direitos autorais vigente.
+    </p>
+
+</article>
+
+
+<div class="signature fade-up">
+
+    <div class="signature-title">
+        Copyright © 2026
+    </div>
+
+    <div class="signature-name">
+        Samuel De Oliveira Rigueiro
+    </div>
+
+    <div class="signature-project">
+        Mulher Amparada
+    </div>
 
 </div>
 
 </div>
 
 </section>
-
 
 
 <!-- =====================================================
-     EMERGÊNCIA
+     FINAL
 ===================================================== -->
 
-<section class="emergency-section">
-
-<div class="container">
-
-<div class="emergency-panel reveal">
-
-<div class="emergency-layout">
-
-
-<div>
-
-<div class="section-kicker">
-    Acesso rápido
-</div>
-
-<h2 class="emergency-title">
-
-    Quando cada segundo
-    <span>importa.</span>
-
-</h2>
-
-<p class="emergency-text">
-
-    O aplicativo possui atalhos para diferentes
-    serviços de emergência e apoio. A disponibilidade
-    das ligações depende do dispositivo, sistema e
-    permissões utilizadas.
-
-</p>
-
-</div>
-
-
-<div class="emergency-buttons">
-
-<a
-    href="tel:190"
-    class="emergency-button"
-    style="border-radius: 200px;"
-    >
-    190 · Polícia
-</a>
-
-<a
-    href="tel:192"
-    class="emergency-button"
-    style="border-radius: 200px;"
->
-    192 · SAMU
-</a>
-
-<a
-    href="tel:180"
-    class="emergency-button"
-    style="border-radius: 200px;"
->
-    180 · Central da mulher
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
+        <a
+            href="index1.html"
+            class="button"
+        >
+            Ir para o projeto
+        </a>
 
 </section>
 
-
-
-<!-- =====================================================
-     SEGURANÇA
-===================================================== -->
-
-<section
-    class="section"
-    id="seguranca"
->
-
-<div class="container">
-
-<div class="security-layout">
-
-
-<div
-    class="security-number reveal"
-    aria-hidden="true"
->
-    02
-</div>
-
-
-<div class="security-content reveal">
-
-<div class="section-kicker">
-    Privacidade
-</div>
-
-<h2>
-    Seus dados não precisam
-    <span>ficar expostos.</span>
-</h2>
-
-<p>
-
-    O projeto utiliza recursos nativos do Android
-    quando necessário para proteger informações
-    e controlar o acesso a determinadas áreas.
-
-</p>
-
-<div class="security-points">
-
-<div class="security-point"
-style="border-radius: 200px;"
->
-    Android Keystore
-</div>
-
-<div class="security-point"
-style="border-radius: 200px;">
-    Proteção por autenticação do dispositivo
-</div>
-
-<div class="security-point"
-style="border-radius: 200px;"
->
-    Armazenamento local
-</div>
-
-<div class="security-point"
-style="border-radius: 200px;"
->
-    Dados protegidos por criptografia quando implementada
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- =====================================================
-     RECURSOS
-===================================================== -->
-
-<section
-    class="section"
-    id="recursos"
->
-
-<div class="container">
-
-<div class="section-header reveal">
-
-<div class="section-kicker">
-    Recursos
-</div>
-
-<h2 class="section-title">
-    Tudo organizado em
-    <span>um só lugar.</span>
-</h2>
-
-<p class="section-description">
-
-    Confira algumas das ferramentas presentes
-    no ecossistema do Mulher Amparada.
-
-</p>
-
-</div>
-
-
-<div class="feature-grid">
-
-
-<div class="feature reveal">
-
-<div class="feature-icon">
-    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M700-480q0-21 4-40.5t10-39.5h46q10 0 18-4t14-12l27-36q9-12 8-27t-12-26l-28-28q-11-11-27-11.5T732-694q-43 40-67.5 97.5T640-480q0 59 24.5 116.5T732-266q12 11 28 10.5t27-11.5l28-28q11-11 12-26t-8-27l-27-36q-6-8-14-12t-18-4h-46q-6-18-10-38.5t-4-41.5ZM80-120q-33 0-56.5-23.5T0-200v-560q0-33 23.5-56.5T80-840h800q33 0 56.5 23.5T960-760v560q0 33-23.5 56.5T880-120H80Zm556-80h244v-560H80v560h4q42-75 116-117.5T360-360q86 0 160 42.5T636-200ZM445-435q35-35 35-85t-35-85q-35-35-85-35t-85 35q-35 35-35 85t35 85q35 35 85 35t85-35ZM182-200h356q-34-38-80.5-59T360-280q-51 0-97 21t-81 59Zm149.5-291.5Q320-503 320-520t11.5-28.5Q343-560 360-560t28.5 11.5Q400-537 400-520t-11.5 28.5Q377-480 360-480t-28.5-11.5ZM480-480Z"/></svg>
-</div>
-
-<h3>
-    Contatos de confiança
-</h3>
-
-<p>
-    Além dos contatos de confiança, clicando no primeiro botão você seleciona e salva o contato. O botão abaixo envia um pedido de ajuda para ele.
-</p>
-
-</div>
-
-
-<div class="feature reveal">
-
-<div class="feature-icon">
-    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M431-529.5q29-29.5 29-70.5 0-42-29-71t-71-29q-42 0-71 29t-29 71q0 41 29 70.5t71 29.5q42 0 71-29.5ZM712-407q-15-6-21.5-20.5T690-456q15-34 22.5-70.5T720-600q0-37-7.5-73T690-743q-6-14 1-27.5t22-19.5q17-6 32.5 1.5T768-764q17 39 24.5 80.5T800-600q0 43-8 84.5T767-434q-7 17-22.5 25t-32.5 2Zm116 116q-14-7-20-21.5t2-27.5q35-59 52.5-124T880-598q0-69-18-134.5T809-858q-8-13-1.5-27.5T828-907q17-8 34.5-.5T889-883q35 66 53 137t18 146q0 75-18.5 147.5T888-314q-9 17-26 24t-34-1Zm-668 51q0-17-11.5-28.5T120-280q-17 0-28.5 11.5T80-240q0 66 47 113t113 47q62 0 101.5-31t60.5-91q17-50 32.5-70t71.5-64q62-50 98-113t36-151q0-119-80.5-199.5T360-880q-119 0-199.5 80.5T80-600q0 17 11.5 28.5T120-560q17 0 28.5-11.5T160-600q0-85 57.5-142.5T360-800q85 0 142.5 57.5T560-600q0 68-27 116t-77 86q-52 38-81 74t-43 78q-14 44-33.5 65T240-160q-33 0-56.5-23.5T160-240Z"/></svg>
-</div>
-
-<h3>
-    Proteção sonora
-</h3>
-
-<p>
-    Ative a proteção, faça barulho alto e ele liga para o 180.
-</p>
-
-</div>
-
-
-<div class="feature reveal">
-
-<div class="feature-icon">
-    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M320-120q-33 0-56.5-23.5T240-200v-560q0-33 23.5-56.5T320-840h320q33 0 56.5 23.5T720-760v560q0 33-23.5 56.5T640-120H320Zm320-80v-560H320v560h320ZM508.5-651.5Q520-663 520-680t-11.5-28.5Q497-720 480-720t-28.5 11.5Q440-697 440-680t11.5 28.5Q463-640 480-640t28.5-11.5ZM0-320v-200q0-17 11.5-28.5T40-560q17 0 28.5 11.5T80-520v200q0 17-11.5 28.5T40-280q-17 0-28.5-11.5T0-320Zm120-120v-200q0-17 11.5-28.5T160-680q17 0 28.5 11.5T200-640v200q0 17-11.5 28.5T160-400q-17 0-28.5-11.5T120-440Zm760 0v-200q0-17 11.5-28.5T920-680q17 0 28.5 11.5T960-640v200q0 17-11.5 28.5T920-400q-17 0-28.5-11.5T880-440ZM760-320v-200q0-17 11.5-28.5T800-560q17 0 28.5 11.5T840-520v200q0 17-11.5 28.5T800-280q-17 0-28.5-11.5T760-320ZM320-200v-560 560Z"/></svg>
-</div>
-
-<h3>
-    Balançar o Celular para Pedir Ajuda
-</h3>
-
-<p>
-    Ative e, ao chacoalhar o celular, ele liga para o 180.
-</p>
-
-</div>
-
-
-<div class="feature reveal">
-
-<div class="feature-icon">
-    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M160-516v-189q0-25 14.5-45t37.5-29l240-90q14-5 28-5t28 5l240 90q23 9 37.5 29t14.5 45v189q0 20-12.5 30T760-476q-17 0-28.5-11T720-516v-189l-240-90-240 90v189q0 121 68 220t172 132q11-4 23-9.5t23-10.5q15-7 31-1t23 21q7 15 1 31t-21 23q-11 5-24.5 10.5T511-89q-6 2-12.5 3.5T485-84q-7 0-13-1.5T460-89q-135-45-215.5-166T160-516ZM674-80q-14 0-24-10t-10-24v-132q0-14 10-24t24-10h6v-40q0-33 23.5-56.5T760-400q33 0 56.5 23.5T840-320v40h6q14 0 24 10t10 24v132q0 14-10 24t-24 10H674Zm46-200h80v-40q0-17-11.5-28.5T760-360q-17 0-28.5 11.5T720-320v40ZM480-480Z"/></svg>
-</div>
-
-<h3>
-    Área Protegida
-</h3>
-
-<p>
-    Se estiver cadastrado no celular, com Biometric Prompt junto com Device Credential e autenticação weak, pode desbloquear essa área com impressão digital, rosto, PIN, padrão, senha e outros métodos.
-</p>
-
-<p>
-    🔐 Sistema Cripto (Segurança do App) = Antigo LocalStorage!:
-</p>
-
-<p>
-    Este sistema salva dados de forma segura usando criptografia nativa do Android.
-</p>
-
-<p>
-    🧠 Como funciona:
-</p>
-
-<p>
-    Quando você salva um dado no app, ele não fica em texto normal no celular.
-    Ele é automaticamente criptografado antes de ser armazenado.
-</p>
-
-<p>
-    Isso significa que mesmo acessando os arquivos do dispositivo, os dados aparecem como códigos ilegíveis.
-</p>
-
-<p>
-    🔑 Tecnologia usada:
-</p>
-
-<p>
-    AES-256 (criptografia forte)
-</p>
-
-<p>
-    Android Keystore (chave protegida pelo sistema)
-</p>
-
-<p>
-    EncryptedSharedPreferences
-</p>
-
-<p>
-    ⚙️ O que cada função faz:
-</p>
-
-<p>
-    <b>salvar(chave, valor)</b> → guarda o dado de forma criptografada
-</p>
-
-<p>
-    <b>carregar(chave)</b> → recupera o dado original
-</p>
-
-<p>
-    <b>remover(chave)</b> → apaga um dado específico
-</p>
-
-<p>
-    <b>limparTudo()</b> → remove todos os dados salvos
-</p>
-
-<p>
-    🔒 Segurança:
-</p>
-
-<p>
-    Os dados são protegidos por uma chave segura do próprio Android e não ficam visíveis diretamente no armazenamento do aparelho.
-</p>
-
-</div>
-
-
-<div class="feature reveal">
-
-<div class="feature-icon">
-    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M240-80q-50 0-85-35t-35-85v-560q0-50 35-85t85-35h360q33 0 56.5 23.5T680-800v480q0 33-23.5 56.5T600-240H240q-17 0-28.5 11.5T200-200q0 17 11.5 28.5T240-160h520v-600q0-17 11.5-28.5T800-800q17 0 28.5 11.5T840-760v600q0 33-23.5 56.5T760-80H240Zm120-240h240v-480H360v480Zm-80 0v-480h-40q-17 0-28.5 11.5T200-760v447q10-3 19.5-5t20.5-2h40Zm-80-480v487-487Z"/></svg>
-</div>
-
-<h3>
-    Diário
-</h3>
-
-<p>
-    Usando criptografia, a usuária poderá anotar o que quiser. Com a senha, ficará seguro e também não some, pois estará guardado.
-</p>
-
-</div>
-
-
-<div class="feature reveal">
-
-<div class="feature-icon">
-    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M324-111.5Q251-143 197-197t-85.5-127Q80-397 80-480v-300q0-25 22-36t42 4l178 133q26-37 56.5-78t68.5-87q13-16 33-16t33 16q38 46 68.5 86.5T638-679l178-133q20-15 42-4t22 36v300q0 83-31.5 156T763-197q-54 54-127 85.5T480-80q-83 0-156-31.5ZM200-360q0-57 18.5-117.5T279-610l-119-90v220q0 44 11.5 84.5T203-320q-2-10-2.5-19.5T200-360Zm421.5 141.5Q680-277 680-360q0-66-45-167T480-760Q370-626 325-526t-45 166q0 83 58.5 141.5T480-160q83 0 141.5-58.5ZM760-360q0 11-.5 20.5T757-320q20-35 31.5-75.5T800-480v-220l-119 89q42 72 60.5 132.5T760-360Z"/></svg>
-</div>
-
-<h3>
-    Calendário Menstrual
-</h3>
-
-<p>
-    Registre como dói cada dia e, com isso, o aplicativo monta um calendário.
-</p>
-
-</div>
-
-
-<div class="feature reveal">
-
-<div class="feature-icon">
-    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M200-80q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h40v-40q0-17 11.5-28.5T280-880q17 0 28.5 11.5T320-840v40h320v-40q0-17 11.5-28.5T680-880q17 0 28.5 11.5T720-840v40h40q33 0 56.5 23.5T840-720v560q0 33-23.5 56.5T760-80H200Zm0-80h560v-400H200v400Zm0-480h560v-80H200v80Zm0 0v-80 80Zm280 240q-17 0-28.5-11.5T440-440q0-17 11.5-28.5T480-480q17 0 28.5 11.5T520-440q0 17-11.5 28.5T480-400Zm-188.5-11.5Q280-423 280-440t11.5-28.5Q303-480 320-480t28.5 11.5Q360-457 360-440t-11.5 28.5Q337-400 320-400t-28.5-11.5ZM640-400q-17 0-28.5-11.5T600-440q0-17 11.5-28.5T640-480q17 0 28.5 11.5T680-440q0 17-11.5 28.5T640-400ZM480-240q-17 0-28.5-11.5T440-280q0-17 11.5-28.5T480-320q17 0 28.5 11.5T520-280q0 17-11.5 28.5T480-240Zm-188.5-11.5Q280-263 280-280t11.5-28.5Q303-320 320-320t28.5 11.5Q360-297 360-280t-11.5 28.5Q337-240 320-240t-28.5-11.5ZM640-240q-17 0-28.5-11.5T600-280q0-17 11.5-28.5T640-320q17 0 28.5 11.5T680-280q0 17-11.5 28.5T640-240Z"/></svg>
-</div>
-
-<h3>
-    Calendário de eventos
-</h3>
-
-<p>
-    Registra eventos da usuária quando ela precisar
-</p>
-
-</div>
-
-
-<div class="feature reveal">
-
-<div class="feature-icon">
-<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h168q13-36 43.5-58t68.5-22q38 0 68.5 22t43.5 58h168q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-560H200v560Zm120-80h200q17 0 28.5-11.5T560-320q0-17-11.5-28.5T520-360H320q-17 0-28.5 11.5T280-320q0 17 11.5 28.5T320-280Zm0-160h320q17 0 28.5-11.5T680-480q0-17-11.5-28.5T640-520H320q-17 0-28.5 11.5T280-480q0 17 11.5 28.5T320-440Zm0-160h320q17 0 28.5-11.5T680-640q0-17-11.5-28.5T640-680H320q-17 0-28.5 11.5T280-640q0 17 11.5 28.5T320-600Zm181.5-198.5Q510-807 510-820t-8.5-21.5Q493-850 480-850t-21.5 8.5Q450-833 450-820t8.5 21.5Q467-790 480-790t21.5-8.5ZM200-200v-560 560Z"/></svg>
-
-
-</div>
-
-<h3>
-    Rotina
-</h3>
-
-<p>
-    Sistema de pontos, com registro de comidas e bebidas boas e ruins, bem como a adição de registro de exercícios físicos fáceis, médios ou difíceis e contagem de tempo de cada um deles, além de sistema de nível e conquistas.
-</p>
-
-</div>
-
-
-<div class="feature reveal">
-
-<div class="feature-icon">
-    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="m574-129-214-75-186 72q-10 4-19.5 2.5T137-136q-8-5-12.5-13.5T120-169v-561q0-13 7.5-23t20.5-15l186-63q6-2 12.5-3t13.5-1q7 0 13.5 1t12.5 3l214 75 186-72q10-4 19.5-2.5T823-824q8 5 12.5 13.5T840-791v561q0 13-7.5 23T812-192l-186 63q-6 2-12.5 3t-13.5 1q-7 0-13.5-1t-12.5-3Zm-14-89v-468l-160-56v468l160 56Zm80 0 120-40v-474l-120 46v468Zm-440-10 120-46v-468l-120 40v474Zm440-458v468-468Zm-320-56v468-468Z"/></svg>
-</div>
-
-<h3>
-    Mapa
-</h3>
-
-<p>
-    Mostra um mapa da região da usuária
-</p>
-
-</div>
-
-
-<div class="feature reveal">
-
-<div class="feature-icon">
-    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="m520-473 90 90q11 11 11 27.5T610-327q-12 12-28.5 12T553-327L452-428q-6-6-9-13.5t-3-15.5v-143q0-17 11.5-28.5T480-640q17 0 28.5 11.5T520-600v127Zm-68.5-258.5Q440-743 440-760v-40h80v40q0 17-11.5 28.5T480-720q-17 0-28.5-11.5Zm280 223Q743-520 760-520h40v80h-40q-17 0-28.5-11.5T720-480q0-17 11.5-28.5Zm-223 280Q520-217 520-200v40h-80v-40q0-17 11.5-28.5T480-240q17 0 28.5 11.5Zm-280-223Q217-440 200-440h-40v-80h40q17 0 28.5 11.5T240-480q0 17-11.5 28.5ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm320-400q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93q134 0 227-93t93-227Zm-320 0Z"/></svg>
-</div>
-
-<h3>
-    Relógio
-</h3>
-
-<p>
-    Mostra o mapa do local atual, o país e outros dados, bem como o ano, semestre, bimestre, mês, quinzena, semana, dia, hora, minuto e segundo.
-</p>
-
-</div>
-
-
-<div class="feature reveal">
-
-
-
-<h3>
-    Além disso
-</h3>
-
-<p>
-    Além de mostrar hora, minuto e segundo de todos os países.
-</p>
-
-</div>
-
-
-<div class="feature reveal">
-
-<div class="feature-icon">
-    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M320-320v50q0 13 8.5 21.5T350-240q13 0 21.5-8.5T380-270v-50h50q13 0 21.5-8.5T460-350q0-13-8.5-21.5T430-380h-50v-50q0-13-8.5-21.5T350-460q-13 0-21.5 8.5T320-430v50h-50q-13 0-21.5 8.5T240-350q0 13 8.5 21.5T270-320h50Zm230 50h140q13 0 21.5-8.5T720-300q0-13-8.5-21.5T690-330H550q-13 0-21.5 8.5T520-300q0 13 8.5 21.5T550-270Zm0-100h140q13 0 21.5-8.5T720-400q0-13-8.5-21.5T690-430H550q-13 0-21.5 8.5T520-400q0 13 8.5 21.5T550-370ZM280-592h140q13 0 21.5-8.5T450-622q0-13-8.5-21.5T420-652H280q-13 0-21.5 8.5T250-622q0 13 8.5 21.5T280-592Zm-80 472q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-560H200v560Zm0-560v560-560Zm420 182 35 35q9 9 21 9t21-9q8-8 8.5-20.5T698-585l-36-37 35-35q9-9 9-21t-9-21q-9-9-21-9t-21 9l-35 35-35-35q-9-9-21-9t-21 9q-9 9-9 21t9 21l35 35-36 37q-8 9-8 21t9 21q9 9 21 9t21-9l35-35Z"/></svg>
-</div>
-
-<h3>
-    Calculadora
-</h3>
-
-<p>
-    A calculadora pode ser usada para cálculos rápidos do dia a dia.
-</p>
-
-</div>
-
-
-<div class="feature reveal">
-
-<div class="feature-icon">
-    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="m437-355-56-56q-6-6-13-9t-14.5-3q-7.5 0-15 3t-13.5 9q-12 12-12 28.5t12 28.5l85 86q6 6 13 8.5t15 2.5q8 0 15-2.5t13-8.5l169-169q12-12 12-29t-12-29q-12-12-29-12t-29 12L437-355ZM240-80q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h287q16 0 30.5 6t25.5 17l194 194q11 11 17 25.5t6 30.5v447q0 33-23.5 56.5T720-80H240Zm280-560v-160H240v640h480v-440H560q-17 0-28.5-11.5T520-640ZM240-800v200-200 640-640Z"/></svg>
-</div>
-
-<h3>
-    Tarefas
-</h3>
-
-<p>
-    O sistema permite categorizar tarefas em áreas como estudos, trabalho, pessoal e saúde.
-</p>
-
-<p>
-    As tarefas podem ser marcadas como concluídas para acompanhamento do progresso.
-</p>
-
-<p>
-    Todas as tarefas são salvas diretamente no navegador do usuário.
-</p>
-
-<p>
-    Os dados ficam armazenados localmente no dispositivo do usuário.
-</p>
-
-</div>
-
-
-<div class="feature reveal">
-
-<div class="feature-icon">
-    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M395-435q-35-35-35-85v-240q0-50 35-85t85-35q50 0 85 35t35 85v240q0 50-35 85t-85 35q-50 0-85-35Zm85-205Zm-40 480v-83q-92-13-157.5-78T203-479q-2-17 9-29t28-12q17 0 28.5 11.5T284-480q14 70 69.5 115T480-320q72 0 127-45.5T676-480q4-17 15.5-28.5T720-520q17 0 28 12t9 29q-14 91-79 157t-158 79v83q0 17-11.5 28.5T480-120q-17 0-28.5-11.5T440-160Zm68.5-331.5Q520-503 520-520v-240q0-17-11.5-28.5T480-800q-17 0-28.5 11.5T440-760v240q0 17 11.5 28.5T480-480q17 0 28.5-11.5Z"/></svg>
-</div>
-
-<h3>
-    Gravador de voz
-</h3>
-
-<p>
-    Usando uma activity (uma tela) em kotlin, é possivel ter um gravador de voz no app, sendo possível registrar evidências e provas, além do que a usuária quiser, sempre usando permissoes android e com o consentimento da usuária!
-</p>
-
-</div>
-
-
-<div class="feature reveal">
-
-<div class="feature-icon">
-    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h207q16 0 30.5 6t25.5 17l57 57h320q33 0 56.5 23.5T880-640v400q0 33-23.5 56.5T800-160H160Zm0-80h640v-400H447l-80-80H160v480Zm0 0v-480 480Z"/></svg>
-</div>
-
-<h3>
-    Meus arquivos
-</h3>
-
-<p>
-    Dentro do app, ele só visualiza as pastas e ao clicar em um arquivo, abre um seletor de apps para executar/visualizar ele
-</p>
-
-</div>
-
-
-<div class="feature reveal">
-
-<div class="feature-icon">
-    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M280-200h400q-4-49-30-90t-68-65l38-68q2-4 1-9t-6-7q-4-2-8.5-1t-6.5 5l-39 70q-20-8-40-12.5t-41-4.5q-21 0-41 4.5T399-365l-39-70q-2-5-6.5-5t-9.5 2l-4 15 38 68q-42 24-68 65t-30 90Zm96-66q-6-6-6-14t6-14q6-6 14-6t14 6q6 6 6 14t-6 14q-6 6-14 6t-14-6Zm180 0q-6-6-6-14t6-14q6-6 14-6t14 6q6 6 6 14t-6 14q-6 6-14 6t-14-6ZM240-80q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h287q16 0 30.5 6t25.5 17l194 194q11 11 17 25.5t6 30.5v447q0 33-23.5 56.5T720-80H240Zm280-560v-160H240v640h480v-440H560q-17 0-28.5-11.5T520-640ZM240-800v200-200 640-640Z"/></svg>
-</div>
-
-<h3>
-    Escolher ícone do app:
-</h3>
-
-<p>
-    Essa função abre uma acitvity (tela) e poderá trocar o ícone do app!, até mesmo para um ícone de calculadora, disfarçando o app!, e outra, quando escolhe calculadora, até o nome do app troca tambem! (e da para desfazer os efeitos para o original se quiser...)
-</p>
-
-</div>
-
-
-<div class="feature reveal">
-
-<div class="feature-icon">
-    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-73 24.5-138.5T172-736q11-14 26.5-13t26.5 11q11 10 14.5 26T229-679q-32 41-50.5 91.5T160-480q0 134 93 227t227 93q134 0 227-93t93-227q0-57-18.5-107.5T731-679q-14-17-10.5-33t14.5-26q11-10 26.5-11t26.5 13q43 52 67.5 117.5T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm-28.5-371.5Q440-463 440-480v-360q0-17 11.5-28.5T480-880q17 0 28.5 11.5T520-840v360q0 17-11.5 28.5T480-440q-17 0-28.5-11.5Z"/></svg>
-</div>
-
-<h3>
-    Desligar o celular:
-</h3>
-
-<p>
-    Ao tocar neste botão, o aplicativo solicitará a permissão de <b>Administrador do dispositivo</b>, caso ela ainda não tenha sido concedida. Quando essa permissão estiver ativa, o aplicativo poderá bloquear imediatamente a tela do dispositivo.
-</p>
-
-<p>
-    Para desinstalar o aplicativo, primeiro será necessário desativar a permissão de <b>Administrador do dispositivo</b>. Em alguns aparelhos, também poderá ser necessário permitir <b>Configurações restritas</b>. Se essa opção estiver disponível, pressione e segure o ícone do aplicativo, toque em <b>Informações do aplicativo</b>, abra o menu de três pontos e ative <b>Permitir configurações restritas</b>.
-</p>
-
-<p>
-    Antes de conceder essa permissão, leia atentamente as informações exibidas pelo Android e só prossiga se compreender as funcionalidades e os efeitos dessa autorização.
-</p>
-
-</div>
-
-
-<div class="feature reveal">
-
-<div class="feature-icon">
-    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M451.5-771.5Q440-783 440-800v-80q0-17 11.5-28.5T480-920q17 0 28.5 11.5T520-880v80q0 17-11.5 28.5T480-760q-17 0-28.5-11.5ZM678-678q-11-11-11-27.5t11-28.5l56-57q12-12 28.5-12t28.5 12q11 11 11 28t-11 28l-57 57q-11 11-28 11t-28-11Zm122 238q-17 0-28.5-11.5T760-480q0-17 11.5-28.5T800-520h80q17 0 28.5 11.5T920-480q0 17-11.5 28.5T880-440h-80ZM451.5-51.5Q440-63 440-80v-80q0-17 11.5-28.5T480-200q17 0 28.5 11.5T520-160v80q0 17-11.5 28.5T480-40q-17 0-28.5-11.5ZM226-678l-57-56q-12-12-12-29t12-28q11-11 28-11t28 11l57 57q11 11 11 28t-11 28q-12 11-28 11t-28-11Zm508 509-56-57q-11-12-11-28.5t11-27.5q11-11 27.5-11t28.5 11l57 56q12 11 11.5 28T791-169q-12 12-29 12t-28-12ZM80-440q-17 0-28.5-11.5T40-480q0-17 11.5-28.5T80-520h80q17 0 28.5 11.5T200-480q0 17-11.5 28.5T160-440H80Zm89 271q-11-11-11-28t11-28l57-57q11-11 27.5-11t28.5 11q12 12 12 28.5T282-225l-56 56q-12 12-29 12t-28-12Zm141-141q-70-70-70-170t70-170q70-70 170-70t170 70q70 70 70 170t-70 170q-70 70-170 70t-170-70Zm283-57q47-47 47-113t-47-113q-47-47-113-47t-113 47q-47 47-47 113t47 113q47 47 113 47t113-47ZM480-480Z"/></svg>
-</div>
-
-<h3>
-    Controlar brilho
-</h3>
-
-<p>
-    com isso, voce pode controlar o brilho da tela clicando em um botão..., porém, e tipo como se fosse o menor brilho do celular, e ai depois ele deixa a tela preta (nao com brilho e sim colocando a cor), (honestamente, antes aparecia as duas barras, agora elas se escondem e quando passa o efeito elas aparecem!)
-</p>
-
-</div>
-
-
-<div class="feature reveal">
-
-<div class="feature-icon">
-    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M410-190v-168l-146 84q-25 14-53 7t-42-33q-14-25-7-53t32-42l146-85-146-84q-25-14-32-42.5t7-53.5q14-25 42-32t53 7l146 84v-169q0-29 20.5-49.5T480-840q29 0 49.5 20.5T550-770v169l146-84q25-14 53-7t42 32q14 25 6.5 53.5T765-564l-145 84 146 85q25 14 32 42t-7 54q-14 25-42 32t-53-7l-146-84v168q0 29-20.5 49.5T480-120q-29 0-49.5-20.5T410-190Z"/></svg>
-</div>
-
-<h3>
-    Emergência
-</h3>
-
-<p>
-    Saindo dessa área, existem botões que abrem o aplicativo nativo do telefone nos números 190, 191, 192 e 180.
-</p>
-
-</div>
-
-
-<div class="feature reveal">
-
-<div class="feature-icon">
-    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M80-120v-160q0-17 11.5-28.5T120-320h160q17 0 28.5 11.5T320-280v160q0 17-11.5 28.5T280-80H120q-17 0-28.5-11.5T80-120Zm280 0v-160q0-17 11.5-28.5T400-320h160q17 0 28.5 11.5T600-280v160q0 17-11.5 28.5T560-80H400q-17 0-28.5-11.5T360-120Zm280 0v-160q0-17 11.5-28.5T680-320h160q17 0 28.5 11.5T880-280v160q0 17-11.5 28.5T840-80H680q-17 0-28.5-11.5T640-120ZM80-400v-160q0-17 11.5-28.5T120-600h160q17 0 28.5 11.5T320-560v160q0 17-11.5 28.5T280-360H120q-17 0-28.5-11.5T80-400Zm280 0v-160q0-17 11.5-28.5T400-600h160q17 0 28.5 11.5T600-560v160q0 17-11.5 28.5T560-360H400q-17 0-28.5-11.5T360-400Zm280 0v-160q0-17 11.5-28.5T680-600h160q17 0 28.5 11.5T880-560v160q0 17-11.5 28.5T840-360H680q-17 0-28.5-11.5T640-400ZM80-680v-160q0-17 11.5-28.5T120-880h160q17 0 28.5 11.5T320-840v160q0 17-11.5 28.5T280-640H120q-17 0-28.5-11.5T80-680Zm280 0v-160q0-17 11.5-28.5T400-880h160q17 0 28.5 11.5T600-840v160q0 17-11.5 28.5T560-640H400q-17 0-28.5-11.5T360-680Zm280 0v-160q0-17 11.5-28.5T680-880h160q17 0 28.5 11.5T880-840v160q0 17-11.5 28.5T840-640H680q-17 0-28.5-11.5T640-680ZM240-240Zm200 0h80-80Zm280 0ZM240-440v-80 80Zm240-40Zm240 40v-80 80ZM440-720h80-80Zm280 0ZM160-160h80v-80h-80v80Zm280 0h80v-80h-80v80Zm280 0h80v-80h-80v80ZM160-440h80v-80h-80v80Zm280 0h80v-80h-80v80Zm280 0h80v-80h-80v80ZM440-720h80v-80h-80v80Zm280 0h80v-80h-80v80Z"/></svg>
-</div>
-
-<h3>
-    Widgets
-</h3>
-
-<p>
-    Já saindo do app, temos os widgets.
-</p>
-
-<h3>
-    Widget SOS
-</h3>
-
-<p>
-    O primeiro é um widget de SOS que, quando clicado, abre o aplicativo de telefone com o número 180 já discado.
-</p>
-
-<h3>
-    Widget de Localização
-</h3>
-
-<p>
-    O segundo, o de localização, monta o link do Google Maps, e a usuária pode mandar para quem quiser.
-</p>
-
-
-<h3>
-    Widget de Proteção Sonora
-</h3>
-
-<p>
-    E o terceiro é apenas um acesso rápido para o serviço de proteção por palmas.
-</p>
-
-</div>
-
-
-<div class="feature reveal">
-
-<div class="feature-icon">
-    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M680-80q-50 0-85-35t-35-85q0-6 3-28L282-392q-16 15-37 23.5t-45 8.5q-50 0-85-35t-35-85q0-50 35-85t85-35q24 0 45 8.5t37 23.5l281-164q-2-7-2.5-13.5T560-760q0-50 35-85t85-35q50 0 85 35t35 85q0 50-35 85t-85 35q-24 0-45-8.5T598-672L317-508q2 7 2.5 13.5t.5 14.5q0 8-.5 14.5T317-452l281 164q16-15 37-23.5t45-8.5q50 0 85 35t35 85q0 50-35 85t-85 35Zm0-80q17 0 28.5-11.5T720-200q0-17-11.5-28.5T680-240q-17 0-28.5 11.5T640-200q0 17 11.5 28.5T680-160ZM200-440q17 0 28.5-11.5T240-480q0-17-11.5-28.5T200-520q-17 0-28.5 11.5T160-480q0 17 11.5 28.5T200-440Zm508.5-291.5Q720-743 720-760t-11.5-28.5Q697-800 680-800t-28.5 11.5Q640-777 640-760t11.5 28.5Q663-720 680-720t28.5-11.5ZM680-200ZM200-480Zm480-280Z"/></svg>
-</div>
-
-<h3>
-    Compartilhamento Rápido de Localização
-</h3>
-
-<p>
-    Além disso, existe um botão dentro do app que pega a localização atual, monta um link do Google Maps e já manda para o WhatsApp do 180, precisando apenas clicar no botão de enviar.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- =====================================================
-     DOWNLOAD
-===================================================== -->
-
-<section
-    class="section download-section"
-    id="download"
->
-
-<div class="container">
-
-<div class="download-panel reveal">
-
-<div class="section-kicker">
-    Download
-</div>
-
-<h2>
-    Pronta para
-    <span>conhecer?</span>
-</h2>
-
-<p>
-
-    Acesse a página de download para conferir
-    as informações necessárias antes de instalar
-    o aplicativo.
-
-</p>
-
-<div class="download-actions">
-
-<a
-    href="termos.html"
-    class="download-button"
->
-    Ir para download
-</a>
-
-<a
-    href="3.zip"
-    class="download-button alt"
->
-    Baixar código-fonte
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- =====================================================
-     GERENCIADOR
-===================================================== -->
-
-<section class="section">
-
-<div class="container">
-
-<div class="section-header reveal">
-
-<div class="section-kicker">
-    Outro projeto
-</div>
-
-<h2 class="section-title">
-    Gerenciador de
-    <span>arquivos.</span>
-</h2>
-
-<p class="section-description">
-
-    Uma experiência separada para visualizar
-    arquivos armazenados no dispositivo, com
-    foco em simplicidade e acesso rápido.
-
-</p>
-
-</div>
-
-
-<div class="feature-grid">
-
-<div class="feature feature-large reveal">
-
-<div class="feature-content">
-
-<div class="feature-icon">
-    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h207q16 0 30.5 6t25.5 17l57 57h360q17 0 28.5 11.5T880-680q0 17-11.5 28.5T840-640H447l-80-80H160v480l79-263q8-26 29.5-41.5T316-560h516q41 0 64.5 32.5T909-457l-72 240q-8 26-29.5 41.5T760-160H160Zm84-80h516l72-240H316l-72 240Zm-84-262v-218 218Zm84 262 72-240-72 240Z"/></svg>
-</div>
-
-<h3>
-    Gerenciador de Arquivos do Mulher Amparada
-</h3>
-
-<p>
-
-    O aplicativo permite navegar e visualizar
-    diferentes tipos de arquivos presentes
-    no dispositivo, conforme as permissões
-    concedidas pelo sistema.
-
-</p>
-
-<div class="feature-list">
-
-<span class="feature-tag">
-    Fotos
-</span>
-
-<span class="feature-tag">
-    Vídeos
-</span>
-
-<span class="feature-tag">
-    Música
-</span>
-
-<span class="feature-tag">
-    Documentos
-</span>
-
-</div>
-
-</div>
-
-</div>
-
-
-<div class="feature reveal">
-
-<div class="feature-icon">
-    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M458-240Zm-218 80q-33 0-56.5-23.5T160-240v-32q0-34 17.5-62.5T224-378q31-16 62.5-27t63.5-19q23-5 45-9t45-6q17-2 28.5 10t11.5 29q0 17-11.5 28.5T440-358q-18 2-35.5 4t-35.5 7q-28 7-55 17t-54 24q-9 5-14.5 14t-5.5 20v32h218q17 0 28.5 11.5T498-200q0 17-11.5 28.5T458-160H240Zm320-215q0-11 5.5-21t16.5-15l120-60q8-5 18-5t18 5l120 60q11 5 16.5 15t5.5 21v77q0 69-36 125t-98 85q-6 3-12.5 4T720-83q-7 0-13.5-1T694-88q-62-29-98-85t-36-125v-77Zm160 211q38-18 59-55t21-79v-52l-80-40-80 40v52q0 42 21 79t59 55ZM367-527q-47-47-47-113t47-113q47-47 113-47t113 47q47 47 47 113t-47 113q-47 47-113 47t-113-47Zm169.5-56.5Q560-607 560-640t-23.5-56.5Q513-720 480-720t-56.5 23.5Q400-673 400-640t23.5 56.5Q447-560 480-560t56.5-23.5ZM480-640Zm240 363Z"/></svg>
-</div>
-
-<h3>
-    Proteção
-</h3>
-
-<p>
-    O acesso pode exigir autenticação
-    biométrica do dispositivo.
-</p>
-
-</div>
-
-
-<div class="feature reveal">
-
-<div class="feature-icon">
-    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M160-360q-33 0-56.5-23.5T80-440v-360q0-33 23.5-56.5T160-880h360q33 0 56.5 23.5T600-800v360q0 33-23.5 56.5T520-360H160Zm0-80h360v-360H160v360Zm160-70-40-55q-3-4-8-4t-8 4l-52 69q-4 5-1 10.5t9 5.5h240q6 0 9-5.5t-1-10.5l-72-94q-3-4-8-4t-8 4l-60 80Zm275 395q-35-35-35-85t35-85q35-35 85-35 11 0 20.5 2t19.5 5v-167q0-17 11.5-28.5T760-520h80q17 0 28.5 11.5T880-480q0 17-11.5 28.5T840-440h-40v240q0 50-35 85t-85 35q-50 0-85-35ZM160-440v-360 360Z"/></svg>
-</div>
-
-<h3>
-    Multimídia
-</h3>
-
-<p>
-    Abra arquivos utilizando aplicativos
-    compatíveis instalados no aparelho.
-</p>
-
-</div>
-
-</div>
-
-
-<div
-    class="download-actions"
-    style="
-        margin-top:30px;
-        justify-content:flex-start;
-    "
->
-
-<a
-    href="termos3.html"
-    class="download-button"
->
-    Ir para o download
-</a>
-
-<a
-    href="1.zip"
-    class="download-button alt"
->
-    Baixar código-fonte
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- =====================================================
-     ASSISTENTE
-===================================================== -->
-
-<section
-    class="section"
-    id="assistente"
->
-
-<div class="container">
-
-<div class="section-header reveal">
-
-<div class="section-kicker">
-    Inteligência
-</div>
-
-<h2 class="section-title">
-    Converse com o
-    <span>Assistente.</span>
-</h2>
-
-<p class="section-description">
-
-    O Assistente Inteligente permite executar
-    determinadas ações utilizando comandos
-    de texto ou voz, conforme as funções
-    implementadas no aplicativo.
-
-</p>
-
-</div>
-
-<div class="assistant">
-
-    <div class="command-card reveal">
-        <h3>📱 Aplicativos</h3>
-
-        <code>Abrir WhatsApp</code>
-        <code>Abrir Instagram</code>
-        <code>Abrir Configurações</code>
-    </div>
-
-
-    <div class="command-card reveal">
-        <h3>📞 Emergência</h3>
-
-        <code>Alô, é da companhia de energia</code>
-        <code>Alô, é da energia</code>
-        <code>É da energia</code>
-        <code>É da companhia de energia</code>
-    </div>
-
-
-    <div class="command-card reveal">
-        <h3>📍 Localização</h3>
-
-        <code>Enviar minha localização para o 180</code>
-        <code>Mandar minha localização para o 180</code>
-    </div>
-
-
-    <div class="command-card reveal">
-        <h3>🔔 Notificações</h3>
-
-        <code>Me mande uma notificação Estou chegando.</code>
-        <code>Me mande uma notificação Lembrete importante.</code>
-        <code>Me envie uma notificação de download fictício</code>
-        <code>Me mande uma notificação de download fictício</code>
-    </div>
-
-
-    <div class="command-card reveal">
-        <h3>📅 Calendário</h3>
-
-        <code>Criar evento Reunião</code>
-        <code>Crie um evento Consulta médica</code>
-        <code>Adicionar evento Aniversário</code>
-        <code>Marcar compromisso Academia</code>
-    </div>
-
-
-    <div class="command-card reveal">
-        <h3>⏱️ Timer</h3>
-
-        <code>Inicie um timer de 5 minutos</code>
-        <code>Inicie um timer de 30 minutos</code>
-        <code>Cancelar timer</code>
-    </div>
-
-
-    <div class="command-card reveal">
-        <h3>☎️ Telefones de apoio</h3>
-
-        <code>Quais são os meus apoios</code>
-        <code>Quais sao os meus apoios</code>
-        <code>Meus apoios</code>
-    </div>
-
-
-    <div class="command-card reveal">
-        <h3>📋 Histórico de ajuda</h3>
-
-        <code>Quantas vezes liguei para pedir ajuda</code>
-        <code>Ligações de ajuda</code>
-        <code>Histórico de ajuda</code>
-    </div>
-
-
-    <div class="command-card reveal">
-        <h3>🖼️ Fotos</h3>
-
-        <code>Abrir foto viagem.jpg</code>
-        <code>Abrir foto imagem.png</code>
-    </div>
-
-
-    <div class="command-card reveal">
-        <h3>🎵 Músicas</h3>
-
-        <code>Abrir música musica.mp3</code>
-    </div>
-
-
-    <div class="command-card reveal">
-        <h3>🎬 Vídeos</h3>
-
-        <code>Abrir vídeo video.mp4</code>
-    </div>
-
-
-    <div class="command-card reveal">
-        <h3>📶 Bluetooth</h3>
-
-        <code>Bluetooth está ligado</code>
-        <code>Bluetooth esta ligado</code>
-        <code>Abrir Bluetooth</code>
-        <code>Configurações do Bluetooth</code>
-        <code>Listar dispositivos Bluetooth</code>
-        <code>Quais dispositivos Bluetooth</code>
-        <code>Dispositivos pareados</code>
-    </div>
-
-
-    <div class="command-card reveal">
-        <h3>🔒 Bloqueio</h3>
-
-        <code>Bloquear celular</code>
-        <code>Bloquear aparelho</code>
-    </div>
-
-
-    <div class="command-card reveal">
-        <h3>🔍 Pesquisa</h3>
-
-        <code>Pesquisar + termo a ser pesquisado</code>
-    </div>
-    
-    <br>
-
-</div>
-
-</section>
-
-
-
-
-<!-- =====================================================
-     DOWNLOAD ASSISTENTE
-===================================================== -->
-
-<section class="section download-section">
-
-<div class="container">
-
-<div class="download-panel reveal">
-
-<div class="section-kicker">
-    Assistente de voz
-</div>
-
-<h2>
-    Experimente o
-    <span>Assistente.</span>
-</h2>
-
-<p>
-
-    Confira a página específica para conhecer
-    os requisitos e o funcionamento dessa versão.
-
-</p>
-
-<div class="download-actions">
-
-<a
-    href="termos4.html"
-    class="download-button"
->
-  Ir para o download
-</a>
-
-<a
-    href="2.zip"
-    class="download-button alt"
->
-    Baixar código-fonte
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- =====================================================
-     MOTIVAÇÃO
-===================================================== -->
-
-<section class="motivation">
-
-<div class="container">
-
-<div class="motivation-box reveal">
-
-<div class="motivation-label">
-    Mulher Amparada
-</div>
-
-<div id="motivar">
-    Você consegue.
-</div>
-
-</div>
-
-</div>
-
-</section>
 
 </main>
 
 
 
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-
 
 
 <script>
 
-/* =========================================================
-   SCROLL REVEAL
-========================================================= */
+const elementos =
+    document.querySelectorAll(".fade-up");
 
-const revealElements =
-    document.querySelectorAll(".reveal");
+const observer =
+    new IntersectionObserver(
+        (entries) => {
 
-const prefersReducedMotion =
-    window.matchMedia(
-        "(prefers-reduced-motion: reduce)"
-    ).matches;
+            entries.forEach(
+                (entry) => {
 
+                    if (entry.isIntersecting) {
 
-if (
-    prefersReducedMotion ||
-    !("IntersectionObserver" in window)
-) {
-
-    revealElements.forEach(element => {
-
-        element.classList.add("visible");
-
-    });
-
-} else {
-
-    const observer =
-        new IntersectionObserver(
-
-            entries => {
-
-                entries.forEach(entry => {
-
-                    if (
-                        entry.isIntersecting
-                    ) {
-
-                        entry.target.classList.add(
-                            "visible"
-                        );
+                        entry.target.style.animationDelay =
+                            "0s";
 
                         observer.unobserve(
                             entry.target
@@ -3925,230 +1300,22 @@ if (
 
                     }
 
-                });
+                }
+            );
 
-            },
-
-            {
-                threshold: .10,
-                rootMargin: "0px 0px -40px 0px"
-            }
-
-        );
-
-
-    revealElements.forEach(element => {
-
-        observer.observe(element);
-
-    });
-
-}
-
-
-/* =========================================================
-   FRASES
-========================================================= */
-
-const motivar =
-    document.getElementById("motivar");
-
-const frases = [
-
-    "Você consegue.",
-    "Cada passo importa.",
-    "Continue avançando.",
-    "Seu esforço tem valor.",
-    "Grandes mudanças começam pequenas.",
-    "Você está evoluindo.",
-    "Continue tentando.",
-    "Seu progresso é real.",
-    "Você pode recomeçar.",
-    "Seu caminho está sendo construído.",
-    "Continue acreditando.",
-    "Você é capaz.",
-    "Persistir vale a pena.",
-    "Você consegue aprender.",
-    "Continue construindo.",
-    "Cada dia conta.",
-    "Você pode ir além.",
-    "Seu futuro começa hoje.",
-    "Continue evoluindo.",
-    "Faça acontecer."
-
-];
-
-let fraseIndex = 0;
-
-
-function trocarFrase() {
-
-    if (!motivar) return;
-
-    motivar.style.opacity = "0";
-
-    motivar.style.transform =
-        "translateY(12px)";
-
-
-    setTimeout(() => {
-
-        motivar.textContent =
-            frases[fraseIndex];
-
-
-        motivar.style.opacity = "1";
-
-        motivar.style.transform =
-            "translateY(0)";
-
-
-        fraseIndex++;
-
-        if (
-            fraseIndex >= frases.length
-        ) {
-
-            fraseIndex = 0;
-
+        },
+        {
+            threshold: 0.08
         }
-
-    }, 300);
-
-}
-
-
-if (!prefersReducedMotion) {
-
-    setInterval(
-        trocarFrase,
-        4000
     );
 
-}
-
-
-/* =========================================================
-   LINKS INTERNOS
-========================================================= */
-
-document
-    .querySelectorAll('a[href^="#"]')
-    .forEach(link => {
-
-        link.addEventListener(
-            "click",
-            event => {
-
-                const selector =
-                    link.getAttribute("href");
-
-                const target =
-                    document.querySelector(
-                        selector
-                    );
-
-                if (!target) return;
-
-                event.preventDefault();
-
-                target.scrollIntoView({
-
-                    behavior:
-                        prefersReducedMotion
-                            ? "auto"
-                            : "smooth",
-
-                    block: "start"
-
-                });
-
-            }
-        );
-
-    });
-
-
-/* =========================================================
-   ANO AUTOMÁTICO
-========================================================= */
-
-document
-    .querySelectorAll("[data-year]")
-    .forEach(element => {
-
-        element.textContent =
-            new Date().getFullYear();
-
-    });
-
-
-/* =========================================================
-   HEADER AO ROLAR
-========================================================= */
-
-const topbar =
-    document.querySelector(".topbar");
-
-
-function atualizarHeader() {
-
-    if (!topbar) return;
-
-    if (window.scrollY > 30) {
-
-        topbar.style.boxShadow =
-            "0 20px 70px rgba(0,0,0,.5)";
-
-        topbar.style.borderColor =
-            "rgba(255,63,159,.18)";
-
-    } else {
-
-        topbar.style.boxShadow =
-            "0 20px 60px rgba(0,0,0,.35)";
-
-        topbar.style.borderColor =
-            "rgba(255,255,255,.11)";
-
-    }
-
-}
-
-
-window.addEventListener(
-    "scroll",
-    atualizarHeader,
-    { passive: true }
+elementos.forEach(
+    elemento => observer.observe(elemento)
 );
 
-atualizarHeader();
-
-
-/* =========================================================
-   ANIMAÇÃO DOS CARDS
-========================================================= */
-
-const cards =
-    document.querySelectorAll(
-        ".feature, .command-card"
-    );
-
-
-cards.forEach((card, index) => {
-
-    card.style.transitionDelay =
-        `${Math.min(index % 3, 2) * 40}ms`;
-
-});
-
 </script>
 
-<script>
-if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/sw.js');
-}
-</script>
+
 
 </body>
 
