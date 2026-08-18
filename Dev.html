@@ -90,6 +90,8 @@ body{
 
     color:var(--text);
 
+animation:
+        fade .55s ease both;
 
     background: black;
 
@@ -139,35 +141,11 @@ header{
 
     overflow:hidden;
     
-    animation:fade .55s ease;
+    
 }
 
 /* brilho atrás do título */
 
-header::before{
-    content:"";
-
-    position:absolute;
-
-    width:280px;
-    height:280px;
-
-    top:-180px;
-    left:50%;
-
-    transform:translateX(-50%);
-
-    border-radius:50%;
-
-    background:
-        rgba(139,124,255,.16);
-
-    filter:blur(70px);
-
-    animation:glow 5s ease-in-out infinite;
-
-    pointer-events:none;
-}
 
 header h1{
     position:relative;
@@ -213,7 +191,7 @@ main{
         18px
         70px;
         
-        animation:fade .55s ease;
+        
 }
 
 /* ================================
@@ -299,8 +277,7 @@ h2::before{
 
     overflow:hidden;
 
-    animation:
-        fade .55s ease both;
+    
 
     transition:
         transform .2s ease,
