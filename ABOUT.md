@@ -720,6 +720,8 @@ tinha tudo isso de prova na sala do futuro (provas de recuperação era entre o 
 
 [Print 8](imagem8.jpg)
 
+[Print 8](imagem9.jpg)
+
 * e...
 
 [Print 9](image1.jpg)
@@ -739,6 +741,20 @@ Ele falou:
 Eu sei que você precisa ir no banheiro, mas tem certas coisas que dá pra esperar ne (honestamente, caguei pra essa fala dele...)
 
 Mas ai eu fui no banheiro sim!
+
+no dia 18.08.2026 = quando saí do ônibus  uma pessoa com paralisia no cérebro tocou na minha bunda porque eu iria sair do meu assento
+
+e quando saí da escola, o vendedor (aquele cara que me cobrou 20 reais no cabo otg), falou que nao vai devolver o dinheiro e falou pra minha mae
+
+ainda é crente ainda
+
+e eu gritando falando que o que ele fez é intolerância religiosa e que e crime previsto no código penal
+
+e ele continuou reclamando e peguei o celular e falei
+
+fala agora, aproveita que ta gravando
+
+em outras palavras = ele ficou pianinho, ficou um gatinho, ficou quietinho!
 
 * E, honestamente, o meu maior sonho e namorar, mas nunca consegui..., só recebi dor em troca...
 
