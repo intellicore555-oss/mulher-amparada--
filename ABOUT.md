@@ -742,7 +742,7 @@ Eu sei que você precisa ir no banheiro, mas tem certas coisas que dá pra esper
 
 Mas ai eu fui no banheiro sim!
 
-no dia 18.08.2026 = quando saí do ônibus  uma pessoa com paralisia no cérebro tocou na minha bunda porque eu iria sair do meu assento
+no dia 18.08.2026 = quando saí do ônibus  uma pessoa com paralisia no cérebro tocou na minha bunda (toda a mão dele, so uma, nessa parte por alguns segundow), porque eu iria sair do meu assento
 
 e quando saí da escola, o vendedor (aquele cara que me cobrou 20 reais no cabo otg), falou que nao vai devolver o dinheiro e falou pra minha mae
 
