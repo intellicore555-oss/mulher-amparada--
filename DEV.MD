@@ -1,7 +1,6 @@
+# Outras criações do desenvolvedor:
 
-Outras criações do desenvolvedor:
-
-Livro Cartas Datilografadas (pago):
+* Livro Cartas Datilografadas (pago):
 
 Nessa história,uma jovem garota chamada Isis Almeida estava em seu momento de lazer, até que em algumas horas,ela ficou impressionada por algo...
 
@@ -9,12 +8,19 @@ https://clubedeautores.com.br/livro/cartas-datilografadas
 
 (Sim, eu fiz ele em 2023, com 12 anos de idade..., e sou fã de undertale desde 2020!)
 
-Sobre o desenvolvedor:
+# Sobre o desenvolvedor:
 
-Aviso: esse Repositório é apenas o local onde você baixa o app, ele não é o proprio app em si!, essas funções só funcionarão quando você baixar, instalar e usar o app!
+* Meu nome é: Samuel De Oliveira Rigueiro, prefiro ser chamado de Samuca...
 
+E eu gostaria muito de ser visto pelas mulheres como o irmão mais novo delas..., a criança linda que está virando o anjo da guarda delas!, um menino de ouro..., e como o príncipe de vocês, (irônicamente, eu criei o projeto mulher amparada, mas eu queria e preciso muito ser amparado também..., entendo vocês...)
 
-Idéias sobre a lei que eu tenho (é um protótipo, não é oficial do governo, e só idéias minhas!
+Um fato curioso que já cantei um corinho de fogo (literalmente em grego), e programei antes do mulher amparada xom um samsung galaxy a05 e durante e depois dele com um a16 5g...
+
+**Aviso:** esse Repositório é apenas o local onde você baixa o app, ele não é o proprio app em si!, essas funções só funcionarão quando você baixar, instalar e usar o app!
+
+**Aviso:** Sempre considerem que um menino de 15 anos, autista nível 1 e um menino, que se considera de pele preta é o próprio desenvolvedor
+
+**Idéias sobre a lei que eu tenho (é um protótipo, não é oficial do governo, e só idéias minhas!**
 
 
 1. Tenho a idéia de um projeto que, quando a mulher tivesse naqueles dias, o governo poderia fazer uma parceria com as marcas de chocolate, e ai ela poderia escolher um totalmente de graça (e o unico requisito e apresentar o rg, para nao ter burocracia), (se o financiamento não der, pode ser absorventes, itens de higiene, sei lá, vocês escolhem e principalmente as mulheres junto com vocês decidem o que e melhor...), porém, antes do chocolate, prefiro que invistam em absorventes e etc,  (ESSA IDÉIA EU ACREDITO QUE É BOA NO PAPEL, MAS IMPOSSÍVEL DE IMPLEMENTAR...)
@@ -47,7 +53,9 @@ Idéias sobre a lei que eu tenho (é um protótipo, não é oficial do governo, 
 
 16. e para quem faz provas: leia o enunciado antes do texto
 
-Sofrimento do desenvolvedor:
+17. e pra quem joga o jogo fluffly fall, fica muito mais divertido jogar ele com alguma música!
+
+# Sofrimento do desenvolvedor:
 
 Escola 1:
 
@@ -494,7 +502,7 @@ Ela respondeu:
 
 Depois ela disse:
 
-e a professora de ingles, a joane, eessa escola falou, é!, voce acha que eu nao sei que voce estava pedindo o contato daquela menina né (para mandar aquela mensagem do WhatsApp e eu tenho print do que falei com aquela menina)
+“Pode deixar que vou ficar de olho nele.”, e chamou ele para conversar...
 
 Na aula de Artes, depois da aula de Geografia, outro menino, um de camisa branca e calça jeans cinza, me pediu meu caderno de Artes.
 
@@ -571,7 +579,7 @@ por causa disso, fiquei ≈02:20 minutos esperando...
 
 PORÉM, DEPOIS, O EX-PROFESSOR DE EDUCAÇÃO FINANCEIRA, A VICE-DIRETORA E O DIRETOR ME AJUDARAM A LEVAR O PROJETO MULHER AMPARADA PARA AS PESSOAS DO TOPO!, mas pra mim, ela escola continua sendo ruim..., e tem muitas coisas que eu aprendi melhor com o chatgpt do que com eles...
 
-Outras dores:
+# Outras dores:
 
 teve uma professora de esporte, musica e arte na escola 1, que me constrangeu em toda a sala, vamos ser melhor nesse bimestre, e ela me olhou e direcionou a fala, os alunos faltantes param de faltar!, (mas eu falto para fazer terapia!)
 
@@ -581,6 +589,9 @@ e essa mesma professora viu que eu tava usando ia para fazer o speak, me chamou 
 
 e na escola 3, tava vendo o mulher amparada no celular e algumas lições e o professor de matemática invadiu minha privacidade olhando meu celular....
 
+ E, honestamente, o meu maior sonho e namorar, mas nunca consegui..., só recebi dor em troca...
+
+tinha tudo isso de prova na sala do futuro (provas de recuperação era entre o 2 e 3 bimestre, e o resto do 1 ao 2 bimestre) + as 2 fisicas que ja fiz + os 20 resumos que ja fiz de geografia + 2 livros de biologia e português completo (mas as provas da sala do futuro,  as de recuperação e as outras eu não fiz!, menos a olisp!) = completa exploração da escola!
 
 No dia 07.08.2026 na escola 3: fui falar com o diretor sobre o projeto mulher amparada, e quando cheguei la fui perguntar pra vice-diretora se ele estava, e ela falou grossa, "tem 2 pessoas na sua frente, é comigo?", falei que não 
 
@@ -603,6 +614,7 @@ e ai, nem pra chamar outro programador como combinado, o administrador de desenv
 ah, e eles falaram qur ganharia uma nota a mais pelo projeto
 
 e cade?, nao veio ate agora
+
 
 honestamente, uma vez ja toquei a musica ost 080 de undertale, a metade dela, no piano, mas eu desaprendi
 
@@ -686,6 +698,33 @@ sem contar as tristezas e dores extremas no emocional, eu ia pra escola triste t
 
 joguei volei no intervalo da escola depois as 4 aulas, na quadra de lá no dia 10.08.2026, so que quando eu jogava e eu era bom, mas os colegas eram melhores, e quando eu errava uns molekes, que nem homem é, ficavam dando gritinho fino quando eu errava, e continuei mesmo assim, ate falei pra eles, hey mano, vem tentar então!
 
+E outra:
+
+tinha tudo isso de prova na sala do futuro (provas de recuperação era entre o 2 e 3 bimestre, e o resto do 1 ao 2 bimestre) + as 2 fisicas que ja fiz + os 20 resumos que ja fiz de geografia + 2 livros de biologia e português completo (mas as provas da sala do futuro,  as de recuperação e as outras eu não fiz!, menos a olisp!) = completa exploração da escola!:
+
+
+[Print 1](imagem1.jpg)
+
+[Print 2](imagem2.jpg)
+
+[Print 3](imagem3.jpg)
+
+[Print 4](imagem4.jpg)
+
+[Print 5](imagem5.jpg)
+
+[Print 6](imagem6.jpg)
+
+[Print 7](imagem7.jpg)
+
+[Print 8](imagem8.jpg)
+
+[Print 8](imagem9.jpg)
+
+* e...
+
+[Print 9](image1.jpg)
+
 Dia 14.08.2026:
 
 Então 
@@ -704,19 +743,13 @@ Mas ai eu fui no banheiro sim!
 
 No dia 18.08.2026 = quando saí do ônibus  uma pessoa com paralisia no cérebro tocou na minha bunda (toda a mão dele, so uma, nessa parte por alguns segundow), porque eu iria sair do meu assento, e aí no dia 19.08.2026 quando eu contei pra ela, a mãe dele brigou com ele, falou que isso é feio, deixou ele de castigo e me pediu desculpas...
 
-Sobre o que acho dos vendedores de loja física que já vi (lembrando que só os que tive contato...):
-
-agora, no dia 14.08.2026, um cara me vende um cabo otg o dobro do preço que já veio quebrado de fábrica!
-
-no dia 18.08.2026 = quando saí do ônibus  uma pessoa com paralisia no cérebro tocou na minha bunda porque eu iria sair do meu assento
-
 e quando saí da escola, o vendedor (aquele cara que me cobrou 20 reais no cabo otg), falou que nao vai devolver o dinheiro e falou pra minha mae
 
 ainda é crente ainda
 
 e eu gritando falando que o que ele fez é intolerância religiosa e que e crime previsto no código penal
 
-e ele continuou reclamando e peguei o celular e falei, (nota: era no gravador de voz!):
+e ele continuou reclamando e peguei o celular e falei
 
 fala agora, aproveita que ta gravando
 
@@ -724,4 +757,6 @@ em outras palavras = ele ficou pianinho, ficou um gatinho, ficou quietinho!
 
 ah, e eu esqueci de falar (mas eu tinha perdido 7gb nesse ano, os 20 apps e todo o trabalho desse projeto, reconstruí ainda melhor com o github actions, perdi o código fonte, e portei o apk compilado para descompilado tudo na raça, naquela época era menos, mas ok...)
 
- E, honestamente, o meu maior sonho e namorar, mas nunca consegui..., só recebi dor em troca...8
+* E, honestamente, o meu maior sonho e namorar, mas nunca consegui..., só recebi dor em troca...
+
+* E, meu sonho e que o android pegue o mulher amparada, crie um perfil tipo o perfil de trabalho, os apps ja vem com as permissões concedidas, e seria impossível de desinstalar (so a usuaria pode)
