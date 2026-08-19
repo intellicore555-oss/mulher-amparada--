@@ -315,7 +315,7 @@ Conheça nossa rede de suporte e lembre-se: **você não está sozinha.**
 
 ## ℹ️ Sobre o Desenvolvedor
 
-Se você busca entender mais sobre mim, leia a **[Trajetória do Desenvolvedor](DEV.md)**.
+Se você busca entender mais sobre mim, leia a **[Trajetória do Desenvolvedor](DEV.MD)**.
 
 Saiba que eu sempre procuro entender vocês e que este projeto foi criado com o propósito de oferecer apoio, acolhimento e segurança.
 
