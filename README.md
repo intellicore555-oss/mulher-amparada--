@@ -312,11 +312,7 @@ Se você busca segurança ou apoio, leia nossa **[Carta de Apoio e Propósito do
 ---
 
 
-
----
-
-## ℹ️ Sobre do desenvolvedor 
-
-Se você busca entender sobre mim leia a ** [Trajetória do Desenvolvedor](DEV.md)**.Saibam que eu sempre entendo vocês...
+## ℹ️ Sobre do desenvolvedor
+Se você busca entender sobre mim leia a **[Trajetória do Desenvolvedor](DEV.md)**. Saibam que eu sempre entendo vocês...
 ---
 
