@@ -307,12 +307,16 @@ Esses apps são abertos por intent (todos que não são o mulher amparada), e n�
 
 ## 💗 Mensagem de Acolhimento às Usuárias
 
-Se você busca segurança ou apoio, leia nossa **[Carta de Apoio e Propósito do Desenvolvedor](ABOUT.md)**. Conheça nossa rede de suporte e lembre-se: você não está sozinha.
+Se você busca segurança ou apoio, leia nossa **[Carta de Apoio e Propósito do Desenvolvedor](ABOUT.md)**.
+
+Conheça nossa rede de suporte e lembre-se: **você não está sozinha.**
 
 ---
 
+## ℹ️ Sobre o Desenvolvedor
 
-## ℹ️ Sobre do desenvolvedor
-Se você busca entender sobre mim leia a **[Trajetória do Desenvolvedor](DEV.md)**. Saibam que eu sempre entendo vocês...
+Se você busca entender mais sobre mim, leia a **[Trajetória do Desenvolvedor](DEV.md)**.
+
+Saiba que eu sempre procuro entender vocês e que este projeto foi criado com o propósito de oferecer apoio, acolhimento e segurança.
+
 ---
-
