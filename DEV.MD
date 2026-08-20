@@ -760,3 +760,87 @@ ah, e eu esqueci de falar (mas eu tinha perdido 7gb nesse ano, os 20 apps e todo
 * E, honestamente, o meu maior sonho e namorar, mas nunca consegui..., só recebi dor em troca...
 
 * E, meu sonho e que o android pegue o mulher amparada, crie um perfil tipo o perfil de trabalho, os apps ja vem com as permissões concedidas, e seria impossível de desinstalar (so a usuaria pode)
+
+olha, honestamente, eu já deveria ter feito isso a muito tempo atas mas...
+
+a minha mae já me chamou de ingrato, que eu me arrumo e acordo tarde e problema meu, sendo que eu acordo pra ir pra escola 05:00 da manhã e ela acorda mais tarde e ela mesma se atrasa, quando perdi tudo pelo family link em vez dela me acolher ela jogou a culpa em mim falando que eu deveria esperar, sem contar das vezes que meu corpo queimou de ansiedade por causa das conversas serias dela sobre se eu vejo porn-, sendo que não, mas ela falou depois que confia em mim, sem contar do medo que tenho dos meus pais do poder familiar, sem contar que no dia 12 de agosto de 2026 em vez dela ficar no lugar que eu queria ela ficou em outro, e outros dois adultos amigos dela tamparam a minha visao e nao consegui falar com a menina que eu gosto (isso foi pura monstruosidade), sem contar de quando fiquei com dor e bloqueei minha irmã, ela me julgou e falou pra desbloquear, sendo que como se fosse eu que errei, e outra adulta: eu tava cumprimentando a menina que eu gosto e essa alecrim dourado do mal pensou que era pra ela, essa intrometida, e ai perdi uma oportunidade, sem contar quando ela nao viu a minha dor de depressão, e ainda ficou do lado da menina que me fez sofrer ate literalmente meus dedos sangrarem de ansiedade
+
+meu pai: várias vezes foi grosso comigo, várias vezes fica repetindo algo que errei toda hora, como se ele fosse Deus, o perfeito
+
+minha irmã do meio: quando tava com raiva da escola 3 que e na verdade pior que a escala 6x1, ela jogou a culpa em mim e falou que meu autismo nao e desculpa, sem contar quando eu tava me expressando e fazendo algo que ela deveria fazer e fui meio grosso, ela disse: voce tem que aprender a falar com qs pessoas, e foi por causa dela que desisti da interação social a menos pra completar missão 
+
+mimha irmã mais velha: varias vezes usava a pose de irmã mais velha para me chantagear, e tebe uma vez que falei o obvio que o a05 da samsung parece a bomba de hiroshima, ela disse: tomara que seu celular queime...
+
+um dos meus tios: quando mostrei meus projetos e minha inteligência em palavras, ele me chamou de soberbo, depois pediu desculpas...
+
+minha tia: falou que era para eu se comportar normal e antes do autismo eu nao era assim, depois ficou um amor de pessoa comigo
+
+mimha outra tia: falei que iria comprar os doces dela, e em vez de mostrar uma humanidade com seu próprio sobrinho, ela deciciu cobrar
+=====
+e se nao fosse esse desgosto que chamo de família, eu não teria vivido 417 pensamentos de se autoeliminar de forma tão intensa, com esse experimento social que deu errado que chamo de casa
+
+e sim pais, eu volto a repetir, eu acho essa casa uma completa bosta sim!
+=====
+sem contar das inúmeros vezes que eu falo algo, eles cagam e prestam atenção nos outros, nao em mim
+
+e nas vezes que validam a dor do outro e bota a culpa da situação em mim
+=====
+mas, varios direitos do autismo, (bpc, laudo, ciptea), eles que me deram
+=====
+ate o meu cachorro quando toda vez que me aproximo dele ele me morde feio
+
+e quando eu era bem pequeno, o egoista do meu vo tirou o frango de mim para eu nao pegar, (custa falar comigo com carinho?)
+
+e a coisa mais feia, eu nao recebi cosquinha em 15 anos, (e eu tenho 15 anos)
+=====
+a minha mae mexeu no meu cabo de transferência de dados e perdi alguns arquivos, e ai so porque fui grosso, ja que nem a vida eu aguento mais, ela ficou toda nervosinha, ai eu sou delicada!, e ai ela deu razão pra mariana que eu gritei, (e ela ja gritou comigo ne), e ela falou a coisa mais feia, ja que literalmente paguei pela minha vida oor isso, (ai, voce vai levantar a mao pra sua mulher), sendo que fiz o projeto mulher amparada...
+
+e a minha mae me ensinando a como falar certo com a minha mulher, sendo que eu fiz o about.md do projeto mulher amparada
+=====
+e sem contar qur quando eu era pequeno, a minha irma me prendeu num balde e usaram martelo pra me soltar
+=====
+sem contar que varias vezes eu sentava na escada, so pra me isolar deles, e ficava no quarto por isso tambem e eles falam, ah, voce fica muito tempo sozinho, claro eu fujo da aparência do mal
+
+sem contar que quando eu ficava na escada e nao queria comer por causa da dor, eles nunca percebeiam usso por varios meses e falavam pra eu comer
+
+e sem contar que mesmo com toda a minha dor..., a minha irmã falou que a minha vida e fácil (mas a minha mãe corrigiu ela)
+=====
+mas a minha família fez o boletim de ocorrência contra os agressores e foram atras dos meus direitos do autismo (bpc e etc)
+=====
+No dia 15.08.2026, tava cortando cabelo e tomando sorvete, so que minha mae levou meu celular sem querer, e o meu pai tava cortando o cabelo, não dava pra ir lá até porque não posso sair de casa sozinho, e a minha irmã falou; não precisa surtar assim, é só um celular..., sendo que tem tudo o que recuperei e minha vida lá
+
+e tambem a minha mae me chama de apelidos fofos
+
+e também a minha mae fica falando que quando eu fizer 18 vou ter que fazer terapia porque ta escrito isso la lei (so se for a 999999999999.999999999abcjd, a lei inexistente), nao ta escrito isso, e sim o opowto, que nessa idade eu temho total liberdade
+
+e no dia 20.08.2026 = ela pediu pra eu pegar a roupa e colocar pra lavar, falei nao, e ela gritando falando que se falar nao vai me bater, (e ja temho histórico de dor ja)
+
+ai ai, essa for de 4 anos e de 2026 e tudo isso, so prova que deveria ter me matado quando eu tive a oportunidade, e nao ter feito isso foi um erro, até porque:
+
+a pessoa que eu amava quase fez eu ir parar num funeral 198 vezes
+
+a minha família que deveria ser a base, viraram pessoas que me torturam
+
+so de eu existir já me chamam de cu aberto e de verme
+
+e no dia 20.08.2026, hm menino me abraçou por tras sem eu autorizar
+
+só de eu existir já sou estrupado (umas 3 vezes)
+
+só de eu tentar socializar com o professor são ríspidos comigo
+
+só de existir na escola sou explorado em lição e a professora de itinerância, e omissa e não faz o projeto pei (ate o dia 20.08.2026 é certeza)
+
+e o que me mais causou dor. que foi aquela menuna, vai acontecer nada porque nada na lei pode julgar isso, e mais capaz de eu ser preso por ter seguido ela, e o que ela faz se passa em branco 
+
+foi tao forte isso que nem socializar com mulher3s pra namorar consigo mais
+
+os profissionais me inutilizam desde bebê, são omissos com os meus direitos, e me humilham só por eu usar um cordão na cabeça 
+
+quando faço compras. cobram mais caro e sempre vem quebrado. e quandi peco o dinheiro de volta. cometem crimes ate
+
+e os diretores e etc, que deveriam me proteger quando minha alma já nem tem sangue mais porque já jorrou tudo, simplesmente fazem nada e acobertam violência 
+
+sem contar que com a yasmin, nem a minha família me apoiou...
+
+então, se eu morrer..., que e meu sonho..., não vai fazer tanta diferença, só tira um peso mesmo
