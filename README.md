@@ -320,3 +320,44 @@ Se você busca entender mais sobre mim, leia a **[Trajetória do Desenvolvedor](
 Saiba que eu sempre procuro entender vocês e que este projeto foi criado com o propósito de oferecer apoio, acolhimento e segurança.
 
 ---
+
+# 💻 Repositórios do GitHub
+
+> 🚀 **Código-fonte dos nossos aplicativos**
+>
+> Aqui você encontra os repositórios oficiais com o código-fonte dos nossos apps.
+
+---
+
+## 🛡️ Mulher Amparada
+
+Aplicativo de proteção e segurança.
+
+🔗 **[Acessar repositório](https://github.com/mulher-amparada/mulher-amparada-code)**
+
+---
+
+## 📁 Gerenciador de Arquivos do Mulher Amparada
+
+Gerenciador de arquivos desenvolvido para o ecossistema do Mulher Amparada.
+
+🔗 **[Acessar repositório](https://github.com/mulher-amparada/gerenciador-de-arquivos-do-mulher-amparada-code)**
+
+---
+
+## 🎙️ Assistente de Voz do Mulher Amparada
+
+Assistente de voz desenvolvido para o Mulher Amparada.
+
+🔗 **[Acessar repositório](https://github.com/mulher-amparada/assistente-de-voz-do-mulher-amparada-code)**
+
+---
+
+### 📚 Código aberto para estudo e desenvolvimento
+
+Todos os projetos acima possuem seus respectivos repositórios no GitHub, permitindo consultar e acompanhar o código-fonte.
+
+> ❤️ **Mulher Amparada**  
+> Tecnologia desenvolvida para proteção, acessibilidade e segurança.
+
+---
