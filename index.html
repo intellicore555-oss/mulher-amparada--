@@ -83,11 +83,6 @@ body {
     width: 95%;
 }
 
-
-/* =========================================================
-   AJUDA
-========================================================= */
-
 /* =========================================================
    EMERGÊNCIA
 ========================================================= */
@@ -108,7 +103,7 @@ body {
     box-shadow:
         0 12px 35px rgba(0,0,0,.35);
 animation:
-        fadeUp .7s ease forwards;
+        fadeUp .55s ease forwards;
 }
 
 
@@ -779,19 +774,19 @@ animation:
     transform: translateY(22px);
 
     animation:
-        fadeUp .7s ease forwards;
+        fadeUp .55s ease forwards;
 }
 
 @keyframes fadeUp {
 
     from {
         opacity: 0;
-        transform: translateY(0);
+        
     }
 
     to {
         opacity: 1;
-        transform: translateY(22px);
+        
     }
 
 }
@@ -1322,45 +1317,6 @@ animation:
 
 
 
-
-
-<script>
-
-const elementos =
-    document.querySelectorAll(".fade-up");
-
-const observer =
-    new IntersectionObserver(
-        (entries) => {
-
-            entries.forEach(
-                (entry) => {
-
-                    if (entry.isIntersecting) {
-
-                        entry.target.style.animationDelay =
-                            "0s";
-
-                        observer.unobserve(
-                            entry.target
-                        );
-
-                    }
-
-                }
-            );
-
-        },
-        {
-            threshold: 0.08
-        }
-    );
-
-elementos.forEach(
-    elemento => observer.observe(elemento)
-);
-
-</script>
 
 
 
