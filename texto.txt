@@ -771,5 +771,3 @@ fala agora, aproveita que ta gravando
 em outras palavras = ele ficou pianinho, ficou um gatinho, ficou quietinho!
 
 ah, e eu esqueci de falar (mas eu tinha perdido 7gb nesse ano, os 20 apps e todo o trabalho desse projeto, reconstruí ainda melhor com o github actions, perdi o código fonte, e portei o apk compilado para descompilado tudo na raça, naquela época era menos, mas ok...)
-
- E, honestamente, o meu maior sonho e namorar, mas nunca consegui..., só recebi dor em troca...8
