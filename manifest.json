@@ -1,23 +1,19 @@
+Eu queri que ele use female.png, mas as out5as mudancas
+
 {
-  "name": " Site do app Mulher Amparada",
-  "short_name": "Site do app Mulher Amparada",
-  "start_url": "/mulher-amparada-app/",
-  "scope": "/mulher-amparada-app/",
-  "display": "standalone",
-  "background_color": "transparent",
-  "theme_color": "transparent",
-  "icons": [
-    {
-      "src": "/mulher-amparada-app/female.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "/mulher-amparada-app/female.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any"
-    }
-  ]
+"name": "Mulher Amparada",
+"short_name": "Mulher Amparada",
+"start_url": "/mulher-amparada-app/",
+"scope": "/mulher-amparada-app/",
+"display": "standalone",
+"background_color": "#000000",
+"theme_color": "#0a0a0a",
+"icons": [
+{
+"src": "/mulher-amparada-app/female.png",
+"sizes": "512x512",
+"type": "image/png",
+"purpose": "any"
+}
+]
 }
