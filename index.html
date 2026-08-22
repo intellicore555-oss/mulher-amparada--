@@ -17,10 +17,9 @@ content="Conheça o Mulher Amparada, aplicativo com recursos de segurança, emer
 > 
 
 <meta
-name="theme-color"
-content="#050507"
-
-> 
+    name="theme-color"
+    content="transparent"
+>
 
 <meta
 name="color-scheme"
@@ -1311,7 +1310,27 @@ animation:
 
 
 
-
+<script>
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+        navigator.serviceWorker.register(
+            "/mulher-amparada-app/sw.js"
+        )
+        .then((registration) => {
+            console.log(
+                "Service Worker registrado:",
+                registration.scope
+            );
+        })
+        .catch((error) => {
+            console.error(
+                "Erro ao registrar o Service Worker:",
+                error
+            );
+        });
+    });
+}
+</script>
 
 
 </body>
