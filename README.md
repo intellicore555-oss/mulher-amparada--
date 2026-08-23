@@ -366,5 +366,4 @@ Todos os projetos acima possuem seus respectivos repositórios no GitHub, permit
 
 eu penso que o android studio ou o github actions quando da erro, uma ia navega em todo o projeto e resolve (auto fix)
 
-e os arquivos do gravador de voz (as gravações), ficam dentro de: android/data/
-
+e os audios do gravador de voz também são criptografados com a classe Cripto
