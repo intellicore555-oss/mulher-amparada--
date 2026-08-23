@@ -467,6 +467,70 @@ body {
     }
 
 }
+/* =========================================================
+   BOTÕES DE EMERGÊNCIA
+========================================================= */
+
+.emergency-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+}
+
+.emergency-button {
+    width: 100%;
+    min-height: 64px;
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 200px;
+
+    background: rgba(255, 0, 0, 0.08);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    color: white;
+
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    padding: 12px 18px;
+
+    font-family: "Quicksand", sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.emergency-button:active {
+    transform: scale(0.96);
+    background: rgba(255, 255, 255, 0.16);
+}
+
+.emergency-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+}
+
+.emergency-title {
+    font-size: 17px;
+}
+
+.emergency-number {
+    font-size: 13px;
+    opacity: 0.65;
+}
 
 </style>
 
@@ -689,6 +753,62 @@ body {
 
 </article>
 
+<div class="emergency-buttons">
+
+    <button
+        class="emergency-button"
+        onclick="location.href='tel:180'"
+    >
+
+
+        <span class="emergency-info">
+            <span class="emergency-title">
+                Violência contra a mulher
+            </span>
+
+            <span class="emergency-number">
+                Ligue para 180
+            </span>
+        </span>
+    </button>
+
+
+    <button
+        class="emergency-button"
+        onclick="location.href='tel:190'"
+    >
+
+
+        <span class="emergency-info">
+            <span class="emergency-title">
+                Polícia
+            </span>
+
+            <span class="emergency-number">
+                Ligue para 190
+            </span>
+        </span>
+    </button>
+
+
+    <button
+        class="emergency-button"
+        onclick="location.href='tel:192'"
+    >
+        
+
+        <span class="emergency-info">
+            <span class="emergency-title">
+                SAMU
+            </span>
+
+            <span class="emergency-number">
+                Ligue para 192 
+            </span>
+        </span>
+    </button>
+
+</div>
 
 </main>
 
