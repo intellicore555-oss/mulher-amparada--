@@ -367,3 +367,9 @@ Todos os projetos acima possuem seus respectivos repositórios no GitHub, permit
 eu penso que o android studio ou o github actions quando da erro, uma ia navega em todo o projeto e resolve (auto fix)
 
 e os audios do gravador de voz também são criptografados com a classe Cripto
+
+e o recurso de proteção ppr barulho, chacalhoar o celular e escurecer a tela, tem como ativar e desativar!
+
+todas as activitys tem a flag secure de todos os 3 apps
+
+e no application do AndroidManifest dos 3 apps tem allowBackup="false" 
