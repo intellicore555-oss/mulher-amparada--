@@ -10,823 +10,463 @@
     content="width=device-width, initial-scale=1.0, viewport-fit=cover"
 >
 
-<meta
-    name="description"
-    content="Conheça o Mulher Amparada, aplicativo com recursos de segurança, emergência, privacidade, organização e assistência."
->
+<meta name="theme-color" content="#000000">
 
-<link
-    rel="icon"
-    type="image/x-icon"
-    href="/favicon.ico"
->
-
-<link
-    rel="shortcut icon"
-    type="image/x-icon"
-    href="/favicon.ico"
->
-
-<link
-    rel="icon"
-    type="image/png"
-    sizes="32x32"
-    href="/favicon-32x32.png"
->
-
-<link
-    rel="icon"
-    type="image/png"
-    sizes="16x16"
-    href="/favicon-16x16.png"
->
-
-<title>Licença de Software — Mulher Amparada</title>
+<title>Mulher Amparada</title>
 
 <style>
 
 @font-face {
     font-family: "Quicksand";
     src: url("font.ttf") format("truetype");
-    font-weight: 100 900;
+    font-display: swap;
 }
 
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
     -webkit-tap-highlight-color: transparent;
 }
 
-html {
-    scroll-behavior: smooth;
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    background: #000;
 }
 
 body {
+    min-height: 100vh;
+    min-height: 100dvh;
+
     background: #000;
     color: #fff;
+
     font-family: "Quicksand", Arial, sans-serif;
-    min-height: 100vh;
+
     overflow-x: hidden;
-    margin-left: 2.5%;
-    margin-right: 2.5%;
-    width: 95%;
-}
 
-/* =========================================================
-   EMERGÊNCIA
-========================================================= */
+    padding:
+        28px 18px
+        calc(120px + env(safe-area-inset-bottom));
 
-.emergency-bar {
-    width: min(900px, calc(100% - 32px));
-
-    margin: 20px auto 0;
-
-    padding: 18px;
-
-    background: #070707;
-
-    border: 1px solid #292929;
-
-    border-radius: 18px;
-
-    box-shadow:
-        0 12px 35px rgba(0,0,0,.35);
-animation:
-        fadeUp .55s ease forwards;
+    animation: entrada .55s ease-out both;
 }
 
 
-/* =========================================================
-   CABEÇALHO
-========================================================= */
+/* ==============================
+   ENTRADA
+============================== */
 
-.emergency-header {
-    padding: 2px 3px 16px;
+@keyframes entrada {
 
-    
-}
+    from {
+        opacity: 0;
+    }
 
-.emergency-status {
-    display: flex;
+    to {
+        opacity: 1;
+    }
 
-    align-items: center;
-
-    gap: 8px;
-
-    color: #e8e8e8;
-
-    font-size: 11px;
-
-    font-weight: 800;
-
-    letter-spacing: 1.2px;
-}
-
-.emergency-status span {
-    width: 7px;
-    height: 7px;
-
-    display: block;
-
-    border-radius: 50%;
-
-    background: #ff3d3d;
-
-    box-shadow:
-        0 0 0 3px rgba(255,61,61,.08);
-}
-
-.emergency-description {
-    margin-top: 7px;
-
-    color: #6f6f6f;
-
-    font-size: 12px;
-
-    line-height: 1.5;
 }
 
 
-/* =========================================================
-   BOTÕES
-========================================================= */
+/* ==============================
+   CONTAINER
+============================== */
 
-.emergency-actions {
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap: 9px;
-
-    padding-top: 15px;
+.container {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
 }
 
-.emergency-button {
-    min-height: 82px;
 
-    padding: 14px 12px;
+/* ==============================
+   TOPO
+============================== */
+
+.topo {
+    text-align: center;
+    padding-top: 20px;
+    margin-bottom: 38px;
+}
+
+
+
+.topo h1 {
+
+    margin-top: 20px;
+
+    font-size:
+        clamp(36px, 10vw, 58px);
+
+    line-height: 1;
+
+    letter-spacing: -2px;
+
+    font-weight: 700;
+}
+
+.descricao {
+
+    max-width: 570px;
+
+    margin:
+        17px auto 0;
+
+    color: #858585;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+
+/* ==============================
+   LISTA
+============================== */
+
+.lista {
 
     display: flex;
 
     flex-direction: column;
 
+    gap: 18px;
+}
+
+
+/* ==============================
+   CARD
+============================== */
+
+.card {
+
+    position: relative;
+
+    width: 100%;
+
+    padding: 25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #121212 0%,
+            #080808 100%
+        );
+
+    border: 1px solid #242424;
+
+    border-radius: 32px;
+
+    overflow: hidden;
+}
+
+.card::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 170px;
+    height: 170px;
+
+    right: -85px;
+    top: -85px;
+
+    border-radius: 50%;
+
+    background: #ff3f9f;
+
+    opacity: .07;
+
+    filter: blur(40px);
+
+    pointer-events: none;
+}
+
+
+/* ==============================
+   NÚMERO
+============================== */
+
+.numero {
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
     justify-content: center;
 
-    align-items: flex-start;
+    margin-bottom: 18px;
 
-    gap: 3px;
-
-    border-radius: 105px;
-
-    background: #0b0b0b;
+    background: #161616;
 
     border: 1px solid #292929;
 
-    color: #fff;
+    border-radius: 16px;
+
+    color: #ff3f9f;
+
+    font-size: 13px;
+
+    font-weight: 700;
+}
+
+
+/* ==============================
+   TEXTO
+============================== */
+
+.card h2 {
+
+    font-size: 22px;
+
+    line-height: 1.25;
+
+    font-weight: 700;
+
+    margin-bottom: 9px;
+}
+
+.card p {
+
+    color: #858585;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+
+    margin-bottom: 22px;
+}
+
+
+/* ==============================
+   BOTÕES
+============================== */
+
+.acoes {
+
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 9px;
+}
+
+.botao {
+
+    width: 100%;
+
+    min-height: 55px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 13px 20px;
+
+    border-radius: 30px;
 
     text-decoration: none;
 
+    font-family:
+        "Quicksand",
+        Arial,
+        sans-serif;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    line-height: 1.4;
+
+    text-align: center;
+
     transition:
         transform .18s ease,
-        background .18s ease,
-        border-color .18s ease;
+        opacity .18s ease;
 }
 
-.emergency-number {
-    font-size: 24px;
-
-    line-height: 1;
-
-    font-weight: 800;
-
-    letter-spacing: -.8px;
-}
-
-.emergency-name {
-    color: #777;
-
-    font-size: 9px;
-
-    font-weight: 800;
-
-    letter-spacing: .9px;
-
-    line-height: 1.3;
-}
-
-
-/* =========================================================
-   POLÍCIA
-========================================================= */
-
-.emergency-button.police {
-    border-color: #292929;
-}
-
-.emergency-button.police:hover {
-    background: #0e0e0e;
-
-    border-color: #505050;
-}
-
-
-/* =========================================================
-   SAMU
-========================================================= */
-
-.emergency-button.samu {
-    border-color: #292929;
-}
-
-.emergency-button.samu:hover {
-    background: #0e0e0e;
-
-    border-color: #505050;
-}
-
-
-/* =========================================================
-   MULHER
-========================================================= */
-
-.emergency-button.woman {
-    border-color: #38212e;
-}
-
-.emergency-button.woman .emergency-number {
-    color: #ff63b0;
-}
-
-.emergency-button.woman:hover {
-    background: #10090d;
-
-    border-color: #63364f;
-}
-
-
-/* =========================================================
-   INTERAÇÃO
-========================================================= */
-
-.emergency-button:hover {
-    transform: translateY(-2px);
-}
-
-.emergency-button:active {
+.botao:active {
     transform: scale(.97);
 }
 
 
-/* =========================================================
-   MOBILE
-========================================================= */
+/* ==============================
+   BOTÃO ZIP
+============================== */
 
-@media (max-width: 600px) {
+.baixar {
 
-    .emergency-bar {
-        width: calc(100% - 22px);
+    background: #ff3f9f;
 
-        margin-top: 14px;
+    border: 1px solid #ff3f9f;
 
-        padding: 15px;
-
-        border-radius: 19px;
-    }
-
-    .emergency-actions {
-        grid-template-columns: 1fr;
-
-        gap: 7px;
-
-        padding-top: 13px;
-    }
-
-    .emergency-button {
-        min-height: 62px;
-
-        padding: 11px 15px;
-
-        flex-direction: row;
-
-        align-items: center;
-
-        justify-content: space-between;
-    }
-
-    .emergency-number {
-        font-size: 22px;
-    }
-
-    .emergency-name {
-        font-size: 9px;
-
-        text-align: right;
-    }
-
+    color: #fff;
 }
 
-/* =========================================================
-   MOBILE
-========================================================= */
 
-@media (max-width: 600px) {
+/* ==============================
+   BOTÃO APP
+============================== */
 
-    .emergency-bar {
-        width: calc(100% - 22px);
+.app {
 
-        margin-top: 15px;
+    background: #151515;
 
-        padding: 8px;
+    border: 1px solid #303030;
 
-        gap: 8px;
+    color: #fff;
+}
 
-        border-radius: 19px;
+
+/* ==============================
+   BOTÃO GITHUB
+============================== */
+
+.codigo {
+
+    background: #0a0a0a;
+
+    border: 1px solid #303030;
+
+    color: #ff8bc4;
+}
+
+
+/* ==============================
+   RODAPÉ
+============================== */
+
+.rodape {
+
+    margin-top: 30px;
+
+    text-align: center;
+
+    color: #4d4d4d;
+
+    font-size: 11px;
+
+    line-height: 1.6;
+}
+
+
+/* ==============================
+   HOME
+============================== */
+
+.home {
+
+    position: fixed;
+
+    z-index: 100;
+
+    left: 50%;
+
+    bottom:
+        calc(
+            18px +
+            env(safe-area-inset-bottom)
+        );
+
+    transform:
+        translateX(-50%);
+
+    width:
+        50%;
+
+    max-width: 720px;
+
+    min-height: 58px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    padding: 12px 20px;
+
+    border-radius: 999px;
+
+    background: #0c0c0c;
+
+    border: 1px solid #292929;
+
+    box-shadow:
+        0 12px 35px
+        rgba(0,0,0,.8);
+
+    text-decoration: none;
+
+    color: #fff;
+
+    font-family:
+        "Quicksand",
+        Arial,
+        sans-serif;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    transition:
+        transform .18s ease;
+}
+
+.home:active {
+
+    transform:
+        translateX(-50%)
+        scale(.97);
+}
+
+.home img {
+
+    width: 24px;
+    height: 24px;
+
+    display: block;
+
+    flex-shrink: 0;
+}
+
+
+/* ==============================
+   DESKTOP
+============================== */
+
+@media (min-width: 600px) {
+
+    body {
+
+        padding-left: 30px;
+        padding-right: 30px;
     }
 
-    .emergency-button {
-        height: 48px;
+    .card {
 
-        border-radius: 13px;
+        padding: 29px;
+    }
+
+    .botao {
+
+        min-height: 57px;
 
         font-size: 14px;
     }
 
 }
-
-
-/* =========================================================
-   CONTAINER
-========================================================= */
-
-.container {
-    width: min(900px, calc(100% - 32px));
-    margin: auto;
-}
-
-
-/* =========================================================
-   HERO
-========================================================= */
-
-.hero {
-    min-height: auto;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-
-    padding: 55px 0 35px;
-
-    position: relative;
-}
-
-.hero-label {
-    display: inline-flex;
-    align-items: center;
-
-    width: fit-content;
-
-    padding: 8px 13px;
-
-    border: 1px solid rgba(255,255,255,.09);
-    border-radius: 999px;
-
-    background: rgba(255,255,255,.035);
-
-    color: #aaa;
-
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
-
-    margin-bottom: 24px;
-}
-
-.hero-label span {
-    color: #ff67b4;
-}
-
-.hero h1 {
-    max-width: 800px;
-
-    font-size:
-        clamp(42px, 8vw, 82px);
-
-    line-height: .98;
-
-    letter-spacing: -3px;
-
-    font-weight: 800;
-
-    margin-bottom: 25px;
-}
-
-.hero h1 strong {
-    color: #ff64b1;
-}
-
-.hero-description {
-    max-width: 650px;
-
-    color: #999;
-
-    font-size:
-        clamp(15px, 2vw, 18px);
-
-    line-height: 1.7;
-
-    margin-bottom: 35px;
-}
-
-.hero-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.meta {
-    padding: 10px 14px;
-
-    border-radius: 102px;
-
-    background: rgba(255,255,255,.035);
-    border: 1px solid rgba(255,255,255,.07);
-
-    color: #aaa;
-
-    font-size: 12px;
-}
-
-.meta b {
-    color: #fff;
-}
-
-
-/* =========================================================
-   SEÇÕES
-========================================================= */
-
-.license {
-    padding: 30px 0 100px;
-}
-
-.section {
-    margin-bottom: 18px;
-
-    padding: 28px;
-
-    border-radius: 24px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.055),
-            rgba(255,255,255,.018)
-        );
-
-    border: 1px solid rgba(255,255,255,.075);
-
-    
-    transition:
-        transform .3s ease,
-        border-color .3s ease;
-}
-
-.section:hover {
-    transform: translateY(-2px);
-
-    border-color:
-        rgba(255,90,170,.18);
-}
-
-.section-number {
-    color: #ff5cab;
-
-    font-size: 11px;
-    font-weight: 800;
-
-    letter-spacing: 1.5px;
-
-    margin-bottom: 8px;
-}
-
-.section h2 {
-    font-size: 23px;
-    line-height: 1.25;
-
-    margin-bottom: 16px;
-
-    letter-spacing: -.5px;
-}
-
-.section p {
-    color: #a9a9a9;
-
-    font-size: 14px;
-    line-height: 1.8;
-
-    margin-bottom: 14px;
-}
-
-.section p:last-child {
-    margin-bottom: 0;
-}
-
-
-/* =========================================================
-   LISTAS
-========================================================= */
-
-.rules {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-
-    margin-top: 18px;
-}
-
-.rule {
-    display: flex;
-    gap: 14px;
-
-    padding: 15px;
-
-    border-radius: 15px;
-
-    background: rgba(0,0,0,.25);
-
-    border: 1px solid rgba(255,255,255,.055);
-}
-
-.rule-number {
-    flex-shrink: 0;
-
-    width: 27px;
-    height: 27px;
-
-    display: grid;
-    place-items: center;
-
-    border-radius: 9px;
-
-    background: rgba(255,76,168,.10);
-
-    color: #ff67b4;
-
-    font-size: 11px;
-    font-weight: 800;
-}
-
-.rule-text {
-    color: #aaa;
-
-    font-size: 13px;
-    line-height: 1.7;
-}
-
-.rule-text strong {
-    color: #eee;
-}
-
-
-/* =========================================================
-   DESTAQUE
-========================================================= */
-
-.highlight {
-    margin-top: 20px;
-
-    padding: 18px;
-
-    
-
-    border-radius: 15px;
-
-    background:
-        linear-gradient(
-            90deg,
-            rgba(255,70,160,.08),
-            transparent
-        );
-        
-        border: 1px solid #ff46a090;
-
-    color: #b8b8b8;
-
-    font-size: 13px;
-    line-height: 1.7;
-}
-
-.highlight strong {
-    color: #fff;
-}
-
-
-/* =========================================================
-   CITAÇÃO
-========================================================= */
-
-.quote {
-    margin-top: 18px;
-
-    padding: 20px;
-
-    border-radius: 17px;
-
-    background: rgba(255,255,255,.025);
-
-    border: 1px solid rgba(255,255,255,.06);
-
-    color: #ddd;
-
-    font-size: 14px;
-    line-height: 1.8;
-
-    font-style: italic;
-}
-
-
-/* =========================================================
-   ASSINATURA
-========================================================= */
-
-.signature {
-    margin-top: 30px;
-
-    padding: 25px;
-
-    border-radius: 22px;
-
-    text-align: center;
-
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(255,60,160,.10),
-            transparent 65%
-        );
-
-    border: 1px solid rgba(255,255,255,.07);
-}
-
-.signature-title {
-    color: #888;
-
-    font-size: 11px;
-    text-transform: uppercase;
-
-    letter-spacing: 1.5px;
-
-    margin-bottom: 10px;
-}
-
-.signature-name {
-    font-size: 21px;
-    font-weight: 800;
-}
-
-.signature-project {
-    color: #ff62b1;
-
-    font-size: 13px;
-    font-weight: 700;
-
-    margin-top: 5px;
-}
-
-
-/* =========================================================
-   BOTÃO
-========================================================= */
-
-.button {
-    position: fixed;
-
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    min-height: 52px;
-
-    padding: 0 25px;
-    
-    bottom: 5%;
-
-    border-radius: 150px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #ff55aa,
-            #d92987
-        );
-        
-        border: 1px solid #d92987;
-    color: #fff;
-
-    text-decoration: none;
-
-    font-size: 14px;
-    font-weight: 800;
-
-    box-shadow:
-        0 12px 35px rgba(255,50,150,.25);
-
-    transition:
-        transform .2s ease,
-        box-shadow .2s ease;
-        
-        width: 60%;
-        
-       left: 20%;
-}
-
-.button:hover {
-    transform: translateY(-2px);
-
-    box-shadow:
-        0 17px 45px rgba(255,50,150,.35);
-}
-
-.button:active {
-    transform: scale(.97);
-}
-
-/* =========================================================
-   ANIMAÇÃO
-========================================================= */
-
-.fade-up {
-    opacity: 0;
-    transform: translateY(22px);
-
-    animation:
-        fadeUp .55s ease forwards;
-}
-
-@keyframes fadeUp {
-
-    from {
-        opacity: 0;
-        
-    }
-
-    to {
-        opacity: 1;
-        
-    }
-
-}
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media (max-width: 600px) {
-
-    .container {
-        width: min(100% - 22px, 900px);
-    }
-
-    
-
-    .hero {
-        min-height: auto;
-
-        padding:
-            35px 0
-            25px;
-    }
-
-    .hero h1 {
-        letter-spacing: -2px;
-    }
-
-
-    .section {
-        padding: 22px 18px;
-        border-radius: 20px;
-    }
-
-    .section h2 {
-        font-size: 20px;
-    }
-
-    .rule {
-        padding: 13px;
-    }
-
-    .final-card {
-        padding: 35px 20px;
-    }
-
-}
-
-
 
 </style>
 
@@ -836,498 +476,253 @@ animation:
 <body>
 
 
-<main>
-
-
-<!-- =====================================================
-     HERO
-===================================================== -->
-
-<section class="hero">
-
 <div class="container">
 
-    <div class="hero-label fade-up">
 
-        <span>©</span>
-
-        DIREITOS AUTORAIS · 2026
-
-    </div>
+<header class="topo">
 
 
-    <h1 class="fade-up">
 
-        Contrato de
-        <strong>Licença</strong>
-        de Software
-
+    <h1>
+        Aplicativos
     </h1>
 
-
-    <p class="hero-description fade-up">
-
-        Termos que estabelecem as condições de uso,
-        modificação, distribuição e atribuição do projeto
-        Mulher Amparada.
-
+    <p class="descricao">
+        Baixe os aplicativos, acesse o
+        código-fonte empacotado ou
+        consulte os respectivos repositórios.
     </p>
 
-
-    <div class="hero-meta fade-up">
-
-        <div class="meta">
-            Autor:
-            <b>Samuel De Oliveira Rigueiro</b>
-        </div>
-
-        <div class="meta">
-            Projeto:
-            <b>Mulher Amparada</b>
-        </div>
-
-        <div class="meta">
-            Ano:
-            <b>2026</b>
-        </div>
-
-    </div>
-
-</div>
-
-</section>
+</header>
 
 
-<div class="emergency-bar">
 
-    <div class="emergency-header">
-
-        <div class="emergency-status">
-            <span></span>
-            SERVIÇOS DE EMERGÊNCIA
-        </div>
-
-        <div class="emergency-description">
-            Acesso rápido aos principais canais de atendimento
-        </div>
-
-    </div>
+<main class="lista">
 
 
-    <div class="emergency-actions">
+<!-- =====================================
+     MULHER AMPARADA
+====================================== -->
 
-        <a href="tel:190" 
-        style="border-radius: 200px;"
-        class="emergency-button police">
-            <span class="emergency-number">190</span>
-            <span class="emergency-name">POLÍCIA</span>
-        </a>
+<article class="card">
 
-        <a href="tel:192" 
-        style="border-radius: 200px;"
-        class="emergency-button samu">
-            <span class="emergency-number">192</span>
-            <span class="emergency-name">SAMU</span>
-        </a>
-
-        <a href="tel:180" 
-        style="border-radius: 200px;"
-        class="emergency-button woman">
-            <span class="emergency-number">180</span>
-            <span class="emergency-name">CENTRAL DA MULHER</span>
-        </a>
-
-    </div>
-
-</div>
-
-<!-- =====================================================
-     LICENÇA
-===================================================== -->
-
-<section class="license">
-
-<div class="container">
-
-
-<article class="section fade-up">
-
-    <div class="section-number">
-        01 — CONCESSÃO
+    <div class="numero">
+        01
     </div>
 
     <h2>
-        Concessão de Uso
-    </h2>
-
-    <p>
-        O autor concede uma licença de uso gratuita e não
-        exclusiva deste projeto, permitindo que terceiros
-        utilizem, estudem, auditem, modifiquem, adaptem,
-        executem e distribuam o projeto e suas versões
-        modificadas, desde que sejam integralmente
-        respeitadas as condições estabelecidas neste contrato.
-    </p>
-
-    <p>
-        Esta licença não transfere a propriedade intelectual
-        do projeto nem concede ao usuário qualquer direito de
-        reivindicar autoria sobre o projeto original.
-    </p>
-
-</article>
-
-
-<article class="section fade-up">
-
-    <div class="section-number">
-        02 — CONDIÇÕES
-    </div>
-
-    <h2>
-        Condições Obrigatórias
-    </h2>
-
-    <p>
-        A autorização de uso, distribuição e modificação está
-        estritamente condicionada ao cumprimento das seguintes
-        regras:
-    </p>
-
-    <div class="rules">
-
-        <div class="rule">
-            <div class="rule-number">01</div>
-            <div class="rule-text">
-                É expressamente proibida a <strong>venda ou
-                cobrança direta do projeto às usuárias
-                finais.</strong>
-            </div>
-        </div>
-
-        <div class="rule">
-            <div class="rule-number">02</div>
-            <div class="rule-text">
-                O projeto deve permanecer completamente
-                <strong>livre de anúncios</strong>, não podendo
-                ser inseridos banners, pop-ups, sistemas de
-                publicidade ou scripts de rastreamento
-                comercial dentro do aplicativo.
-            </div>
-        </div>
-
-        <div class="rule">
-            <div class="rule-number">03</div>
-            <div class="rule-text">
-                É permitido obter ganhos financeiros por outros
-                meios indiretos, como serviços de suporte,
-                customização técnica para entidades ou
-                doações, desde que isso não resulte na venda ou
-                cobrança direta das usuárias finais.
-            </div>
-        </div>
-
-        <div class="rule">
-            <div class="rule-number">04</div>
-            <div class="rule-text">
-                Qualquer versão distribuída, modificada ou
-                adaptada deverá manter os devidos
-                <strong>créditos ao autor original e ao projeto
-                Mulher Amparada.</strong>
-            </div>
-        </div>
-
-        <div class="rule">
-            <div class="rule-number">05</div>
-            <div class="rule-text">
-                Não é permitido remover, ocultar ou alterar os
-                avisos de copyright, assinaturas de código e
-                atribuição existentes no projeto com a
-                finalidade de retirar ou ocultar sua autoria
-                original.
-            </div>
-        </div>
-
-        <div class="rule">
-            <div class="rule-number">06</div>
-            <div class="rule-text">
-                Modificações e versões derivadas podem ser
-                realizadas, desde que não sejam apresentadas,
-                divulgadas ou comercializadas como sendo a
-                versão oficial original desenvolvida pelo autor.
-            </div>
-        </div>
-
-    </div>
-
-</article>
-
-
-<article class="section fade-up">
-
-    <div class="section-number">
-        03 — ATRIBUIÇÃO
-    </div>
-
-    <h2>
-        Créditos e Atribuição
-    </h2>
-
-    <p>
-        Toda distribuição, publicação ou disponibilização
-        pública do projeto ou de versões derivadas deverá
-        preservar uma atribuição equivalente a:
-    </p>
-
-    <div class="quote">
-        “Projeto originalmente desenvolvido por Samuel De
-        Oliveira Rigueiro / Mulher Amparada.”
-    </div>
-
-    <p style="margin-top:18px;">
-        Os créditos devem permanecer visíveis, em menus
-        “Sobre”, rodapés ou documentação, e não podem ser
-        apresentados de maneira que sugira que o autor original
-        endossa, patrocina ou é responsável por uma versão
-        modificada sem sua autorização expressa.
-    </p>
-
-</article>
-
-
-<article class="section fade-up">
-
-    <div class="section-number">
-        04 — RESPONSABILIDADE
-    </div>
-
-    <h2>
-        Responsabilidade pelo Uso
-    </h2>
-
-    <p>
-        O projeto é disponibilizado <strong>“no estado em que
-        se encontra” (AS IS)</strong>, sem garantias de que sua
-        utilização será ininterrupta, livre de erros ou
-        adequada a todas as finalidades ou situações de
-        emergência.
-    </p>
-
-    <p>
-        O autor original não se responsabiliza por danos,
-        prejuízos, perdas de dados, falhas de comunicação com
-        serviços públicos de emergência (180, 190, 192),
-        incidentes de segurança, crimes, infrações, violações
-        de direitos ou quaisquer consequências decorrentes do
-        uso, modificação, distribuição ou utilização indevida
-        do projeto por terceiros, na medida permitida pela
-        legislação aplicável.
-    </p>
-
-    <p>
-        A responsabilidade civil e penal pelo uso do projeto,
-        incluindo suas modificações, instalações e aplicações
-        específicas, pertence exclusivamente à pessoa,
-        organização ou entidade que realizou esse uso ou
-        distribuição.
-    </p>
-
-    <div class="highlight">
-
-        <strong>Importante:</strong>
-        nenhuma disposição desta licença autoriza a utilização
-        do projeto para fins ilegais ou para violar direitos de
-        terceiros.
-
-    </div>
-
-</article>
-
-
-<article class="section fade-up">
-
-    <div class="section-number">
-        05 — EFEITO VITALÍCIO
-    </div>
-
-    <h2>
-        Versões Modificadas
-    </h2>
-
-    <p>
-        Quem modificar o projeto poderá distribuir sua própria
-        versão, desde que a nova versão seja obrigatoriamente
-        distribuída sob os termos desta mesma licença.
-    </p>
-
-    <div class="rules">
-
-        <div class="rule">
-            <div class="rule-number">✓</div>
-            <div class="rule-text">
-                Mantenha os créditos do projeto original.
-            </div>
-        </div>
-
-        <div class="rule">
-            <div class="rule-number">✓</div>
-            <div class="rule-text">
-                Respeite todas as condições e restrições desta
-                licença.
-            </div>
-        </div>
-
-        <div class="rule">
-            <div class="rule-number">✓</div>
-            <div class="rule-text">
-                Não apresente a versão modificada como sendo a
-                versão oficial original.
-            </div>
-        </div>
-
-        <div class="rule">
-            <div class="rule-number">✓</div>
-            <div class="rule-text">
-                Não remova ou altere os avisos de copyright.
-            </div>
-        </div>
-
-        <div class="rule">
-            <div class="rule-number">✓</div>
-            <div class="rule-text">
-                Mantenha a versão completamente livre de
-                anúncios.
-            </div>
-        </div>
-
-        <div class="rule">
-            <div class="rule-number">✓</div>
-            <div class="rule-text">
-                Não venda ou cobre diretamente das usuárias
-                finais.
-            </div>
-        </div>
-
-    </div>
-
-</article>
-
-
-<article class="section fade-up">
-
-    <div class="section-number">
-        06 — DIREITOS
-    </div>
-
-    <h2>
-        Reserva de Direitos e Rescisão
-    </h2>
-
-    <p>
-        Salvo os direitos expressamente concedidos por esta
-        licença, todos os demais direitos permanecem
-        estritamente reservados ao autor.
-    </p>
-
-    <p>
-        Esta licença não deve ser interpretada como uma
-        transferência de propriedade, cessão definitiva de
-        direitos autorais ou renúncia aos direitos morais do
-        autor sobre o projeto.
-    </p>
-
-</article>
-
-
-<article class="section fade-up">
-
-    <div class="section-number">
-        07 — ACEITAÇÃO
-    </div>
-
-    <h2>
-        Aceitação da Licença
-    </h2>
-
-    <p>
-        Ao utilizar, copiar, modificar ou distribuir este
-        projeto, o usuário declara que leu, compreendeu e
-        concorda em cumprir integralmente os termos desta
-        licença.
-    </p>
-
-    <p>
-        O descumprimento de qualquer uma das condições
-        estabelecidas neste contrato resultará na revogação
-        automática e imediata da autorização concedida para
-        utilização e distribuição do projeto, sujeitando o
-        infrator às sanções civis e penais cabíveis conforme a
-        legislação de direitos autorais vigente.
-    </p>
-
-</article>
-
-
-<div class="signature fade-up">
-
-    <div class="signature-title">
-        Copyright © 2026
-    </div>
-
-    <div class="signature-name">
-        Samuel De Oliveira Rigueiro
-    </div>
-
-    <div class="signature-project">
         Mulher Amparada
-    </div>
+    </h2>
 
-</div>
+    <p>
+        Aplicativo principal do Mulher
+        Amparada, com seu código-fonte
+        disponível em arquivo ZIP e pela nossa página do github.
+    </p>
 
-</div>
-
-</section>
+    <div class="acoes">
 
 
-<!-- =====================================================
-     FINAL
-===================================================== -->
+        <!-- ZIP -->
 
         <a
-            href="index1.html"
-            class="button"
+            class="botao app"
+            href="./3.zip"
+            download="3.zip"
         >
-            Ir para o projeto
+            Baixar o código-fonte empacotado
         </a>
 
-</section>
+
+        <!-- APP -->
+
+        <a
+            class="botao baixar"
+            href="./termos.html"
+        >
+            Baixar o Mulher Amparada
+        </a>
+
+
+        <!-- GITHUB -->
+
+        <a
+            class="botao codigo"
+            href="https://github.com/mulher-amparada/mulher-amparada-code"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Ver o código-fonte no GitHub
+        </a>
+
+
+    </div>
+
+</article>
+
+
+
+<!-- =====================================
+     GERENCIADOR DE ARQUIVOS
+====================================== -->
+
+<article class="card">
+
+    <div class="numero">
+        02
+    </div>
+
+    <h2>
+        Gerenciador De Arquivos
+    </h2>
+
+    <p>
+        Gerenciador de arquivos do Mulher
+        Amparada, com seu código-fonte
+        disponível em arquivo ZIP e pela nossa página do github.
+        
+    </p>
+
+    <div class="acoes">
+
+
+        <!-- ZIP -->
+
+        <a
+            class="botao app"
+            href="./1.zip"
+            download="1.zip"
+        >
+            Baixar o código-fonte empacotado
+        </a>
+
+
+        <!-- APP -->
+
+        <a
+            class="botao baixar"
+            href="./termos3.html"
+        >
+            Baixar o Gerenciador De Arquivos Do Mulher Amparada 
+        </a>
+
+
+        <!-- GITHUB -->
+
+        <a
+            class="botao codigo"
+            href="https://github.com/mulher-amparada/gerenciador-de-arquivos-do-mulher-amparada-code"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Ver o código-fonte no GitHub
+        </a>
+
+
+    </div>
+
+</article>
+
+
+
+<!-- =====================================
+     ASSISTENTE DE VOZ
+====================================== -->
+
+<article class="card">
+
+    <div class="numero">
+        03
+    </div>
+
+    <h2>
+        Assistente De Voz 
+    </h2>
+
+    <p>
+        Assistente de voz do Mulher
+        Amparada, com seu código-fonte
+        disponível em arquivo ZIP e pela nossa página do github.
+    </p>
+
+    <div class="acoes">
+
+
+        <!-- ZIP -->
+
+        <a
+            class="botao app"
+            href="./2.zip"
+            download="2.zip"
+        >
+            Baixar o código-fonte empacotado
+        </a>
+
+
+        <!-- APP -->
+
+        <a
+            class="botao baixar"
+            href="./termos4.html"
+        >
+            Baixar o Assistente De Voz Do Mulher Amparada 
+        </a>
+
+
+        <!-- GITHUB -->
+
+        <a
+            class="botao codigo"
+            href="https://github.com/mulher-amparada/assistente-de-voz-do-mulher-amparada-code"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Ver o código-fonte no GitHub
+        </a>
+
+
+    </div>
+
+</article>
 
 
 </main>
 
 
 
-<script>
-if ("serviceWorker" in navigator) {
-    window.addEventListener("load", () => {
-        navigator.serviceWorker.register(
-            "/mulher-amparada-app/sw.js"
-        )
-        .then((registration) => {
-            console.log(
-                "Service Worker registrado:",
-                registration.scope
-            );
-        })
-        .catch((error) => {
-            console.error(
-                "Erro ao registrar o Service Worker:",
-                error
-            );
-        });
-    });
-}
-</script>
+<footer class="rodape">
+
+    Mulher Amparada<br>
+
+    Segurança, proteção e tecnologia.
+
+</footer>
+
+
+</div>
+
+
+
+<!-- =====================================
+     ÚNICO SVG DA PÁGINA
+====================================== -->
+
+<a
+    class="home"
+    href="./home.html"
+    aria-label="Voltar para a página inicial"
+>
+
+    <img
+        src="./home.svg"
+        alt=""
+    >
+
+    <span>
+        Ir para o hub
+    </span>
+
+</a>
 
 
 </body>
