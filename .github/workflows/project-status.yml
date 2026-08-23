@@ -1,0 +1,402 @@
+name: 📊 Status do Projeto
+
+on:
+  push:
+    branches:
+      - main
+      - master
+
+  release:
+    types:
+      - published
+
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  project-status:
+
+    name: 📊 Verificar status do projeto
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      # =========================================================
+      # 📥 DOWNLOAD DO REPOSITÓRIO
+      # =========================================================
+
+      - name: 📥 Baixar repositório
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+
+      # =========================================================
+      # 📊 CONTAGEM DE COMMITS
+      # =========================================================
+
+      - name: 📊 Contar commits
+        id: commits
+        shell: bash
+        run: |
+
+          TOTAL_COMMITS=$(git rev-list --all --count)
+
+          META=1000
+
+          if [ "$TOTAL_COMMITS" -ge "$META" ]; then
+              PERCENTUAL=100
+          else
+              PERCENTUAL=$((TOTAL_COMMITS * 100 / META))
+          fi
+
+          echo "total=$TOTAL_COMMITS" >> "$GITHUB_OUTPUT"
+          echo "meta=$META" >> "$GITHUB_OUTPUT"
+          echo "percentual=$PERCENTUAL" >> "$GITHUB_OUTPUT"
+
+          echo "Total de commits: $TOTAL_COMMITS"
+          echo "Meta: $META"
+          echo "Progresso: $PERCENTUAL%"
+
+
+      # =========================================================
+      # 📈 BARRA DE PROGRESSO
+      # =========================================================
+
+      - name: 📈 Gerar barra de progresso
+        id: progress
+        shell: bash
+        run: |
+
+          TOTAL=${{ steps.commits.outputs.total }}
+          META=${{ steps.commits.outputs.meta }}
+
+          BLOCOS=20
+
+          if [ "$TOTAL" -ge "$META" ]; then
+              PREENCHIDOS=$BLOCOS
+          else
+              PREENCHIDOS=$((TOTAL * BLOCOS / META))
+          fi
+
+          VAZIOS=$((BLOCOS - PREENCHIDOS))
+
+          BARRA=""
+
+          for ((i=0; i<PREENCHIDOS; i++)); do
+              BARRA="${BARRA}█"
+          done
+
+          for ((i=0; i<VAZIOS; i++)); do
+              BARRA="${BARRA}░"
+          done
+
+          echo "barra=$BARRA" >> "$GITHUB_OUTPUT"
+
+
+      # =========================================================
+      # 📱 VERIFICAR ALTERAÇÕES ANDROID
+      # =========================================================
+
+      - name: 📱 Detectar alterações Android
+        id: android
+        shell: bash
+        run: |
+
+          if [ "${{ github.event_name }}" = "push" ]; then
+
+            BASE="${{ github.event.before }}"
+            HEAD="${{ github.sha }}"
+
+            if [ "$BASE" = "0000000000000000000000000000000000000000" ]; then
+                BASE=$(git rev-list --max-parents=0 HEAD)
+            fi
+
+            ARQUIVOS=$(git diff --name-only "$BASE" "$HEAD")
+
+          else
+
+            ARQUIVOS=$(git show --pretty="" --name-only HEAD)
+
+          fi
+
+          ALTERACOES="false"
+
+          while IFS= read -r ARQUIVO; do
+
+            case "$ARQUIVO" in
+
+              *.kt)
+                ALTERACOES="true"
+                ;;
+
+              *.java)
+                ALTERACOES="true"
+                ;;
+
+              *.gradle)
+                ALTERACOES="true"
+                ;;
+
+              *.gradle.kts)
+                ALTERACOES="true"
+                ;;
+
+              */AndroidManifest.xml)
+                ALTERACOES="true"
+                ;;
+
+              AndroidManifest.xml)
+                ALTERACOES="true"
+                ;;
+
+              gradle.properties)
+                ALTERACOES="true"
+                ;;
+
+              settings.gradle)
+                ALTERACOES="true"
+                ;;
+
+              settings.gradle.kts)
+                ALTERACOES="true"
+                ;;
+
+              *)
+                ;;
+
+            esac
+
+          done <<< "$ARQUIVOS"
+
+          echo "alteracoes=$ALTERACOES" >> "$GITHUB_OUTPUT"
+
+          if [ "$ALTERACOES" = "true" ]; then
+              echo "Alterações Android detectadas."
+          else
+              echo "Nenhuma alteração Android detectada."
+          fi
+
+
+      # =========================================================
+      # 🚀 ÚLTIMA RELEASE
+      # =========================================================
+
+      - name: 🚀 Obter última Release
+        id: release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+
+          RELEASE=$(gh release list \
+            --repo "${{ github.repository }}" \
+            --limit 1 \
+            --json tagName,name,publishedAt \
+            --jq '.[0]')
+
+          if [ -z "$RELEASE" ] || [ "$RELEASE" = "null" ]; then
+
+              echo "tag=Nenhuma" >> "$GITHUB_OUTPUT"
+              echo "nome=Nenhuma Release publicada" >> "$GITHUB_OUTPUT"
+              echo "data=Nenhuma" >> "$GITHUB_OUTPUT"
+
+          else
+
+              TAG=$(echo "$RELEASE" | jq -r '.tagName')
+              NOME=$(echo "$RELEASE" | jq -r '.name')
+              DATA=$(echo "$RELEASE" | jq -r '.publishedAt')
+
+              echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+              echo "nome=$NOME" >> "$GITHUB_OUTPUT"
+              echo "data=$DATA" >> "$GITHUB_OUTPUT"
+
+          fi
+
+
+      # =========================================================
+      # 📱 DETECTAR VERSÃO ANDROID
+      # =========================================================
+
+      - name: 📱 Detectar versão Android
+        id: android_version
+        shell: bash
+        run: |
+
+          VERSION="Não identificada"
+
+          if [ -f "app/build.gradle" ]; then
+
+              VERSION=$(grep -m 1 "versionName" app/build.gradle \
+                | sed 's/.*versionName[[:space:]]*=[[:space:]]*["'\'']\([^"'\'']*\)["'\''].*/\1/')
+
+          fi
+
+          if [ "$VERSION" = "Não identificada" ] || [ -z "$VERSION" ]; then
+
+              if [ -f "app/build.gradle.kts" ]; then
+
+                  VERSION=$(grep -m 1 "versionName" app/build.gradle.kts \
+                    | sed 's/.*versionName[[:space:]]*=[[:space:]]*["'\'']\([^"'\'']*\)["'\''].*/\1/')
+
+              fi
+
+          fi
+
+          if [ -z "$VERSION" ]; then
+              VERSION="Não identificada"
+          fi
+
+          echo "versao=$VERSION" >> "$GITHUB_OUTPUT"
+
+          echo "Versão Android: $VERSION"
+
+
+      # =========================================================
+      # 👥 VISITANTES DO REPOSITÓRIO
+      # =========================================================
+
+      - name: 👥 Obter visitantes
+        id: visitors
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+
+          TRAFFIC=$(gh api \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "/repos/${{ github.repository }}/traffic/views")
+
+          VIEWS=$(echo "$TRAFFIC" | jq -r '.count')
+          UNIQUES=$(echo "$TRAFFIC" | jq -r '.uniques')
+
+          echo "views=$VIEWS" >> "$GITHUB_OUTPUT"
+          echo "uniques=$UNIQUES" >> "$GITHUB_OUTPUT"
+
+          echo "Visualizações: $VIEWS"
+          echo "Visitantes únicos: $UNIQUES"
+
+
+      # =========================================================
+      # 📝 GERAR RESUMO
+      # =========================================================
+
+      - name: 📝 Gerar resumo
+        shell: bash
+        run: |
+
+          echo "# 📊 Status do Mulher Amparada" >> "$GITHUB_STEP_SUMMARY"
+
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+
+          # =====================================================
+          # 📦 COMMITS
+          # =====================================================
+
+          echo "## 📦 Commits" >> "$GITHUB_STEP_SUMMARY"
+
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+
+          echo "**${{ steps.commits.outputs.total }} / 1000 commits**" >> "$GITHUB_STEP_SUMMARY"
+
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+
+          echo "\`${{ steps.progress.outputs.barra }}\` **${{ steps.commits.outputs.percentual }}%**" >> "$GITHUB_STEP_SUMMARY"
+
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+
+          # =====================================================
+          # 👥 VISITANTES
+          # =====================================================
+
+          echo "---" >> "$GITHUB_STEP_SUMMARY"
+
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+
+          echo "## 👥 Visitas ao repositório" >> "$GITHUB_STEP_SUMMARY"
+
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+
+          echo "**Visitantes únicos:** ${{ steps.visitors.outputs.uniques }}" >> "$GITHUB_STEP_SUMMARY"
+
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+
+          echo "**Visualizações:** ${{ steps.visitors.outputs.views }}" >> "$GITHUB_STEP_SUMMARY"
+
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+
+          echo "📅 Dados referentes aos últimos 14 dias." >> "$GITHUB_STEP_SUMMARY"
+
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+
+          # =====================================================
+          # 📱 ANDROID
+          # =====================================================
+
+          echo "---" >> "$GITHUB_STEP_SUMMARY"
+
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+
+          echo "## 📱 Android" >> "$GITHUB_STEP_SUMMARY"
+
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+
+          echo "**Versão detectada:** \`${{ steps.android_version.outputs.versao }}\`" >> "$GITHUB_STEP_SUMMARY"
+
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+
+          if [ "${{ steps.android.outputs.alteracoes }}" = "true" ]; then
+              echo "🟢 **Alterações Android detectadas neste evento.**" >> "$GITHUB_STEP_SUMMARY"
+          else
+              echo "⚪ **Nenhuma alteração Android detectada neste evento.**" >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+
+          # =====================================================
+          # 🚀 RELEASE
+          # =====================================================
+
+          echo "---" >> "$GITHUB_STEP_SUMMARY"
+
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+
+          echo "## 🚀 Release" >> "$GITHUB_STEP_SUMMARY"
+
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+
+          echo "**Última Release:** \`${{ steps.release.outputs.tag }}\`" >> "$GITHUB_STEP_SUMMARY"
+
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+
+          echo "**Nome:** ${{ steps.release.outputs.nome }}" >> "$GITHUB_STEP_SUMMARY"
+
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+
+          echo "**Publicada em:** ${{ steps.release.outputs.data }}" >> "$GITHUB_STEP_SUMMARY"
+
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+
+          # =====================================================
+          # ℹ️ INFORMAÇÕES
+          # =====================================================
+
+          echo "---" >> "$GITHUB_STEP_SUMMARY"
+
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+
+          echo "## ℹ️ Informações" >> "$GITHUB_STEP_SUMMARY"
+
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+
+          echo "- **Repositório:** ${{ github.repository }}" >> "$GITHUB_STEP_SUMMARY"
+
+          echo "- **Branch:** ${{ github.ref_name }}" >> "$GITHUB_STEP_SUMMARY"
+
+          echo "- **Commit atual:** \`${{ github.sha }}\`" >> "$GITHUB_STEP_SUMMARY"
+
+          echo "- **Evento:** \`${{ github.event_name }}\`" >> "$GITHUB_STEP_SUMMARY"
