@@ -373,3 +373,9 @@ e o recurso de proteção ppr barulho, chacalhoar o celular e escurecer a tela, 
 todas as activitys tem a flag secure de todos os 3 apps
 
 e no application do AndroidManifest dos 3 apps tem allowBackup="false" 
+
+----
+
+Lembre-se que o desenvolvedor só tem 15 anos e as pessoas ao redor dele nao tem os recursos para postar o app na play store, e ele é de menor o que piora mais ainda!
+
+e ele também acredita que o vidro fosco também deveria ser aplicado nos popups (tipo o do instalador do pacote ou o biometricPrompt), idéia para a samsung aí hein!
