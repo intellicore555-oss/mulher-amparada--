@@ -321,6 +321,15 @@ Saiba que eu sempre procuro entender vocês e que este projeto foi criado com o 
 
 ---
 
+## 💌 Carta de Agradecimentos
+
+Se você deseja conhecer as pessoas, profissionais e artistas que fizeram parte desta trajetória, leia a **[Carta de Agradecimentos](AGRADECIMENTOS.md)**.
+
+Nela, deixo registrado todo o meu carinho e gratidão àqueles que, de alguma forma, contribuíram para que este projeto existisse.
+
+**Obrigado a todos que fizeram parte dessa história. ❤️**
+
+---
 # 💻 Repositórios do GitHub
 
 > 🚀 **Código-fonte dos nossos aplicativos**

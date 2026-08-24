@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meu Site</title>
+
+<style>
+@keyframes fade{
+        from {
+        opacity: 0;
+        
+    }
+
+    to {
+        opacity: 1;
+        
+    }
+}
+
+@keyframes glow{
+    0%,100%{
+        opacity:.45;
+        transform:scale(1);
+    }
+
+    50%{
+        opacity:.75;
+        transform:scale(1.08);
+    }
+}
+
+@font-face{
+    font-family:"Quicksand";
+    src:url("font.ttf") format("truetype");
+    font-weight:400 800;
+}
+
+/* ================================
+   VARIÁVEIS
+================================ */
+
+:root{
+    --bg:#050507;
+    --surface:#0d0d12;
+    --surface2:#111118;
+
+    --primary:#8b7cff;
+    --primary-light:#a99fff;
+
+    --text:#f8f8fb;
+    --text-soft:#b4b4c0;
+    --text-muted:#777784;
+
+    --border:rgba(255,255,255,.075);
+    --border-hover:rgba(139,124,255,.35);
+
+    --shadow:
+        0 18px 50px rgba(0,0,0,.35);
+
+    --radius:26px;
+}
+
+/* ================================
+   RESET
+================================ */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+    font-family:"Quicksand",sans-serif;
+
+    -webkit-tap-highlight-color:transparent;
+}
+
+html{
+    min-height:100%;
+
+    scroll-behavior:smooth;
+
+    background:var(--bg);
+}
+
+body{
+    min-height:100vh;
+
+    overflow-x:hidden;
+
+    color:var(--text);
+
+
+    background: black;
+
+    animation:fade .55s ease;
+}
+
+/* ================================
+   SCROLLBAR
+================================ */
+
+::-webkit-scrollbar{
+    width:5px;
+}
+
+::-webkit-scrollbar-track{
+    background:transparent;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#292932;
+    border-radius:999px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background:#454550;
+}
+
+::-webkit-scrollbar-corner{
+    background:transparent;
+}
+
+/* ================================
+   HEADER
+================================ */
+
+header{
+    position:relative;
+
+    width:100%;
+
+    padding:
+        72px
+        20px
+        45px;
+
+    text-align:center;
+
+    overflow:hidden;
+}
+
+/* brilho atrás do título */
+
+header::before{
+    content:"";
+
+    position:absolute;
+
+    width:280px;
+    height:280px;
+
+    top:-180px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    border-radius:50%;
+
+    background:
+        rgba(139,124,255,.16);
+
+    filter:blur(70px);
+
+    animation:glow 5s ease-in-out infinite;
+
+    pointer-events:none;
+}
+
+header h1{
+    position:relative;
+
+    font-size:
+        clamp(38px,10vw,58px);
+
+    line-height:1;
+
+    letter-spacing:-2px;
+
+    color:white;
+
+    margin-bottom:18px;
+}
+
+header p{
+    position:relative;
+
+    max-width:650px;
+
+    margin:auto;
+
+    color:var(--text-soft);
+
+    font-size:15px;
+
+    line-height:1.75;
+}
+
+/* ================================
+   CONTEÚDO
+================================ */
+
+main{
+    width:100%;
+    max-width:820px;
+
+    margin:auto;
+
+    padding:
+        10px
+        18px
+        70px;
+}
+
+/* ================================
+   TÍTULOS
+================================ */
+
+h2{
+    position:relative;
+
+    margin:
+        38px
+        0
+        14px;
+
+    padding-left:15px;
+
+    color:#f5f5fa;
+
+    font-size:
+        clamp(20px,5vw,27px);
+
+    line-height:1.25;
+
+    letter-spacing:-.4px;
+}
+
+/* barra lateral */
+
+h2::before{
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    top:4px;
+    bottom:4px;
+
+    width:4px;
+
+    border-radius:20px;
+
+    background:
+        linear-gradient(
+            180deg,
+            var(--primary-light),
+            var(--primary)
+        );
+
+    box-shadow:
+        0 0 14px rgba(139,124,255,.35);
+}
+
+/* ================================
+   CARDS
+================================ */
+
+.card{
+    position:relative;
+
+    width:100%;
+
+    padding:25px;
+
+    margin-bottom:26px;
+
+    border-radius:var(--radius);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.045),
+            rgba(255,255,255,.012)
+        ),
+        var(--surface);
+
+    border:
+        1px solid var(--border);
+
+    box-shadow:var(--shadow);
+
+    backdrop-filter:blur(16px);
+    -webkit-backdrop-filter:blur(16px);
+
+    overflow:hidden;
+
+    animation:
+        fade .55s ease both;
+
+    transition:
+        transform .2s ease,
+        border-color .2s ease,
+        box-shadow .2s ease;
+}
+
+/* detalhe decorativo */
+
+.card::before{
+    content:"";
+
+    position:absolute;
+
+    width:150px;
+    height:150px;
+
+    top:-90px;
+    right:-60px;
+
+    border-radius:50%;
+
+    background:
+        rgba(139,124,255,.055);
+
+    filter:blur(15px);
+
+    pointer-events:none;
+}
+
+.card:hover{
+    transform:translateY(-2px);
+
+    border-color:var(--border-hover);
+
+    box-shadow:
+        0 22px 55px rgba(0,0,0,.40),
+        0 0 25px rgba(139,124,255,.045);
+}
+
+/* ================================
+   TEXTOS
+================================ */
+
+.card p{
+    position:relative;
+
+    margin:
+        0
+        0
+        18px;
+
+    color:#d7d7df;
+
+    font-size:15px;
+
+    line-height:1.85;
+
+    text-align:left;
+}
+
+.card p:last-child{
+    margin-bottom:0;
+}
+
+/* destaque de texto */
+
+.card strong{
+    color:white;
+}
+
+/* ================================
+   IMAGENS
+================================ */
+
+.card img{
+    display:block;
+
+    width:auto;
+    max-width:100%;
+    height:auto;
+
+    max-height:600px;
+
+    margin:
+        18px
+        auto;
+
+    padding:5px;
+
+    object-fit:contain;
+
+    border-radius:18px;
+
+    background:#08080b;
+
+    border:
+        1px solid rgba(255,255,255,.09);
+
+    box-shadow:
+        0 12px 35px rgba(0,0,0,.35);
+
+    transition:
+        transform .25s ease,
+        border-color .25s ease,
+        box-shadow .25s ease;
+}
+
+.card img:hover{
+    transform:scale(1.015);
+
+    border-color:
+        rgba(139,124,255,.30);
+
+    box-shadow:
+        0 18px 40px rgba(0,0,0,.45);
+}
+
+/* ================================
+   CARD COM MUITAS IMAGENS
+================================ */
+
+.card:has(img + img){
+    display:flex;
+    flex-direction:column;
+}
+
+/* ================================
+   ROLAGEM HORIZONTAL
+   apenas se uma imagem realmente
+   precisar exceder a largura
+================================ */
+
+.card{
+    overflow-x:hidden;
+}
+
+/* ================================
+   FOOTER
+================================ */
+
+footer{
+    width:100%;
+
+    padding:
+        30px
+        20px
+        45px;
+
+    text-align:center;
+
+    color:#666672;
+
+    font-size:12px;
+
+    border-top:
+        1px solid rgba(255,255,255,.045);
+}
+
+/* ================================
+   SELEÇÃO
+================================ */
+
+::selection{
+    color:white;
+
+    background:
+        rgba(139,124,255,.35);
+}
+
+/* ================================
+   LINKS
+================================ */
+
+a{
+    color:var(--primary-light);
+
+    text-decoration:none;
+
+    transition:color .2s ease;
+}
+
+a:hover{
+    color:white;
+}
+
+/* ================================
+   MOBILE
+================================ */
+
+@media(max-width:600px){
+
+    header{
+        padding:
+            55px
+            17px
+            32px;
+    }
+
+    header h1{
+        font-size:40px;
+
+        letter-spacing:-1.5px;
+    }
+
+    header p{
+        font-size:14px;
+
+        line-height:1.7;
+    }
+
+    main{
+        padding:
+            5px
+            12px
+            55px;
+    }
+
+    h2{
+        margin-top:30px;
+
+        font-size:21px;
+    }
+
+    .card{
+        padding:20px;
+
+        border-radius:22px;
+    }
+
+    .card p{
+        font-size:14px;
+
+        line-height:1.8;
+    }
+
+    .card img{
+        max-height:none;
+
+        width:100%;
+
+        margin:
+            14px
+            auto;
+    }
+}
+
+/* ================================
+   TELAS MUITO PEQUENAS
+================================ */
+
+@media(max-width:360px){
+
+    header{
+        padding-top:42px;
+    }
+
+    header h1{
+        font-size:34px;
+    }
+
+    main{
+        padding-left:9px;
+        padding-right:9px;
+    }
+
+    .card{
+        padding:17px;
+
+        border-radius:19px;
+    }
+
+    h2{
+        font-size:19px;
+
+        padding-left:12px;
+    }
+
+    .card p{
+        font-size:13px;
+
+        line-height:1.75;
+    }
+}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Bem-vinda!</h1>
+    <p>Um espaço elegante para compartilhar ideias, histórias, artigos e qualquer tipo de texto.</p>
+</header>
+
+<main>
+
+
+<h2>Carta de agradecimentos:</h2>
+
+<div class="card">
+<p><strong>❤️ Agradecimentos Especiais</strong></p>
+
+<p>
+    Este projeto não nasceu sozinho. Ao longo de toda a trajetória, muitas pessoas,
+    artistas, professores e, principalmente, minha família fizeram parte dela de
+    alguma forma.
+</p>
+
+<p><strong>👨‍👩‍👦 À minha família</strong></p>
+
+<p>
+    A toda a minha família, meu mais sincero <strong>obrigado</strong>.
+</p>
+
+<p>
+    Cada apoio, cada palavra, cada momento e até mesmo cada pequena ajuda fizeram
+    parte da construção deste projeto. Vocês fazem parte dessa história.
+</p>
+
+<p><strong>🎵 Aos artistas que me acompanharam</strong></p>
+
+<p>
+    Aos vários artistas e músicos que escuto e que fizeram parte dos meus dias,
+    muito obrigado.
+</p>
+
+<p>
+    Um agradecimento <strong>muito especial à ShySiesta</strong>. Além de uma
+    excelente cantora, ela também é uma artista e desenhista incrível. A voz dela
+    é simplesmente excepcional, especialmente nas músicas de <em>Undertale</em>
+    em inglês.
+</p>
+
+<p>
+    Para mim, ela é uma daquelas cantoras cuja voz consegue combinar com
+    praticamente qualquer música. Algumas músicas extremamente longas e
+    repetitivas não são muito o meu estilo, mas muitas das músicas que escutei
+    durante essa trajetória conseguiram deixar meus dias mais leves e alegres.
+</p>
+
+<p>
+    A todos os artistas que, mesmo sem saber, estiveram presentes através de suas
+    músicas: <strong>obrigado por fazerem parte dessa história.</strong> 🎶
+</p>
+
+<p><strong>🏫 À Escola 3</strong></p>
+
+<p>
+    Um agradecimento especial às pessoas da <strong>Escola 3</strong> que apoiaram
+    este projeto.
+</p>
+
+<p>
+    Ao <strong>diretor</strong>, que me apoiou e ajudou a divulgar o projeto.
+</p>
+
+<p>
+    Também agradeço a uma pessoa cujo nome prefiro não mencionar, que divulgou o
+    projeto para sua própria filha, que é policial. Esse gesto significou muito
+    para mim.
+</p>
+
+<p>
+    Ao <strong>coordenador Eduardo</strong>, que sempre foi muito educado comigo
+    e que, em uma ocasião, foi gentil ao me explicar que o diretor chegaria
+    apenas às 11h30 porque estava em uma reunião.
+</p>
+
+<p>
+    Aos meus professores de <strong>Matemática, Português, Filosofia, Química</strong>
+    e de outras disciplinas, meu muito obrigado por todo conhecimento, atenção e
+    apoio.
+</p>
+
+<p><strong>🧪 À minha tia</strong></p>
+
+<p>
+    À minha tia, cujo nome também prefiro não mencionar, que me ajudou a
+    <strong>testar o aplicativo</strong> e contribuiu diretamente para que eu
+    pudesse verificar seu funcionamento na prática.
+</p>
+
+<p>
+    Muito obrigado pela confiança e pela ajuda. ❤️
+</p>
+
+<p><strong>🔒 Sobre os nomes</strong></p>
+
+<p>
+    Costumo não mencionar os nomes de algumas pessoas por uma questão de
+    <strong>segurança de todos</strong>, inclusive da minha própria segurança e
+    da segurança do projeto.
+</p>
+
+<p>
+    Algumas pessoas podem não aparecer nominalmente aqui, mas isso não significa
+    que sua importância seja menor.
+</p>
+
+<p><strong>✨ E, principalmente: DEUS</strong></p>
+
+<p>
+    <strong>DEUS, JEOVÁ.</strong>
+</p>
+
+<p>
+    A Ti, meu agradecimento mais profundo.
+</p>
+
+<p>
+    Tu me ajudaste durante toda a trajetória da minha vida e também durante toda
+    a trajetória deste projeto.
+</p>
+
+<p>
+    Nos momentos bons e nos momentos difíceis, minha fé esteve presente. E é por
+    isso que este agradecimento não poderia terminar sem reconhecer Aquele que
+    considero fundamental em toda essa caminhada.
+</p>
+
+<p><strong>❤️ O verdadeiro propósito</strong></p>
+
+<p>
+    E existe uma parte desta história que talvez nem todo mundo saiba.
+</p>
+
+<p>
+    Minha pretensão inicial com este projeto era, de certa forma,
+    <strong>contar a minha dor e expressar aquilo que sinto</strong>.
+</p>
+
+<p>
+    Mas eu não queria que essa dor terminasse apenas em mim.
+</p>
+
+<p>
+    Transformei parte dela em algo que pudesse representar cuidado, proteção e
+    carinho.
+</p>
+
+<p>
+    E foi assim que nasceram os <strong>três aplicativos</strong>, com o propósito
+    de cuidar, com muito amor, de todas elas.
+</p>
+
+<p>
+    Este projeto é tecnologia, mas também é sentimento.
+</p>
+
+<p>
+    É uma parte da minha história transformada em algo que espero que possa fazer
+    diferença na história de outras pessoas.
+</p>
+
+<hr>
+
+<p><strong>Com ❤️</strong></p>
+
+<p><strong>Samuca</strong></p>
+
+</div>
+
+
+
+</main>
+
+
+</body>
+</html>
