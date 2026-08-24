@@ -6,6 +6,47 @@
 <title>Meu Site</title>
 
 <style>
+/* =========================================================
+   BARRAS DE ROLAGEM — TOTALMENTE TRANSPARENTES
+========================================================= */
+
+/* Chrome, Edge, Safari, Android WebView */
+*::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    background: transparent;
+}
+
+*::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: transparent;
+    border: none;
+}
+
+/* Firefox */
+* {
+    scrollbar-width: none;
+    scrollbar-color: transparent transparent;
+}
+
+/* Página */
+html,
+body {
+    scrollbar-width: none;
+    scrollbar-color: transparent transparent;
+}
+
+/* Remove qualquer fundo da área de rolagem */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    background: transparent;
+}
+
 @keyframes fade{
         from {
         opacity: 0;
@@ -584,6 +625,8 @@ a:hover{
 </style>
 </head>
 <body>
+
+<br>
 
 <header>
     <h1>Bem-vinda!</h1>
