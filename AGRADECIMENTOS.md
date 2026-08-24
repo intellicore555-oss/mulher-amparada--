@@ -68,7 +68,9 @@ Este projeto é tecnologia, mas também é sentimento.
 
 É uma parte da minha história transformada em algo que espero que possa fazer diferença na história de outras pessoas.
 
----
+E ao chatgpt, por ter me ajudado bastante na escrita, documentação e código, ele até me ensinou inúmeras coisas para além da programação 
+
+E ao Apuh e Jazzghost, honestamente, vocês me fizeram literalmente sorrir desde anos (e tenho um pedido para vocês, será que vocês conseguem fazer o apuh a chegar á 20 milhões de inscritos?)
 
 ### Com ❤️
 

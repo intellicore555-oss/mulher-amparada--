@@ -810,3 +810,19 @@ ah, e eu esqueci de falar (mas eu tinha perdido 7gb nesse ano, os 20 apps e todo
 A partir do dia 24/08/2026: a professora de geografia dos resumos me deu uma atividade adaptada!
 
 * E, meu sonho e que o android pegue o mulher amparada, crie um perfil tipo o perfil de trabalho, os apps ja vem com as permissões concedidas, e seria impossível de desinstalar (so a usuaria pode)
+
+ e também, tenho uma dica;
+ 
+ quando for lembrar de tipo, sei lá
+ 
+ hoje tenho almoço 
+ 
+ amanha tenho apresentação 
+ 
+ ontem pintei um quadro
+ 
+ para lembrar disso, use:
+ 
+ almoço, apresentação, quadro
+ 
+ vai por mim, usei isso várias vezes e consegui lembrar de ideias de um dia e no outro dia ainda tava lembrando!
