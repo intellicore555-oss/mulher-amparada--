@@ -401,6 +401,8 @@ todas as activitys tem a flag secure de todos os 3 apps
 
 e no application do AndroidManifest dos 3 apps tem allowBackup="false" 
 
+O aplicativo possui um navegador interno. A navegação para o Google é feita diretamente pelo código usando window location eplace(), sem disponibilizar o endereço como um link na interface. O aplicativo também não implementa um sistema próprio de registro de histórico de navegação.
+
 ----
 
 Lembre-se que o desenvolvedor só tem 15 anos e as pessoas ao redor dele nao tem os recursos para postar o app na play store, e ele é de menor o que piora mais ainda!

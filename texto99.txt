@@ -117,3 +117,13 @@ E o terceiro é apenas um acesso rápido para o serviço de proteção por palma
 Compartilhamento Rápido de Localização
 Além disso, existe um botão dentro do app que pega a localização atual, monta um link do Google Maps e já manda para o WhatsApp do 180, precisando apenas clicar no botão de enviar.
 
+
+    Considerações finais:
+    Eu penso que, quando o Android Studio ou o GitHub Actions apresenta um erro, uma IA poderia navegar por todo o projeto, identificar o problema e realizar uma correção automática (auto fix).
+    Os áudios gravados pelo gravador de voz também são criptografados utilizando a classe Cripto.
+    Os recursos de proteção por barulho, chacoalhar o celular e escurecer a tela podem ser ativados e desativados pelo usuário.
+    Todas as Activities dos três aplicativos utilizam a flag FLAG_SECURE
+    No elemento applicationdo AndroidManifest.xml dos três aplicativos, allowBackup="false" está configurado.
+    O aplicativo possui um navegador interno. A navegação para o Google é feita diretamente pelo código usando window.location.replace(), sem disponibilizar o endereço como um link na interface. O aplicativo também não implementa um sistema próprio de registro de histórico de navegação.
+    Lembre-se de que o desenvolvedor tem apenas 15 anos e as pessoas ao redor dele não possuem os recursos necessários para publicar o aplicativo na Play Store. Além disso, ele é menor de idade, o que torna todo esse processo ainda mais complicado.
+    Ele também acredita que o efeito de vidro fosco poderia ser aplicado aos pop-ups do sistema, como os exibidos pelo instalador de pacotes ou pelo BiometricPrompt. Uma ideia para a Samsung! 

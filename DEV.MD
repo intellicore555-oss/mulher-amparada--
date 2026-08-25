@@ -809,6 +809,16 @@ ah, e eu esqueci de falar (mas eu tinha perdido 7gb nesse ano, os 20 apps e todo
 
 A partir do dia 24/08/2026: a professora de geografia dos resumos me deu uma atividade adaptada!
 
+[imagem10](imagem10.jpg)
+
+ate nisso o menino é prejudicado..., porque os profissionais não regularizam as faltas dele...(dia 29.04.2026)
+
+[imagem11](imagem11.jpg)
+
+ate nisso o menino é prejudicado..., porque os profissionais não regularizam as faltas dele...(dia 24.08.2026)
+
+E no dia da olisp (dia 25/08/2026), eu fiz essa prova 11:41:18 e terminei as 12:20 na pressa, uma outra menina que não sou eu falou que não fez a prova hoje por causa deles que não souberam organizar, e o coordenador que não e o eduardo, o sílvio, falou que não é problema dele
+
 * E, meu sonho e que o android pegue o mulher amparada, crie um perfil tipo o perfil de trabalho, os apps ja vem com as permissões concedidas, e seria impossível de desinstalar (so a usuaria pode)
 
  e também, tenho uma dica;
