@@ -319,6 +319,24 @@ Se você busca entender mais sobre mim, leia a **[Trajetória do Desenvolvedor](
 
 Saiba que eu sempre procuro entender vocês e que este projeto foi criado com o propósito de oferecer apoio, acolhimento e segurança.
 
+----
+
+# Direitos que toda mulher tem!
+
+Conheça 100 direitos e garantias assegurados às mulheres pela legislação brasileira.
+
+Para consultar a legislação completa e as referências utilizadas nesta seção, acesse **[LEIS.md](LEIS.md)**.
+
+Conhecer seus direitos é importante para reconhecer situações de proteção, buscar ajuda quando necessário e entender as garantias previstas em lei.
+
+----
+
+# Conhecimentos para recuperar sua autonomia
+
+Conhecimentos e informações para ajudar você a compreender melhor sua vida financeira, organizar seu dinheiro e fortalecer sua autonomia.
+
+Para acessar o conteúdo completo sobre finanças, consulte **[Finanças](FINANÇAS.md)**.
+
 ---
 
 ## 💌 Carta de Agradecimentos
