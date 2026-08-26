@@ -34,4 +34,6 @@ entao tem que fazer: ex: modo focada + cacadora de bugs, ou crianca + focada, nu
 
 honestamente, se a função de proteção por som tiver ativada, eu testei as 05:35 PM em 04/08/2026, e realmente existe a chance de por causa do agressor tacar o celular, ele ligar de fato!
 
-E sim, quando perdi os 115gb de dadow perdi o mulher amparada, perdi outra com o github e no dia 26/08/2026 perdi denovo (reconstruí 3 vezes só para vocês!)
+E sim, quando perdi os 115gb de dadow perdi o mulher amparada, perdi outra com o github e recuperei ele e reconstruí apenas usando um apk compilado e no dia 26/08/2026 perdi denovo e reconstruí com o próprio código fonte, (reconstruí 3 vezes só para vocês!)
+
+E não sei se alguém te falou isso, mas..., eu acredito em você, você consegue sim viver sem o agressor e viver extremamente bem ainda!, eu entendo sua dor porque já experimentei ela, e é agonizante por muito tempo, mas você não precisa mais passar por isso, você pode pedir ajuda!
