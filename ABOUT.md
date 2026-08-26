@@ -34,6 +34,4 @@ entao tem que fazer: ex: modo focada + cacadora de bugs, ou crianca + focada, nu
 
 honestamente, se a função de proteção por som tiver ativada, eu testei as 05:35 PM em 04/08/2026, e realmente existe a chance de por causa do agressor tacar o celular, ele ligar de fato!
 
-# Sobre o que acho dos vendedores de loja física que já vi (lembrando que só os que tive contato...):
-
-agora, no dia 14.08.2026, um cara me vende um cabo otg o dobro do preço que já veio quebrado de fábrica!
+E sim, quando perdi os 115gb de dadow perdi o mulher amparada, perdi outra com o github e no dia 26/08/2026 perdi denovo (reconstruí 3 vezes só para vocês!)
