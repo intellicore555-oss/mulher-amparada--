@@ -108,7 +108,7 @@ GRAVAÇÕES — COMPORTAMENTO E METADADOS
 Ao tocar no botão de gravação:
 
 • O aplicativo inicia a gravação de áudio pelo microfone.
-• É criado temporariamente um arquivo .3gp.
+• É criado temporariamente um arquivo .3gp, (ou um arquivo 3ga, ou outro arquivo, isso varia conforme o aparelho).
 • É registrado o horário exato de início da gravação.
 • O nível da bateria é registrado.
 • O acelerômetro começa a acompanhar os movimentos do aparelho e registra o maior valor de força G observado durante a gravação.
@@ -125,7 +125,7 @@ Quando a gravação é encerrada:
 • O arquivo protegido recebe a extensão .enc.
 • É calculado o SHA-256 do arquivo criptografado.
 • É criado um arquivo separado .metadata.json contendo os metadados.
-• Depois que a criptografia é concluída, o .3gp original temporário é apagado do armazenamento privado do aplicativo.
+• Depois que a criptografia é concluída, o .3gp, (ou um arquivo 3ga, ou outro arquivo, isso varia conforme o aparelho) original temporário é apagado do armazenamento privado do aplicativo.
 • A gravação protegida e seus metadados aparecem na lista do aplicativo.
 
 3. METADADOS GERADOS
@@ -171,7 +171,7 @@ ARQUIVO:
 
 • file_name — nome do arquivo criptografado.
 • file_size_bytes — tamanho do arquivo .enc.
-• file_format — formato original do áudio, 3GP/AMR-NB.
+• file_format — formato original do áudio, 3gp, (ou um arquivo 3ga, ou outro arquivo, isso varia conforme o aparelho)/AMR-NB.
 • metadata_version — versão do formato dos metadados.
 
 4. O QUE ACONTECE AO TOCAR EM "DOWNLOAD"
@@ -182,11 +182,11 @@ O aplicativo:
 
 1. Localiza o arquivo .enc protegido.
 2. Descriptografa temporariamente o conteúdo.
-3. Cria um arquivo .3gp temporário no cache do aplicativo.
+3. Cria um arquivo .3gp, (ou um arquivo 3ga, ou outro arquivo, isso varia conforme o aparelho) temporário no cache do aplicativo.
 4. Copia esse áudio para a pasta Downloads do Android.
 5. No Android 10 ou superior, utiliza o MediaStore.
 6. Em versões antigas, utiliza a pasta pública Downloads.
-7. Depois da cópia, o arquivo .3gp temporário utilizado durante o processo é apagado.
+7. Depois da cópia, o arquivo .3gp, (ou um arquivo 3ga, ou outro arquivo, isso varia conforme o aparelho) temporário utilizado durante o processo é apagado.
 8. O arquivo .enc original continua protegido dentro do aplicativo.
 
 5. IMPORTANTE SOBRE O JSON
@@ -197,10 +197,10 @@ Por exemplo:
 
 Downloads/
 
-    rec_1787821440.3gp
+    rec_1787821440.3gp, (ou um arquivo 3ga, ou outro arquivo, isso varia conforme o aparelho)
     rec_1787821440.metadata.json
 
-O .3gp é o áudio reproduzível.
+O .3gp, (ou um arquivo 3ga, ou outro arquivo, isso varia conforme o aparelho) é o áudio reproduzível.
 
 O .metadata.json contém as informações técnicas associadas àquela gravação.
 
