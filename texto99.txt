@@ -67,7 +67,122 @@ Os dados ficam armazenados localmente no dispositivo do usuário.
 
 Gravador de voz
 Usando uma activity (uma tela) em kotlin, é possivel ter um gravador de voz no app, sendo possível registrar evidências e provas, além do que a usuária quiser, sempre usando permissoes android e com o consentimento da usuária!
+GRAVAÇÕES — COMPORTAMENTO E METADADOS
 
+1. DURANTE A GRAVAÇÃO
+
+Ao tocar no botão de gravação:
+
+• O aplicativo inicia a gravação de áudio pelo microfone.
+• É criado temporariamente um arquivo .3gp.
+• É registrado o horário exato de início da gravação.
+• O nível da bateria é registrado.
+• O acelerômetro começa a acompanhar os movimentos do aparelho e registra o maior valor de força G observado durante a gravação.
+• Se as permissões de localização estiverem disponíveis, o aplicativo acompanha a localização e registra latitude, longitude, precisão e provedor.
+• O arquivo original permanece temporário durante o processo.
+
+2. AO ENCERRAR A GRAVAÇÃO
+
+Quando a gravação é encerrada:
+
+• É registrado o horário exato de encerramento.
+• É calculado o SHA-256 do áudio original.
+• O áudio é criptografado usando AES/GCM.
+• O arquivo protegido recebe a extensão .enc.
+• É calculado o SHA-256 do arquivo criptografado.
+• É criado um arquivo separado .metadata.json contendo os metadados.
+• Depois que a criptografia é concluída, o .3gp original temporário é apagado do armazenamento privado do aplicativo.
+• A gravação protegida e seus metadados aparecem na lista do aplicativo.
+
+3. METADADOS GERADOS
+
+TEMPO:
+
+• created_at — timestamp UNIX do início.
+• created_at_utc — início em UTC.
+• closed_at — timestamp UNIX do encerramento.
+• closed_at_utc — encerramento em UTC.
+• last_modified — última modificação registrada pelo sistema.
+• last_modified_utc — última modificação em UTC.
+• ntp_synced — indicação relacionada à configuração de hora automática do Android.
+
+INTEGRIDADE E CRIPTOGRAFIA:
+
+• sha256_raw — SHA-256 do áudio original antes da criptografia.
+• sha256_encrypted — SHA-256 do arquivo .enc.
+• crypto_algorithm — AES/GCM/NoPadding, 256-bit.
+• key_provider — AndroidKeyStore.
+
+LOCALIZAÇÃO:
+
+• gps_latitude — latitude registrada.
+• gps_longitude — longitude registrada.
+• gps_accuracy — precisão estimada em metros.
+• location_provider — provedor utilizado, como GPS ou rede.
+
+DISPOSITIVO:
+
+• device_model — modelo do aparelho.
+• device_brand — fabricante/marca.
+• android_version — versão do Android.
+• api_level — nível da API.
+• device_hash — identificador derivado do Android ID e protegido por SHA-256.
+
+SENSORES E AMBIENTE:
+
+• max_g_force — maior aceleração registrada pelo acelerômetro durante a gravação.
+• battery_level — nível da bateria no início da gravação.
+
+ARQUIVO:
+
+• file_name — nome do arquivo criptografado.
+• file_size_bytes — tamanho do arquivo .enc.
+• file_format — formato original do áudio, 3GP/AMR-NB.
+• metadata_version — versão do formato dos metadados.
+
+4. O QUE ACONTECE AO TOCAR EM "DOWNLOAD"
+
+O botão de download NÃO simplesmente copia o .enc.
+
+O aplicativo:
+
+1. Localiza o arquivo .enc protegido.
+2. Descriptografa temporariamente o conteúdo.
+3. Cria um arquivo .3gp temporário no cache do aplicativo.
+4. Copia esse áudio para a pasta Downloads do Android.
+5. No Android 10 ou superior, utiliza o MediaStore.
+6. Em versões antigas, utiliza a pasta pública Downloads.
+7. Depois da cópia, o arquivo .3gp temporário utilizado durante o processo é apagado.
+8. O arquivo .enc original continua protegido dentro do aplicativo.
+
+5. IMPORTANTE SOBRE O JSON
+
+O .metadata.json é um arquivo separado do áudio.
+
+Por exemplo:
+
+Downloads/
+
+    rec_1787821440.3gp
+    rec_1787821440.metadata.json
+
+O .3gp é o áudio reproduzível.
+
+O .metadata.json contém as informações técnicas associadas àquela gravação.
+
+6. IMPORTANTE SOBRE A LOCALIZAÇÃO
+
+A localização não é garantida em todas as gravações.
+
+Se a permissão de localização estiver concedida e o Android fornecer uma localização válida, os campos de localização são preenchidos.
+
+Caso contrário, eles ficam como null.
+
+7. IMPORTANTE SOBRE OS METADADOS
+
+Esses metadados são registros técnicos produzidos pelo aplicativo. Eles podem ajudar a documentar como e quando uma gravação foi criada, mas a existência de hashes, localização ou timestamps, por si só, NÃO garante validade jurídica ou prova que um fato ocorreu.
+
+O SHA-256 permite verificar se os bytes de um arquivo correspondem ao conteúdo anteriormente registrado, enquanto os dados de localização, sensores e horário dependem dos recursos e configurações do próprio aparelho.
 
 
 Meus arquivos
