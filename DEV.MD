@@ -836,3 +836,25 @@ E no dia da olisp (dia 25/08/2026), eu fiz essa prova 11:41:18 e terminei as 12:
  almoço, apresentação, quadro
  
  vai por mim, usei isso várias vezes e consegui lembrar de ideias de um dia e no outro dia ainda tava lembrando!
+ 
+  Dia 26/08/2026 da escola 3:
+
+chegando la na escola, minha mae foi la falar com a hely, e ela estava fazendo um termo para tirar minhas declarações, sendo qur na lei elas ja ficam comigo e a escola so fica col a xerox
+
+e ai sobre o projeto pei: eles nao queriam aplicar pois sou de altas habilidades e etc
+
+e a hely ja vem falando que sou o menino dela (mentira, eu sou o explorado dela e o que tem medo dela de trauma mesmo), e que conheco ele desde 3 a 4 anos, e minha família me conhece desde que nasci
+
+e mimha mae falou que eles nao conhecem ele depois da escola, em casa, que falo que a escola 3 e uma escala 6x1 que os profissionais sao imcompetentes, que a professora de geografia so passa resumo
+
+essa escola e tao imcompetente que eles delegam tarefa entre eles e se autoatrapalham
+
+desde o inicio de 2026 ate agosto to sem o projeto pei e ja fiz umas 128 aulas dos livros nesse ano!, sem contar todo o resto
+
+e ai a coordenadora Cláudia falou qur tem que ver com a professora de itinerância...
+
+e ai a coordenadora falou que e fácil (tem algumas que dao faceis mesmo, com inteligência artificial é claro, se nao fosse ela nem teria feito pra começo de conversa, e os professores são tão imcompetentes que aprendi mapas quantitativos e qualitativos e função do primeiro e segundo grau com o chatgpt nao com eles!l)
+
+e ai eles no documento que a professora de itinerância escreveu e assinou falava que tem que dar o tempo hábil pra eles, porque 8 meses e pouco pelo visto 
+
+e ate o presente dia, so fizeram de 5 professores, enquanto eu fiz o mulher amparada inteiro em apenas 1 ano, e refiz várias vezes!
