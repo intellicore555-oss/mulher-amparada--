@@ -428,14 +428,6 @@ Se você busca segurança ou apoio, leia nossa **[Carta de Apoio e Propósito do
 
 Conheça nossa rede de suporte e lembre-se: **você não está sozinha.**
 
----
-
-## ℹ️ Sobre o Desenvolvedor
-
-Se você busca entender mais sobre mim, leia a **[Trajetória do Desenvolvedor](DEV.MD)**.
-
-Saiba que eu sempre procuro entender vocês e que este projeto foi criado com o propósito de oferecer apoio, acolhimento e segurança.
-
 ----
 
 # Direitos que toda mulher tem!
@@ -454,17 +446,8 @@ Conhecimentos e informações para ajudar você a compreender melhor sua vida fi
 
 Para acessar o conteúdo completo sobre finanças, consulte **[Finanças](FINANÇAS.md)**.
 
----
+---- 
 
-## 💌 Carta de Agradecimentos
-
-Se você deseja conhecer as pessoas, profissionais e artistas que fizeram parte desta trajetória, leia a **[Carta de Agradecimentos](AGRADECIMENTOS.md)**.
-
-Nela, deixo registrado todo o meu carinho e gratidão àqueles que, de alguma forma, contribuíram para que este projeto existisse.
-
-**Obrigado a todos que fizeram parte dessa história. ❤️**
-
----
 # 💻 Repositórios do GitHub
 
 > 🚀 **Código-fonte dos nossos aplicativos**
@@ -519,9 +502,3 @@ todas as activitys tem a flag secure de todos os 3 apps
 e no application do AndroidManifest dos 3 apps tem allowBackup="false" 
 
 O aplicativo possui um navegador interno. A navegação para o Google é feita diretamente pelo código usando window location eplace(), sem disponibilizar o endereço como um link na interface. O aplicativo também não implementa um sistema próprio de registro de histórico de navegação.
-
-----
-
-Lembre-se que o desenvolvedor só tem 15 anos e as pessoas ao redor dele nao tem os recursos para postar o app na play store, e ele é de menor o que piora mais ainda!
-
-e ele também acredita que o vidro fosco também deveria ser aplicado nos popups (tipo o do instalador do pacote ou o biometricPrompt), idéia para a samsung aí hein!
