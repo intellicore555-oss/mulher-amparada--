@@ -1,3 +1,29 @@
+🔴 ALERTA MÁXIMO — LEIA ANTES DE CONTINUAR
+
+Esta mensagem foi escrita de forma pessoal, emocional e filosófica. Ela reúne meu carinho, respeito e solidariedade pelas mulheres que utilizam este projeto, além de experiências pessoais durante a criação do aplicativo, reflexões sobre violência psicológica, ideias filosóficas, dicas de segurança, informações sobre direitos, saúde, internet, crianças e adolescentes.
+
+IMPORTANTE: algumas partes são reflexões pessoais, metáforas ou ideias criativas — como os “amuletos”, a fruta e a ideia de “posso me curar”. Elas não são magia, tratamento médico, promessa de cura ou substituto para proteção física e ajuda profissional.
+
+As informações sobre saúde são apenas orientações gerais e não substituem médicos, psicólogos, enfermeiros ou outros profissionais de saúde. Não comece, interrompa ou altere medicamentos por causa desta mensagem.
+
+As informações jurídicas também têm finalidade informativa. Uma situação concreta pode depender de circunstâncias específicas, então procure os canais oficiais ou orientação profissional quando necessário.
+
+As dicas de segurança não garantem proteção absoluta. Se houver perigo, priorize sua segurança e procure ajuda.
+
+E quando eu falar sobre meu carinho por vocês, estou falando de respeito, solidariedade, cuidado e desejo genuíno de que vocês estejam bem. Vocês não precisam corresponder a esse carinho, e nada aqui cria qualquer obrigação ou relação pessoal.
+
+Algumas informações podem mudar com o tempo. Confirme informações médicas, jurídicas e de serviços públicos em fontes oficiais antes de tomar decisões importantes.
+
+Este texto também contém assuntos potencialmente sensíveis, incluindo violência, abuso, sofrimento psicológico e situações de risco.
+
+Se alguma parte fizer você se sentir mal, pare de ler. Você não precisa continuar.
+
+E, acima de tudo:
+
+❤️ NENHUMA DICA DESTA MENSAGEM É MAIS IMPORTANTE DO QUE A SUA SEGURANÇA.
+
+Você não tem culpa pela violência que outra pessoa praticou contra você.
+
 **E eu me inspiro em Martin Luther King para falar:**
 
 * "eu tenho um sonho, que as mulheres vivam em paz, sem nenhuma violência, porque todos somos iguais..."
