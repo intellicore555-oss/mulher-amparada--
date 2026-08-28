@@ -1293,11 +1293,8 @@ footer {
 
     <div class="download-wrapper">
 
-        <a
-            class="download"
-            href="6.apk"
-            download
-        >
+<a class="download" href="6.apk" onclick="event.preventDefault(); baixarArquivo(this.href);">
+
 
             Baixar e instalar
 
@@ -1330,7 +1327,7 @@ footer {
         <div class="summary-item">
 
             <strong class="summary-value">
-                12.69 MB
+                09.82 MB
             </strong>
 
             <span class="summary-label">
@@ -1464,7 +1461,7 @@ footer {
                 </span>
 
                 <strong class="detail-value">
-                    ≈ 12.69 MB
+                    ≈ 09.82 MB
                 </strong>
 
             </div>
@@ -1562,6 +1559,22 @@ footer {
 
 </main>
 
+<script>
+function baixarArquivo(url) {
+    const confirmar = confirm(
+         
+        "O app será instalado como \"Calculadora\", com um ícone de calculadora.\n\n" +
+        "Isso é para sua proteção e disfarce do app.\n\n" +
+        "Depois, se quiser, você poderá alterar apenas o ícone. menos o nome do app."
+    );
+
+    if (!confirmar) {
+        return;
+    }
+
+    window.location.href = url;
+}
+</script>
 
 </body>
 
