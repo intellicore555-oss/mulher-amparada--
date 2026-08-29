@@ -18,6 +18,18 @@ Ative a proteção, faça barulho alto e ele liga para o 180.
 Balançar o Celular para Pedir Ajuda:
 Ative e, ao chacoalhar o celular, ele liga para o 180.
 
+Escurecimento por inclinação:
+com isso, voce pode controlar o brilho da tela clicando em um botão..., porém, e tipo como se fosse o menor brilho do celular, e ai depois ele deixa a tela preta (nao com brilho e sim colocando a cor), (honestamente, antes aparecia as duas barras, agora elas se escondem!), e o efeito e vitalicio ate fechar e abrir o app!
+
+Emergência:
+Saindo dessa área, existem botões que abrem o aplicativo nativo do telefone nos números 190, 191, 192 e 180.
+
+Compartilhamento Rápido de Localização:
+Além disso, existe um botão dentro do app que pega a localização atual, monta um link do Google Maps e já manda para o WhatsApp do 180, precisando apenas clicar no botão de enviar.
+
+Contatos de Confiança:
+Além dos contatos de confiança, clicando no primeiro botão você seleciona e salva o contato. O botão abaixo envia um pedido de ajuda para ele.
+
 Área Protegida:
 Se estiver cadastrado no celular, com Biometric Prompt junto com Device Credential e autenticação weak, pode desbloquear essa área com impressão digital, rosto, PIN, padrão, senha e outros métodos.
 
@@ -235,30 +247,6 @@ Para desinstalar o aplicativo, primeiro será necessário desativar a permissão
 
 Antes de conceder essa permissão, leia atentamente as informações exibidas pelo Android e só prossiga se compreender as funcionalidades e os efeitos dessa autorização.
 
-Controlar brilho:
-com isso, voce pode controlar o brilho da tela clicando em um botão..., porém, e tipo como se fosse o menor brilho do celular, e ai depois ele deixa a tela preta (nao com brilho e sim colocando a cor), (honestamente, antes aparecia as duas barras, agora elas se escondem!), e o efeito e vitalicio ate fechar e abrir o app!
-
-Emergência:
-Saindo dessa área, existem botões que abrem o aplicativo nativo do telefone nos números 190, 191, 192 e 180.
-
-Contatos de Confiança:
-Além dos contatos de confiança, clicando no primeiro botão você seleciona e salva o contato. O botão abaixo envia um pedido de ajuda para ele.
-
-Widgets:
-Já saindo do app, temos os widgets.
-
-Widget SOS:
-O primeiro é um widget de SOS que, quando clicado, abre o aplicativo de telefone com o número 180 já discado.
-
-Widget de Localização:
-O segundo, o de localização, monta o link do Google Maps, e a usuária pode mandar para quem quiser.
-
-Widget de Proteção Sonora:
-E o terceiro é apenas um acesso rápido para o serviço de proteção por palmas.
-
-Compartilhamento Rápido de Localização:
-Além disso, existe um botão dentro do app que pega a localização atual, monta um link do Google Maps e já manda para o WhatsApp do 180, precisando apenas clicar no botão de enviar.
-
 (como o código esta dentro do zip, nao precisarei explicar!)
 
 **APPS DIFERENTES!:**
@@ -420,15 +408,7 @@ Seja para abrir um documento, encontrar uma foto especial, ouvir uma música ou 
 
 Esses apps são abertos por intent (todos que não são o mulher amparada), e não está disponível na tela de aplicativos, aumentandk a segurança, já que só abre pelo app mulher amparada pela área protegida e para abrir o app pede a biometria dele!
 
----
-
-## 💗 Mensagem de Acolhimento às Usuárias
-
-Se você busca segurança ou apoio, leia nossa **[Carta de Apoio e Propósito do Desenvolvedor](ABOUT.md)**.
-
-Conheça nossa rede de suporte e lembre-se: **você não está sozinha.**
-
-----
+---- 
 
 # Direitos que toda mulher tem!
 
