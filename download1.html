@@ -1291,19 +1291,21 @@ footer {
          DOWNLOAD
     ====================================================== -->
 
-    <div class="download-wrapper">
+<!-- =====================================================
+     DOWNLOAD
+====================================================== -->
 
-        <a
-            class="download"
-            href="006.apk"
-            download
-        >
+<div class="download-wrapper">
 
-            Baixar e instalar
+    <a
+        class="download"
+        href="006.apk"
+        onclick="baixarArquivo(event, this.href);"
+    >
+        Baixar e instalar
+    </a>
 
-        </a>
-
-    </div>
+</div>
 
 
 
@@ -1330,7 +1332,7 @@ footer {
         <div class="summary-item">
 
             <strong class="summary-value">
-                08.47 MB
+                09.27 MB
             </strong>
 
             <span class="summary-label">
@@ -1464,7 +1466,7 @@ footer {
                 </span>
 
                 <strong class="detail-value">
-                    ≈ 08.47 MB
+                    ≈ 09.27 MB
                 </strong>
 
             </div>
@@ -1561,6 +1563,23 @@ footer {
 
 
 </main>
+
+<script>
+function baixarArquivo(url) {
+    const confirmar = confirm(
+         
+        "O app será instalado como \"Bloco de notas\", com um ícone de Bloco de notas.\n\n" +
+        "Isso é para sua proteção e disfarce do app.\n\n" +
+        "Depois, ele aparecerá com o  icone e nome original na área do protegida no app do mulher amparada."
+    );
+
+    if (!confirmar) {
+        return;
+    }
+
+    window.location.href = url;
+}
+</script>
 
 
 </body>

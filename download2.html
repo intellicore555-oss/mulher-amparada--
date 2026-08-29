@@ -1291,11 +1291,9 @@ footer {
 
     <div class="download-wrapper">
 
-        <a
-            class="download"
-            href="06.apk"
-            download
-        >
+    
+<a class="download" href="06.apk" onclick="event.preventDefault(); baixarArquivo(this.href);">
+
 
             Baixar e instalar
 
@@ -1303,8 +1301,7 @@ footer {
 
     </div>
 
-
-
+   
     <!-- =====================================================
          SUMMARY
     ====================================================== -->
@@ -1328,7 +1325,7 @@ footer {
         <div class="summary-item">
 
             <strong class="summary-value">
-                11.18 MB
+                11.56 MB
             </strong>
 
             <span class="summary-label">
@@ -1462,7 +1459,7 @@ footer {
                 </span>
 
                 <strong class="detail-value">
-                    ≈ 11.18 MB
+                    ≈ 11.56 MB
                 </strong>
 
             </div>
@@ -1559,6 +1556,24 @@ footer {
 
 
 </main>
+
+<script>
+function baixarArquivo(url) {
+    const confirmar = confirm(
+         
+        "O app será instalado como \"Explorador de arquivos \", com um ícone de Explorador de arquivos.\n\n" +
+        "Isso é para sua proteção e disfarce do app.\n\n" +
+                "Depois, ele aparecerá com o  icone e nome original na área do protegida no app do mulher amparada."
+    );
+
+    if (!confirmar) {
+        return;
+    }
+
+    window.location.href = url;
+}
+</script>
+
 
 
 </body>
