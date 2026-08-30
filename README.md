@@ -233,14 +233,11 @@ O SHA-256 permite verificar se os bytes de um arquivo correspondem ao conteúdo 
 Meus arquivos:
 Dentro do app, ele só visualiza as pastas e ao clicar em um arquivo, abre um seletor de apps para executar/visualizar ele
 
-Escolher ícone do app:
-Essa função abre uma acitvity (tela) e poderá trocar o ícone do app!, até mesmo para um ícone de calculadora, disfarçando o app!, e outra, quando escolhe calculadora, até o nome do app troca tambem! (e da para desfazer os efeitos para o original se quiser...)
-
 Desligar o celular:
 Ao tocar neste botão, o aplicativo solicitará a permissão de Administrador do dispositivo, caso ela ainda não tenha sido concedida. Quando essa permissão estiver ativa, o aplicativo poderá bloquear imediatamente a tela do dispositivo.
 
 Tela de aplicativos:
-Ao tocar neste botão, o app mostrará um site dentro do app que lista todos os outros apps com a permissão query all packpages, combina muito se a usuária definir o app do mulher amparada como launcher padrão, assim, o agressor só acessa os outros apps com o mulher amparada, através da biometria desbloqueando a área segura!
+Ao tocar neste botão, o app mostrará um site dentro do app que lista todos os outros apps com a permissão query all packpages...
 
 
 Para desinstalar o aplicativo, primeiro será necessário desativar a permissão de Administrador do dispositivo. Em alguns aparelhos, também poderá ser necessário permitir Configurações restritas. Se essa opção estiver disponível, pressione e segure o ícone do aplicativo, toque em Informações do aplicativo, abra o menu de três pontos e ative Permitir configurações restritas.
