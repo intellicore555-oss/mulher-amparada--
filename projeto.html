@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+>
+
+<meta name="theme-color" content="#000000">
+
+<title>Sobre Mim • Mulher Amparada</title>
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+
+
+<style>
+
+/* =========================================================
+   FONTE
+========================================================= */
+
+@font-face {
+
+    font-family: "Quicksand";
+
+    src: url("font.ttf") format("truetype");
+
+    font-display: swap;
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   BASE
+========================================================= */
+
+html {
+
+    scroll-behavior: smooth;
+}
+
+body {
+
+    background: #000;
+
+    min-height: 100vh;
+
+    background: #000;
+
+    color: #fff;
+    width: 95%;
+
+    font-family: "Quicksand", sans-serif;
+
+    overflow-x: hidden;
+
+    -webkit-tap-highlight-color: transparent;
+
+margin-left: 2.5%;
+margin-right: 2.5%;
+    animation:
+        fadeUp 0.55s ease both;
+}
+
+
+/* =========================================================
+   ANIMAÇÃO
+========================================================= */
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+        
+    }
+
+    to {
+
+        opacity: 1;
+
+        
+    }
+}
+
+
+/* =========================================================
+   FUNDO
+========================================================= */
+
+.background {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    z-index: -1;
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.container {
+
+    width: min(100% - 36px, 760px);
+
+    margin: 0 auto;
+
+    padding:
+        calc(28px + env(safe-area-inset-top))
+        0
+        calc(45px + env(safe-area-inset-bottom));
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header {
+
+    padding: 25px 0 42px;
+
+    text-align: center;
+}
+
+.eyebrow {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-bottom: 15px;
+
+    color: #ff70ad;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+}
+
+.eyebrow::before {
+
+    content: "";
+
+    width: 5px;
+
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: #ff70ad;
+
+    box-shadow:
+        0 0 10px rgba(255,105,169,.5);
+}
+
+.header h1 {
+
+    color: #f5f5f7;
+
+    font-size: clamp(34px, 8vw, 50px);
+
+    font-weight: 800;
+
+    line-height: 1.05;
+
+    letter-spacing: -1.8px;
+}
+
+.header h1 span {
+
+    color: #ff70ad;
+}
+
+.header p {
+
+    max-width: 520px;
+
+    margin: 17px auto 0;
+
+    color: #77777f;
+
+    font-size: 13px;
+
+    line-height: 1.75;
+}
+
+.header-line {
+
+    width: 38px;
+
+    height: 2px;
+
+    margin: 23px auto 0;
+
+    border-radius: 999px;
+
+    background: #ff70ad;
+
+    opacity: .8;
+}
+
+
+/* =========================================================
+   SEÇÃO
+========================================================= */
+
+.section {
+
+    margin-top: 24px;
+}
+
+.section-heading {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 13px;
+}
+
+.section-heading::before {
+
+    content: "";
+
+    width: 3px;
+
+    height: 22px;
+
+    border-radius: 999px;
+
+    background: #ff70ad;
+}
+
+.section-heading h2 {
+
+    color: #eeeef1;
+
+    font-size: 18px;
+
+    font-weight: 800;
+
+    letter-spacing: -.3px;
+}
+
+.section-subtitle {
+
+    margin-bottom: 16px;
+
+    color: #686870;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   CARD PRINCIPAL
+========================================================= */
+
+.about-card {
+
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 22px;
+
+    border: 1px solid rgba(255,255,255,.07);
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.045),
+            rgba(255,255,255,.015)
+        );
+
+    box-shadow:
+        0 18px 45px rgba(0,0,0,.3);
+}
+
+.about-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: 22px;
+
+    width: 45px;
+
+    height: 1px;
+
+    background: #ff70ad;
+
+    opacity: .7;
+}
+
+.about-card p {
+
+    color: #98989f;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+}
+
+.about-card p + p {
+
+    margin-top: 17px;
+}
+
+
+/* =========================================================
+   DESTAQUES
+========================================================= */
+
+.highlights {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 8px;
+
+    margin-top: 10px;
+}
+
+.highlight {
+
+    min-height: 100px;
+
+    padding: 17px;
+
+    border: 1px solid rgba(255,255,255,.055);
+
+    border-radius: 16px;
+
+    background: #080808;
+}
+
+.highlight-label {
+
+    display: block;
+
+    margin-bottom: 9px;
+
+    color: #ff70ad;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.8px;
+
+    text-transform: uppercase;
+}
+
+.highlight strong {
+
+    display: block;
+
+    color: #e7e7ea;
+
+    font-size: 13px;
+
+    line-height: 1.45;
+}
+
+
+/* =========================================================
+   VERSÕES
+========================================================= */
+
+.versions {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+
+/* =========================================================
+   ITEM DE VERSÃO
+========================================================= */
+
+.version {
+
+    overflow: hidden;
+
+    border: 1px solid rgba(255,255,255,.07);
+
+    border-radius: 20px;
+
+    background: #070707;
+
+    transition:
+        border-color .25s ease,
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+.version:hover {
+
+    border-color: rgba(255,105,169,.2);
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 16px 35px rgba(0,0,0,.35);
+}
+
+.version-image {
+
+    position: relative;
+
+    overflow: hidden;
+
+    background: #050505;
+}
+
+.version-image img {
+
+    width: 100%;
+
+    height: auto;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition:
+        transform .5s ease,
+        opacity .3s ease;
+}
+
+.version:hover .version-image img {
+
+    transform: scale(1.015);
+}
+
+.version-info {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    padding: 14px 17px;
+}
+
+.version-name {
+
+    color: #e8e8eb;
+
+    font-size: 13px;
+
+    font-weight: 700;
+}
+
+.version-tag {
+
+    flex-shrink: 0;
+
+    padding: 5px 9px;
+
+    border: 1px solid rgba(255,105,169,.14);
+
+    border-radius: 999px;
+
+    color: #ff78b1;
+
+    background: rgba(255,105,169,.045);
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: .7px;
+}
+
+
+/* =========================================================
+   AVISO
+========================================================= */
+
+.note {
+
+    margin-top: 12px;
+
+    padding: 15px 17px;
+
+    border: 1px solid rgba(255,255,255,.055);
+
+    border-radius: 15px;
+
+    background: rgba(255,255,255,.018);
+
+    color: #66666e;
+
+    font-size: 11px;
+
+    line-height: 1.7;
+}
+
+.note strong {
+
+    color: #8c8c94;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer {
+
+    margin-top: 42px;
+
+    padding-top: 20px;
+
+    border-top:
+        1px solid rgba(255,255,255,.05);
+
+    text-align: center;
+
+    color: #3e3e45;
+
+    font-size: 9px;
+
+    letter-spacing: 1.3px;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 500px) {
+
+    .container {
+
+        width: calc(100% - 28px);
+    }
+
+    .header {
+
+        padding-top: 18px;
+
+        padding-bottom: 32px;
+    }
+
+    .header h1 {
+
+        font-size: 34px;
+    }
+
+    .header p {
+
+        font-size: 12px;
+    }
+
+    .about-card {
+
+        padding: 18px;
+    }
+
+    .about-card p {
+
+        font-size: 12px;
+    }
+
+    .highlights {
+
+        grid-template-columns: 1fr;
+    }
+
+    .highlight {
+
+        min-height: auto;
+    }
+}
+
+
+/* =========================================================
+   TELAS BAIXAS
+========================================================= */
+
+@media (max-height: 650px) {
+
+    .header {
+
+        padding-top: 10px;
+
+        padding-bottom: 25px;
+    }
+
+    .section {
+
+        margin-top: 18px;
+    }
+}
+
+
+/* =========================================================
+   ACESSIBILIDADE
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+
+        animation: none !important;
+
+        transition: none !important;
+    }
+}
+
+</style>
+
+    <meta
+        name="description"
+        content="Mulher Amparada é um projeto de tecnologia voltado à proteção, segurança e assistência em situações de emergência."
+    >
+
+</head>
+
+
+<body>
+
+
+<div class="background"></div>
+
+
+<main class="container">
+
+
+    <!-- =====================================================
+         CABEÇALHO
+    ====================================================== -->
+
+    <header class="header">
+
+        <h1>
+            Sobre <span>mim</span>
+        </h1>
+
+        <p>
+            Conheça um pouco da história por trás do projeto,
+            das ideias que deram origem ao aplicativo e da
+            evolução do Mulher Amparada.
+        </p>
+
+        <div class="header-line"></div>
+
+    </header>
+
+
+    <!-- =====================================================
+         SOBRE
+    ====================================================== -->
+
+    <section class="section">
+
+        <div class="section-heading">
+
+            <h2>
+                Sobre o projeto
+            </h2>
+
+        </div>
+
+        <p class="section-subtitle">
+            Desenvolvimento independente e evolução contínua.
+        </p>
+
+
+        <article class="about-card">
+
+            <p>
+                Desenvolvi este projeto de forma independente,
+                utilizando ferramentas de inteligência artificial
+                como apoio e, principalmente, muita dedicação
+                pessoal. A ideia sempre foi transformar o
+                desenvolvimento em algo útil, acessível e que
+                pudesse gerar um impacto real.
+            </p>
+
+
+
+            <p>
+                O aplicativo também foi pensado para funcionar
+                de forma confiável em diferentes situações.
+                Quando a usuária está sem internet, por exemplo,
+                recursos locais continuam disponíveis, incluindo
+                arquivos armazenados dentro do próprio aplicativo.
+            </p>
+
+            <p>
+                Quando menciono funções em telas separadas,
+                estou falando de Activities implementadas em
+                Java ou Kotlin dentro do aplicativo Android.
+            </p>
+
+        </article>
+
+
+        <div class="highlights">
+
+
+            <div class="highlight">
+
+                <span class="highlight-label">
+                    Desenvolvimento
+                </span>
+
+                <strong>
+                    Independente
+                </strong>
+
+            </div>
+
+
+            <div class="highlight">
+
+                <span class="highlight-label">
+                    Plataforma
+                </span>
+
+                <strong>
+                    Android
+                </strong>
+
+            </div>
+
+
+            <div class="highlight">
+
+                <span class="highlight-label">
+                    Tecnologia
+                </span>
+
+                <strong>
+                    Java • Kotlin • Web
+                </strong>
+
+            </div>
+
+
+            <div class="highlight">
+
+                <span class="highlight-label">
+                    Objetivo
+                </span>
+
+                <strong>
+                    Segurança e autonomia
+                </strong>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         VERSÕES
+    ====================================================== -->
+
+    <section class="section">
+
+        <div class="section-heading">
+
+            <h2>
+                Evolução do aplicativo
+            </h2>
+
+        </div>
+
+        <p class="section-subtitle">
+            Todas as versões apresentadas em ordem de evolução.
+        </p>
+
+
+        <div class="versions">
+
+
+            <article class="version">
+
+                <div class="version-image">
+
+                    <img
+                        src="v1.png"
+                        alt="Primeira versão do aplicativo Mulher Amparada"
+                        loading="lazy"
+                    >
+
+                </div>
+
+                <div class="version-info">
+
+                    <span class="version-name">
+                        Primeira versão
+                    </span>
+
+                    <span class="version-tag">
+                        V1
+                    </span>
+
+                </div>
+
+            </article>
+
+
+            <article class="version">
+
+                <div class="version-image">
+
+                    <img
+                        src="v2.png"
+                        alt="Segunda versão do aplicativo Mulher Amparada"
+                        loading="lazy"
+                    >
+
+                </div>
+
+                <div class="version-info">
+
+                    <span class="version-name">
+                        Segunda versão
+                    </span>
+
+                    <span class="version-tag">
+                        V2
+                    </span>
+
+                </div>
+
+            </article>
+
+
+            <article class="version">
+
+                <div class="version-image">
+
+                    <img
+                        src="v3.png"
+                        alt="Terceira versão do aplicativo Mulher Amparada"
+                        loading="lazy"
+                    >
+
+                </div>
+
+                <div class="version-info">
+
+                    <span class="version-name">
+                        Terceira versão
+                    </span>
+
+                    <span class="version-tag">
+                        V3
+                    </span>
+
+                </div>
+
+            </article>
+
+
+            <article class="version">
+
+                <div class="version-image">
+
+                    <img
+                        src="v4.png"
+                        alt="Versão atual do aplicativo Mulher Amparada"
+                        loading="lazy"
+                    >
+
+                </div>
+
+                <div class="version-info">
+
+                    <span class="version-name">
+                        Versão atual
+                    </span>
+
+                    <span class="version-tag">
+                        V4
+                    </span>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+
+        <div class="note">
+
+            <strong>Observação:</strong>
+            o nome atual do aplicativo é
+            <strong>Mulher Amparada</strong>.
+            IntelliCoreUi corresponde às versões antigas
+            do projeto.
+
+        </div>
+
+    </section>
+
+
+    <footer class="footer">
+
+        Mulher Amparada • Desenvolvimento independente
+
+    </footer>
+
+
+</main>
+
+
+
+<style>
+
+body.fade-out {
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        opacity .26s
+        ease;
+
+}
+
+</style>
+
+
+<script>
+
+let navegando = false;
+
+function sairDaPagina(destino) {
+
+    if (navegando || !destino) {
+        return;
+    }
+
+    navegando = true;
+
+    document.body.classList.add("fade-out");
+
+    setTimeout(function() {
+        window.location.href = destino;
+    }, 260);
+
+}
+
+window.addEventListener("pageshow", function() {
+
+    navegando = false;
+
+    document.body.classList.remove("fade-out");
+
+});
+
+</script>
+</body>
+</html>

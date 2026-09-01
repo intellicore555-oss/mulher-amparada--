@@ -1,0 +1,2676 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<meta
+    name="theme-color"
+    content="#050505"
+>
+
+<meta
+    name="description"
+    content="Tutorial completo de instalação dos aplicativos Flex Column."
+>
+
+<title>Flex Column — Tutorial de instalação</title>
+
+
+<style>
+
+/* =========================================================
+   FONTE
+========================================================= */
+
+@font-face {
+
+    font-family:
+        "Quicksand";
+
+    src:
+        url("font.ttf")
+        format("truetype");
+
+    font-display:
+        swap;
+}
+
+
+/* =========================================================
+   VARIÁVEIS
+========================================================= */
+
+:root {
+
+    --bg:
+        #050505;
+
+    --surface:
+        #0d0d0e;
+
+    --surface-2:
+        #111112;
+
+    --text:
+        #f8f6f7;
+
+    --text-2:
+        #e2dce0;
+
+    --muted:
+        #938b90;
+
+    --muted-2:
+        #676065;
+
+    --line:
+        rgba(255,255,255,.065);
+
+    --line-strong:
+        rgba(255,255,255,.11);
+
+    --pink:
+        #ffabc9;
+
+    --pink-light:
+        #ffc4d9;
+
+    --pink-dark:
+        #c96d91;
+
+    --warning:
+        #12090d;
+
+    --warning-line:
+        rgba(255,171,201,.15);
+
+    --radius:
+        24px;
+
+    --max:
+        880px;
+
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*,
+*::before,
+*::after {
+
+    box-sizing:
+        border-box;
+
+    margin:
+        0;
+
+    padding:
+        0;
+
+}
+
+
+/* =========================================================
+   HTML
+========================================================= */
+
+html {
+
+    background:
+        #050505;
+
+    scroll-behavior:
+        smooth;
+
+}
+
+
+/* =========================================================
+   FADE UP
+========================================================= */
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+        
+
+    }
+
+    to {
+
+        opacity:
+            1;
+
+        
+
+    }
+
+}
+
+
+/* =========================================================
+   BODY
+========================================================= */
+
+body {
+
+    background: #000;
+
+    min-height:
+        100vh;
+
+    margin-left:
+        5%;
+
+    margin-right:
+        5%;
+
+    background:
+        #000;
+
+    color:
+        var(--text);
+
+    font-family:
+        "Quicksand",
+        
+        sans-serif;
+
+    overflow-x:
+        hidden;
+
+    -webkit-font-smoothing:
+        antialiased;
+
+    text-rendering:
+        optimizeLegibility;
+
+    animation:
+        fadeUp
+        .55s
+        ease
+        both;
+
+}
+
+
+/* =========================================================
+   SELEÇÃO
+========================================================= */
+
+::selection {
+
+    background:
+        var(--pink);
+
+    color:
+        #000;
+
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+main {
+
+    width:
+        min(
+            var(--max),
+            calc(100% - 34px)
+        );
+
+    margin:
+        auto;
+
+    padding:
+        28px
+        0
+        100px;
+
+}
+
+
+/* =========================================================
+   TOPO
+========================================================= */
+
+.topbar {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        20px;
+
+    margin-bottom:
+        17px;
+
+    color:
+        var(--muted-2);
+
+    font-size:
+        9px;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        1.8px;
+
+    text-transform:
+        uppercase;
+
+}
+
+
+.topbar span:last-child {
+
+    color:
+        var(--pink-dark);
+
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+
+    padding:
+        30px;
+
+    margin-bottom:
+        14px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.038),
+            rgba(255,255,255,.009)
+        );
+
+    border:
+        1px solid
+        var(--line);
+
+    border-radius:
+        30px;
+
+    box-shadow:
+
+        0 24px 80px
+        rgba(0,0,0,.3);
+
+}
+
+
+/* =========================================================
+   HERO TAG
+========================================================= */
+
+.hero-tag {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    min-height:
+        28px;
+
+    padding:
+        0 12px;
+
+    margin-bottom:
+        17px;
+
+    color:
+        var(--pink);
+
+    background:
+        rgba(255,171,201,.07);
+
+    border:
+        1px solid
+        rgba(255,171,201,.12);
+
+    border-radius:
+        999px;
+
+    font-size:
+        9px;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        2px;
+
+    text-transform:
+        uppercase;
+
+}
+
+
+/* =========================================================
+   HERO TÍTULO
+========================================================= */
+
+.hero h1 {
+
+    max-width:
+        760px;
+
+    color:
+        var(--text);
+
+    font-size:
+        clamp(
+            34px,
+            7vw,
+            57px
+        );
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        -2.6px;
+
+    line-height:
+        .98;
+
+}
+
+
+.hero-description {
+
+    max-width:
+        650px;
+
+    margin:
+        19px
+        0
+        0;
+
+    color:
+        var(--muted);
+
+    font-size:
+        14px;
+
+    font-weight:
+        500;
+
+    line-height:
+        1.75;
+
+}
+
+
+/* =========================================================
+   PROGRESSO
+========================================================= */
+
+.progress-box {
+
+    margin-top:
+        27px;
+
+    padding-top:
+        22px;
+
+    border-top:
+        1px solid
+        var(--line);
+
+}
+
+
+.progress-info {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    margin-bottom:
+        10px;
+
+    color:
+        var(--muted-2);
+
+    font-size:
+        9px;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        1.5px;
+
+    text-transform:
+        uppercase;
+
+}
+
+
+.progress-info strong {
+
+    color:
+        var(--pink);
+
+}
+
+
+.progress-track {
+
+    width:
+        100%;
+
+    height:
+        5px;
+
+    background:
+        #1a1719;
+
+    border-radius:
+        999px;
+
+    overflow:
+        hidden;
+
+}
+
+
+.progress-bar {
+
+    width:
+        0%;
+
+    height:
+        100%;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            var(--pink-dark),
+            var(--pink)
+        );
+
+    border-radius:
+        inherit;
+
+    transition:
+        width .25s ease;
+
+}
+
+
+/* =========================================================
+   NAVEGAÇÃO
+========================================================= */
+
+.steps-nav {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap:
+        8px;
+
+    margin-bottom:
+        35px;
+
+    padding:
+        8px;
+
+    background:
+        rgba(255,255,255,.018);
+
+    border:
+        1px solid
+        var(--line);
+
+    border-radius:
+        20px;
+
+}
+
+
+.step-link {
+
+    min-height:
+        42px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    padding:
+        0 8px;
+
+    color:
+        var(--muted-2);
+
+    background:
+        transparent;
+
+    border:
+        0;
+
+    border-radius:
+        13px;
+
+    font-family:
+        inherit;
+
+    font-size:
+        9px;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        1px;
+
+    text-transform:
+        uppercase;
+
+    cursor:
+        pointer;
+
+    transition:
+        background .2s ease,
+        color .2s ease;
+
+}
+
+
+.step-link:hover {
+
+    color:
+        var(--text-2);
+
+    background:
+        rgba(255,255,255,.04);
+
+}
+
+
+.step-link.active {
+
+    color:
+        #090708;
+
+    background:
+        var(--pink);
+
+    box-shadow:
+        0 5px 18px
+        rgba(255,171,201,.14);
+
+}
+
+
+/* =========================================================
+   SEÇÕES
+========================================================= */
+
+.section {
+
+    scroll-margin-top:
+        20px;
+
+    margin-bottom:
+        42px;
+
+}
+
+
+.section:last-of-type {
+
+    margin-bottom:
+        0;
+
+}
+
+
+.section-header {
+
+    display:
+        flex;
+
+    align-items:
+        flex-end;
+
+    justify-content:
+        space-between;
+
+    gap:
+        20px;
+
+    margin:
+        0 2px 13px;
+
+}
+
+
+.section-title {
+
+    color:
+        var(--text);
+
+    font-size:
+        20px;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        -.5px;
+
+}
+
+
+.section-description {
+
+    margin-top:
+        4px;
+
+    color:
+        var(--muted-2);
+
+    font-size:
+        11px;
+
+    font-weight:
+        600;
+
+    line-height:
+        1.5;
+
+}
+
+
+.section-number {
+
+    flex:
+        0 0 auto;
+
+    color:
+        var(--pink-dark);
+
+    font-size:
+        10px;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        1px;
+
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.text-card {
+
+    position:
+        relative;
+
+    margin-bottom:
+        12px;
+
+    padding:
+        22px 24px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.027),
+            rgba(255,255,255,.008)
+        ),
+
+        var(--surface);
+
+    border:
+        1px solid
+        var(--line);
+
+    border-radius:
+        var(--radius);
+
+    box-shadow:
+        0 10px 35px
+        rgba(0,0,0,.18);
+
+    transition:
+        transform .25s
+        cubic-bezier(.2,.8,.2,1),
+        background .25s ease,
+        border-color .25s ease,
+        box-shadow .25s ease;
+
+}
+
+
+.text-card:hover {
+
+    transform:
+        translateY(-2px);
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.042),
+            rgba(255,255,255,.01)
+        ),
+
+        var(--surface-2);
+
+    border-color:
+        var(--line-strong);
+
+    box-shadow:
+        0 17px 45px
+        rgba(0,0,0,.25);
+
+}
+
+
+.text-card p {
+
+    color:
+        var(--text-2);
+
+    font-size:
+        16px;
+
+    font-weight:
+        600;
+
+    line-height:
+        1.76;
+
+}
+
+
+/* =========================================================
+   CARD PRINCIPAL
+========================================================= */
+
+.text-card.first {
+
+    padding:
+        25px 26px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(255,171,201,.075),
+            rgba(255,255,255,.012)
+        ),
+
+        var(--surface);
+
+    border-color:
+        rgba(255,171,201,.14);
+
+}
+
+
+.text-card.first p {
+
+    color:
+        #fff;
+
+    font-size:
+        clamp(
+            18px,
+            3vw,
+            23px
+        );
+
+    font-weight:
+        800;
+
+    line-height:
+        1.55;
+
+}
+
+
+/* =========================================================
+   LABEL
+========================================================= */
+
+.card-label {
+
+    display:
+        block;
+
+    margin-bottom:
+        10px;
+
+    color:
+        var(--pink-dark);
+
+    font-size:
+        9px;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        1.7px;
+
+    text-transform:
+        uppercase;
+
+}
+
+
+/* =========================================================
+   WARNING
+========================================================= */
+
+.warning {
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(255,171,201,.055),
+            rgba(255,255,255,.007)
+        ),
+
+        var(--warning);
+
+    border-color:
+        var(--warning-line);
+
+}
+
+
+.warning .card-label {
+
+    color:
+        var(--pink);
+
+}
+
+
+.warning p {
+
+    color:
+        #e5dee1;
+
+}
+
+
+/* =========================================================
+   IMPORTANT
+========================================================= */
+
+.important {
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(255,171,201,.09),
+            rgba(255,255,255,.01)
+        ),
+
+        #10090d;
+
+    border-color:
+        rgba(255,171,201,.17);
+
+}
+
+
+.important .card-label {
+
+    color:
+        var(--pink);
+
+}
+
+
+.important p {
+
+    color:
+        #f5e9ee;
+
+}
+
+
+/* =========================================================
+   IMAGENS
+========================================================= */
+
+.image-card {
+
+    margin:
+        5px 0 22px;
+
+    padding:
+        9px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            #131113,
+            #080808
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,.075);
+
+    border-radius:
+        27px;
+
+    box-shadow:
+
+        0 25px 80px
+        rgba(0,0,0,.48),
+
+        inset 0 1px 0
+        rgba(255,255,255,.025);
+
+    overflow:
+        hidden;
+
+}
+
+
+.image-label {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    min-height:
+        34px;
+
+    padding:
+        0 6px 7px;
+
+    color:
+        var(--muted-2);
+
+    font-size:
+        9px;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        1.5px;
+
+    text-transform:
+        uppercase;
+
+}
+
+
+.image-label span:last-child {
+
+    color:
+        var(--pink-dark);
+
+}
+
+
+.image-card img {
+
+    display:
+        block;
+
+    width:
+        100%;
+
+    height:
+        auto;
+
+    max-height:
+        900px;
+
+    object-fit:
+        contain;
+
+    background:
+        #000;
+
+    border-radius:
+        18px;
+
+    box-shadow:
+        0 5px 25px
+        rgba(0,0,0,.4);
+
+}
+
+
+/* =========================================================
+   FINAL
+========================================================= */
+
+.final-box {
+
+    margin-top:
+        16px;
+
+    padding:
+        28px;
+
+    text-align:
+        center;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(255,171,201,.075),
+            rgba(255,255,255,.012)
+        );
+
+    border:
+        1px solid
+        rgba(255,171,201,.13);
+
+    border-radius:
+        27px;
+
+}
+
+
+.final-box h2 {
+
+    color:
+        var(--text);
+
+    font-size:
+        22px;
+
+    font-weight:
+        900;
+
+}
+
+
+.final-box p {
+
+    max-width:
+        600px;
+
+    margin:
+        10px auto 0;
+
+    color:
+        var(--muted);
+
+    font-size:
+        13px;
+
+    line-height:
+        1.7;
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+
+    margin-top:
+        55px;
+
+    padding-top:
+        24px;
+
+    border-top:
+        1px solid
+        var(--line);
+
+    color:
+        var(--muted-2);
+
+    font-size:
+        10px;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        2px;
+
+    text-align:
+        center;
+
+    text-transform:
+        uppercase;
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    main {
+
+        width:
+            calc(100% - 16px);
+
+        padding:
+            17px 0 65px;
+
+    }
+
+
+    .hero {
+
+        padding:
+            22px 19px 21px;
+
+        margin-bottom:
+            10px;
+
+        border-radius:
+            24px;
+
+    }
+
+
+    .hero-tag {
+
+        min-height:
+            25px;
+
+        padding:
+            0 9px;
+
+        margin-bottom:
+            14px;
+
+        font-size:
+            8px;
+
+    }
+
+
+    .hero h1 {
+
+        font-size:
+            32px;
+
+        letter-spacing:
+            -1.6px;
+
+    }
+
+
+    .hero-description {
+
+        margin-top:
+            15px;
+
+        font-size:
+            13px;
+
+        line-height:
+            1.7;
+
+    }
+
+
+    .progress-box {
+
+        margin-top:
+            21px;
+
+        padding-top:
+            18px;
+
+    }
+
+
+    .steps-nav {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        margin-bottom:
+            27px;
+
+        padding:
+            6px;
+
+        border-radius:
+            17px;
+
+    }
+
+
+    .step-link {
+
+        min-height:
+            38px;
+
+        border-radius:
+            11px;
+
+        font-size:
+            8px;
+
+    }
+
+
+    .section {
+
+        margin-bottom:
+            34px;
+
+    }
+
+
+    .section-title {
+
+        font-size:
+            18px;
+
+    }
+
+
+    .section-description {
+
+        font-size:
+            10px;
+
+    }
+
+
+    .section-number {
+
+        font-size:
+            9px;
+
+    }
+
+
+    .text-card {
+
+        padding:
+            19px 18px;
+
+        border-radius:
+            19px;
+
+    }
+
+
+    .text-card p {
+
+        font-size:
+            15px;
+
+        line-height:
+            1.7;
+
+    }
+
+
+    .text-card.first {
+
+        padding:
+            22px 20px;
+
+    }
+
+
+    .text-card.first p {
+
+        font-size:
+            18px;
+
+    }
+
+
+    .image-card {
+
+        margin:
+            3px 0 15px;
+
+        padding:
+            7px;
+
+        border-radius:
+            21px;
+
+    }
+
+
+    .image-label {
+
+        min-height:
+            28px;
+
+        padding:
+            0 4px 6px;
+
+        font-size:
+            8px;
+
+    }
+
+
+    .image-card img {
+
+        border-radius:
+            14px;
+
+    }
+
+
+    .final-box {
+
+        padding:
+            24px 18px;
+
+        border-radius:
+            22px;
+
+    }
+
+
+    .final-box h2 {
+
+        font-size:
+            20px;
+
+    }
+
+
+    .final-box p {
+
+        font-size:
+            12px;
+
+    }
+
+}
+
+
+/* =========================================================
+   TELAS MUITO PEQUENAS
+========================================================= */
+
+@media (max-width: 360px) {
+
+    main {
+
+        width:
+            calc(100% - 12px);
+
+    }
+
+
+    .hero {
+
+        padding:
+            19px 16px;
+
+    }
+
+
+    .hero h1 {
+
+        font-size:
+            29px;
+
+    }
+
+
+    .steps-nav {
+
+        gap:
+            5px;
+
+    }
+
+
+    .text-card {
+
+        margin-top:
+            20px;
+
+        margin-bottom:
+            20px;
+
+        padding:
+            17px 16px;
+
+        border-radius:
+            17px;
+
+    }
+
+
+    .text-card.first {
+
+        padding:
+            20px 18px;
+
+    }
+
+
+    .text-card p {
+
+        font-size:
+            14.5px;
+
+    }
+
+
+    .text-card.first p {
+
+        font-size:
+            17px;
+
+    }
+
+
+    .image-card {
+
+        padding:
+            6px;
+
+        border-radius:
+            18px;
+
+    }
+
+
+    .image-card img {
+
+        border-radius:
+            12px;
+
+    }
+
+}
+
+
+/* =========================================================
+   SEM HOVER
+========================================================= */
+
+@media (hover: none) {
+
+    .text-card:hover {
+
+        transform:
+            none;
+
+        background:
+
+            linear-gradient(
+                145deg,
+                rgba(255,255,255,.027),
+                rgba(255,255,255,.008)
+            ),
+
+            var(--surface);
+
+        border-color:
+            var(--line);
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<main>
+
+
+<!-- =======================================================
+     HERO
+======================================================= -->
+
+<header class="hero">
+
+    <span class="hero-tag">
+        Tutorial
+    </span>
+
+    <h1>
+        Instalação dos aplicativos
+    </h1>
+
+    <p class="hero-description">
+        Siga as etapas abaixo com atenção e leia os avisos
+        apresentados pelo Android antes de continuar.
+    </p>
+
+
+    <div class="progress-box">
+
+        <div class="progress-info">
+
+            <span>
+                Progresso do tutorial
+            </span>
+
+            <strong id="progressText">
+                0%
+            </strong>
+
+        </div>
+
+
+        <div class="progress-track">
+
+            <div
+                class="progress-bar"
+                id="progressBar"
+            ></div>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- =======================================================
+     NAVEGAÇÃO
+======================================================= -->
+
+<nav
+    class="steps-nav"
+    aria-label="Etapas do tutorial"
+>
+
+    <button
+        class="step-link active"
+        type="button"
+                style="border-radius: 200px;"
+        data-target="step-1"
+    >
+        Início
+    </button>
+
+
+    <button
+        class="step-link"
+        style="border-radius: 200px;"
+                type="button"
+        data-target="step-2"
+    >
+        Download
+    </button>
+
+
+    <button
+        class="step-link"
+        type="button"
+                style="border-radius: 200px;"
+        data-target="step-3"
+    >
+        Instalação
+    </button>
+
+
+    <button
+        class="step-link"
+        type="button"
+        data-target="step-4"
+                style="border-radius: 200px;"
+    >
+        Segurança
+    </button>
+
+</nav>
+
+
+<!-- =======================================================
+     ETAPA 01
+======================================================= -->
+
+<section
+    class="section"
+    id="step-1"
+>
+
+
+    <div class="section-header">
+
+        <div>
+
+            <h2 class="section-title">
+                Primeiros passos
+            </h2>
+
+            <p class="section-description">
+                Acesse a área inicial do site.
+            </p>
+
+        </div>
+
+        <span class="section-number">
+            01
+        </span>
+
+    </div>
+
+
+    <article class="text-card first">
+
+        <p>
+            Ao entrar no site, esta será a tela inicial:
+        </p>
+
+    </article>
+
+
+    <div class="image-card">
+
+        <div class="image-label">
+
+            <span>
+                Tela inicial
+            </span>
+
+            <span>
+                01
+            </span>
+
+        </div>
+
+
+        <img
+            src="tutorial1.png"
+            alt="Tela inicial do site"
+            loading="eager"
+            decoding="async"
+        >
+
+    </div>
+
+
+    <article class="text-card">
+
+        <p>
+            Toque no botão indicado, leia os termos com atenção e aceite apenas se estiver de acordo.
+        </p>
+
+    </article>
+
+</section>
+
+
+<!-- =======================================================
+     ETAPA 02
+======================================================= -->
+
+<section
+    class="section"
+    id="step-2"
+>
+
+
+    <div class="section-header">
+
+        <div>
+
+            <h2 class="section-title">
+                Download
+            </h2>
+
+            <p class="section-description">
+                Encontre a versão desejada e inicie o download.
+            </p>
+
+        </div>
+
+        <span class="section-number">
+            02
+        </span>
+
+    </div>
+
+
+    <article class="text-card">
+
+        <p>
+            Depois disso, vá no topo do site, clique no botão da área de download e leia os avisos.
+        </p>
+
+    </article>
+
+
+    <article class="text-card">
+
+        <p>
+            Você encontrará esta seção:
+        </p>
+
+    </article>
+
+
+    <div class="image-card">
+
+        <div class="image-label">
+
+            <span>
+                Área de downloads
+            </span>
+
+            <span>
+                02
+            </span>
+
+        </div>
+
+
+        <img
+            src="tutorial2.png"
+            alt="Seção de downloads"
+            loading="lazy"
+            decoding="async"
+        >
+
+    </div>
+
+
+    <article class="text-card">
+
+        <p>
+            Escolha a versão que preferir. A versão recomendada normalmente oferece mais estabilidade e compatibilidade.
+        </p>
+
+    </article>
+
+
+    <article class="text-card">
+
+        <p>
+            Em seguida, toque no botão de download.
+        </p>
+
+    </article>
+
+
+    <div class="image-card">
+
+        <div class="image-label">
+
+            <span>
+                Download
+            </span>
+
+            <span>
+                03
+            </span>
+
+        </div>
+
+
+        <img
+            src="tutorial3.png"
+            alt="Botão de download"
+            loading="lazy"
+            decoding="async"
+        >
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     ETAPA 03
+======================================================= -->
+
+<section
+    class="section"
+    id="step-3"
+>
+
+
+    <div class="section-header">
+
+        <div>
+
+            <h2 class="section-title">
+                Instalação
+            </h2>
+
+            <p class="section-description">
+                Siga as instruções exibidas pelo Android.
+            </p>
+
+        </div>
+
+        <span class="section-number">
+            03
+        </span>
+
+    </div>
+
+
+    <article class="text-card warning">
+
+        <span class="card-label">
+            Aviso do Android
+        </span>
+
+        <p>
+            O Android pode exibir um aviso informando que aplicativos baixados fora da loja oficial podem representar riscos.
+        </p>
+
+    </article>
+
+
+    <article class="text-card">
+
+        <p>
+            Isso acontece porque o arquivo não foi instalado pela loja oficial do dispositivo.
+        </p>
+
+    </article>
+
+
+    <article class="text-card warning">
+
+        <span class="card-label">
+            Atenção
+        </span>
+
+        <p>
+            Instale apenas se você confiar totalmente na origem do aplicativo.
+        </p>
+
+    </article>
+
+
+    <article class="text-card">
+
+        <p>
+            Durante a instalação, o sistema pode solicitar autorização para instalar aplicativos do navegador ou permitir “fontes desconhecidas”.
+        </p>
+
+    </article>
+
+
+    <article class="text-card">
+
+        <p>
+            Essa opção existe para instalações manuais de arquivos APK.
+        </p>
+
+    </article>
+
+
+    <article class="text-card">
+
+        <p>
+            Se decidir continuar, siga as instruções exibidas pelo Android.
+        </p>
+
+    </article>
+
+
+    <article class="text-card warning">
+
+        <span class="card-label">
+            Segurança
+        </span>
+
+        <p>
+            Pode aparecer esse aviso durante a instalação. Siga as instruções de segurança do Android e continue apenas se confiar na fonte do aplicativo.
+        </p>
+
+    </article>
+
+
+    <div class="image-card">
+
+        <div class="image-label">
+
+            <span>
+                Tela de instalação
+            </span>
+
+            <span>
+                04
+            </span>
+
+        </div>
+
+
+        <img
+            src="10.png"
+            alt="Tela de instalação"
+            loading="lazy"
+            decoding="async"
+        >
+
+    </div>
+
+
+    <article class="text-card">
+
+        <p>
+            Senão, prossiga assim:
+        </p>
+
+    </article>
+
+
+    <article class="text-card">
+
+        <p>
+            Depois disso, poderá aparecer esta tela:
+        </p>
+
+    </article>
+
+
+    <div class="image-card">
+
+        <div class="image-label">
+
+            <span>
+                Permissão
+            </span>
+
+            <span>
+                05
+            </span>
+
+        </div>
+
+
+        <img
+            src="tutorial4.png"
+            alt="Tela de permissão"
+            loading="lazy"
+            decoding="async"
+        >
+
+    </div>
+
+
+    <article class="text-card">
+
+        <p>
+            Siga os passos mostrados na imagem.
+        </p>
+
+    </article>
+
+
+    <article class="text-card">
+
+        <p>
+            Em seguida, outra confirmação pode aparecer:
+        </p>
+
+    </article>
+
+
+    <div class="image-card">
+
+        <div class="image-label">
+
+            <span>
+                Confirmação
+            </span>
+
+            <span>
+                06
+            </span>
+
+        </div>
+
+
+        <img
+            src="tutorial5.png"
+            alt="Segunda confirmação"
+            loading="lazy"
+            decoding="async"
+        >
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     ETAPA 04
+======================================================= -->
+
+<section
+    class="section"
+    id="step-4"
+>
+
+
+    <div class="section-header">
+
+        <div>
+
+            <h2 class="section-title">
+                Segurança
+            </h2>
+
+            <p class="section-description">
+                Revise os avisos antes de concluir.
+            </p>
+
+        </div>
+
+        <span class="section-number">
+            04
+        </span>
+
+    </div>
+
+
+    <article class="text-card warning">
+
+        <span class="card-label">
+            Play Protect
+        </span>
+
+        <p>
+            Também é normal que o Google Play Protect exiba um aviso de segurança.
+        </p>
+
+    </article>
+
+
+    <article class="text-card">
+
+        <p>
+            Você pode revisar as informações do aplicativo antes de decidir instalar.
+        </p>
+
+    </article>
+
+
+    <article class="text-card">
+
+        <p>
+            Exemplo:
+        </p>
+
+    </article>
+
+
+    <div class="image-card">
+
+        <div class="image-label">
+
+            <span>
+                Play Protect
+            </span>
+
+            <span>
+                07
+            </span>
+
+        </div>
+
+
+        <img
+            src="tutorial7.png"
+            alt="Aviso do Play Protect"
+            loading="lazy"
+            decoding="async"
+        >
+
+    </div>
+
+
+    <div class="image-card">
+
+        <div class="image-label">
+
+            <span>
+                Play Protect
+            </span>
+
+            <span>
+                08
+            </span>
+
+        </div>
+
+
+        <img
+            src="tutorial8.png"
+            alt="Segundo aviso do Play Protect"
+            loading="lazy"
+            decoding="async"
+        >
+
+    </div>
+
+
+    <div class="image-card">
+
+        <div class="image-label">
+
+            <span>
+                Play Protect
+            </span>
+
+            <span>
+                09
+            </span>
+
+        </div>
+
+
+        <img
+            src="tutorial9.png"
+            alt="Terceiro aviso do Play Protect"
+            loading="lazy"
+            decoding="async"
+        >
+
+    </div>
+
+
+    <article class="text-card warning">
+
+        <span class="card-label">
+            Importante
+        </span>
+
+        <p>
+            Leia todos os avisos com atenção e continue apenas se confiar no aplicativo e compreender os riscos envolvidos.
+        </p>
+
+    </article>
+
+
+    <article class="text-card important">
+
+        <span class="card-label">
+            Compatibilidade
+        </span>
+
+        <p>
+            Você poderá usar esse tutorial para todos os 3 apps. Porém, no app de assistente o sistema pode bloquear a instalação. Sempre siga as instruções do Android.
+        </p>
+
+    </article>
+
+
+    <article class="text-card important">
+
+        <span class="card-label">
+            Informação técnica
+        </span>
+
+        <p>
+            Não se preocupe se algum dos apps mostrar que foi instalado e não aparecer na tela de aplicativos. Isso acontece porque as Activities deles não possuem os filtros MAIN e LAUNCHER. Elas são abertas por Intent e, por isso, não aparecem normalmente na tela de aplicativos.
+        </p>
+
+    </article>
+
+
+    <div class="final-box">
+
+        <h2>
+            Instalação concluída
+        </h2>
+
+        <p>
+            Revise as permissões e os avisos do Android antes de utilizar os aplicativos.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     FOOTER
+======================================================= -->
+
+<footer>
+
+    Flex Column • Tutorial de instalação
+
+</footer>
+
+
+</main>
+
+
+<script>
+
+/* =========================================================
+   PROGRESSO
+========================================================= */
+
+const progressBar =
+    document.getElementById(
+        "progressBar"
+    );
+
+const progressText =
+    document.getElementById(
+        "progressText"
+    );
+
+let progressTicking =
+    false;
+
+
+function updateProgress() {
+
+    const scrollTop =
+        window.scrollY;
+
+    const documentHeight =
+        document.documentElement
+            .scrollHeight;
+
+    const viewportHeight =
+        window.innerHeight;
+
+    const total =
+        documentHeight -
+        viewportHeight;
+
+
+    const percentage =
+        total > 0
+            ? (scrollTop / total) * 100
+            : 0;
+
+
+    const value =
+        Math.min(
+            100,
+            Math.max(
+                0,
+                percentage
+            )
+        );
+
+
+    if (progressBar) {
+
+        progressBar.style.width =
+            value + "%";
+
+    }
+
+
+    if (progressText) {
+
+        progressText.textContent =
+            Math.round(value) + "%";
+
+    }
+
+}
+
+
+/* =========================================================
+   SCROLL
+========================================================= */
+
+function requestProgressUpdate() {
+
+    if (progressTicking) {
+        return;
+    }
+
+
+    progressTicking =
+        true;
+
+
+    requestAnimationFrame(() => {
+
+        updateProgress();
+
+        progressTicking =
+            false;
+
+    });
+
+}
+
+
+window.addEventListener(
+    "scroll",
+    requestProgressUpdate,
+    {
+        passive: true
+    }
+);
+
+
+window.addEventListener(
+    "resize",
+    requestProgressUpdate,
+    {
+        passive: true
+    }
+);
+
+
+updateProgress();
+
+
+/* =========================================================
+   NAVEGAÇÃO
+========================================================= */
+
+const stepLinks =
+    document.querySelectorAll(
+        ".step-link"
+    );
+
+
+stepLinks.forEach(link => {
+
+    link.addEventListener(
+        "click",
+        event => {
+
+            event.preventDefault();
+
+
+            const targetId =
+                link.dataset.target;
+
+
+            const target =
+                document.getElementById(
+                    targetId
+                );
+
+
+            if (!target) {
+                return;
+            }
+
+
+            target.scrollIntoView({
+
+                behavior:
+                    "smooth",
+
+                block:
+                    "start"
+
+            });
+
+
+            stepLinks.forEach(item => {
+
+                item.classList.toggle(
+                    "active",
+                    item === link
+                );
+
+            });
+
+        }
+    );
+
+});
+
+
+/* =========================================================
+   SEÇÃO ATIVA
+========================================================= */
+
+const sections =
+    document.querySelectorAll(
+        ".section"
+    );
+
+
+let activeSection =
+    "step-1";
+
+
+const sectionObserver =
+    new IntersectionObserver(
+
+        entries => {
+
+            const visibleSections =
+                entries
+
+                    .filter(
+                        entry =>
+                            entry.isIntersecting
+                    )
+
+                    .sort(
+                        (a, b) =>
+                            b.intersectionRatio -
+                            a.intersectionRatio
+                    );
+
+
+            if (
+                visibleSections.length === 0
+            ) {
+
+                return;
+
+            }
+
+
+            const section =
+                visibleSections[0]
+                    .target;
+
+
+            const id =
+                section.id;
+
+
+            if (
+                id === activeSection
+            ) {
+
+                return;
+
+            }
+
+
+            activeSection =
+                id;
+
+
+            stepLinks.forEach(link => {
+
+                link.classList.toggle(
+
+                    "active",
+
+                    link.dataset.target === id
+
+                );
+
+            });
+
+        },
+
+        {
+
+            threshold: [
+                .15,
+                .25,
+                .4,
+                .6,
+                .8
+            ],
+
+            rootMargin:
+                "-12% 0px -50% 0px"
+
+        }
+
+    );
+
+
+sections.forEach(section => {
+
+    sectionObserver.observe(
+        section
+    );
+
+});
+
+
+/* =========================================================
+   INICIALIZAÇÃO
+========================================================= */
+
+window.addEventListener(
+    "load",
+    () => {
+
+        updateProgress();
+
+    },
+    {
+        once:
+            true
+    }
+);
+
+</script>
+
+<style>
+
+body.fade-out {
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        opacity .26s
+        ease;
+
+}
+
+</style>
+
+
+<script>
+
+let navegando = false;
+
+function sairDaPagina(destino) {
+
+    if (navegando || !destino) {
+        return;
+    }
+
+    navegando = true;
+
+    document.body.classList.add("fade-out");
+
+    setTimeout(function() {
+        window.location.href = destino;
+    }, 260);
+
+}
+
+window.addEventListener("pageshow", function() {
+
+    navegando = false;
+
+    document.body.classList.remove("fade-out");
+
+});
+
+</script>
+
+
+</body>
+
+</html>
