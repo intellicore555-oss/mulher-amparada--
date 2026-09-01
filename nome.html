@@ -14,9 +14,30 @@
 
 <title>Mulher Amparada</title>
 
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<meta
+    name="description"
+    content="Mulher Amparada é um projeto de tecnologia voltado à proteção, segurança e assistência em situações de emergência."
+>
+
+<link
+    rel="apple-touch-icon"
+    sizes="180x180"
+    href="/apple-touch-icon.png"
+>
+
+<link
+    rel="icon"
+    type="image/png"
+    sizes="32x32"
+    href="/favicon-32x32.png"
+>
+
+<link
+    rel="icon"
+    type="image/png"
+    sizes="16x16"
+    href="/favicon-16x16.png"
+>
 
 <style>
 
@@ -55,8 +76,6 @@ body {
     background: #000;
 
     min-height: 100vh;
-
-    background: #000;
 
     color: #fff;
 
@@ -99,7 +118,13 @@ body::before {
     pointer-events: none;
 }
 
-@keyframes fadeUp {
+
+/* =========================================================
+   ANIMAÇÃO
+========================================================= */
+
+@keyframes fadeIn {
+
     from {
         opacity: 0;
     }
@@ -107,15 +132,21 @@ body::before {
     to {
         opacity: 1;
     }
-                
-            }
 
-            to {
-                opacity: 1;
-                
-            }
-        }
-        
+}
+
+@keyframes fadeOut {
+
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+
+}
+
 
 /* =========================================================
    CONTAINER
@@ -124,8 +155,7 @@ body::before {
 .container {
 
     width: min(100%, 720px);
-animation:
-                fadeUp 0.55s ease both;
+
     min-height: 100vh;
 
     margin: auto;
@@ -144,6 +174,21 @@ animation:
     justify-content: center;
 
     text-align: center;
+
+    animation:
+        fadeIn .55s ease both;
+}
+
+
+/* =========================================================
+   FADE OUT
+========================================================= */
+
+body.fade-out .container {
+
+    animation:
+        fadeOut .26s ease both;
+
 }
 
 
@@ -188,13 +233,12 @@ animation:
     border-radius: 50%;
 
     isolation: isolate;
-
-    animation:
-        avatarFloat 6s ease-in-out infinite;
 }
 
 
-/* Anel externo */
+/* =========================================================
+   ANEL EXTERNO
+========================================================= */
 
 .avatar::before {
 
@@ -211,7 +255,9 @@ animation:
 }
 
 
-/* Halo */
+/* =========================================================
+   HALO
+========================================================= */
 
 .avatar::after {
 
@@ -386,39 +432,6 @@ animation:
 
 
 /* =========================================================
-   ANIMAÇÃO
-========================================================= */
-
-@keyframes avatarFloat {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-    }
-
-    50% {
-        transform: translateY(-6px);
-    }
-
-}
-
-
-/* =========================================================
-   REDUÇÃO DE MOVIMENTO
-========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-    .avatar {
-        animation: none;
-    }
-}
-
-
-/* =========================================================
    MOBILE
 ========================================================= */
 
@@ -428,8 +441,6 @@ animation:
 
         padding-left: 18px;
         padding-right: 18px;
-        animation:
-                fadeUp 0.55s ease both;
     }
 
     .brand {
@@ -466,18 +477,12 @@ animation:
 
 </style>
 
-    <meta
-        name="description"
-        content="Mulher Amparada é um projeto de tecnologia voltado à proteção, segurança e assistência em situações de emergência."
-    >
-
 </head>
 
 
 <body>
 
 <main class="container">
-
 
 
     <div class="avatar">
@@ -493,8 +498,10 @@ animation:
 
 
     <p class="text-top">
+
         Um espaço criado para lembrar que segurança,
         autonomia e liberdade caminham juntas.
+
     </p>
 
 
@@ -513,35 +520,21 @@ animation:
 
 
     <p class="message">
+
         Tecnologia para apoiar escolhas, fortalecer a autonomia
         e tornar cada caminho um pouco mais seguro.
+
     </p>
 
 
     <footer class="footer">
+
         Liberdade • Autonomia • Proteção
+
     </footer>
 
 
 </main>
-
-
-
-<style>
-
-body.fade-out {
-
-    opacity: 0;
-
-    pointer-events: none;
-
-    transition:
-        opacity .26s
-        ease;
-
-}
-
-</style>
 
 
 <script>
@@ -559,7 +552,9 @@ function sairDaPagina(destino) {
     document.body.classList.add("fade-out");
 
     setTimeout(function() {
+
         window.location.href = destino;
+
     }, 260);
 
 }
@@ -573,5 +568,7 @@ window.addEventListener("pageshow", function() {
 });
 
 </script>
+
 </body>
+
 </html>
