@@ -1,0 +1,1692 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#09090d"
+    >
+
+    <title>Mulher Amparada — Proteção, Segurança e Emergência</title>
+
+    <meta
+        name="description"
+        content="Mulher Amparada é um projeto de tecnologia voltado à proteção, segurança e assistência em situações de emergência."
+    >
+    
+    <meta
+        name="author"
+        content="Mulher Amparada"
+    >
+
+    <meta
+        name="application-name"
+        content="Mulher Amparada"
+    >
+
+    <!-- Google Search Console -->
+
+    <meta
+        name="google-site-verification"
+        content="e34arcSd3RmEQ6iYX7et3EEZqZAyc92J_BBQFNVgf8A"
+    >
+
+    <!-- Canonical -->
+
+    <link
+        rel="canonical"
+        href="https://mulher-amparada.github.io/mulher-amparada-app/"
+    >
+
+    <!-- Favicon -->
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="favicon.png"
+    >
+
+    <link
+        rel="apple-touch-icon"
+        href="favicon.png"
+    >
+
+
+    <!-- Dados estruturados -->
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Mulher Amparada",
+        "url": "https://mulher-amparada.github.io/mulher-amparada-app/",
+        "description": "Projeto de tecnologia voltado à proteção, segurança e assistência em situações de emergência."
+    }
+    </script>
+
+
+<style>
+
+/* =========================================================
+   FONTE
+========================================================= */
+
+@font-face {
+
+    font-family: "Quicksand";
+
+    src:
+        url("font.ttf")
+        format("truetype");
+
+    font-weight: 400 800;
+
+    font-display: swap;
+
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+
+    box-sizing: border-box;
+
+    margin: 0;
+
+    padding: 0;
+
+    -webkit-tap-highlight-color: transparent;
+
+}
+
+
+html,
+body {
+
+    background: #000;
+
+    color: #fff;
+
+    width: 98%;
+    
+
+    font-family:
+        "Quicksand",
+        Arial,
+        sans-serif;
+
+    overflow-x: hidden;
+
+    padding-bottom:
+        calc(
+            125px +
+            env(safe-area-inset-bottom)
+        );
+
+    background: #000;
+
+}
+
+
+html {
+
+    scroll-behavior: smooth;
+
+}
+
+
+body {
+
+    color: #fff;
+
+width: 98%;
+margin-left: 2%;
+margin-right: 2%;
+    font-family:
+        "Quicksand",
+        Arial,
+        sans-serif;
+
+    overflow-x: hidden;
+
+    padding-bottom:
+        calc(
+            125px +
+            env(safe-area-inset-bottom)
+        );
+
+    /*
+     * FADE-OUT DA PÁGINA INTEIRA
+     */
+
+    opacity: 1;
+
+    transition:
+        opacity .48s
+        cubic-bezier(.22,1,.36,1);
+
+}
+
+
+body.fade-out {
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        opacity .26s
+        ease;
+
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+*::-webkit-scrollbar {
+
+    width: 0;
+
+    height: 0;
+
+    background: transparent;
+
+}
+
+
+* {
+
+    scrollbar-width: none;
+
+}
+
+
+/* =========================================================
+   VARIÁVEIS
+========================================================= */
+
+:root {
+
+    --pink: #ff3f9f;
+
+    --pink-light: #ff6db5;
+
+    --purple: #8b5cf6;
+
+    --blue: #4f8cff;
+
+    --orange: #ff9f43;
+
+    --red: #ff4054;
+
+    --red-dark: #d9273d;
+
+    --green: #32d477;
+
+    --cyan: #27c9c1;
+
+    --text: #f7f7fa;
+
+    --soft: #969baa;
+
+    --muted: #626877;
+
+    --surface: #101218;
+
+    --surface-2: #151720;
+
+    --border:
+        rgba(255,255,255,.075);
+
+}
+
+
+/* =========================================================
+   ENTRADA DO SITE
+========================================================= */
+
+@keyframes pageIn {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+}
+
+
+.mainUI {
+
+    animation:
+        pageIn .55s ease both;
+
+    animation:
+        pageIn .55s ease both;
+
+    animation:
+        pageIn .55s ease both;
+
+    width: 100%;
+
+    max-width: 720px;
+
+    margin: 0 auto;
+
+    padding:
+        28px
+        18px
+        20px;}
+
+
+/* =========================================================
+   CABEÇALHO
+========================================================= */
+
+.hero {
+
+    position: relative;
+
+    padding:
+        30px
+        4px
+        34px;
+
+}
+
+
+.hero::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 3px;
+
+    top: 5px;
+
+    width: 34px;
+
+    height: 4px;
+
+    border-radius: 999px;
+
+    background:
+        var(--pink);
+
+    box-shadow:
+        0 0 16px
+        rgba(255,63,159,.25);
+
+}
+
+
+.hero h1 {
+
+    font-size:
+        clamp(
+            38px,
+            10vw,
+            58px
+        );
+
+    line-height: .98;
+
+    letter-spacing: -2.5px;
+
+    font-weight: 800;
+
+}
+
+
+.hero p {
+
+    max-width: 570px;
+
+    margin-top: 15px;
+
+    color: var(--muted);
+
+    font-size: 13px;
+
+    line-height: 1.7;
+
+}
+
+
+/* =========================================================
+   SEÇÕES
+========================================================= */
+
+.section {
+
+    width: 100%;
+
+    margin-top: 35px;
+
+}
+
+
+.section:first-of-type {
+
+    margin-top: 0;
+
+}
+
+
+.section-label {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin:
+        0 0 12px
+        3px;
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+    letter-spacing: 1.8px;
+
+    text-transform: uppercase;
+
+}
+
+
+.section-label::before {
+
+    content: "";
+
+    width: 5px;
+
+    height: 5px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background:
+        var(--pink);
+
+    box-shadow:
+        0 0 8px
+        rgba(255,63,159,.5);
+
+}
+
+
+/* =========================================================
+   EMERGÊNCIA
+========================================================= */
+
+.emergency-list {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 11px;
+
+}
+
+
+.emergency-button {
+
+    width: 100%;
+
+    min-height: 68px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    padding:
+        12px
+        16px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.07);
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--red),
+            var(--red-dark)
+        );
+
+    color: #fff;
+
+    font-family:
+        "Quicksand",
+        sans-serif;
+
+    cursor: pointer;
+
+    text-align: left;
+
+    box-shadow:
+        0 9px 24px
+        rgba(255,64,84,.12);
+
+    transition:
+        transform .15s ease,
+        filter .15s ease;
+
+}
+
+
+.emergency-button:active {
+
+    transform:
+        scale(.965);
+
+    filter:
+        brightness(1.06);
+
+}
+
+
+.emergency-icon {
+
+    width: 44px;
+
+    height: 44px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 15px;
+
+    background:
+        rgba(0,0,0,.16);
+
+    border:
+        1px solid
+        rgba(255,255,255,.16);
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+}
+
+
+.emergency-info {
+
+    min-width: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+
+}
+
+
+.emergency-title {
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    line-height: 1.3;
+
+}
+
+
+.emergency-subtitle {
+
+    color:
+        rgba(255,255,255,.72);
+
+    font-size: 11px;
+
+    line-height: 1.4;
+
+}
+
+
+.emergency-arrow {
+
+    margin-left: auto;
+
+    color:
+        rgba(255,255,255,.65);
+
+    font-size: 23px;
+
+    line-height: 1;
+
+}
+
+
+/* =========================================================
+   CARDS DOS APLICATIVOS
+========================================================= */
+
+.apps {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 13px;
+
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.app-card {
+
+    position: relative;
+
+    width: 100%;
+
+    min-height: 92px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 17px;
+
+    padding:
+        14px
+        17px;
+
+    overflow: hidden;
+
+    border-radius: 25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #171820,
+            #0e0f14
+        );
+
+    border:
+        1px solid
+        var(--border);
+
+    box-shadow:
+        0 13px 30px
+        rgba(0,0,0,.28),
+
+        0 25px 55px
+        rgba(0,0,0,.20);
+
+    text-decoration: none;
+
+    color: #fff;
+
+    isolation: isolate;
+
+    cursor: pointer;
+
+    transition:
+        transform .18s
+        cubic-bezier(.22,1,.36,1),
+
+        border-color .2s ease,
+
+        background .2s ease,
+
+        box-shadow .2s ease;
+
+}
+
+
+/* =========================================================
+   BOLHA DO CARD
+========================================================= */
+
+.app-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 230px;
+
+    height: 230px;
+
+    top: -150px;
+
+    right: -90px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,.055);
+
+    pointer-events: none;
+
+    z-index: 0;
+
+}
+
+
+/* =========================================================
+   SEGUNDA BOLHA
+========================================================= */
+
+.app-card::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 150px;
+
+    height: 150px;
+
+    right: -80px;
+
+    bottom: -95px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,63,159,.035);
+
+    filter:
+        blur(10px);
+
+    pointer-events: none;
+
+    z-index: 0;
+
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.app-card:hover {
+
+    transform:
+        translateY(-2px);
+
+    border-color:
+        rgba(255,255,255,.14);
+
+    background:
+        linear-gradient(
+            145deg,
+            #1a1c24,
+            #101117
+        );
+
+    box-shadow:
+        0 17px 38px
+        rgba(0,0,0,.34),
+
+        0 30px 65px
+        rgba(0,0,0,.22);
+
+}
+
+
+/* =========================================================
+   ACTIVE
+========================================================= */
+
+.app-card:active {
+
+    transform:
+        scale(.975);
+
+    border-color:
+        rgba(255,63,159,.35);
+
+}
+
+
+/* =========================================================
+   CORES DOS CARDS
+========================================================= */
+
+.app-card.app1::before {
+
+    background:
+        rgba(255,63,159,.065);
+
+}
+
+
+.app-card.app2::before {
+
+    background:
+        rgba(139,92,246,.065);
+
+}
+
+
+.app-card.app3::before {
+
+    background:
+        rgba(39,201,193,.065);
+
+}
+
+
+.app-card.app1:active {
+
+    border-color:
+        rgba(255,63,159,.42);
+
+}
+
+
+.app-card.app2:active {
+
+    border-color:
+        rgba(139,92,246,.42);
+
+}
+
+
+.app-card.app3:active {
+
+    border-color:
+        rgba(39,201,193,.42);
+
+}
+
+
+/* =========================================================
+   IMAGEM DO APP
+========================================================= */
+
+.app-image {
+
+    width: 57px;
+
+    height: 57px;
+
+    flex-shrink: 0;
+
+    object-fit: cover;
+
+    border-radius: 117px;
+
+    position: relative;
+
+    z-index: 2;
+
+    background:
+        #20222b;
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    box-shadow:
+        0 5px 15px
+        rgba(0,0,0,.35);
+
+}
+
+
+/* =========================================================
+   NOME DO APP
+========================================================= */
+
+.app-name {
+
+    position: relative;
+
+    z-index: 2;
+
+    min-width: 0;
+
+    font-size: 16px;
+
+    line-height: 1.25;
+
+    font-weight: 800;
+
+}
+
+
+/* =========================================================
+   SETA
+========================================================= */
+
+.app-arrow {
+
+    position: relative;
+
+    z-index: 2;
+
+    margin-left: auto;
+
+    color: #555b69;
+
+    font-size: 24px;
+
+    line-height: 1;
+
+    transition:
+        transform .18s ease,
+        color .18s ease;
+
+}
+
+
+.app-card:hover .app-arrow {
+
+    transform:
+        translateX(3px);
+
+    color: #858a98;
+
+}
+
+
+
+
+/* =========================================================
+   BOLINHA
+   NÃO SE MOVE
+========================================================= */
+
+.toggle {
+
+    position: fixed;
+
+    z-index: 10000;
+
+    left: 50%;
+
+    bottom:
+        calc(
+            28px +
+            env(safe-area-inset-bottom)
+        );
+
+    width: 62px;
+
+    height: 62px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 7px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.16);
+
+    border-radius: 50%;
+
+    background:
+        #444;
+
+    color: #fff;
+
+    transform:
+        translateX(-50%);
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 30px
+        rgba(0,0,0,.45);
+
+    -webkit-tap-highlight-color: transparent;
+
+    overflow: hidden;
+
+}
+
+
+/* =========================================================
+   PARTE INTERNA
+========================================================= */
+
+.toggle-inner {
+
+    width: 100%;
+
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        #222;
+
+    border:
+        1px solid
+        rgba(255,255,255,.07);
+
+}
+
+
+/* =========================================================
+   SVG
+========================================================= */
+
+.toggle svg {
+
+    width: 25px;
+
+    height: 25px;
+
+    flex-shrink: 0;
+
+    display: block;
+
+    fill: #fff;
+
+}
+
+
+/* =========================================================
+   DESKTOP
+========================================================= */
+
+@media (min-width: 600px) {
+
+    .mainUI {
+
+        padding:
+            35px
+            28px
+            20px;
+
+    }
+
+
+    .app-card {
+
+        min-height: 98px;
+
+        padding:
+            16px
+            20px;
+
+    }
+
+
+    .app-image {
+
+        width: 61px;
+
+        height: 61px;
+
+    }
+
+
+    .app-name {
+
+        font-size: 17px;
+
+    }
+
+}
+
+
+/* =========================================================
+   TELAS PEQUENAS
+========================================================= */
+
+@media (max-width: 360px) {
+
+    .mainUI {
+
+        padding:
+            22px
+            14px
+            15px;
+
+    }
+
+
+    .hero {
+
+        padding-top: 27px;
+
+    }
+
+
+    .hero h1 {
+
+        font-size: 36px;
+
+    }
+
+
+    .app-card {
+
+        min-height: 84px;
+
+        padding:
+            12px
+            14px;
+
+        border-radius: 22px;
+
+        gap: 13px;
+
+    }
+
+
+    .app-image {
+
+        width: 52px;
+
+        height: 52px;
+
+        border-radius: 105px;
+
+    }
+
+
+    .app-name {
+
+        font-size: 14px;
+
+    }
+
+
+    .emergency-button {
+
+        min-height: 63px;
+
+        border-radius: 20px;
+
+    }
+
+
+    .emergency-icon {
+
+        width: 41px;
+
+        height: 41px;
+
+    }
+
+}
+
+
+/* =========================================================
+   FOCO
+========================================================= */
+
+button:focus-visible,
+a:focus-visible {
+
+    outline:
+        2px solid
+        rgba(255,63,159,.8);
+
+    outline-offset: 3px;
+
+}
+
+
+/* =========================================================
+   SELEÇÃO
+========================================================= */
+
+::selection {
+
+    color: #fff;
+
+    background:
+        rgba(255,63,159,.35);
+
+}
+
+p {
+margin-bottom: 5px;
+margin-top; 5px;
+}
+
+a {
+margin-bottom: 5px;
+margin-top; 5px;
+}
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =======================================================
+     INTERFACE
+======================================================== -->
+
+<main
+    class="mainUI"
+    id="mainUI"
+>
+
+
+<!-- =====================================================
+     CABEÇALHO
+====================================================== -->
+
+<header class="hero">
+
+    <h1>
+        Mulher Amparada
+    </h1>
+
+    <p>
+        Acesse rapidamente os serviços de emergência
+        e os aplicativos do projeto.
+    </p>
+
+</header>
+
+
+<!-- =====================================================
+     EMERGÊNCIA
+====================================================== -->
+
+<section class="section">
+
+    <div class="section-label">
+        Emergência
+    </div>
+
+
+    <div class="emergency-list">
+
+
+        <!-- 180 -->
+
+        <button
+            class="emergency-button"
+            type="button"
+            onclick="ligar('180')"
+        >
+
+            <span class="emergency-icon">
+                180
+            </span>
+
+            <span class="emergency-info">
+
+                <span class="emergency-title">
+                    Violência contra a mulher
+                </span>
+
+                <span class="emergency-subtitle">
+                    Central de Atendimento à Mulher
+                </span>
+
+            </span>
+
+            <span class="emergency-arrow">
+                ›
+            </span>
+
+        </button>
+
+
+        <!-- 190 -->
+
+        <button
+            class="emergency-button"
+            type="button"
+            onclick="ligar('190')"
+        >
+
+            <span class="emergency-icon">
+                190
+            </span>
+
+            <span class="emergency-info">
+
+                <span class="emergency-title">
+                    Polícia
+                </span>
+
+                <span class="emergency-subtitle">
+                    Ligue para 190
+                </span>
+
+            </span>
+
+            <span class="emergency-arrow">
+                ›
+            </span>
+
+        </button>
+
+
+        <!-- 192 -->
+
+        <button
+            class="emergency-button"
+            type="button"
+            onclick="ligar('192')"
+        >
+
+            <span class="emergency-icon">
+                192
+            </span>
+
+            <span class="emergency-info">
+
+                <span class="emergency-title">
+                    SAMU
+                </span>
+
+                <span class="emergency-subtitle">
+                    Ligue para 192
+                </span>
+
+            </span>
+
+            <span class="emergency-arrow">
+                ›
+            </span>
+
+        </button>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     APLICATIVOS
+====================================================== -->
+
+<section class="section">
+
+    <div class="section-label">
+        Aplicativos
+    </div>
+
+
+    <div class="apps">
+
+
+        <!-- =================================================
+             MULHER AMPARADA
+        ================================================== -->
+
+        <a
+            class="app-card app1"
+            href="./app1.html"
+            data-page="./app1.html"
+            aria-label="Abrir Mulher Amparada"
+        >
+
+            <img
+                class="app-image"
+                src="./user1.png"
+                alt=""
+            >
+
+            <span class="app-name">
+                Mulher Amparada
+            </span>
+
+            <span
+                class="app-arrow"
+                aria-hidden="true"
+            >
+                ›
+            </span>
+
+        </a>
+
+
+        <!-- =================================================
+             GERENCIADOR DE ARQUIVOS
+        ================================================== -->
+
+        <a
+            class="app-card app2"
+            href="./app2.html"
+            data-page="./app2.html"
+            aria-label="Abrir Gerenciador de Arquivos"
+        >
+
+            <img
+                class="app-image"
+                src="./user11.png"
+                alt=""
+            >
+
+            <span class="app-name">
+                Gerenciador de Arquivos Do Mulher Amparada
+            </span>
+
+            <span
+                class="app-arrow"
+                aria-hidden="true"
+            >
+                ›
+            </span>
+
+        </a>
+
+
+        <!-- =================================================
+             ASSISTENTE DE VOZ
+        ================================================== -->
+
+        <a
+            class="app-card app3"
+            href="./app3.html"
+            data-page="./app3.html"
+            aria-label="Abrir Assistente de Voz"
+        >
+
+            <img
+                class="app-image"
+                src="./user111.png"
+                alt=""
+            >
+
+            <span class="app-name">
+                Assistente de Voz Do Mulher Amparada
+            </span>
+
+            <span
+                class="app-arrow"
+                aria-hidden="true"
+            >
+                ›
+            </span>
+
+        </a>
+
+
+    </div>
+
+</section>
+
+
+
+</main>
+
+
+<!-- =======================================================
+     BOLINHA
+======================================================== -->
+
+<button
+    class="toggle"
+    id="toggle"
+    type="button"
+    aria-label="Voltar para o hub"
+>
+
+    <span class="toggle-inner">
+
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 -960 960 960"
+            width="24px"
+            fill="#e3e3e3"
+        >
+
+            <path
+                d="M240-200h120v-200q0-17 11.5-28.5T400-440h160q17 0 28.5 11.5T600-400v200h120v-360L480-740 240-560v360Zm-80 0v-360q0-19 8.5-36t23.5-28l240-180q21-16 48-16t48 16l240 180q15 11 23.5 28t8.5 36v360q0 33-23.5 56.5T720-120H560q-17 0-28.5-11.5T520-160v-200h-80v200q0 17-11.5 28.5T400-120H240q-33 0-56.5-23.5T160-200Zm320-270Z"
+            />
+
+        </svg>
+
+    </span>
+
+</button>
+
+
+<script>
+
+/* =========================================================
+   VIBRAÇÃO
+========================================================= */
+
+function vibrar(duracao = 40) {
+
+    try {
+
+        if (
+            navigator.vibrate &&
+            typeof navigator.vibrate === "function"
+        ) {
+
+            navigator.vibrate(duracao);
+
+        }
+
+    } catch (e) {}
+
+}
+
+
+/* =========================================================
+   LIGAÇÕES
+========================================================= */
+
+function ligar(numero) {
+
+    if (!numero) return;
+
+    vibrar(50);
+
+    try {
+
+        window.location.href =
+            "tel:" + numero;
+
+    } catch (e) {
+
+        console.warn(e);
+
+    }
+
+}
+
+
+/* =========================================================
+   ELEMENTOS
+========================================================= */
+
+const toggle =
+    document.getElementById("toggle");
+
+const cards =
+    document.querySelectorAll(".app-card");
+
+
+/* =========================================================
+   CONTROLE
+========================================================= */
+
+let navegando = false;
+
+
+/* =========================================================
+   SAIR DA PÁGINA
+========================================================= */
+
+function sairDaPagina(destino) {
+
+    if (
+        navegando ||
+        !destino
+    ) {
+
+        return;
+
+    }
+
+    navegando = true;
+
+    vibrar(40);
+
+
+    /*
+     * A PÁGINA INTEIRA FAZ FADE-OUT.
+     *
+     * Não existe:
+     * - movimento da bolinha
+     * - fundo adicional
+     * - expansão
+     * - slide
+     */
+
+    document.body.classList.add(
+        "fade-out"
+    );
+
+
+    /*
+     * Espera o fade terminar
+     * e então redireciona.
+     */
+
+    setTimeout(function() {
+
+        window.location.href =
+            destino;
+
+    }, 480);
+
+}
+
+
+/* =========================================================
+   CARDS DOS APLICATIVOS
+========================================================= */
+
+cards.forEach(function(card) {
+
+    const destino =
+        card.dataset.page ||
+        card.getAttribute("href");
+
+
+    card.addEventListener(
+        "click",
+        function(event) {
+
+            event.preventDefault();
+
+            sairDaPagina(
+                destino
+            );
+
+        }
+    );
+
+});
+
+
+/* =========================================================
+   BOLINHA
+   APENAS FADE-OUT
+========================================================= */
+
+if (toggle) {
+
+    toggle.addEventListener(
+        "click",
+        function(event) {
+
+            event.preventDefault();
+
+            sairDaPagina(
+                "home.html"
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   RESTAURAR AO VOLTAR
+========================================================= */
+
+window.addEventListener(
+    "pageshow",
+    function() {
+
+        navegando = false;
+
+        document.body.classList.remove(
+            "fade-out"
+        );
+
+        document.body.style.pointerEvents =
+            "auto";
+
+    }
+);
+
+
+/* =========================================================
+   INICIALIZAÇÃO
+========================================================= */
+
+navegando = false;
+
+document.body.classList.remove(
+    "fade-out"
+);
+
+</script>
+
+</body>
+
+</html>
