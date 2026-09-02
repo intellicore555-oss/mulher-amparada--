@@ -1,4 +1,4 @@
-name: Build Android Kotlin App
+name: Compilar o gerenciador de arquivos 
 
 on:
   push:
