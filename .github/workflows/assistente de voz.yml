@@ -28,16 +28,16 @@ jobs:
           cache: gradle
 
       - name: Dar permissão ao Gradle
-        working-directory: "Assistente De Voz Do Mulher Amparada"
+        working-directory: "Código-fonte do app = Assistente De Voz Do Mulher Amparada"
         run: chmod +x gradlew
 
       - name: Compilar APK
-        working-directory: "Assistente De Voz Do Mulher Amparada"
+        working-directory: "Código-fonte do app = Assistente De Voz Do Mulher Amparada"
         run: ./gradlew assembleDebug
 
       - name: Localizar APK
         id: apk
-        working-directory: "Assistente De Voz Do Mulher Amparada"
+        working-directory: "Código-fonte do app = Assistente De Voz Do Mulher Amparada"
         run: |
           APK=$(find app/build/outputs/apk/debug -type f -name "*.apk" | head -n 1)
 
@@ -50,77 +50,107 @@ jobs:
           echo "APK encontrado: $APK"
 
       - name: Calcular SHA-256
-        working-directory: "Assistente De Voz Do Mulher Amparada"
+        id: sha256
+        working-directory: "Código-fonte do app = Assistente De Voz Do Mulher Amparada"
         run: |
-          sha256sum "${{ steps.apk.outputs.apk }}"
+          SHA256=$(sha256sum "${{ steps.apk.outputs.apk }}" | awk '{print $1}')
+
+          echo "sha256=$SHA256" >> "$GITHUB_OUTPUT"
+
+          echo "SHA-256 real do APK:"
+          echo "$SHA256"
 
       - name: Criar App3.zip
-        working-directory: "Assistente De Voz Do Mulher Amparada"
+        working-directory: "Código-fonte do app = Assistente De Voz Do Mulher Amparada"
         run: |
           rm -f App3.zip
           zip -j App3.zip "${{ steps.apk.outputs.apk }}"
 
           echo "App3.zip criado:"
-          ls -lh App3.zip
+          unzip -l App3.zip
 
       - name: Enviar APK como artifact
         uses: actions/upload-artifact@v4
         with:
           name: APK-Kotlin-Debug
-          path: "Assistente De Voz Do Mulher Amparada/app/build/outputs/apk/debug/*.apk"
+          path: "Código-fonte do app = Assistente De Voz Do Mulher Amparada/app/build/outputs/apk/debug/*.apk"
 
       - name: Enviar App3.zip como artifact
         uses: actions/upload-artifact@v4
         with:
           name: App3
-          path: "Assistente De Voz Do Mulher Amparada/App3.zip"
+          path: "Código-fonte do app = Assistente De Voz Do Mulher Amparada/App3.zip"
 
       - name: Fazer commit do App3.zip
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add "Assistente De Voz Do Mulher Amparada/App3.zip"
+          git add "Código-fonte do app = Assistente De Voz Do Mulher Amparada/App3.zip"
 
           if git diff --cached --quiet; then
             echo "App3.zip não sofreu alterações."
           else
             git commit -m "Atualizar App3.zip [skip ci]"
-            git push origin master
+            git push origin main
           fi
 
-      - name: Atualizar Release existente
+      - name: Verificar Release existente
         env:
           GH_TOKEN: ${{ github.token }}
-        working-directory: "Assistente De Voz Do Mulher Amparada"
         run: |
           TAG="appassistentedevozdomulheramparada"
-
-          echo "Verificando Release existente..."
 
           if ! gh release view "$TAG" >/dev/null 2>&1; then
             echo "ERRO: A Release '$TAG' não existe."
             exit 1
           fi
 
-          echo "Release encontrada."
+          echo "Release existente encontrada: $TAG"
 
-          echo "Atualizando APK..."
+      - name: Atualizar Release com APK e App3.zip
+        env:
+          GH_TOKEN: ${{ github.token }}
+        working-directory: "Código-fonte do app = Assistente De Voz Do Mulher Amparada"
+        run: |
+          TAG="appassistentedevozdomulheramparada"
+
+          echo "Enviando APK..."
           gh release upload "$TAG" \
             "${{ steps.apk.outputs.apk }}" \
             --clobber
 
-          echo "Atualizando App3.zip..."
+          echo "Enviando App3.zip..."
           gh release upload "$TAG" \
             "App3.zip" \
             --clobber
 
           echo "Release atualizada com sucesso."
 
-      - name: Mostrar SHA-256 no resumo
-        working-directory: "Assistente De Voz Do Mulher Amparada"
+      - name: Atualizar informações da Release
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
-          echo "## SHA-256 do APK" >> "$GITHUB_STEP_SUMMARY"
+          TAG="appassistentedevozdomulheramparada"
+
+          gh release edit "$TAG" \
+            --notes "Release atualizada automaticamente pelo GitHub Actions.
+
+SHA-256 informado:
+dea5b0715bab7cc7646779b1702e387bb928fc8c0ce93bf5ba8ae059a62eda78
+
+SHA-256 gerado nesta compilação:
+${{ steps.sha256.outputs.sha256 }}"
+
+      - name: Mostrar resumo
+        run: |
+          echo "## Compilação concluída" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "**Release:** appassistentedevozdomulheramparada" >> "$GITHUB_STEP_SUMMARY"
+          echo "**Branch:** main" >> "$GITHUB_STEP_SUMMARY"
+          echo "**Arquivo:** App3.zip" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "**SHA-256 gerado:**" >> "$GITHUB_STEP_SUMMARY"
           echo '```' >> "$GITHUB_STEP_SUMMARY"
-          sha256sum "${{ steps.apk.outputs.apk }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "${{ steps.sha256.outputs.sha256 }}" >> "$GITHUB_STEP_SUMMARY"
           echo '```' >> "$GITHUB_STEP_SUMMARY"
