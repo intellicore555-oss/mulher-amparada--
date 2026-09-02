@@ -60,7 +60,7 @@ jobs:
         id: apk
         working-directory: ${{ env.App1_DIR }}
         run: |
-          APK=$(find App1/build/outputs/apk/debug -type f -name "*.apk" | head -n 1)
+          APK=$(find app/build/outputs/apk/debug -type f -name "*.apk" | head -n 1)
 
           if [ -z "$APK" ]; then
             echo "ERRO: APK não encontrado."
@@ -94,7 +94,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: APK-Kotlin-Debug
-          path: "${{ env.App1_DIR }}/App1/build/outputs/apk/debug/*.apk"
+          path: "${{ env.App1_DIR }}/app/build/outputs/apk/debug/*.apk"
           if-no-files-found: error
 
       - name: Enviar App1.zip como artifact
@@ -210,6 +210,8 @@ jobs:
                 "repos/$GITHUB_REPOSITORY/releases/assets/$ASSET_ID"
 
               echo "$APK_NAME excluído."
+            else
+              echo "$APK_NAME não está na Release."
             fi
           done
 
