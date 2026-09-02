@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>Meus Acessos</title>
+<style>
+
+/* =========================================================
+   HUB PREMIUM — ROSA CLARO
+   Design system completo
+========================================================= */
+
+@font-face {
+    font-family: "Quicksand";
+    src: url("file:///android_asset/font.ttf") format("truetype");
+    font-weight: 400 800;
+}
+
+/* =========================================================
+   VARIÁVEIS
+========================================================= */
+
+:root {
+
+    --bg: #050304;
+
+    --surface: #0b080a;
+    --surface-2: #100c0f;
+    --surface-3: #151014;
+
+    --pink: mediumslateblue;
+    --pink-2: royalblue;
+    --pink-3: pink;
+
+    --pink-soft: blue;
+    --pink-soft-2: mediumslateblue;
+
+    --border: rgba(255,255,255,.065);
+    --border-pink: rgba(255,193,214,.18);
+    --border-pink-strong: rgba(255,193,214,.35);
+
+    --text: #fffafd;
+    --text-soft: #c8bdc2;
+    --text-muted: #776c72;
+
+    --danger: #ff8fae;
+
+    --radius-xl: 30px;
+    --radius-lg: 23px;
+    --radius-md: 17px;
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+
+    font-family: "Quicksand", sans-serif;
+
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+}
+
+
+/* =========================================================
+   HTML
+========================================================= */
+
+html {
+
+    width: 95%;
+    min-height: 100%;
+
+    background: #000000;
+
+    color-scheme: dark;
+
+    scrollbar-width: none;
+    overscroll-behavior: none;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+}
+
+
+html::-webkit-scrollbar {
+
+    width: 0;
+    height: 0;
+    display: none;
+}
+
+
+/* =========================================================
+   BODY
+========================================================= */
+
+body {
+
+    width: 100%;
+    min-height: 100vh;
+
+overflow: hidden;
+    
+
+    color: var(--text);
+
+    background:
+#000000;
+
+    scrollbar-width: none;
+
+    overscroll-behavior-y: none;
+}
+
+
+body::-webkit-scrollbar,
+*::-webkit-scrollbar {
+
+    width: 0 !important;
+    height: 0 !important;
+
+    display: none !important;
+
+    background: transparent;
+}
+
+
+/* =========================================================
+   SELEÇÃO
+========================================================= */
+
+::selection {
+
+    color: #160b10;
+
+    background: var(--pink);
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.container {
+
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: flex-start;
+
+    padding:
+        18px
+        13px
+        48px;
+}
+
+
+/* =========================================================
+   HUB
+========================================================= */
+
+.card {
+
+    width: 100%;
+    max-width: 560px;
+
+    position: relative;
+
+    padding: 2px 0;
+
+    isolation: isolate;
+
+    animation:
+        hubAppear .45s cubic-bezier(.2,.7,.2,1) both;
+}
+
+
+/* =========================================================
+   ENTRADA
+========================================================= */
+
+@keyframes hubAppear {
+
+    from {
+
+        opacity: 0;
+
+        
+    }
+
+    to {
+
+        opacity: 1;
+
+        
+    }
+}
+
+
+
+
+/* =========================================================
+   GRID
+========================================================= */
+
+.buttons {
+
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(1, minmax(0, 1fr));
+
+    gap: 11px;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* =========================================================
+   TÍTULOS
+========================================================= */
+
+.title {
+
+    grid-column: 1 / -1;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    margin:
+        20px
+        4px
+        1px;
+
+    min-height: 22px;
+
+    color: var(--text-muted);
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   LINHA DO TÍTULO
+========================================================= */
+
+.title::after {
+
+    content: "";
+
+    height: 1px;
+
+    flex: 1;
+
+    margin-left: 3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,193,214,.14),
+            transparent
+        );
+}
+
+
+/* =========================================================
+   PONTO DO TÍTULO
+========================================================= */
+
+.title::before {
+
+    content: "";
+
+    width: 6px;
+    height: 6px;
+
+    flex: 0 0 6px;
+
+    border-radius: 50%;
+
+    background: var(--pink);
+
+    box-shadow:
+        0 0 0 4px rgba(255,193,214,.07),
+        0 0 14px rgba(255,193,214,.55);
+}
+
+
+/* =========================================================
+   BOTÃO
+========================================================= */
+
+.btn {
+
+    width: 100%;
+
+    min-height: 88px;
+
+    position: relative;
+
+    display: block;
+
+    overflow: hidden;
+
+    padding: 9px;
+
+    border:
+
+        1px solid
+        var(--border);
+
+    border-radius: 30px;
+
+    outline: none;
+
+    color: var(--text);
+
+    text-align: left;
+
+    cursor: pointer;
+
+    background: #111122;
+
+    box-shadow:
+
+        inset 0 1px 0
+        rgba(255,255,255,.025),
+
+        0 8px 26px
+        rgba(0,0,0,.25);
+
+    transition:
+
+        transform .16s ease,
+
+        border-color .2s ease,
+
+        background .2s ease,
+
+        box-shadow .2s ease;
+}
+
+
+/* =========================================================
+   BORDA INTERNA
+========================================================= */
+
+.btn::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 1px;
+
+    border-radius:
+        calc(var(--radius-lg) - 1px);
+
+    pointer-events: none;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(255,193,214,.045),
+            transparent 35%
+        );
+
+    opacity: .7;
+}
+
+
+/* =========================================================
+   BRILHO DE PASSAGEM
+========================================================= */
+
+.btn::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 100px;
+    height: 180%;
+
+    top: -40%;
+    left: -140px;
+
+    pointer-events: none;
+
+    transform: rotate(18deg);
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.055),
+            transparent
+        );
+
+    opacity: 0;
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.btn:hover {
+
+    transform:
+        translateY(-2px);
+
+    border-color:
+        var(--border-pink);
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(255,193,214,.085),
+            rgba(255,255,255,.012)
+        ),
+
+        var(--surface-2);
+
+    box-shadow:
+
+        inset 0 1px 0
+        rgba(255,255,255,.035),
+
+        0 14px 35px
+        rgba(0,0,0,.32),
+
+        0 0 26px
+        rgba(255,193,214,.045);
+}
+
+
+.btn:hover::after {
+
+    opacity: 1;
+
+    animation:
+        hubShine .65s ease;
+}
+
+
+@keyframes hubShine {
+
+    from {
+        left: -140px;
+    }
+
+    to {
+        left: calc(100% + 40px);
+    }
+}
+
+
+/* =========================================================
+   TOQUE
+========================================================= */
+
+.btn:active {
+
+    transform:
+        scale(.965);
+
+    border-color:
+        var(--border-pink-strong);
+
+    background:
+        var(--surface-3);
+
+    box-shadow:
+        0 5px 15px
+        rgba(0,0,0,.38);
+}
+
+
+/* =========================================================
+   ÁREA INTERNA
+========================================================= */
+
+.left {
+
+    width: 100%;
+    min-height: 68px;
+
+    display: flex;
+
+    align-items: center;
+
+    position: relative;
+}
+
+
+/* =========================================================
+   ÍCONE
+========================================================= */
+
+.emoji {
+
+    width: 56px;
+    height: 56px;
+
+    position: absolute;
+
+    left: 1px;
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 180px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(255,193,214,.18),
+            rgba(255,193,214,.045)
+        );
+
+    border:
+
+        1px solid
+        rgba(255,193,214,.16);
+
+    box-shadow:
+
+        inset 0 1px 0
+        rgba(255,255,255,.055),
+
+        0 5px 16px
+        rgba(0,0,0,.2);
+
+    transition:
+
+        transform .18s ease,
+
+        background .18s ease,
+
+        border-color .18s ease,
+
+        box-shadow .18s ease;
+}
+
+
+/* =========================================================
+   ÍCONE HOVER
+========================================================= */
+
+.btn:hover .emoji {
+
+    transform:
+        translateY(-50%)
+        scale(1.055);
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(255,193,214,.29),
+            rgba(255,193,214,.075)
+        );
+
+    border-color:
+        rgba(255,193,214,.30);
+
+    box-shadow:
+
+        inset 0 1px 0
+        rgba(255,255,255,.07),
+
+        0 0 24px
+        rgba(255,193,214,.10);
+}
+
+
+/* =========================================================
+   IMAGENS / SVG
+========================================================= */
+
+.emoji img,
+.emoji svg {
+
+    width: 31px;
+    height: 31px;
+
+    display: block;
+
+    object-fit: contain;
+
+    transition:
+        transform .18s ease;
+}
+
+
+.btn:hover .emoji img,
+.btn:hover .emoji svg {
+
+    transform: scale(1.04);
+}
+
+
+/* =========================================================
+   TEXTO
+========================================================= */
+
+.btn span {
+
+    display: block;
+
+    width: 100%;
+
+    padding:
+        0
+        30px
+        0
+        72px;
+
+    color:
+        var(--text);
+
+    font-size: 14px;
+
+    font-weight: 750;
+
+    line-height: 1.28;
+
+    letter-spacing: .05px;
+
+    transition:
+        color .18s ease;
+}
+
+
+.btn:hover span {
+
+    color:
+        var(--pink-3);
+}
+
+
+/* =========================================================
+   SETA
+========================================================= */
+
+.btn > *:last-child {
+    position: relative;
+}
+
+
+/* =========================================================
+   BADGE / DETALHE EXTRA
+   Funciona caso existam elementos com .badge
+========================================================= */
+
+.badge {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-height: 21px;
+
+    padding:
+        3px
+        8px;
+
+    border-radius: 999px;
+
+    border:
+        1px solid
+        rgba(255,193,214,.18);
+
+    background:
+        rgba(255,193,214,.07);
+
+    color:
+        var(--pink);
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: .5px;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   BOTÃO LARGO
+========================================================= */
+
+.btn.wide {
+
+    grid-column:
+        1 / -1;
+
+    min-height: 80px;
+}
+
+
+/* =========================================================
+   BOTÃO PRINCIPAL
+========================================================= */
+
+.btn.primary {
+
+    border-color:
+        rgba(255,193,214,.30);
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(255,193,214,.13),
+            rgba(255,193,214,.035)
+        ),
+
+        #0b080a;
+
+    box-shadow:
+
+        inset 0 1px 0
+        rgba(255,255,255,.04),
+
+        0 10px 30px
+        rgba(0,0,0,.28),
+
+        0 0 28px
+        rgba(255,193,214,.055);
+}
+
+
+.btn.primary .emoji {
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(255,193,214,.34),
+            rgba(255,193,214,.09)
+        );
+
+    border-color:
+        rgba(255,193,214,.32);
+
+    box-shadow:
+
+        0 0 25px
+        rgba(255,193,214,.10);
+}
+
+
+/* =========================================================
+   ESTADO ATIVO
+========================================================= */
+
+.btn.active {
+
+    border-color:
+        rgba(255,193,214,.40);
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(255,193,214,.15),
+            rgba(255,193,214,.045)
+        ),
+
+        var(--surface-2);
+}
+
+
+.btn.active::before {
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(255,193,214,.10),
+            transparent 45%
+        );
+}
+
+
+/* =========================================================
+   ESTADO DESATIVADO
+========================================================= */
+
+.btn.disabled,
+.btn[disabled] {
+
+    opacity: .45;
+
+    pointer-events: none;
+
+    filter: grayscale(.25);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer {
+
+    width: 100%;
+
+    margin-top: 28px;
+
+    padding:
+        19px
+        6px
+        0;
+
+    position: relative;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.055);
+
+    color:
+        var(--text-muted);
+
+    text-align: center;
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    letter-spacing: .7px;
+}
+
+
+/* =========================================================
+   FOOTER BRILHO
+========================================================= */
+
+.footer::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 80px;
+    height: 1px;
+
+    top: -1px;
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--pink),
+            transparent
+        );
+
+    opacity: .35;
+}
+
+
+/* =========================================================
+   FOCUS
+========================================================= */
+
+button:focus-visible,
+.btn:focus-visible {
+
+    outline:
+        2px solid
+        var(--pink);
+
+    outline-offset: 3px;
+}
+
+
+/* =========================================================
+   INPUTS — CASO EXISTAM NO HUB
+========================================================= */
+
+input,
+textarea,
+select {
+
+    width: 100%;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        var(--radius-md);
+
+    outline: none;
+
+    background:
+        var(--surface);
+
+    color:
+        var(--text);
+
+    padding:
+        13px
+        15px;
+
+    font-size: 14px;
+
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease,
+        background .2s ease;
+}
+
+
+input:focus,
+textarea:focus,
+select:focus {
+
+    border-color:
+        var(--border-pink-strong);
+
+    background:
+        var(--surface-2);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(255,193,214,.06);
+}
+
+
+input::placeholder,
+textarea::placeholder {
+
+    color:
+        #62585d;
+}
+
+
+/* =========================================================
+   DIVISOR
+========================================================= */
+
+.divider {
+
+    width: 100%;
+    height: 1px;
+
+    margin:
+        18px
+        0;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,193,214,.13),
+            transparent
+        );
+}
+
+
+/* =========================================================
+   CARTÃO AUXILIAR
+========================================================= */
+
+.panel {
+
+    width: 100%;
+
+    padding: 17px;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        var(--radius-lg);
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(255,193,214,.055),
+            rgba(255,255,255,.008)
+        ),
+
+        var(--surface);
+
+    box-shadow:
+
+        inset 0 1px 0
+        rgba(255,255,255,.025),
+
+        0 10px 30px
+        rgba(0,0,0,.22);
+}
+
+
+/* =========================================================
+   INDICADOR
+========================================================= */
+
+.status {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    color:
+        var(--text-soft);
+
+    font-size: 10px;
+
+    font-weight: 700;
+}
+
+
+.status::before {
+
+    content: "";
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background:
+        var(--pink);
+
+    box-shadow:
+        0 0 10px
+        rgba(255,193,214,.6);
+}
+
+
+
+
+/* =========================================================
+   ANDROID WEBVIEW
+========================================================= */
+
+html,
+body {
+
+    -webkit-overflow-scrolling: touch;
+
+    overscroll-behavior:
+        none;
+
+    touch-action:
+        pan-y;
+}
+
+
+/* =========================================================
+   PROTEÇÃO CONTRA FUNDO BRANCO
+========================================================= */
+
+html,
+body,
+.container,
+.card,
+.buttons {
+
+    background-color:
+        #000000;
+}
+
+</style>
+</head>
+
+<body>
+
+<br>
+
+<div class="container">
+
+    <main class="card">
+
+
+
+        <div class="buttons">
+
+            <div class="title">
+                Atalhos:
+            </div>
+
+            <button class="btn" onclick="ir('botao1.html')">
+                <div class="left">
+                
+                    <div class="emoji">
+<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M200-640v440h560v-440H640v255q0 23-19 34.5t-39 1.5l-102-51-102 51q-20 10-39-1.5T320-385v-255H200Zm0 520q-33 0-56.5-23.5T120-200v-499q0-14 4.5-27t13.5-24l50-61q11-14 27.5-21.5T250-840h460q18 0 34.5 7.5T772-811l50 61q9 11 13.5 24t4.5 27v499q0 33-23.5 56.5T760-120H200Zm16-600h528l-34-40H250l-34 40Zm184 80v190l80-40 80 40v-190H400Zm-200 0h560-560Z"/></svg>
+                    </div>
+                    <span>Recursos do aplicativo</span>
+                </div>
+            </button>
+
+            <button class="btn" onclick="ir('botao2.html')">
+                <div class="left">
+                
+                    <div class="emoji">
+<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M714-162 537-339l84-84 177 177q17 17 17 42t-17 42q-17 17-42 17t-42-17Zm-569-42q0-25 17-42l234-234-68-68q-11 11-28 11t-28-11l-23-23v90q0 14-12 19t-22-5L106-576q-10-10-5-22t19-12h90l-22-22q-12-12-12-28t12-28l114-114q20-20 43-29t47-9q20 0 37.5 6t34.5 18q8 5 8.5 14t-6.5 16l-76 76 22 22q11 11 11 28t-11 28l68 68 90-90q-4-11-6.5-23t-2.5-24q0-59 40.5-99.5T701-841q8 0 15 .5t14 2.5q9 3 11.5 12.5T737-809l-65 65q-6 6-6 14t6 14l44 44q6 6 14 6t14-6l65-65q7-7 16.5-5t12.5 12q2 7 2.5 14t.5 15q0 59-40.5 99.5T701-561q-12 0-24-2t-23-7L246-162q-17 17-42 17t-42-17q-17-17-17-42Z"/></svg>
+                    </div>
+                    <span>Outras funções do aplicativo</span>
+                </div>
+            </button>
+
+            <button class="btn" onclick="ir('botao3.html')">
+                <div class="left">
+                                    <div class="emoji" style="display: flex; justify-content: center; align-items: center;">
+<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M410-190v-168l-146 84q-25 14-53 7t-42-33q-14-25-7-53t32-42l146-85-146-84q-25-14-32-42.5t7-53.5q14-25 42-32t53 7l146 84v-169q0-29 20.5-49.5T480-840q29 0 49.5 20.5T550-770v169l146-84q25-14 53-7t42 32q14 25 6.5 53.5T765-564l-145 84 146 85q25 14 32 42t-7 54q-14 25-42 32t-53-7l-146-84v168q0 29-20.5 49.5T480-120q-29 0-49.5-20.5T410-190Z"/></svg>
+                    </div>
+                    
+                    <span>Funções de emergência</span>
+                </div>
+            </button>
+
+            <button class="btn" onclick="ir('botao4.html')">
+                <div class="left">
+                                    <div class="emoji">
+<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M468.5-451.5Q480-463 480-480t-11.5-28.5Q457-520 440-520t-28.5 11.5Q400-497 400-480t11.5 28.5Q423-440 440-440t28.5-11.5ZM280-120v-80l240-40v-445q0-15-9-27t-23-14l-208-34v-80l220 36q44 8 72 41t28 77v444q0 29-19 51.5T533-163l-253 43Zm0-80h400v-560H280v560Zm-120 80q-17 0-28.5-11.5T120-160q0-17 11.5-28.5T160-200h40v-560q0-33 23.5-56.5T280-840h400q33 0 56.5 23.5T760-760v560h40q17 0 28.5 11.5T840-160q0 17-11.5 28.5T800-120H160Z"/></svg>
+                    </div>
+
+                    <span>Nossos outros aplicativos</span>
+                </div>
+            </button>
+
+            <button class="btn" onclick="ir('botao5.html')">
+                <div class="left">
+                                    <div class="emoji">
+<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M318-120q-82 0-140-58t-58-140q0-40 15-76t43-64l105-105q12-12 28.5-12t28.5 12q12 12 12 28t-12 28L234-401q-17 17-25.5 38.5T200-318q0 49 34.5 83.5T318-200q23 0 45-8.5t39-25.5l105-106q12-11 28-11t28 12q12 12 12 28t-12 28L458-178q-28 28-64 43t-76 15Zm50-248q-12-12-12-28.5t12-28.5l167-167q12-12 28.5-12t28.5 12q12 12 12 28.5T592-535L425-368q-12 12-28.5 12T368-368Zm252-29q-12-12-12-28t12-28l106-105q17-17 25-38t8-44q0-50-34-85t-84-35q-23 0-44.5 8.5T558-726L453-620q-12 12-28 12t-28-12q-12-12-12-28.5t12-28.5l105-105q28-28 64-43t76-15q82 0 139.5 58T839-641q0 39-14.5 75T782-502L677-397q-12 12-28.5 12T620-397Z"/></svg>
+                    </div>
+
+                    <span>Links</span>
+                </div>
+            </button>
+
+
+
+
+        </div>
+
+        <div class="footer">
+            Secured By • Mulher Amparada
+        </div>
+
+    </main>
+
+</div>
+<script>
+
+function ir(pagina) {
+    window.location.href = pagina;
+}
+
+</script>
+
+</body>
+</html>

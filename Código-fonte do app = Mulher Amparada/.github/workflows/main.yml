@@ -1,0 +1,35 @@
+name: Build Android Kotlin App 
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Compilar APK Kotlin
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar código
+        uses: actions/checkout@v4
+
+      - name: Configurar Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+          cache: gradle
+
+      - name: Dar permissão ao Gradle
+        run: chmod +x gradlew
+
+      - name: Compilar APK
+        run: ./gradlew assembleDebug
+
+      - name: Enviar APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: APK-Kotlin-Debug
+          path: app/build/outputs/apk/debug/*.apk

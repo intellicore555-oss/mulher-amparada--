@@ -1,0 +1,2203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+>
+
+<meta name="theme-color" content="#000000">
+
+<title>Controle</title>
+
+<style>
+
+/* =========================================================
+   BARRAS DE ROLAGEM — TOTALMENTE TRANSPARENTES
+========================================================= */
+
+*::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    background: transparent;
+}
+
+*::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: transparent;
+    border: none;
+}
+
+* {
+    scrollbar-width: none;
+    scrollbar-color: transparent transparent;
+}
+
+html,
+body {
+    scrollbar-width: none;
+    scrollbar-color: transparent transparent;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    background: transparent;
+}
+
+
+/* =========================================================
+   FONTE
+========================================================= */
+
+@font-face {
+    font-family: "Quicksand";
+    src: url("font.ttf") format("truetype");
+    font-weight: 400 800;
+    font-display: swap;
+}
+
+
+/* =========================================================
+   VARIÁVEIS
+========================================================= */
+
+:root {
+
+    --bg: #050505;
+
+    --surface: #111216;
+    --surface-2: #17181e;
+
+    --white: #ffffff;
+    --text: #f7f7fa;
+
+    --soft: rgba(255,255,255,.80);
+    --muted: rgba(255,255,255,.46);
+
+    --pink: #ff4fa3;
+    --pink-light: #ff82bd;
+
+    --purple: #7867e8;
+    --purple-dark: #5948d2;
+
+    --blue: #718cff;
+    --blue-light: #8da4ff;
+
+    --border: rgba(255,255,255,.09);
+
+    --radius: 28px;
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    box-sizing: border-box;
+
+    margin: 0;
+    padding: 0;
+
+    font-family:
+        "Quicksand",
+        sans-serif;
+
+    font-weight: 700;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+html,
+body {
+
+    width: 100%;
+    min-height: 100%;
+
+    background: #000;
+
+    color: var(--text);
+}
+
+
+body {
+
+    min-height: 100vh;
+
+    overflow-x: hidden;
+
+    padding-top:
+        env(safe-area-inset-top);
+
+    padding-bottom:
+        env(safe-area-inset-bottom);
+}
+
+
+/* =========================================================
+   ANIMAÇÕES
+========================================================= */
+
+@keyframes pageIn {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+@keyframes fadeOut {
+
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+
+}
+
+
+.mainUI.saindo {
+
+    animation:
+        fadeOut .65s ease
+        forwards;
+
+    pointer-events:
+        none;
+}
+
+/* =========================================================
+   LAYOUT PRINCIPAL
+========================================================= */
+
+.mainUI {
+
+    width: 100%;
+
+    max-width: 680px;
+
+    margin-top: 5px;
+
+    padding:
+        22px
+        18px
+        125px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 30px;
+
+    animation:
+        pageIn .5s ease;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    text-align: left;
+}
+
+
+/* =========================================================
+   TAG PRINCIPAL
+========================================================= */
+
+.heroTag {
+
+    width: fit-content;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding:
+        9px 14px;
+
+    border-radius:
+        200px;
+
+    color:
+        #ff78a8;
+
+    background:
+        rgba(255,63,130,.08);
+
+    border:
+        1px solid
+        rgba(255,63,130,.13);
+
+    font-size:
+        11px;
+
+    line-height:
+        1;
+
+    letter-spacing:
+        1.3px;
+
+    text-transform:
+        uppercase;
+}
+
+
+.heroTag::before {
+
+    content: "";
+
+    width: 6px;
+    height: 6px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background:
+        var(--pink);
+
+    box-shadow:
+        0 0 10px
+        rgba(255,63,130,.85);
+}
+
+
+/* =========================================================
+   SEÇÕES
+========================================================= */
+
+.section {
+
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 11px;
+
+    animation:
+        pageIn .5s ease both;
+
+    overflow:
+        visible;
+}
+
+
+/* =========================================================
+   LABEL
+========================================================= */
+
+.label {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding-left: 3px;
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+    letter-spacing: 1.8px;
+
+    text-transform: uppercase;
+}
+
+
+.label::before {
+
+    content: "";
+
+    width: 4px;
+    height: 4px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background:
+        var(--pink);
+
+    box-shadow:
+        0 0 8px
+        rgba(255,79,163,.55);
+}
+
+
+/* =========================================================
+   ÁREA PROTEGIDA
+========================================================= */
+
+.bigButton {
+
+    width: 100%;
+
+    min-height: 112px;
+
+    padding:
+        18px 20px;
+
+    border:
+        1px solid
+        rgba(139,124,255,.28);
+
+    border-radius:
+        var(--radius);
+
+    background:
+        linear-gradient(
+            135deg,
+            #7867e8,
+            #5948d2
+        );
+
+    color:
+        white;
+
+    cursor:
+        pointer;
+
+    position:
+        relative;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        flex-start;
+
+    gap:
+        16px;
+
+    text-align:
+        left;
+
+    overflow:
+        hidden;
+
+    box-shadow:
+        0 16px 36px
+        rgba(89,72,210,.22);
+
+    transition:
+        transform .16s ease,
+        filter .16s ease,
+        box-shadow .20s ease;
+}
+
+
+.bigButton::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    top: -105px;
+    right: -60px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,.09);
+
+    pointer-events:
+        none;
+}
+
+
+/* =========================================================
+   LOCK — SEMPRE À ESQUERDA
+========================================================= */
+
+.protectIcon {
+
+    width: 58px;
+    height: 58px;
+
+    flex-shrink: 0;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    position:
+        relative;
+
+    z-index:
+        2;
+
+    border-radius:
+        18px;
+
+    background:
+        rgba(255,255,255,.13);
+
+    border:
+        1px solid
+        rgba(255,255,255,.18);
+
+    box-shadow:
+        inset 0 1px 0
+        rgba(255,255,255,.10);
+}
+
+
+.protectIcon img {
+
+    width: 30px;
+    height: 30px;
+
+    object-fit:
+        contain;
+
+    display:
+        block;
+}
+
+
+/* =========================================================
+   TEXTO DO BOTÃO
+========================================================= */
+
+.protectContent {
+
+    min-width: 0;
+
+    flex: 1;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        flex-start;
+
+    justify-content:
+        center;
+
+    position:
+        relative;
+
+    z-index:
+        2;
+}
+
+
+.protectTitle {
+
+    color:
+        white;
+
+    font-size:
+        clamp(
+            20px,
+            5.5vw,
+            27px
+        );
+
+    font-weight:
+        800;
+
+    line-height:
+        1.15;
+}
+
+
+.protectSubtitle {
+
+    margin-top:
+        6px;
+
+    color:
+        rgba(255,255,255,.72);
+
+    font-size:
+        12px;
+
+    font-weight:
+        600;
+
+    line-height:
+        1.35;
+}
+
+
+/* =========================================================
+   INDICADOR DIREITO
+========================================================= */
+
+.protectArrow {
+
+    width: 38px;
+    height: 38px;
+
+    flex-shrink: 0;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    position:
+        relative;
+
+    z-index:
+        2;
+
+    border-radius:
+        50%;
+
+    background:
+        rgba(255,255,255,.10);
+
+    border:
+        1px solid
+        rgba(255,255,255,.14);
+}
+
+
+.protectArrow span {
+
+    font-size:
+        20px;
+
+    line-height:
+        1;
+
+    color:
+        rgba(255,255,255,.85);
+}
+
+
+/* =========================================================
+   BOTÃO PRESSIONADO
+========================================================= */
+
+.bigButton:active {
+
+    transform:
+        scale(.965);
+
+    filter:
+        brightness(1.08);
+
+    box-shadow:
+        0 20px 44px
+        rgba(89,72,210,.32);
+}
+
+
+/* =========================================================
+   ACESSIBILIDADE
+========================================================= */
+
+.bigButton:focus-visible {
+
+    outline:
+        2px solid
+        rgba(255,255,255,.8);
+
+    outline-offset:
+        4px;
+}
+
+
+/* =========================================================
+   CARD DE NÚMEROS
+========================================================= */
+
+.info {
+
+    width: 100%;
+
+    padding:
+        22px;
+
+    border-radius:
+        var(--radius);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.078),
+            rgba(255,255,255,.035)
+        );
+
+    border:
+        1px solid
+        var(--border);
+
+    box-shadow:
+        0 16px 40px
+        rgba(0,0,0,.32);
+
+    position:
+        relative;
+
+    z-index:
+        1;
+
+    transform:
+        translateZ(0);
+
+    -webkit-transform:
+        translateZ(0);
+
+    backface-visibility:
+        hidden;
+
+    -webkit-backface-visibility:
+        hidden;
+
+    animation:
+        pageIn .6s ease both;
+}
+
+
+/* =========================================================
+   CABEÇALHO DO CARD
+========================================================= */
+
+.infoHeader {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        15px;
+
+    padding:
+        4px 2px 20px;
+
+    border-bottom:
+        1px solid
+        var(--border);
+}
+
+
+.infoTitle {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        5px;
+}
+
+
+.infoTitle h3 {
+
+    color:
+        var(--white);
+
+    font-size:
+        21px;
+
+    font-weight:
+        800;
+}
+
+
+.infoTitle span {
+
+    color:
+        var(--muted);
+
+    font-size:
+        12px;
+
+    line-height:
+        1.4;
+}
+
+
+/* =========================================================
+   SETA
+========================================================= */
+
+
+/* =========================================================
+   LISTA DE NÚMEROS
+========================================================= */
+
+.numberList {
+
+    width:
+        100%;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        10px;
+
+    padding-top:
+        18px;
+}
+
+
+/* =========================================================
+   ITEM DE NÚMERO
+========================================================= */
+
+.numberItem {
+
+    width:
+        100%;
+
+    padding:
+        15px 14px;
+
+    display:
+        flex;
+
+    align-items:
+        flex-start;
+
+    gap:
+        13px;
+
+    border-radius:
+        18px;
+
+    background:
+        rgba(255,255,255,.035);
+
+    border:
+        1px solid
+        rgba(255,255,255,.055);
+        align-items: stretch;
+}
+
+
+
+/* =========================================================
+   NÚMERO
+========================================================= */
+
+.number {
+
+    min-width:
+        58px;
+
+    padding:
+        8px 7px;
+
+    border-radius:
+        12px;
+
+    text-align:
+        center;
+
+    color:
+        white;
+
+    background:
+        rgba(120,103,232,.16);
+
+    border:
+        1px solid
+        rgba(120,103,232,.22);
+
+    font-size:
+        12px;
+
+    font-weight:
+        800;
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+}
+
+
+/* =========================================================
+   DESCRIÇÃO
+========================================================= */
+
+.numberText {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        3px;
+
+    flex:
+        1;
+}
+
+
+.numberText strong {
+
+    color:
+        white;
+
+    font-size:
+        14px;
+
+    font-weight:
+        800;
+
+    line-height:
+        1.3;
+}
+
+
+.numberText span {
+
+    color:
+        var(--soft);
+
+    font-size:
+        12px;
+
+    font-weight:
+        500;
+
+    line-height:
+        1.55;
+}
+
+
+/* =========================================================
+   BOTÕES / TOUCH
+========================================================= */
+
+button {
+
+    -webkit-user-select:
+        none;
+
+    user-select:
+        none;
+
+    touch-action:
+        manipulation;
+
+    -webkit-tap-highlight-color:
+        transparent;
+}
+
+
+/* =========================================================
+   FOCO
+========================================================= */
+
+button:focus-visible,
+.heroTag1:focus-visible {
+
+    outline:
+        2px solid
+        rgba(255,79,163,.75);
+
+    outline-offset:
+        4px;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar {
+
+    width:
+        4px;
+}
+
+
+::-webkit-scrollbar-track {
+
+    background:
+        transparent;
+}
+
+
+::-webkit-scrollbar-thumb {
+
+    background:
+        #292929;
+
+    border-radius:
+        999px;
+}
+
+
+/* =========================================================
+   SELEÇÃO
+========================================================= */
+
+::selection {
+
+    color:
+        white;
+
+    background:
+        rgba(255,79,163,.35);
+}
+
+
+/* =========================================================
+   CORREÇÃO WEBVIEW
+========================================================= */
+
+.hero,
+.section,
+.info,
+.bigButton {
+
+    -webkit-backface-visibility:
+        hidden;
+
+    backface-visibility:
+        hidden;
+}
+
+
+/* =========================================================
+   CELULARES
+========================================================= */
+
+@media (max-width: 420px) {
+
+    .mainUI {
+
+        padding:
+            18px
+            14px
+            110px;
+
+        gap:
+            30px;
+    }
+
+
+    .hero {
+
+        margin-top:
+            0;
+
+        align-items:
+            flex-start;
+
+        text-align:
+            left;
+    }
+
+
+    .heroTag {
+
+        padding:
+            7px 11px;
+
+        font-size:
+            11px;
+    }
+
+
+    .section {
+
+        max-width:
+            100%;
+    }
+
+
+    .bigButton {
+
+        min-height:
+            100px;
+
+        border-radius:
+            25px;
+    }
+
+
+    .protect {
+
+        font-size:
+            23px;
+    }
+
+
+    .lockIcon {
+
+        width:
+            42px;
+
+        height:
+            42px;
+    }
+
+
+    .info {
+
+        padding:
+            18px;
+
+        border-radius:
+            24px;
+    }
+
+
+    .infoTitle h3 {
+
+        font-size:
+            19px;
+    }
+
+
+    .numberItem {
+
+        padding:
+            13px 11px;
+
+        gap:
+            10px;
+    }
+
+
+    .number {
+
+        min-width:
+            54px;
+
+        font-size:
+            11px;
+    }
+
+
+    .numberText strong {
+
+        font-size:
+            13px;
+    }
+
+
+    .numberText span {
+
+        font-size:
+            11px;
+    }
+
+
+
+
+
+/* =========================================================
+   TELAS MAIORES
+========================================================= */
+
+@media (min-width: 600px) {
+
+    .mainUI {
+
+        padding-left:
+            28px;
+
+        padding-right:
+            28px;
+    }
+
+
+    .hero {
+
+        align-items:
+            flex-start;
+
+        text-align:
+            left;
+    }
+
+
+    .info p {
+
+        font-size:
+            17px;
+    }
+}
+
+
+/* =========================================================
+   BOLINHA
+========================================================= */
+
+@keyframes bolinhaEntrada {
+
+    from {
+        transform: translate(-50%, 120px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translate(-50%, 0);
+        opacity: 1;
+    }
+}
+
+
+.toggle {
+
+    width: 64px;
+    height: 64px;
+
+    position: fixed;
+
+    left: 50%;
+    bottom: 60px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 6px;
+
+    background: #444;
+
+    border-radius: 50%;
+
+    z-index: 10000;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.35);
+
+    transform:
+        translate(-50%, 0);
+
+    animation:
+        bolinhaEntrada
+        .65s
+        cubic-bezier(.22,1,.36,1)
+        both;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+/* =========================================================
+   CÍRCULO INTERNO
+========================================================= */
+
+.alavanca {
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #222;
+
+    padding: 10px;
+
+    border-radius: 50%;
+}
+
+
+/* =========================================================
+   FUNDO PRETO
+========================================================= */
+
+.page-transition {
+
+    position: fixed;
+
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 0;
+
+    background: #000;
+
+    border-radius:
+        32px 32px 0 0;
+
+    z-index: 9999;
+
+    pointer-events: none;
+
+    transition:
+        height .65s cubic-bezier(.65,0,.35,1);
+}
+
+
+.page-transition.active {
+
+    height: 100%;
+}
+
+
+/* =========================================================
+   BOLINHA SOBE JUNTO
+========================================================= */
+
+.toggle.sair {
+
+    animation:
+        bolinhaSaida
+        .65s
+        cubic-bezier(.65,0,.35,1)
+        forwards;
+}
+
+
+@keyframes bolinhaSaida {
+
+    from {
+
+        transform:
+            translate(-50%, 0);
+
+    }
+
+    to {
+
+        transform:
+            translate(-50%, calc(-100vh - 100px));
+
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<!-- =========================================================
+     INTERFACE PRINCIPAL
+========================================================= -->
+
+<div class="mainUI">
+
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+    <header class="hero">
+
+        <div class="heroTag">
+            Mulher Amparada
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         ÁREA PROTEGIDA
+    ====================================================== -->
+
+    <section class="section">
+
+        <div class="label">
+            Área protegida
+        </div>
+
+
+        <button
+            class="bigButton"
+            id="areaProtegida"
+            type="button"
+            aria-label="Abrir área protegida"
+        >
+
+            <!-- LOCK SEMPRE À ESQUERDA -->
+
+            <span
+                class="protectIcon"
+                aria-hidden="true"
+            >
+
+                <img
+                    src="lock.svg"
+                    alt=""
+                >
+
+            </span>
+
+
+            <span class="protectContent">
+
+                <span class="protectTitle">
+                    Área protegida
+                </span>
+
+                <span class="protectSubtitle">
+                    Acesso protegido por senha
+                </span>
+
+            </span>
+
+
+            <!-- INDICADOR DIREITO -->
+
+            <span
+                class="protectArrow"
+                aria-hidden="true"
+            >
+
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="24px"
+                    viewBox="0 -960 960 960"
+                    width="24px"
+                    fill="#fff"
+                >
+
+                    <path
+                        d="M504-480 348-636q-11-11-11-28t11-28q11-11 28-11t28 11l184 184q6 6 8.5 13t2.5 15q0 8-2.5 15t-8.5 13L404-268q-11 11-28 11t-28-11q-11-11-11-28t11-28l156-156Z"
+                    />
+
+                </svg>
+
+            </span>
+
+        </button>
+
+
+        <!-- =================================================
+             LABEL DOS NÚMEROS
+        ================================================== -->
+
+        <div class="label">
+            Números de emergência
+        </div>
+
+
+        <!-- =================================================
+             CARD ÚNICO
+        ================================================== -->
+
+        <article class="info">
+
+
+            <!-- =================================================
+                 CABEÇALHO
+            ================================================== -->
+
+            <div class="infoHeader">
+
+                <div class="infoTitle">
+
+                    <h3>
+                        Números importantes
+                    </h3>
+
+                    <span>
+                        Telefones de emergência,
+                        apoio e serviços públicos
+                    </span>
+
+                </div>
+
+
+                <!-- SETA CENTRALIZADA -->
+
+
+            </div>
+
+
+            <!-- =================================================
+                 LISTA — UM ÚNICO PAINEL
+            ================================================== -->
+
+            <div class="numberList">
+
+
+                <!-- 190 -->
+
+                <div class="numberItem">
+
+                    <div class="number">
+                        190
+                    </div>
+
+                    <div class="numberText">
+
+                        <strong>
+                            Polícia Militar
+                        </strong>
+
+                        <span>
+                            Emergências policiais,
+                            crimes em andamento e
+                            situações de perigo imediato.
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- 192 -->
+
+                <div class="numberItem">
+
+                    <div class="number">
+                        192
+                    </div>
+
+                    <div class="numberText">
+
+                        <strong>
+                            SAMU
+                        </strong>
+
+                        <span>
+                            Atendimento médico de urgência,
+                            acidentes e situações graves
+                            de saúde.
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- 193 -->
+
+                <div class="numberItem">
+
+                    <div class="number">
+                        193
+                    </div>
+
+                    <div class="numberText">
+
+                        <strong>
+                            Corpo de Bombeiros
+                        </strong>
+
+                        <span>
+                            Incêndios, resgates, acidentes
+                            e outras situações que exigem
+                            atendimento dos bombeiros.
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- 180 -->
+
+                <div class="numberItem">
+
+                    <div class="number">
+                        180
+                    </div>
+
+                    <div class="numberText">
+
+                        <strong>
+                            Central da Mulher
+                        </strong>
+
+                        <span>
+                            Orientação, denúncias e informações
+                            relacionadas à violência contra
+                            mulheres.
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- 181 -->
+
+                <div class="numberItem">
+
+                    <div class="number">
+                        181
+                    </div>
+
+                    <div class="numberText">
+
+                        <strong>
+                            Disque-Denúncia
+                        </strong>
+
+                        <span>
+                            Canal destinado ao recebimento
+                            de informações e denúncias sobre
+                            possíveis crimes.
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- 188 -->
+
+                <div class="numberItem">
+
+                    <div class="number">
+                        188
+                    </div>
+
+                    <div class="numberText">
+
+                        <strong>
+                            CVV
+                        </strong>
+
+                        <span>
+                            Serviço de apoio emocional e escuta
+                            para pessoas que precisam conversar
+                            e buscar acolhimento.
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- 197 -->
+
+                <div class="numberItem">
+
+                    <div class="number">
+                        197
+                    </div>
+
+                    <div class="numberText">
+
+                        <strong>
+                            Polícia Civil
+                        </strong>
+
+                        <span>
+                            Atendimento relacionado à Polícia
+                            Civil e registro ou encaminhamento
+                            de ocorrências.
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- 199 -->
+
+                <div class="numberItem">
+
+                    <div class="number">
+                        199
+                    </div>
+
+                    <div class="numberText">
+
+                        <strong>
+                            Defesa Civil
+                        </strong>
+
+                        <span>
+                            Atendimento em situações de risco,
+                            desastres, alagamentos, deslizamentos
+                            e outras emergências.
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- 191 -->
+
+                <div class="numberItem">
+
+                    <div class="number">
+                        191
+                    </div>
+
+                    <div class="numberText">
+
+                        <strong>
+                            Polícia Rodoviária Federal
+                        </strong>
+
+                        <span>
+                            Atendimento de emergências e
+                            ocorrências nas rodovias federais.
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- 194 -->
+
+                <div class="numberItem">
+
+                    <div class="number">
+                        194
+                    </div>
+
+                    <div class="numberText">
+
+                        <strong>
+                            Polícia Federal
+                        </strong>
+
+                        <span>
+                            Número historicamente associado
+                            a serviços da Polícia Federal.
+                            A disponibilidade pode variar.
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- 136 -->
+
+                <div class="numberItem">
+
+                    <div class="number">
+                        136
+                    </div>
+
+                    <div class="numberText">
+
+                        <strong>
+                            Disque Saúde
+                        </strong>
+
+                        <span>
+                            Canal de informações e orientações
+                            relacionadas ao Sistema Único de Saúde
+                            e aos serviços públicos de saúde.
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- 153 -->
+
+                <div class="numberItem">
+
+                    <div class="number">
+                        153
+                    </div>
+
+                    <div class="numberText">
+
+                        <strong>
+                            Guarda Civil Municipal
+                        </strong>
+
+                        <span>
+                            Atendimento da Guarda Municipal
+                            em locais onde esse serviço está
+                            disponível.
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- 125 -->
+
+                <div class="numberItem">
+
+                    <div class="number">
+                        125
+                    </div>
+
+                    <div class="numberText">
+
+                        <strong>
+                            Conselho Tutelar
+                        </strong>
+
+                        <span>
+                            Serviço relacionado à proteção
+                            de crianças e adolescentes em
+                            situações de ameaça ou violação
+                            de direitos.
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- 100 -->
+
+                <div class="numberItem">
+
+                    <div class="number">
+                        100
+                    </div>
+
+                    <div class="numberText">
+
+                        <strong>
+                            Direitos Humanos
+                        </strong>
+
+                        <span>
+                            Canal para denúncias e orientações
+                            relacionadas a violações de direitos
+                            humanos.
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- 129 -->
+
+                <div class="numberItem">
+
+                    <div class="number">
+                        129
+                    </div>
+
+                    <div class="numberText">
+
+                        <strong>
+                            Defensoria Pública
+                        </strong>
+
+                        <span>
+                            Número utilizado em alguns estados
+                            para atendimento da Defensoria Pública.
+                            A disponibilidade depende da região.
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- 127 -->
+
+                <div class="numberItem">
+
+                    <div class="number">
+                        127
+                    </div>
+
+                    <div class="numberText">
+
+                        <strong>
+                            Ministério Público
+                        </strong>
+
+                        <span>
+                            Número associado ao atendimento
+                            do Ministério Público em determinadas
+                            localidades e serviços.
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- 144 -->
+
+                <div class="numberItem">
+
+                    <div class="number">
+                        144
+                    </div>
+
+                    <div class="numberText">
+
+                        <strong>
+                            Atendimento em Libras
+                        </strong>
+
+                        <span>
+                            Serviço relacionado a atendimento
+                            acessível em Libras, conforme a
+                            disponibilidade do órgão ou serviço.
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- 151 -->
+
+                <div class="numberItem">
+
+                    <div class="number">
+                        151
+                    </div>
+
+                    <div class="numberText">
+
+                        <strong>
+                            Defesa do Consumidor
+                        </strong>
+
+                        <span>
+                            Número historicamente associado
+                            a serviços de defesa do consumidor
+                            em determinadas localidades.
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- 152 -->
+
+                <div class="numberItem">
+
+                    <div class="number">
+                        152
+                    </div>
+
+                    <div class="numberText">
+
+                        <strong>
+                            Serviços públicos
+                        </strong>
+
+                        <span>
+                            Pode ser utilizado para determinados
+                            serviços públicos, dependendo do
+                            órgão e da região.
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- 156 -->
+
+                <div class="numberItem">
+
+                    <div class="number">
+                        156
+                    </div>
+
+                    <div class="numberText">
+
+                        <strong>
+                            Serviços municipais
+                        </strong>
+
+                        <span>
+                            Atendimento de serviços da prefeitura,
+                            informações municipais e solicitações
+                            relacionadas à cidade.
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- 1746 -->
+
+                <div class="numberItem">
+
+                    <div class="number">
+                        1746
+                    </div>
+
+                    <div class="numberText">
+
+                        <strong>
+                            Atendimento municipal
+                        </strong>
+
+                        <span>
+                            Número utilizado por algumas cidades
+                            para solicitações, informações e
+                            serviços municipais.
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </article>
+
+    </section>
+
+
+</div>
+
+
+<!-- =========================================================
+     TOGGLE INFERIOR
+========================================================= -->
+
+<div
+    class="toggle"
+    id="toggle"
+    role="button"
+    tabindex="0"
+    aria-label="Voltar"
+>
+
+    <div class="alavanca">
+
+        <svg
+            class="icon2"
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 -960 960 960"
+            width="24px"
+            fill="#fff"
+        >
+
+            <path
+                d="M508.5-291.5Q520-303 520-320t-11.5-28.5Q497-360 480-360t-28.5 11.5Q440-337 440-320t11.5 28.5Q463-280 480-280t28.5-11.5Zm0-160Q520-463 520-480v-160q0-17-11.5-28.5T480-680q-17 0-28.5 11.5T440-640v160q0 17 11.5 28.5T480-440q17 0 28.5-11.5ZM346-160H240q-33 0-56.5-23.5T160-240v-106l-77-78q-11-12-17-26.5T60-480q0-15 6-29.5T83-536l77-78v-106q0-33 23.5-56.5T240-800h106l78-77q12-11 26.5-17t29.5-6q15 0 29.5 6t26.5 17l78 77h106q33 0 56.5 23.5T800-720v106l77 78q11 12 17 26.5t6 29.5q0 15-6 29.5T877-424l-77 78v106q0 33-23.5 56.5T720-160H614l-78 77q-12 11-26.5 17T480-60q-15 0-29.5-6T424-83l-78-77Zm34-80 100 100 100-100h140v-140l100-100-100-100v-140H580L480-820 380-720H240v140L140-480l100 100v140h140Zm100-240Z"
+            />
+
+        </svg>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     TRANSIÇÃO
+========================================================= -->
+
+<div
+    class="page-transition"
+    id="pageTransition"
+></div>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+
+/* =========================================================
+   VIBRAÇÃO
+========================================================= */
+
+function vibrar(duracao = 100) {
+
+    try {
+
+        if (
+            navigator.vibrate
+        ) {
+
+            navigator.vibrate(
+                duracao
+            );
+
+        }
+
+    } catch (e) {}
+
+}
+
+
+/* =========================================================
+   ÁREA PROTEGIDA
+========================================================= */
+
+const areaProtegida =
+    document.getElementById(
+        "areaProtegida"
+    );
+
+
+areaProtegida.addEventListener(
+    "click",
+    function() {
+
+        vibrar(80);
+
+        window.location.href =
+            "auth.html";
+
+    }
+);
+
+
+/* =========================================================
+   TRANSIÇÃO DA BOLINHA
+========================================================= */
+
+const toggle =
+    document.getElementById(
+        "toggle"
+    );
+
+
+const pageTransition =
+    document.getElementById(
+        "pageTransition"
+    );
+
+
+function sairDaPagina() {
+
+    vibrar(60);
+
+    toggle.style.pointerEvents = "none";
+
+    const mainUI =
+        document.querySelector(".mainUI");
+
+    /*
+     * PRIMEIRO:
+     * faz a interface inteira desaparecer
+     */
+    mainUI.classList.add("saindo");
+
+    /*
+     * Depois que o fade começa,
+     * a tela preta sobe.
+     */
+    setTimeout(function() {
+
+        pageTransition.classList.add("active");
+
+        toggle.classList.add("sair");
+
+    }, 150);
+
+
+    /*
+     * Aguarda as duas animações
+     * terminarem antes de trocar de página.
+     */
+    setTimeout(function() {
+
+        window.location.href =
+            "index2.html";
+
+    }, 850);
+
+}
+
+toggle.addEventListener(
+    "click",
+    sairDaPagina
+);
+
+
+/* =========================================================
+   ACESSIBILIDADE DA BOLINHA
+========================================================= */
+
+toggle.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (
+            event.key === "Enter" ||
+            event.key === " "
+        ) {
+
+            event.preventDefault();
+
+            sairDaPagina();
+
+        }
+
+    }
+);
+
+
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,2299 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+>
+
+<meta name="theme-color" content="#000000">
+
+<title>Controle</title>
+
+<style>
+/* =========================================================
+   FADE OUT DA INTERFACE
+========================================================= */
+
+@keyframes fadeOut {
+
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+
+}
+
+.mainUI.saindo {
+
+    animation:
+        fadeOut .65s ease
+        forwards;
+
+}
+
+/* =========================================================
+   BARRAS DE ROLAGEM — TOTALMENTE TRANSPARENTES
+========================================================= */
+
+*::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    background: transparent;
+}
+
+*::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: transparent;
+    border: none;
+}
+
+* {
+    scrollbar-width: none;
+    scrollbar-color: transparent transparent;
+}
+
+html,
+body {
+    scrollbar-width: none;
+    scrollbar-color: transparent transparent;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    background: transparent;
+}
+
+
+/* =========================================================
+   FONTE
+========================================================= */
+
+@font-face {
+    font-family: "Quicksand";
+    src: url("font.ttf") format("truetype");
+    font-weight: 400 800;
+}
+
+
+/* =========================================================
+   VARIÁVEIS
+========================================================= */
+
+:root {
+
+    --bg: #000;
+
+    --surface: #101218;
+    --surface-2: #151720;
+    --surface-3: #1b1e28;
+
+    --white: #fff;
+    --text: #f7f7fa;
+
+    --soft: #969baa;
+    --muted: #626877;
+
+    --pink: #ff3f82;
+    --pink-light: #ff6b9f;
+
+    --red: #ff4054;
+    --red-dark: #d9273d;
+
+    --purple: #8b5cf6;
+    --blue: #4f8cff;
+    --green: #32d477;
+    --orange: #ff9f43;
+    --cyan: #27c9c1;
+
+    --border: rgba(255,255,255,.075);
+    --border-strong: rgba(255,255,255,.13);
+
+    --radius: 24px;
+    --radius-small: 17px;
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    box-sizing: border-box;
+
+    margin: 0;
+    padding: 0;
+
+    font-family: "Quicksand", sans-serif;
+
+    font-weight: 700;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+
+    width: 100%;
+    min-height: 100%;
+
+    background: #000;
+
+    color: var(--text);
+}
+
+body {
+
+    min-height: 100vh;
+
+    overflow-x: hidden;
+
+    padding-top:
+        env(safe-area-inset-top);
+
+    padding-bottom:
+        env(safe-area-inset-bottom);
+}
+
+
+/* =========================================================
+   ANIMAÇÕES
+========================================================= */
+
+@keyframes pageIn {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+@keyframes statusPulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: .45;
+    }
+}
+
+
+/* =========================================================
+   LAYOUT
+========================================================= */
+
+.mainUI {
+
+    width: 100%;
+
+    max-width: 680px;
+
+    margin: 0 auto;
+
+    padding:
+        28px
+        18px
+        125px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 34px;
+
+    animation:
+        pageIn .5s ease;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.hero {
+
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+.heroTag {
+
+    width: fit-content;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding:
+        7px
+        11px;
+
+    position: relative;
+
+    top: 5%;
+
+    border-radius: 200px;
+
+    color: #ff78a8;
+
+    background:
+        rgba(255,63,130,.08);
+
+    border:
+        1px solid rgba(255,63,130,.13);
+
+    font-size: 11px;
+
+    letter-spacing: 1.3px;
+
+    text-transform: uppercase;
+}
+
+
+.heroTag::before {
+
+    content: "";
+
+    width: 6px;
+    height: 6px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background:
+        var(--pink);
+
+    box-shadow:
+        0 0 10px rgba(255,63,130,.85);
+}
+
+
+/* =========================================================
+   SEÇÕES
+========================================================= */
+
+.section {
+
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 11px;
+
+    animation:
+        pageIn .5s ease both;
+}
+
+
+.label {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding-left: 3px;
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+    letter-spacing: 1.8px;
+
+    text-transform: uppercase;
+}
+
+
+.label::before {
+
+    content: "";
+
+    width: 4px;
+    height: 4px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background:
+        var(--pink);
+
+    box-shadow:
+        0 0 8px rgba(255,63,130,.5);
+}
+
+
+/* =========================================================
+   SOS
+========================================================= */
+
+.panic {
+
+    width: 100%;
+
+    height: 300px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 30px;
+
+    cursor: pointer;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(255,255,255,.15),
+            transparent 40%
+        ),
+
+        linear-gradient(
+            145deg,
+            #ff465a,
+            #e92d43
+        );
+
+    border:
+        1px solid red;
+
+    transition:
+        transform .3s cubic-bezier(.22,1,.36,1),
+        filter .3s ease,
+        box-shadow .3s ease;
+}
+
+
+.panic::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 370px;
+    height: 370px;
+
+    top: -245px;
+    right: -135px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,.075);
+
+    pointer-events: none;
+}
+
+
+.panic span {
+
+    position: relative;
+
+    z-index: 2;
+
+    color: white;
+
+    font-size:
+        clamp(62px,17vw,88px);
+
+    line-height: .9;
+
+    letter-spacing: 5px;
+
+    text-shadow:
+        0 5px 20px rgba(0,0,0,.17);
+}
+
+
+.panic small {
+
+    position: relative;
+
+    z-index: 2;
+
+    margin-top: 17px;
+
+    color:
+        rgba(255,255,255,.78);
+
+    font-size: 12px;
+
+    letter-spacing: .5px;
+}
+
+
+.panic:active,
+.panic:hover {
+
+    transform: scale(0.5px);
+
+    filter: brightness(1.04);
+
+    box-shadow:
+        0 18px 45px rgba(255,64,84,.18);
+}
+
+
+/* =========================================================
+   CARDS DE PROTEÇÃO
+========================================================= */
+
+.control-card {
+
+    width: 100%;
+
+    min-height: 122px;
+
+    padding: 21px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 18px;
+
+    border-radius:
+        var(--radius);
+
+    background:
+
+        linear-gradient(
+            145deg,
+            #161820,
+            #0f1117
+        );
+
+    border:
+        1px solid var(--border);
+
+    box-shadow:
+        0 16px 40px rgba(0,0,0,.25);
+
+    transition:
+        border-color .2s ease,
+        background .2s ease,
+        box-shadow .2s ease;
+}
+
+
+.control-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 220px;
+    height: 220px;
+
+    top: -145px;
+    right: -85px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,63,130,.055);
+
+    pointer-events: none;
+}
+
+
+.control-card-content {
+
+    min-width: 0;
+
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+
+.control-card h3 {
+
+    color: white;
+
+    font-size: 18px;
+
+    line-height: 1.2;
+}
+
+
+.control-card p {
+
+    color: var(--soft);
+
+    font-size: 12px;
+
+    line-height: 1.55;
+
+    font-weight: 600;
+}
+
+
+.control-status {
+
+    margin-top: 3px;
+
+    color: #777d8b;
+
+    font-size: 10px;
+
+    letter-spacing: 1.2px;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   CARD ATIVO
+========================================================= */
+
+.control-card.active {
+
+    background:
+
+        linear-gradient(
+            145deg,
+            #211529,
+            #141017
+        );
+
+    border:
+        1px solid rgba(255,63,130,.34);
+
+    box-shadow:
+        0 16px 40px rgba(255,63,130,.08);
+}
+
+
+.control-card.active .control-status {
+
+    color:
+        var(--pink-light);
+}
+
+
+.control-card.movement.active {
+
+    background:
+
+        linear-gradient(
+            145deg,
+            #211636,
+            #151021
+        );
+
+    border:
+        1px solid rgba(139,92,246,.42);
+
+    box-shadow:
+        0 16px 40px rgba(139,92,246,.10);
+}
+
+
+.control-card.movement.active .control-status {
+
+    color:
+        #c9adff;
+}
+
+
+.control-card.brightness.active {
+
+    background:
+
+        linear-gradient(
+            145deg,
+            #211b0e,
+            #15120c
+        );
+
+    border:
+        1px solid rgba(255,159,67,.38);
+
+    box-shadow:
+        0 16px 40px rgba(255,159,67,.08);
+}
+
+
+.control-card.brightness.active .control-status {
+
+    color:
+        var(--orange);
+}
+
+
+/* =========================================================
+   SWITCH
+========================================================= */
+
+.switch {
+
+    width: 58px;
+    height: 34px;
+
+    flex-shrink: 0;
+
+    position: relative;
+
+    z-index: 5;
+
+    border: 0;
+
+    border-radius: 100px;
+
+    background:
+        #292c35;
+
+    cursor: pointer;
+
+    padding: 0;
+
+    transition:
+        background .22s ease,
+        box-shadow .22s ease;
+}
+
+
+.switch::after {
+
+    content: "";
+
+    width: 26px;
+    height: 26px;
+
+    position: absolute;
+
+    top: 4px;
+    left: 4px;
+
+    border-radius: 50%;
+
+    background:
+        #8a8f9d;
+
+    box-shadow:
+        0 3px 8px rgba(0,0,0,.35);
+
+    transition:
+        transform .22s cubic-bezier(.22,1,.36,1),
+        background .22s ease;
+}
+
+
+.switch.active {
+
+    background:
+        var(--pink);
+
+    box-shadow:
+        0 0 0 4px rgba(255,63,130,.08);
+}
+
+
+.switch.active::after {
+
+    background:
+        #fff;
+
+    transform:
+        translateX(24px);
+}
+
+
+.switch.purple.active {
+
+    background:
+        var(--purple);
+
+    box-shadow:
+        0 0 0 4px rgba(139,92,246,.08);
+}
+
+
+.switch.orange.active {
+
+    background:
+        var(--orange);
+
+    box-shadow:
+        0 0 0 4px rgba(255,159,67,.08);
+}
+
+
+.switch:active {
+
+    transform:
+        scale(.94);
+}
+
+
+/* =========================================================
+   EMERGÊNCIA
+========================================================= */
+
+.btn,
+.local,
+.local99,
+.local999 {
+
+    width: 100%;
+
+    min-height: 56px;
+
+    padding:
+        14px
+        17px;
+
+    border: 0;
+
+    border-radius: 160px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+
+    font-family:
+        "Quicksand",
+        sans-serif;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    user-select: none;
+
+    -webkit-user-select: none;
+
+    touch-action: manipulation;
+
+    transition:
+        transform .14s ease,
+        filter .14s ease,
+        box-shadow .2s ease,
+        background .2s ease;
+}
+
+
+.btn:active,
+.local:active,
+.local99:active,
+.local999:active {
+
+    transform:
+        scale(.965);
+
+    filter:
+        brightness(1.08);
+}
+
+
+.policia {
+
+    background:
+        linear-gradient(
+            135deg,
+            #4d8cff,
+            #326ed8
+        );
+
+    box-shadow:
+        0 9px 24px rgba(77,140,255,.12);
+}
+
+
+.samu {
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffa94d,
+            #df7d19
+        );
+
+    box-shadow:
+        0 9px 24px rgba(255,169,77,.10);
+}
+
+
+.mulher {
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff4e90,
+            #dc2f6d
+        );
+
+    box-shadow:
+        0 9px 24px rgba(255,78,144,.11);
+}
+
+
+.zap {
+
+    background:
+        linear-gradient(
+            135deg,
+            #35d477,
+            #20af5b
+        );
+
+    box-shadow:
+        0 9px 24px rgba(53,212,119,.10);
+}
+
+
+/* =========================================================
+   LOCALIZAÇÃO
+========================================================= */
+
+.local {
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #26c8c1,
+            #14958f
+        );
+
+    box-shadow:
+        0 9px 25px rgba(39,201,193,.10);
+}
+
+
+/* =========================================================
+   CONTATOS
+========================================================= */
+
+.btn.contato {
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #8b5cf6,
+            #6f42d8
+        );
+
+    box-shadow:
+        0 9px 25px rgba(139,92,246,.11);
+}
+
+
+.btn.sos-contatos {
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #ed3d55,
+            #bd253b
+        );
+
+    box-shadow:
+        0 9px 25px rgba(237,61,85,.11);
+}
+
+
+/* =========================================================
+   ACESSIBILIDADE
+========================================================= */
+
+button:focus-visible {
+
+    outline:
+        2px solid
+        rgba(255,63,130,.7);
+
+    outline-offset: 3px;
+}
+
+
+::selection {
+
+    color: white;
+
+    background:
+        rgba(255,63,130,.35);
+}
+
+
+/* =========================================================
+   CELULARES
+========================================================= */
+
+@media (max-width: 420px) {
+
+    .mainUI {
+
+        padding:
+            22px
+            14px
+            110px;
+
+        gap: 30px;
+    }
+
+
+    .panic {
+
+        height: 245px;
+
+        border-radius: 26px;
+    }
+
+
+    .panic span {
+
+        font-size: 60px;
+    }
+
+
+    .control-card {
+
+        padding: 19px;
+
+        min-height: 116px;
+
+        gap: 13px;
+    }
+
+
+    .control-card h3 {
+
+        font-size: 17px;
+    }
+
+
+    .control-card p {
+
+        font-size: 11px;
+    }
+
+
+    .switch {
+
+        width: 55px;
+        height: 32px;
+    }
+
+
+    .switch::after {
+
+        width: 24px;
+        height: 24px;
+
+        top: 4px;
+        left: 4px;
+    }
+
+
+    .switch.active::after {
+
+        transform:
+            translateX(23px);
+    }
+}
+
+
+/* =========================================================
+   TELAS MAIORES
+========================================================= */
+
+@media (min-width: 600px) {
+
+    .mainUI {
+
+        padding-left: 28px;
+
+        padding-right: 28px;
+    }
+}
+
+</style>
+
+
+<style>
+
+/* =========================================================
+   BOLINHA
+========================================================= */
+
+@keyframes bolinhaEntrada {
+
+    from {
+        transform:
+            translate(-50%, 120px);
+
+        opacity: 0;
+    }
+
+    to {
+        transform:
+            translate(-50%, 0);
+
+        opacity: 1;
+    }
+}
+
+
+.toggle {
+
+    width: 64px;
+    height: 64px;
+
+    position: fixed;
+
+    left: 50%;
+    bottom: 60px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 6px;
+
+    background: #444;
+
+    border-radius: 50%;
+
+    z-index: 10000;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.35);
+
+    transform:
+        translate(-50%, 0);
+
+    animation:
+        bolinhaEntrada
+        .65s
+        cubic-bezier(.22,1,.36,1)
+        both;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+/* =========================================================
+   CÍRCULO INTERNO
+========================================================= */
+
+.alavanca {
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #222;
+
+    padding: 10px;
+
+    border-radius: 50%;
+}
+
+
+/* =========================================================
+   FUNDO PRETO
+========================================================= */
+
+.page-transition {
+
+    position: fixed;
+
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 0;
+
+    background: #000;
+
+    border-radius:
+        32px 32px 0 0;
+
+    z-index: 9999;
+
+    pointer-events: none;
+
+    transition:
+        height .65s cubic-bezier(.65,0,.35,1);
+}
+
+
+.page-transition.active {
+
+    height: 100%;
+}
+
+
+/* =========================================================
+   BOLINHA SOBE JUNTO
+========================================================= */
+
+.toggle.sair {
+
+    animation:
+        bolinhaSaida
+        .65s
+        cubic-bezier(.65,0,.35,1)
+        forwards;
+}
+
+
+@keyframes bolinhaSaida {
+
+    from {
+
+        transform:
+            translate(-50%, 0);
+
+    }
+
+    to {
+
+        transform:
+            translate(-50%, calc(-100vh - 100px));
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =======================================================
+     INTERFACE
+======================================================== -->
+
+<main class="mainUI">
+
+
+    <!-- ===================================================
+         CABEÇALHO
+    ==================================================== -->
+
+    <header class="hero">
+
+        <div class="heroTag">
+            Mulher Amparada
+        </div>
+
+    </header>
+
+
+    <!-- ===================================================
+         EMERGÊNCIA
+    ==================================================== -->
+
+    <section class="section">
+
+        <div class="label">
+            Emergência
+        </div>
+
+        <button
+            class="panic"
+            id="panic"
+            type="button"
+            aria-label="Pedir ajuda"
+        >
+
+            <span>SOS</span>
+
+            <small>
+                toque para pedir ajuda
+            </small>
+
+        </button>
+
+    </section>
+
+
+    <!-- ===================================================
+         PROTEÇÃO POR BARULHO / PALMAS
+    ==================================================== -->
+
+    <section class="section">
+
+        <div class="label">
+            Barulho alto
+        </div>
+
+        <div
+            class="control-card"
+            id="palmasCard"
+        >
+
+            <div class="control-card-content">
+
+                <h3>
+                    Proteção por barulho
+                </h3>
+
+                <p>
+                    Detecta sons altos e situações
+                    suspeitas para acionar ajuda.
+                </p>
+
+                <span
+                    class="control-status"
+                    id="palmasStatus"
+                >
+                    DESATIVADO
+                </span>
+
+            </div>
+
+            <button
+                class="switch"
+                id="palmasSwitch"
+                type="button"
+                role="switch"
+                aria-checked="false"
+                aria-label="Ativar proteção por barulho"
+            ></button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         MOVIMENTO
+    ==================================================== -->
+
+    <section class="section">
+
+        <div class="label">
+            Movimento
+        </div>
+
+        <div
+            class="control-card movement"
+            id="movimentoCard"
+        >
+
+            <div class="control-card-content">
+
+                <h3>
+                    Balançar o celular
+                </h3>
+
+                <p>
+                    Balançar o celular pode pedir
+                    ajuda quando a proteção estiver ativa.
+                </p>
+
+                <span
+                    class="control-status"
+                    id="movimentoStatus"
+                >
+                    DESATIVADO
+                </span>
+
+            </div>
+
+            <button
+                class="switch purple"
+                id="movimentoSwitch"
+                type="button"
+                role="switch"
+                aria-checked="false"
+                aria-label="Ativar proteção por movimento"
+            ></button>
+
+        </div>
+
+    </section>
+
+
+    <section class="section">
+
+        <div class="label">
+            Brilho
+        </div>
+
+        <div
+            class="control-card brightness"
+            id="brilhoCard"
+        >
+
+            <div class="control-card-content">
+
+                <h3>
+                    Escurecimento por inclinação
+                </h3>
+
+                <p>
+                    Escurece a tela automaticamente
+                    quando a função estiver ativa.
+                </p>
+
+                <span
+                    class="control-status"
+                    id="brilhoStatus"
+                >
+                    DESATIVADO
+                </span>
+
+            </div>
+
+            <button
+                class="switch orange"
+                id="brilhoSwitch"
+                type="button"
+                role="switch"
+                aria-checked="false"
+                aria-label="Ativar escurecimento por inclinação"
+            ></button>
+
+        </div>
+
+    </section>
+
+    <!-- ===================================================
+         AJUDA RÁPIDA
+    ==================================================== -->
+
+    <section class="section">
+
+        <div class="label">
+            Ajuda rápida
+        </div>
+
+        <button
+            class="btn policia"
+            type="button"
+            onclick="ligar('190')"
+        >
+            Polícia (190)
+        </button>
+
+        <button
+            class="btn samu"
+            type="button"
+            onclick="ligar('192')"
+        >
+            SAMU (192)
+        </button>
+
+        <button
+            class="btn mulher"
+            type="button"
+            onclick="ligar('180')"
+        >
+            Central da Mulher (180)
+        </button>
+
+        <button
+            class="btn zap"
+            type="button"
+            onclick="whatsapp180()"
+        >
+            WhatsApp 180
+        </button>
+
+    </section>
+
+
+    <!-- ===================================================
+         BRILHO
+    ==================================================== -->
+
+
+
+    <!-- ===================================================
+         LOCALIZAÇÃO
+    ==================================================== -->
+
+    <section class="section">
+
+        <div class="label">
+            Localização
+        </div>
+
+        <button
+            class="local"
+            type="button"
+            onclick="enviarLocalizacao()"
+        >
+            Enviar localização
+        </button>
+
+    </section>
+
+
+    <!-- ===================================================
+         CONTATOS
+    ==================================================== -->
+
+    <section class="section">
+
+        <div class="label">
+            Contatos de confiança
+        </div>
+
+        <button
+            class="btn contato"
+            type="button"
+            onclick="selecionarContato()"
+        >
+            Adicionar contato
+        </button>
+
+        <button
+            class="btn sos-contatos"
+            type="button"
+            onclick="enviarSOSContatos()"
+        >
+            SOS contatos
+        </button>
+
+    </section>
+
+
+</main>
+
+
+<!-- =======================================================
+     BOLINHA
+======================================================== -->
+
+<div
+    class="toggle"
+    id="toggle"
+>
+
+    <div class="alavanca">
+
+        <svg
+            class="icon2"
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 -960 960 960"
+            width="24px"
+            fill="#fff"
+        >
+
+            <path
+                d="M467-85q-6-1-12-3-135-45-215-166.5T160-516v-189q0-25 14.5-45t37.5-29l240-90q14-5 28-5t28 5l240 90q23 9 37.5 29t14.5 45v189q0 140-80 261.5T505-88q-6 2-12 3t-13 1q-7 0-13-1Zm13-79q104-33 172-132t68-220v-189l-240-90-240 90v189q0 121 68 220t172 132Zm0-316Z"
+            />
+
+        </svg>
+
+    </div>
+
+</div>
+
+
+<div
+    class="page-transition"
+    id="pageTransition"
+></div>
+
+
+<script>
+
+/* =========================================================
+   UTILITÁRIOS
+========================================================= */
+
+function vibrar(duracao = 100) {
+
+    try {
+
+        if (navigator.vibrate) {
+            navigator.vibrate(duracao);
+        }
+
+    } catch (e) {}
+
+}
+
+
+function chamarAndroid(nome, ...args) {
+
+    try {
+
+        if (
+            window.Android &&
+            typeof window.Android[nome] === "function"
+        ) {
+
+            return window.Android[nome](...args);
+
+        }
+
+    } catch (e) {
+
+        console.warn(
+            "Android." + nome,
+            e
+        );
+
+    }
+
+    return null;
+}
+
+
+/* =========================================================
+   SOS
+========================================================= */
+
+const panic =
+    document.getElementById("panic");
+
+
+panic.addEventListener(
+    "click",
+    ativarSOS
+);
+
+
+function ativarSOS() {
+
+    vibrar(300);
+
+    panic.style.transform =
+        "scale(.96)";
+
+    setTimeout(() => {
+
+        panic.style.transform =
+            "";
+
+    }, 120);
+
+
+    if (
+        window.Android &&
+        typeof Android.ligarDireto === "function"
+    ) {
+
+        try {
+
+            Android.ligarDireto("180");
+
+            return;
+
+        } catch (e) {
+
+            console.warn(e);
+
+        }
+
+    }
+
+
+    try {
+
+        window.location.href =
+            "tel:180";
+
+    } catch (e) {
+
+        alert(
+            "Não foi possível iniciar a ligação."
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   LIGAÇÃO
+========================================================= */
+
+function ligar(numero) {
+
+    if (!numero) return;
+
+    vibrar(60);
+
+    try {
+
+        window.location.href =
+            "tel:" + numero;
+
+    } catch (e) {
+
+        alert(
+            "Não foi possível iniciar a ligação."
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   WHATSAPP 180
+========================================================= */
+
+function whatsapp180() {
+
+    vibrar(60);
+
+    const url =
+        "https://wa.me/556196100180";
+
+    try {
+
+        window.location.href = url;
+
+    } catch (e) {
+
+        window.open(
+            url,
+            "_blank"
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   LOCALIZAÇÃO
+========================================================= */
+
+function enviarLocalizacao() {
+
+    if (
+        !navigator.geolocation
+    ) {
+
+        alert(
+            "A geolocalização não é suportada neste dispositivo."
+        );
+
+        return;
+
+    }
+
+
+    vibrar(60);
+
+
+    navigator.geolocation.getCurrentPosition(
+
+        function(pos) {
+
+            const latitude =
+                pos.coords.latitude;
+
+            const longitude =
+                pos.coords.longitude;
+
+
+            const link =
+                "https://maps.google.com/?q=" +
+                latitude +
+                "," +
+                longitude;
+
+
+            const mensagem =
+                "🚨 SOCORRO! Estou aqui: " +
+                link;
+
+
+            const url =
+                "https://wa.me/556196100180?text=" +
+                encodeURIComponent(
+                    mensagem
+                );
+
+
+            window.location.href =
+                url;
+
+        },
+
+        function(error) {
+
+            console.warn(
+                "Geolocalização:",
+                error
+            );
+
+            alert(
+                "Não foi possível obter sua localização. " +
+                "Verifique se a localização está ativada."
+            );
+
+        },
+
+        {
+            enableHighAccuracy: true,
+
+            timeout: 10000,
+
+            maximumAge: 5000
+        }
+
+    );
+
+}
+
+
+/* =========================================================
+   PROTEÇÃO POR BARULHO / PALMAS
+========================================================= */
+
+const palmasCard =
+    document.getElementById(
+        "palmasCard"
+    );
+
+const palmasSwitch =
+    document.getElementById(
+        "palmasSwitch"
+    );
+
+const palmasStatus =
+    document.getElementById(
+        "palmasStatus"
+    );
+
+
+let palmasAtiva = false;
+
+
+function atualizarPalmasUI(ativa) {
+
+    palmasAtiva = ativa;
+
+
+    palmasSwitch.classList.toggle(
+        "active",
+        ativa
+    );
+
+
+    palmasCard.classList.toggle(
+        "active",
+        ativa
+    );
+
+
+    palmasSwitch.setAttribute(
+        "aria-checked",
+        String(ativa)
+    );
+
+
+    palmasSwitch.setAttribute(
+        "aria-label",
+        ativa
+            ? "Desativar proteção por barulho"
+            : "Ativar proteção por barulho"
+    );
+
+
+    palmasStatus.innerText =
+        ativa
+            ? "ATIVADO"
+            : "DESATIVADO";
+
+}
+
+
+palmasSwitch.addEventListener(
+    "click",
+    function() {
+
+        palmasAtiva =
+            !palmasAtiva;
+
+        vibrar(70);
+
+
+        if (palmasAtiva) {
+
+            chamarAndroid(
+                "ativarPalmas"
+            );
+
+        } else {
+
+            chamarAndroid(
+                "desativarPalmas"
+            );
+
+        }
+
+
+        atualizarPalmasUI(
+            palmasAtiva
+        );
+
+    }
+);
+
+
+/* =========================================================
+   PROTEÇÃO POR MOVIMENTO
+========================================================= */
+
+const movimentoCard =
+    document.getElementById(
+        "movimentoCard"
+    );
+
+const movimentoSwitch =
+    document.getElementById(
+        "movimentoSwitch"
+    );
+
+const movimentoStatus =
+    document.getElementById(
+        "movimentoStatus"
+    );
+
+
+let protecaoAtiva = false;
+
+
+function atualizarProtecaoUI() {
+
+    movimentoSwitch.classList.toggle(
+        "active",
+        protecaoAtiva
+    );
+
+
+    movimentoCard.classList.toggle(
+        "active",
+        protecaoAtiva
+    );
+
+
+    movimentoSwitch.setAttribute(
+        "aria-checked",
+        String(protecaoAtiva)
+    );
+
+
+    movimentoSwitch.setAttribute(
+        "aria-label",
+        protecaoAtiva
+            ? "Desativar proteção por movimento"
+            : "Ativar proteção por movimento"
+    );
+
+
+    movimentoStatus.innerText =
+        protecaoAtiva
+            ? "ATIVADO"
+            : "DESATIVADO";
+
+}
+
+
+movimentoSwitch.addEventListener(
+    "click",
+    function() {
+
+        protecaoAtiva =
+            !protecaoAtiva;
+
+        vibrar(70);
+
+
+        if (protecaoAtiva) {
+
+            chamarAndroid(
+                "ativarProtecao"
+            );
+
+        } else {
+
+            chamarAndroid(
+                "desativarProtecao"
+            );
+
+        }
+
+
+        atualizarProtecaoUI();
+
+    }
+);
+
+
+/* =========================================================
+   BRILHO / ESCURECIMENTO
+========================================================= */
+
+const brilhoCard =
+    document.getElementById(
+        "brilhoCard"
+    );
+
+const brilhoSwitch =
+    document.getElementById(
+        "brilhoSwitch"
+    );
+
+const brilhoStatus =
+    document.getElementById(
+        "brilhoStatus"
+    );
+
+
+let brilhoAtivo = false;
+
+
+function atualizarBrilhoUI() {
+
+    brilhoSwitch.classList.toggle(
+        "active",
+        brilhoAtivo
+    );
+
+
+    brilhoCard.classList.toggle(
+        "active",
+        brilhoAtivo
+    );
+
+
+    brilhoSwitch.setAttribute(
+        "aria-checked",
+        String(brilhoAtivo)
+    );
+
+
+    brilhoSwitch.setAttribute(
+        "aria-label",
+        brilhoAtivo
+            ? "Desativar escurecimento por inclinação"
+            : "Ativar escurecimento por inclinação"
+    );
+
+
+    brilhoStatus.innerText =
+        brilhoAtivo
+            ? "ATIVADO"
+            : "DESATIVADO";
+
+}
+
+
+brilhoSwitch.addEventListener(
+    "click",
+    function() {
+
+        brilhoAtivo =
+            !brilhoAtivo;
+
+        vibrar(60);
+
+
+        if (brilhoAtivo) {
+
+            if (
+                window.TiltBrightness &&
+                typeof TiltBrightness.startTiltBrightness ===
+                    "function"
+            ) {
+
+                try {
+
+                    TiltBrightness.startTiltBrightness();
+
+                } catch (e) {
+
+                    console.warn(e);
+
+                }
+
+            }
+
+        } else {
+
+            if (
+                window.TiltBrightness &&
+                typeof TiltBrightness.stopTiltBrightness ===
+                    "function"
+            ) {
+
+                try {
+
+                    TiltBrightness.stopTiltBrightness();
+
+                } catch (e) {
+
+                    console.warn(e);
+
+                }
+
+            }
+
+
+            /*
+             * Mostra novamente a Status Bar
+             * e a Navigation Bar.
+             */
+
+            if (
+                window.Android &&
+                typeof Android.desativarFullscreen ===
+                    "function"
+            ) {
+
+                try {
+
+                    Android.desativarFullscreen();
+
+                } catch (e) {
+
+                    console.warn(e);
+
+                }
+
+            }
+
+        }
+
+
+        atualizarBrilhoUI();
+
+    }
+);
+
+
+/* =========================================================
+   EVENTO DO ANDROID — BRILHO
+========================================================= */
+
+window.addEventListener(
+    "tiltbrightness",
+    function(e) {
+
+        if (
+            e.detail === "dark"
+        ) {
+
+            brilhoAtivo = true;
+
+            atualizarBrilhoUI();
+
+        }
+
+
+        if (
+            e.detail === "normal"
+        ) {
+
+            brilhoAtivo = false;
+
+            atualizarBrilhoUI();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   CONTATOS
+========================================================= */
+
+function selecionarContato() {
+
+    vibrar(60);
+
+    if (
+        chamarAndroid(
+            "abrirContatos"
+        ) !== null
+    ) {
+
+        return;
+
+    }
+
+    alert(
+        "A função de contatos precisa da integração com o Android."
+    );
+
+}
+
+
+function enviarSOSContatos() {
+
+    vibrar(150);
+
+    if (
+        chamarAndroid(
+            "enviarSOS"
+        ) !== null
+    ) {
+
+        return;
+
+    }
+
+    alert(
+        "A função SOS dos contatos precisa da integração com o Android."
+    );
+
+}
+
+
+/* =========================================================
+   INICIALIZAÇÃO
+========================================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+        atualizarPalmasUI(false);
+
+        atualizarProtecaoUI();
+
+        atualizarBrilhoUI();
+
+    }
+);
+
+</script>
+
+<script>
+
+/* =========================================================
+   NAVEGAÇÃO DA BOLINHA
+========================================================= */
+
+const toggle =
+    document.getElementById("toggle");
+
+const pageTransition =
+    document.getElementById("pageTransition");
+
+
+function sairDaPagina() {
+
+    vibrar(60);
+
+    toggle.style.pointerEvents =
+        "none";
+
+
+    /* FADE OUT DA INTERFACE */
+
+    document
+        .querySelector(".mainUI")
+        .classList.add("saindo");
+
+
+    /* FUNDO PRETO SOBE */
+
+    pageTransition.classList.add(
+        "active"
+    );
+
+
+    /* BOLINHA SOBE */
+
+    toggle.classList.add(
+        "sair"
+    );
+
+
+    setTimeout(
+        function() {
+
+            window.location.href =
+                "index3.html";
+
+        },
+        700
+    );
+
+}
+
+
+toggle.addEventListener(
+    "click",
+    sairDaPagina
+);
+
+</script>
+
+</body>
+</html>
