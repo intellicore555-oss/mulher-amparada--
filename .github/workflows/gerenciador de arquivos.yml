@@ -116,6 +116,7 @@ jobs:
           else
             git commit -m "Atualizar App2.zip [skip ci]"
 
+            git reset --hard HEAD
             git pull --rebase origin main
             git push origin main
           fi
@@ -260,6 +261,7 @@ jobs:
           else
             git commit -m "Atualizar link do App2.zip [skip ci]"
 
+            git reset --hard HEAD
             git pull --rebase origin main
             git push origin main
           fi

@@ -14,10 +14,10 @@ jobs:
     name: Compilar APK Kotlin
     runs-on: ubuntu-latest
 
-concurrency:
+    concurrency:
       group: atualizar-main
       cancel-in-progress: false
-      
+
     env:
       App1_DIR: "Código-fonte do App = Mulher Amparada"
       RELEASE_TAG: "App1mulheramparada"
@@ -115,6 +115,9 @@ concurrency:
             echo "App1.zip não sofreu alterações."
           else
             git commit -m "Atualizar App1.zip [skip ci]"
+
+            git reset --hard HEAD
+            git pull --rebase origin main
             git push origin main
           fi
 
@@ -142,6 +145,7 @@ concurrency:
 
           if [ -n "$ASSET_ID" ]; then
             echo "Excluindo App1.zip antigo..."
+
             gh api \
               --method DELETE \
               "repos/$GITHUB_REPOSITORY/releases/assets/$ASSET_ID"
@@ -256,6 +260,9 @@ concurrency:
             echo "O link já está atualizado."
           else
             git commit -m "Atualizar link do App1.zip [skip ci]"
+
+            git reset --hard HEAD
+            git pull --rebase origin main
             git push origin main
           fi
 

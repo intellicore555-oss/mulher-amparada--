@@ -14,10 +14,10 @@ jobs:
     name: Compilar APK Kotlin
     runs-on: ubuntu-latest
 
-concurrency:
+    concurrency:
       group: atualizar-main
       cancel-in-progress: false
-      
+
     env:
       APP_DIR: "Código-fonte do app = Assistente De Voz Do Mulher Amparada"
       RELEASE_TAG: "appassistentedevozdomulheramparada"
@@ -115,6 +115,9 @@ concurrency:
             echo "App3.zip não sofreu alterações."
           else
             git commit -m "Atualizar App3.zip [skip ci]"
+
+            git reset --hard HEAD
+            git pull --rebase origin main
             git push origin main
           fi
 
@@ -142,6 +145,7 @@ concurrency:
 
           if [ -n "$ASSET_ID" ]; then
             echo "Excluindo App3.zip antigo..."
+
             gh api \
               --method DELETE \
               "repos/$GITHUB_REPOSITORY/releases/assets/$ASSET_ID"
@@ -218,9 +222,34 @@ concurrency:
           echo "Novo link:"
           echo "$ASSET_URL"
 
-          sed -i \
-            's|href="https://github.com/user-attachments/files/[^"]*App3\.zip"|href="'"$ASSET_URL"'"|' \
-            download1.html
+          python3 - <<PY
+          from pathlib import Path
+          import re
+
+          arquivo = Path("download1.html")
+          texto = arquivo.read_text(encoding="utf-8")
+
+          novo_url = """$ASSET_URL"""
+
+          padrao = r'(<a\s+class="download"\s+href=")[^"]*(")'
+
+          novo_texto, quantidade = re.subn(
+              padrao,
+              lambda m: m.group(1) + novo_url + m.group(2),
+              texto,
+              count=1
+          )
+
+          if quantidade == 0:
+              raise SystemExit(
+                  'ERRO: <a class="download" ...> não encontrado.'
+              )
+
+          arquivo.write_text(novo_texto, encoding="utf-8")
+
+          print("download1.html atualizado.")
+          print("Novo link:", novo_url)
+          PY
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -231,6 +260,9 @@ concurrency:
             echo "O link já está atualizado."
           else
             git commit -m "Atualizar link do App3.zip [skip ci]"
+
+            git reset --hard HEAD
+            git pull --rebase origin main
             git push origin main
           fi
 
