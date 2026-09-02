@@ -209,15 +209,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          ASSET_URL=$(gh release view "$RELEASE_TAG" \
-            --repo "$GITHUB_REPOSITORY" \
-            --json assets \
-            --jq '.assets[] | select(.name == "App1.zip") | .browser_download_url')
-
-          if [ -z "$ASSET_URL" ]; then
-            echo "ERRO: URL do App1.zip não encontrada na Release."
-            exit 1
-          fi
+          ASSET_URL="https://github.com/$GITHUB_REPOSITORY/releases/download/$RELEASE_TAG/App1.zip"
 
           echo "Novo link:"
           echo "$ASSET_URL"
