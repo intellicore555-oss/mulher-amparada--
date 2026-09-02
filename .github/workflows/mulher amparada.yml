@@ -3,17 +3,39 @@ name: Compilar o mulher amparada
 on:
   push:
     branches:
-      - master
+      - main
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   build:
     name: Compilar APK Kotlin
     runs-on: ubuntu-latest
 
+    env:
+      App1_DIR: "Código-fonte do App1 = Mulher Amparada"
+      RELEASE_TAG: "App1mulheramparada"
+
     steps:
       - name: Baixar código
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Verificar projeto
+        run: |
+          if [ ! -d "$App1_DIR" ]; then
+            echo "ERRO: pasta não encontrada:"
+            echo "$App1_DIR"
+            exit 1
+          fi
+
+          if [ ! -f "$App1_DIR/gradlew" ]; then
+            echo "ERRO: gradlew não encontrado."
+            exit 1
+          fi
 
       - name: Configurar Java 17
         uses: actions/setup-java@v4
@@ -23,15 +45,175 @@ jobs:
           cache: gradle
 
       - name: Dar permissão ao Gradle
-        working-directory: "Código-fonte do app = Mulher Amparada"
+        working-directory: ${{ env.App1_DIR }}
         run: chmod +x gradlew
 
       - name: Compilar APK
-        working-directory: "Código-fonte do app = Mulher Amparada"
-        run: ./gradlew assembleDebug
+        working-directory: ${{ env.App1_DIR }}
+        run: ./gradlew assembleDebug --stacktrace
 
-      - name: Enviar APK
+      - name: Localizar APK
+        id: apk
+        working-directory: ${{ env.App1_DIR }}
+        run: |
+          APK=$(find App1/build/outputs/apk/debug -type f -name "*.apk" | head -n 1)
+
+          if [ -z "$APK" ]; then
+            echo "ERRO: APK não encontrado."
+            exit 1
+          fi
+
+          echo "APK encontrado: $APK"
+          echo "apk=$APK" >> "$GITHUB_OUTPUT"
+
+      - name: Calcular SHA-256
+        id: sha256
+        working-directory: ${{ env.App1_DIR }}
+        run: |
+          SHA256=$(sha256sum "${{ steps.apk.outputs.apk }}" | awk '{print $1}')
+
+          echo "SHA-256:"
+          echo "$SHA256"
+
+          echo "sha256=$SHA256" >> "$GITHUB_OUTPUT"
+
+      - name: Criar App1.zip
+        working-directory: ${{ env.App1_DIR }}
+        run: |
+          rm -f App1.zip
+          zip -j App1.zip "${{ steps.apk.outputs.apk }}"
+
+          echo "App1.zip criado:"
+          unzip -l App1.zip
+
+      - name: Enviar APK como artifact
         uses: actions/upload-artifact@v4
         with:
           name: APK-Kotlin-Debug
-          path: "Código-fonte do app = Mulher Amparada/app/build/outputs/apk/debug/*.apk"
+          path: "${{ env.App1_DIR }}/App1/build/outputs/apk/debug/*.apk"
+          if-no-files-found: error
+
+      - name: Enviar App1.zip como artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: App1
+          path: "${{ env.App1_DIR }}/App1.zip"
+          if-no-files-found: error
+
+      - name: Fazer commit do App1.zip
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add "$App1_DIR/App1.zip"
+
+          if git diff --cached --quiet; then
+            echo "App1.zip não sofreu alterações."
+          else
+            git commit -m "Atualizar App1.zip [skip ci]"
+            git push origin main
+          fi
+
+      - name: Verificar Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if ! gh release view "$RELEASE_TAG" \
+            --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+
+            echo "ERRO: A Release '$RELEASE_TAG' não existe."
+            exit 1
+          fi
+
+          echo "Release encontrada."
+
+      - name: Excluir App1.zip antigo da Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          ASSET_ID=$(gh api \
+            "repos/$GITHUB_REPOSITORY/releases/tags/$RELEASE_TAG" \
+            --jq '.assets[] | select(.name == "App1.zip") | .id' \
+            | head -n 1)
+
+          if [ -n "$ASSET_ID" ]; then
+            echo "Excluindo App1.zip antigo..."
+            gh api \
+              --method DELETE \
+              "repos/$GITHUB_REPOSITORY/releases/assets/$ASSET_ID"
+
+            echo "App1.zip antigo excluído."
+          else
+            echo "Nenhum App1.zip antigo encontrado."
+          fi
+
+      - name: Enviar novo App1.zip para a Release
+        working-directory: ${{ env.App1_DIR }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release upload "$RELEASE_TAG" \
+            "App1.zip" \
+            --repo "$GITHUB_REPOSITORY"
+
+          echo "Novo App1.zip enviado para a Release."
+
+      - name: Atualizar SHA-256 da Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          SHA256="${{ steps.sha256.outputs.sha256 }}"
+
+          gh release view "$RELEASE_TAG" \
+            --repo "$GITHUB_REPOSITORY" \
+            --json body \
+            --jq '.body' > release-notes.txt
+
+          if grep -q "SHA-256 gerado nesta compilação:" release-notes.txt; then
+            sed -i \
+              "s/^SHA-256 gerado nesta compilação:.*$/SHA-256 gerado nesta compilação: $SHA256/" \
+              release-notes.txt
+          else
+            printf '\n\nSHA-256 gerado nesta compilação: %s\n' "$SHA256" >> release-notes.txt
+          fi
+
+          gh release edit "$RELEASE_TAG" \
+            --repo "$GITHUB_REPOSITORY" \
+            --notes-file release-notes.txt
+
+          echo "SHA-256 atualizado:"
+          echo "$SHA256"
+
+      - name: Excluir APK da Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          ASSET_ID=$(gh api \
+            "repos/$GITHUB_REPOSITORY/releases/tags/$RELEASE_TAG" \
+            --jq '.assets[] | select(.name == "App1-debug.apk") | .id' \
+            | head -n 1)
+
+          if [ -n "$ASSET_ID" ]; then
+            echo "Excluindo App1-debug.apk da Release..."
+
+            gh api \
+              --method DELETE \
+              "repos/$GITHUB_REPOSITORY/releases/assets/$ASSET_ID"
+
+            echo "App1-debug.apk excluído."
+          else
+            echo "App1-debug.apk não está na Release."
+          fi
+          
+      - name: Mostrar resumo
+        run: |
+          echo "## Compilação concluída" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "**Release:** $RELEASE_TAG" >> "$GITHUB_STEP_SUMMARY"
+          echo "**Branch:** main" >> "$GITHUB_STEP_SUMMARY"
+          echo "**Release recebe:** App1.zip" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "**SHA-256:**" >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+          echo "${{ steps.sha256.outputs.sha256 }}" >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"

@@ -184,6 +184,27 @@ jobs:
           echo "SHA-256 atualizado:"
           echo "$SHA256"
 
+      - name: Excluir APK da Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          ASSET_ID=$(gh api \
+            "repos/$GITHUB_REPOSITORY/releases/tags/$RELEASE_TAG" \
+            --jq '.assets[] | select(.name == "app-debug.apk") | .id' \
+            | head -n 1)
+
+          if [ -n "$ASSET_ID" ]; then
+            echo "Excluindo app-debug.apk da Release..."
+
+            gh api \
+              --method DELETE \
+              "repos/$GITHUB_REPOSITORY/releases/assets/$ASSET_ID"
+
+            echo "app-debug.apk excluído."
+          else
+            echo "app-debug.apk não está na Release."
+          fi
+          
       - name: Mostrar resumo
         run: |
           echo "## Compilação concluída" >> "$GITHUB_STEP_SUMMARY"
