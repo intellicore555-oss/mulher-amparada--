@@ -244,11 +244,11 @@ Para desinstalar o aplicativo, primeiro será necessário desativar a permissão
 
 Antes de conceder essa permissão, leia atentamente as informações exibidas pelo Android e só prossiga se compreender as funcionalidades e os efeitos dessa autorização.
 
-(como o código esta dentro do zip, nao precisarei explicar!)
+(como o código esta dentro do repositório , nao precisarei explicar!)
 
 **APPS DIFERENTES!:**
 
-**lembrando que, sobre esses apps, ja tem o código fonte dele dentro de um zip no site!:**
+**lembrando que, sobre esses apps, ja tem o código fonte dele dentro do repositório no site!:**
 
 **Lembrando que o app de gerenciador de arquivos so visualiza arquivos  nao copia, nao exclui, nao move e nao renomeia, e ele também precisa desbloquear com biometria**
 
