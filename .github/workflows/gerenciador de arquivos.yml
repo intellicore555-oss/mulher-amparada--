@@ -205,6 +205,39 @@ jobs:
             echo "app-debug.apk não está na Release."
           fi
           
+                - name: Atualizar link do App3.zip no download2.html
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          ASSET_URL=$(gh release view "$RELEASE_TAG" \
+            --repo "$GITHUB_REPOSITORY" \
+            --json assets \
+            --jq '.assets[] | select(.name == "App3.zip") | .url')
+
+          if [ -z "$ASSET_URL" ]; then
+            echo "ERRO: URL do App3.zip não encontrada na Release."
+            exit 1
+          fi
+
+          echo "Novo link:"
+          echo "$ASSET_URL"
+
+          sed -i \
+            's|href="https://github.com/user-attachments/files/[^"]*App3\.zip"|href="'"$ASSET_URL"'"|' \
+            download2.html
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add download2.html
+
+          if git diff --cached --quiet; then
+            echo "O link já está atualizado."
+          else
+            git commit -m "Atualizar link do App3.zip [skip ci]"
+            git push origin main
+          fi
+          
       - name: Mostrar resumo
         run: |
           echo "## Compilação concluída" >> "$GITHUB_STEP_SUMMARY"
