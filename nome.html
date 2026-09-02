@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+>
+
+<meta name="theme-color" content="#000000">
+
+<title>Mulher Amparada</title>
+
+<meta
+    name="description"
+    content="Mulher Amparada é um projeto de tecnologia voltado à proteção, segurança e assistência em situações de emergência."
+>
+
+<link
+    rel="apple-touch-icon"
+    sizes="180x180"
+    href="/apple-touch-icon.png"
+>
+
+<link
+    rel="icon"
+    type="image/png"
+    sizes="32x32"
+    href="/favicon-32x32.png"
+>
+
+<link
+    rel="icon"
+    type="image/png"
+    sizes="16x16"
+    href="/favicon-16x16.png"
+>
+
+<style>
+
+/* =========================================================
+   FONTE
+========================================================= */
+
+@font-face {
+    font-family: "Quicksand";
+    src: url("font.ttf") format("truetype");
+    font-display: swap;
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   BASE
+========================================================= */
+
+html {
+    min-height: 100%;
+}
+
+body {
+
+    background: #000;
+
+    min-height: 100vh;
+
+    color: #fff;
+
+    font-family: "Quicksand", sans-serif;
+
+    overflow-x: hidden;
+
+    -webkit-tap-highlight-color: transparent;
+    
+    margin-top: -5%;
+}
+
+
+/* =========================================================
+   FUNDO
+========================================================= */
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    width: 420px;
+    height: 420px;
+
+    left: 50%;
+    top: 42%;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,105,169,.075) 0%,
+            rgba(255,105,169,.025) 35%,
+            transparent 70%
+        );
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   ANIMAÇÃO
+========================================================= */
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+}
+
+@keyframes fadeOut {
+
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.container {
+
+    width: min(100%, 720px);
+
+    min-height: 100vh;
+
+    margin: auto;
+
+    padding:
+        calc(34px + env(safe-area-inset-top))
+        22px
+        calc(40px + env(safe-area-inset-bottom));
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    animation:
+        fadeIn .55s ease both;
+}
+
+
+/* =========================================================
+   FADE OUT
+========================================================= */
+
+body.fade-out .container {
+
+    animation:
+        fadeOut .26s ease both;
+
+}
+
+
+/* =========================================================
+   MARCA
+========================================================= */
+
+.brand {
+
+    margin-bottom: 34px;
+
+    color: #77777f;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+}
+
+.brand span {
+
+    color: #ff70ad;
+}
+
+
+/* =========================================================
+   AVATAR
+========================================================= */
+
+.avatar {
+
+    position: relative;
+
+    width: 188px;
+    height: 188px;
+
+    margin-bottom: 38px;
+
+    border-radius: 50%;
+
+    isolation: isolate;
+}
+
+
+/* =========================================================
+   ANEL EXTERNO
+========================================================= */
+
+.avatar::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: -7px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid rgba(255,105,169,.25);
+}
+
+
+/* =========================================================
+   HALO
+========================================================= */
+
+.avatar::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: -22px;
+
+    z-index: -1;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,105,169,.13),
+            transparent 68%
+        );
+}
+
+
+/* =========================================================
+   IMAGEM
+========================================================= */
+
+.avatar img {
+
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border:
+        2px solid rgba(255,255,255,.12);
+
+    background: #080808;
+}
+
+
+/* =========================================================
+   PEQUENO INDICADOR
+========================================================= */
+
+.status {
+
+    position: absolute;
+
+    right: 8px;
+    bottom: 8px;
+
+    width: 17px;
+    height: 17px;
+
+    border-radius: 50%;
+
+    background: #ff70ad;
+
+    border:
+        4px solid #000;
+}
+
+
+/* =========================================================
+   FRASE SUPERIOR
+========================================================= */
+
+.text-top {
+
+    max-width: 470px;
+
+    margin-bottom: 16px;
+
+    color: #85858d;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+
+    letter-spacing: .15px;
+}
+
+
+/* =========================================================
+   TEXTO PRINCIPAL
+========================================================= */
+
+.text-main {
+
+    max-width: 620px;
+
+    color: #f5f5f7;
+
+    font-size:
+        clamp(2rem, 7vw, 3.5rem);
+
+    font-weight: 800;
+
+    line-height: 1.12;
+
+    letter-spacing: -1.8px;
+}
+
+
+/* =========================================================
+   DESTAQUE
+========================================================= */
+
+.highlight {
+
+    color: #ff70ad;
+}
+
+
+/* =========================================================
+   LINHA
+========================================================= */
+
+.line {
+
+    width: 38px;
+    height: 2px;
+
+    margin: 26px auto 0;
+
+    border-radius: 999px;
+
+    background: #ff70ad;
+
+    opacity: .85;
+}
+
+
+/* =========================================================
+   MENSAGEM
+========================================================= */
+
+.message {
+
+    max-width: 410px;
+
+    margin-top: 25px;
+
+    color: #5d5d65;
+
+    font-size: 12px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer {
+
+    margin-top: 38px;
+
+    color: #37373d;
+
+    font-size: 10px;
+
+    letter-spacing: 1.2px;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .container {
+
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .brand {
+
+        margin-bottom: 30px;
+    }
+
+    .avatar {
+
+        width: 164px;
+        height: 164px;
+
+        margin-bottom: 34px;
+    }
+
+    .text-top {
+
+        font-size: 12px;
+    }
+
+    .text-main {
+
+        font-size: 2rem;
+
+        letter-spacing: -1.1px;
+    }
+
+    .message {
+
+        font-size: 11.5px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<main class="container">
+
+
+    <div class="avatar">
+
+        <img
+            src="user1.png"
+            alt="Usuário"
+        >
+
+        <span class="status"></span>
+
+    </div>
+
+
+    <p class="text-top">
+
+        Um espaço criado para lembrar que segurança,
+        autonomia e liberdade caminham juntas.
+
+    </p>
+
+
+    <h1 class="text-main">
+
+        <span class="highlight">
+            Mulher Amparada
+        </span>
+
+        pela liberdade feminina.
+
+    </h1>
+
+
+    <div class="line"></div>
+
+
+    <p class="message">
+
+        Tecnologia para apoiar escolhas, fortalecer a autonomia
+        e tornar cada caminho um pouco mais seguro.
+
+    </p>
+
+
+    <footer class="footer">
+
+        Liberdade • Autonomia • Proteção
+
+    </footer>
+
+
+</main>
+
+
+<script>
+
+let navegando = false;
+
+function sairDaPagina(destino) {
+
+    if (navegando || !destino) {
+        return;
+    }
+
+    navegando = true;
+
+    document.body.classList.add("fade-out");
+
+    setTimeout(function() {
+
+        window.location.href = destino;
+
+    }, 260);
+
+}
+
+window.addEventListener("pageshow", function() {
+
+    navegando = false;
+
+    document.body.classList.remove("fade-out");
+
+});
+
+</script>
+
+</body>
+
+</html>

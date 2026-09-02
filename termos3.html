@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="description" content="Interface moderna IntelliCore com design avançado e recursos personalizados">
+<meta name="keywords" content="interface moderna, , design web">
+<meta name="author" content="Seu nome">
+<title>Termos e Privacidade</title>
+
+
+<style>
+
+/* =========================================================
+   FONTE
+========================================================= */
+
+@font-face {
+    font-family: "Quicksand";
+    src: url("font.ttf") format("truetype");
+    font-display: swap;
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* =========================================================
+   VARIÁVEIS
+========================================================= */
+
+:root {
+    --black: #000000;
+
+    --surface: #0b0b0f;
+    --surface-2: #101014;
+
+    --text: #ffffff;
+    --text-soft: #d7d7df;
+    --muted: #858590;
+
+    --pink: #ff3f88;
+    --pink-light: #ff78aa;
+
+    --purple: #9147ff;
+    --purple-light: #b86aff;
+
+    --red: #ff3b5f;
+
+    --border: rgba(255, 255, 255, .08);
+    --border-light: rgba(255, 255, 255, .12);
+}
+
+
+/* =========================================================
+   HTML
+========================================================= */
+
+html {
+    width: 100%;
+    min-height: 100%;
+
+    background: #000;
+
+    scroll-behavior: auto;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   BODY
+========================================================= */
+
+body {
+
+    background: #000;
+    width: 100%;
+    min-height: 100vh;
+
+    margin: 0;
+
+    padding:
+        18px
+        18px
+        130px;
+
+    background: #000;
+
+    color: var(--text);
+
+    font-family:
+        "Quicksand",
+        Arial,
+        sans-serif;
+
+    overflow-x: hidden;
+
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+
+/* =========================================================
+   ANIMAÇÃO
+========================================================= */
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+        
+    }
+
+
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.container {
+
+    width: min(
+        100%,
+        900px
+    );
+
+    margin:
+        0 auto;
+
+}
+
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+.card {
+
+    position: relative;
+
+    width: 90%;
+
+    margin-left: 5%;
+    margin-right: 5%;
+
+    padding:
+        24px 24px 25px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #111116,
+            #08080b
+        );
+
+    box-shadow:
+        0 12px 35px
+        rgba(0,0,0,.45);
+
+    overflow: hidden;
+
+    animation:
+        fadeUp .55s ease both;
+
+}
+
+
+/* =========================================================
+   BRILHO LATERAL
+========================================================= */
+
+.card::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 20px;
+    left: 0;
+
+    width: 3px;
+    height: 46px;
+
+    border-radius:
+        0 10px 10px 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            var(--pink),
+            var(--purple)
+        );
+
+}
+
+
+/* =========================================================
+   BRILHO INTERNO
+========================================================= */
+
+.card::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: -100px;
+    right: -100px;
+
+    width: 180px;
+    height: 180px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(156,77,255,.08),
+            transparent 70%
+        );
+
+    pointer-events: none;
+
+}
+
+
+/* =========================================================
+   TÍTULOS
+========================================================= */
+
+.card h1,
+.card h2,
+.card h3 {
+
+    position: relative;
+
+    z-index: 1;
+
+    color: #fff;
+
+}
+
+
+.card h1 {
+
+    margin-bottom: 16px;
+
+    font-size: 28px;
+
+    line-height: 1.2;
+
+    font-weight: 900;
+
+    letter-spacing: -.6px;
+
+}
+
+
+.card h2 {
+
+    margin-bottom: 17px;
+
+    padding-left: 5px;
+
+    color: var(--pink-light);
+
+    font-size: 20px;
+
+    line-height: 1.3;
+
+    font-weight: 900;
+
+    letter-spacing: -.3px;
+
+}
+
+
+.card h3 {
+
+    margin-top: 10px;
+    margin-bottom: 8px;
+
+    font-size: 16px;
+
+    font-weight: 800;
+
+}
+
+
+/* =========================================================
+   PARÁGRAFOS
+========================================================= */
+
+.card p {
+
+    position: relative;
+
+    z-index: 1;
+
+    margin:
+        10px 0;
+
+    color: var(--text-soft);
+
+    font-size: 14px;
+
+    line-height: 1.85;
+
+}
+
+
+.card strong,
+.card b {
+
+    color: #fff;
+
+    font-weight: 800;
+
+}
+
+
+/* =========================================================
+   LISTAS
+========================================================= */
+
+.card ul {
+
+    position: relative;
+
+    z-index: 1;
+
+    margin:
+        12px 0 8px;
+
+    padding-left: 22px;
+
+}
+
+
+.card li {
+
+    margin-bottom: 9px;
+
+    color: var(--text-soft);
+
+    font-size: 14px;
+
+    line-height: 1.7;
+
+}
+
+
+/* =========================================================
+   BOTÃO FIXO
+========================================================= */
+
+.botao {
+
+    position: fixed;
+
+    z-index: 9999;
+
+    left: 50%;
+
+    bottom:
+        calc(
+            18px +
+            env(safe-area-inset-bottom)
+        );
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width:
+        min(
+            calc(100vw - 30px),
+            440px
+        );
+
+    min-height: 58px;
+
+    padding:
+        15px 22px;
+
+    transform:
+        translateX(-50%);
+
+    border:
+        1px solid
+        rgba(255,255,255,.14);
+
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--pink),
+            var(--purple)
+        );
+
+    color: #fff;
+
+    font-family:
+        "Quicksand",
+        sans-serif;
+
+    font-size: 15px;
+
+    font-weight: 900;
+
+    line-height: 1.2;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 12px 35px
+        rgba(255,63,136,.28),
+        0 4px 15px
+        rgba(0,0,0,.5);
+
+    outline: none;
+
+    user-select: none;
+
+    -webkit-user-select: none;
+
+    -webkit-tap-highlight-color:
+        transparent;
+
+    appearance: none;
+
+    -webkit-appearance: none;
+
+}
+
+
+/* =========================================================
+   BOTÃO — HOVER
+========================================================= */
+
+.botao:hover {
+
+    filter:
+        brightness(1.08);
+
+}
+
+
+/* =========================================================
+   BOTÃO — CLIQUE
+========================================================= */
+
+.botao:active {
+
+    transform:
+        translateX(-50%)
+        scale(.96);
+
+    filter:
+        brightness(.95);
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer {
+
+    width: min(
+        100%,
+        850px
+    );
+
+    margin:
+        35px auto 0;
+
+    padding:
+        20px 8px 160px;
+
+    text-align: center;
+
+    color: #6f6f79;
+
+    font-size: 12px;
+
+    line-height: 1.8;
+
+}
+
+
+.footer p {
+
+    margin:
+        10px 0;
+
+}
+
+
+/* =========================================================
+   SEPARADORES
+========================================================= */
+
+.footer br {
+
+    line-height: 1;
+
+}
+
+
+/* =========================================================
+   SELEÇÃO
+========================================================= */
+
+::selection {
+
+    background:
+        rgba(255,63,136,.30);
+
+    color: #fff;
+
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar {
+
+    width: 6px;
+
+}
+
+
+::-webkit-scrollbar-track {
+
+    background: #000;
+
+}
+
+
+::-webkit-scrollbar-thumb {
+
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            180deg,
+            var(--pink),
+            var(--purple)
+        );
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    body {
+
+        padding:
+            12px
+            12px
+            125px;
+
+    }
+
+
+    .card {
+
+        margin-bottom: 13px;
+
+        padding:
+            21px
+            18px
+            22px;
+
+        border-radius: 21px;
+
+    }
+
+
+    .card::before {
+
+        top: 17px;
+
+        height: 40px;
+
+    }
+
+
+    .card h1 {
+
+        font-size: 25px;
+
+    }
+
+
+    .card h2 {
+
+        margin-bottom: 14px;
+
+        font-size: 18px;
+
+    }
+
+
+    .card h3 {
+
+        font-size: 15px;
+
+    }
+
+
+    .card p {
+
+        font-size: 13px;
+
+        line-height: 1.8;
+
+    }
+
+
+    .card li {
+
+        font-size: 13px;
+
+        line-height: 1.7;
+
+    }
+
+
+    .botao {
+
+        width:
+            calc(100vw - 30px);
+
+        min-height: 56px;
+
+        padding:
+            14px 18px;
+
+        bottom:
+            calc(
+                15px +
+                env(safe-area-inset-bottom)
+            );
+
+        font-size: 14px;
+
+    }
+
+
+    .footer {
+
+        padding-bottom: 145px;
+
+        font-size: 11.5px;
+
+    }
+
+}
+
+
+/* =========================================================
+   TELAS PEQUENAS
+========================================================= */
+
+@media (max-width: 380px) {
+
+    body {
+
+        padding:
+            9px
+            9px
+            120px;
+
+    }
+
+
+    .card {
+
+        padding:
+            18px
+            15px
+            19px;
+
+        border-radius: 19px;
+
+    }
+
+
+    .card h1 {
+
+        font-size: 23px;
+
+    }
+
+
+    .card h2 {
+
+        font-size: 17px;
+
+    }
+
+
+    .card p {
+
+        font-size: 12.5px;
+
+        line-height: 1.78;
+
+    }
+
+
+    .card li {
+
+        font-size: 12.5px;
+
+    }
+
+
+    .botao {
+
+        width:
+            calc(60vw - 20px);
+
+        min-height: 54px;
+
+        font-size: 13px;
+        border: 1px solid mediumslateblue;
+
+    }
+
+}
+
+
+/* =========================================================
+   DISPOSITIVOS COM ÁREA SEGURA
+========================================================= */
+
+@supports (
+    padding-bottom:
+    env(safe-area-inset-bottom)
+) {
+
+    body {
+
+        padding-bottom:
+            calc(
+                120px +
+                env(safe-area-inset-bottom)
+            );
+
+    }
+
+}
+
+
+/* =========================================================
+   GARANTE BOTÃO ACIMA DE QUALQUER CONTEÚDO
+========================================================= */
+
+.botao {
+
+    isolation: isolate;
+
+}
+
+
+/* =========================================================
+   EVITA TRANSFORMAÇÃO EM ELEMENTOS PAI
+   QUE PODERIA ALTERAR O COMPORTAMENTO DO FIXED
+========================================================= */
+
+html,
+body {
+
+    transform: none !important;
+
+    filter: none !important;
+
+    perspective: none !important;
+
+}
+
+
+
+
+
+/* =========================================================
+   DEIXA O BOTÃO SEMPRE VISÍVEL
+========================================================= */
+
+.botao {
+
+    visibility: visible;
+
+    opacity: 1;
+
+}
+
+
+/* =========================================================
+   CORREÇÃO PARA WEBVIEW ANDROID
+========================================================= */
+
+@media (display-mode: standalone) {
+
+    .botao {
+
+        bottom:
+            calc(
+                18px +
+                env(safe-area-inset-bottom)
+            );
+
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<button onclick="window.location.href='download2.html'" class="botao">
+    Li e Concordo com os termos e políticas 
+</button>
+
+<div class="card">
+    <h2>1. Finalidade do Aplicativo</h2>
+
+    <p><strong>Cláusula 1.1:</strong> Este aplicativo foi desenvolvido com objetivo de oferecer suporte, acolhimento e auxílio para mulheres em situações de risco, vulnerabilidade, ameaça ou violência.</p>
+
+<p>a permissão de acasso ao sistema de saúde "body sensor" e bind acessibility não são utilizadas!</p>
+
+    <p><strong>Cláusula 1.2:</strong> O aplicativo atua como ferramenta complementar de apoio pessoal e segurança digital.</p>
+
+    <p><strong>Cláusula 1.3:</strong> O aplicativo disponibiliza funcionalidades emergenciais, contatos rápidos, proteção de acesso, recursos de localização e ferramentas de segurança.</p>
+
+    <p><strong>Cláusula 1.4:</strong> O uso do aplicativo é gratuito e voluntário.</p>
+
+    <p><strong>Cláusula 1.5:</strong> Ao utilizar o aplicativo, a usuária declara estar ciente e concordar com os presentes Termos de Uso e Política de Privacidade.</p>
+
+</div>
+
+<div class="card">
+    <h2>1. Finalidade do Aplicativo</h2>
+
+    <p><strong>Cláusula 1.1:</strong> O Gerenciador de Arquivos do Mulher Amparada foi desenvolvido para permitir a visualização, organização e reprodução de arquivos armazenados no dispositivo do usuário.</p>
+
+    <p><strong>Cláusula 1.2:</strong> O aplicativo oferece recursos para visualizar imagens, reproduzir músicas, reproduzir vídeos e acessar documentos compatíveis de forma simples e organizada.</p>
+
+    <p><strong>Cláusula 1.3:</strong> O aplicativo é destinado exclusivamente ao gerenciamento de arquivos locais existentes no aparelho.</p>
+
+    <p><strong>Cláusula 1.4:</strong> O aplicativo é disponibilizado gratuitamente, sem cobrança de mensalidades, assinaturas ou taxas de utilização.</p>
+
+    <p><strong>Cláusula 1.5:</strong> O aplicativo não exibe anúncios publicitários durante sua utilização.</p>
+
+    <p><strong>Cláusula 1.6:</strong> O aplicativo solicita a permissão de acesso a todos os arquivos exclusivamente para permitir a navegação, leitura e gerenciamento dos arquivos armazenados no dispositivo, sendo essa permissão essencial para seu funcionamento.</p>
+
+    <p><strong>Cláusula 1.7:</strong> O aplicativo não modifica, envia ou compartilha arquivos do usuário sem que exista uma ação realizada pelo próprio usuário.</p>
+
+    <p><strong>Cláusula 1.8:</strong> O aplicativo não realiza armazenamento em nuvem, sincronização automática ou envio de arquivos para servidores externos.</p>
+
+    <p><strong>Cláusula 1.9:</strong> Ao utilizar o aplicativo, o usuário declara estar ciente e concordar com os presentes Termos de Uso e Política de Privacidade.</p>
+</div>
+
+<div class="card">
+    <h2>2. Permissões Utilizadas</h2>
+
+    <p><strong>Cláusula 2.1:</strong> O aplicativo utiliza a permissão de acesso a todos os arquivos do dispositivo para localizar, listar, abrir e organizar os arquivos armazenados na memória interna e em outros locais acessíveis.</p>
+
+    <p><strong>Cláusula 2.2:</strong> Essa permissão é utilizada exclusivamente para fornecer as funcionalidades do aplicativo e não possui finalidade de coleta de dados pessoais.</p>
+
+    <p><strong>Cláusula 2.3:</strong> Nenhum arquivo é enviado para servidores, compartilhado com terceiros ou utilizado para fins publicitários.</p>
+
+    <p><strong>Cláusula 2.4:</strong> O usuário pode revogar as permissões concedidas por meio das configurações do Android, estando ciente de que determinadas funcionalidades poderão deixar de funcionar corretamente.</p>
+</div>
+
+<div class="card">
+    <h2>3. Política de Privacidade</h2>
+
+    <p><strong>Cláusula 3.1:</strong> O Gerenciador de Arquivos do Mulher Amparada respeita a privacidade dos usuários.</p>
+
+    <p><strong>Cláusula 3.2:</strong> O aplicativo não coleta dados pessoais para criação de contas ou identificação dos usuários.</p>
+
+    <p><strong>Cláusula 3.3:</strong> O aplicativo não solicita cadastro, login ou fornecimento de informações pessoais para sua utilização.</p>
+
+    <p><strong>Cláusula 3.4:</strong> Os arquivos permanecem armazenados exclusivamente no dispositivo do usuário.</p>
+
+    <p><strong>Cláusula 3.5:</strong> O aplicativo não comercializa, compartilha ou divulga qualquer informação do usuário para terceiros.</p>
+
+    <p><strong>Cláusula 3.6:</strong> O aplicativo não utiliza serviços de publicidade, rastreamento de comportamento ou anúncios personalizados.</p>
+
+    <p><strong>Cláusula 3.7:</strong> O aplicativo poderá receber atualizações destinadas à correção de falhas, melhorias de desempenho e inclusão de novas funcionalidades.</p>
+</div>
+
+<div class="card">
+    <h2>4. Responsabilidades do Usuário</h2>
+
+    <p><strong>Cláusula 4.1:</strong> O usuário é responsável pela utilização adequada do aplicativo e pelos arquivos armazenados em seu dispositivo.</p>
+
+    <p><strong>Cláusula 4.2:</strong> O aplicativo não se responsabiliza pela perda de arquivos causada por ações realizadas pelo próprio usuário, por falhas do sistema operacional ou por problemas no dispositivo.</p>
+
+    <p><strong>Cláusula 4.3:</strong> Recomenda-se manter cópias de segurança dos arquivos importantes.</p>
+</div>
+
+<div class="card">
+    <h2>5. Disposições Finais</h2>
+
+    <p><strong>Cláusula 5.1:</strong> Estes Termos de Uso e Política de Privacidade poderão ser atualizados a qualquer momento para refletir melhorias no aplicativo ou alterações legais.</p>
+
+    <p><strong>Cláusula 5.2:</strong> A continuidade da utilização do aplicativo após alterações representa a concordância do usuário com os novos termos.</p>
+
+    <p><strong>Cláusula 5.3:</strong> Em caso de dúvidas, sugestões ou relatos de problemas, o usuário poderá entrar em contato pelos canais oficiais do projeto Mulher Amparada.</p>
+</div>
+
+<div class="card">
+    <h2>6. Reprodução de Mídia</h2>
+
+    <p><strong>Cláusula 6.1:</strong> O aplicativo possui reprodutor integrado para arquivos de áudio compatíveis encontrados no dispositivo.</p>
+
+    <p><strong>Cláusula 6.2:</strong> A reprodução de músicas poderá permanecer ativa em segundo plano, permitindo que o usuário utilize outros aplicativos simultaneamente.</p>
+
+    <p><strong>Cláusula 6.3:</strong> Apenas um arquivo de áudio poderá ser reproduzido por vez.</p>
+
+    <p><strong>Cláusula 6.4:</strong> O aplicativo também permite a reprodução de vídeos compatíveis armazenados no dispositivo.</p>
+
+    <p><strong>Cláusula 6.5:</strong> A compatibilidade de reprodução poderá variar conforme o formato do arquivo e os recursos disponíveis no dispositivo.</p>
+</div>
+
+<div class="card">
+    <h2>7. Visualização de Arquivos</h2>
+
+    <p><strong>Cláusula 7.1:</strong> O aplicativo permite visualizar imagens, documentos e outros arquivos compatíveis armazenados localmente.</p>
+
+    <p><strong>Cláusula 7.2:</strong> As imagens poderão ser exibidas em modo de tela cheia para proporcionar uma melhor experiência de visualização.</p>
+
+    <p><strong>Cláusula 7.3:</strong> A abertura de determinados tipos de arquivos dependerá da compatibilidade do Android ou de componentes disponíveis no dispositivo.</p>
+
+    <p><strong>Cláusula 7.4:</strong> O aplicativo não altera automaticamente o conteúdo dos arquivos visualizados.</p>
+</div>
+
+<div class="card">
+    <h2>8. Segurança dos Dados</h2>
+
+    <p><strong>Cláusula 8.1:</strong> Todos os arquivos permanecem armazenados exclusivamente no dispositivo do usuário.</p>
+
+    <p><strong>Cláusula 8.2:</strong> O aplicativo não envia arquivos para servidores externos.</p>
+
+    <p><strong>Cláusula 8.3:</strong> O aplicativo não realiza backup automático dos arquivos do usuário.</p>
+
+    <p><strong>Cláusula 8.4:</strong> O acesso aos arquivos ocorre apenas durante a utilização das funcionalidades disponibilizadas pelo aplicativo.</p>
+
+    <p><strong>Cláusula 8.5:</strong> Nenhum arquivo é analisado para fins de publicidade, perfil de usuário ou marketing.</p>
+</div>
+
+<div class="card">
+    <h2>9. Coleta de Informações</h2>
+
+    <p><strong>Cláusula 9.1:</strong> O aplicativo não exige criação de conta.</p>
+
+    <p><strong>Cláusula 9.2:</strong> O aplicativo não solicita nome, CPF, endereço, telefone ou documentos pessoais.</p>
+
+    <p><strong>Cláusula 9.3:</strong> O aplicativo não coleta localização do dispositivo.</p>
+
+    <p><strong>Cláusula 9.4:</strong> O aplicativo não coleta contatos, mensagens, chamadas, fotos, vídeos ou documentos para envio a terceiros.</p>
+
+    <p><strong>Cláusula 9.5:</strong> O aplicativo não utiliza cookies nem tecnologias semelhantes para rastreamento.</p>
+</div>
+
+<div class="card">
+    <h2>10. Publicidade</h2>
+
+    <p><strong>Cláusula 10.1:</strong> O aplicativo não exibe anúncios.</p>
+
+    <p><strong>Cláusula 10.2:</strong> O aplicativo não utiliza redes de publicidade.</p>
+
+    <p><strong>Cláusula 10.3:</strong> O aplicativo não realiza rastreamento para exibição de anúncios personalizados.</p>
+
+    <p><strong>Cláusula 10.4:</strong> A experiência de utilização permanece livre de propagandas durante todo o uso do aplicativo.</p>
+</div>
+
+<div class="card">
+    <h2>11. Atualizações</h2>
+
+    <p><strong>Cláusula 11.1:</strong> Novas versões poderão incluir melhorias, correções de erros, otimizações de desempenho e novos recursos.</p>
+
+    <p><strong>Cláusula 11.2:</strong> Algumas funcionalidades poderão ser modificadas, substituídas ou removidas em futuras atualizações.</p>
+
+    <p><strong>Cláusula 11.3:</strong> Recomenda-se manter o aplicativo atualizado para garantir maior estabilidade e segurança.</p>
+</div>
+
+<div class="card">
+    <h2>12. Limitação de Responsabilidade</h2>
+
+    <p><strong>Cláusula 12.1:</strong> O desenvolvedor não se responsabiliza por arquivos corrompidos, incompatíveis ou danificados antes da utilização do aplicativo.</p>
+
+    <p><strong>Cláusula 12.2:</strong> O desenvolvedor não responde por falhas decorrentes do sistema operacional, do hardware do dispositivo ou de aplicativos de terceiros.</p>
+
+    <p><strong>Cláusula 12.3:</strong> O usuário permanece responsável pelo conteúdo armazenado em seu dispositivo e pela realização de cópias de segurança de seus arquivos importantes.</p>
+
+    <p><strong>Cláusula 12.4:</strong> O aplicativo é fornecido no estado em que se encontra, buscando oferecer uma experiência estável e segura, sem garantia de funcionamento ininterrupto em todos os dispositivos Android.</p>
+</div>
+
+<div class="card">
+    <h2>13. Compatibilidade</h2>
+
+    <p><strong>Cláusula 13.1:</strong> O aplicativo foi desenvolvido para dispositivos com sistema operacional Android compatível.</p>
+
+    <p><strong>Cláusula 13.2:</strong> Algumas funcionalidades poderão variar conforme a versão do Android, fabricante do dispositivo ou limitações impostas pelo sistema operacional.</p>
+
+    <p><strong>Cláusula 13.3:</strong> O desempenho do aplicativo poderá depender dos recursos disponíveis no dispositivo, como memória, armazenamento e processamento.</p>
+</div>
+
+<div class="card">
+    <h2>14. Integridade dos Arquivos</h2>
+
+    <p><strong>Cláusula 14.1:</strong> O aplicativo apenas acessa os arquivos existentes no dispositivo para permitir sua visualização ou reprodução.</p>
+
+    <p><strong>Cláusula 14.2:</strong> O aplicativo não modifica automaticamente o conteúdo dos arquivos armazenados.</p>
+
+    <p><strong>Cláusula 14.3:</strong> O usuário é responsável por verificar a autenticidade e a origem dos arquivos presentes em seu dispositivo.</p>
+
+    <p><strong>Cláusula 14.4:</strong> O aplicativo não realiza verificação de vírus, malware ou outros códigos maliciosos presentes em arquivos armazenados no dispositivo.</p>
+</div>
+
+<div class="card">
+    <h2>15. Armazenamento</h2>
+
+    <p><strong>Cláusula 15.1:</strong> O aplicativo utiliza exclusivamente o armazenamento local do dispositivo.</p>
+
+    <p><strong>Cláusula 15.2:</strong> Nenhum arquivo do usuário é copiado para servidores externos.</p>
+
+    <p><strong>Cláusula 15.3:</strong> O aplicativo não realiza sincronização automática com serviços de armazenamento em nuvem.</p>
+
+    <p><strong>Cláusula 15.4:</strong> Todos os arquivos permanecem sob controle exclusivo do usuário.</p>
+</div>
+
+<div class="card">
+    <h2>16. Permissão de Acesso a Todos os Arquivos</h2>
+
+    <p><strong>Cláusula 16.1:</strong> O aplicativo utiliza a permissão especial de acesso a todos os arquivos apenas para permitir a navegação completa pelas pastas do dispositivo.</p>
+
+    <p><strong>Cláusula 16.2:</strong> Essa permissão é necessária para localizar documentos, imagens, vídeos, músicas e demais arquivos armazenados no aparelho.</p>
+
+    <p><strong>Cláusula 16.3:</strong> A permissão não é utilizada para coleta de informações pessoais, monitoramento do usuário ou envio de arquivos.</p>
+
+    <p><strong>Cláusula 16.4:</strong> O acesso ocorre apenas dentro das funcionalidades disponibilizadas pelo próprio aplicativo.</p>
+
+    <p><strong>Cláusula 16.5:</strong> Caso a permissão seja revogada, algumas funcionalidades poderão deixar de operar corretamente.</p>
+</div>
+
+<div class="card">
+    <h2>17. Código e Segurança</h2>
+
+    <p><strong>Cláusula 17.1:</strong> O aplicativo busca seguir boas práticas de desenvolvimento para proporcionar uma utilização segura.</p>
+
+    <p><strong>Cláusula 17.2:</strong> Atualizações poderão corrigir vulnerabilidades identificadas e melhorar a estabilidade do aplicativo.</p>
+
+    <p><strong>Cláusula 17.3:</strong> Recomenda-se instalar o aplicativo apenas por meio dos canais oficiais disponibilizados pelo desenvolvedor.</p>
+</div>
+
+<div class="card">
+    <h2>18. Propriedade Intelectual</h2>
+
+    <p><strong>Cláusula 18.1:</strong> O nome "Gerenciador de Arquivos do Mulher Amparada", sua identidade visual, logotipos, textos e demais elementos do aplicativo pertencem aos seus respectivos titulares.</p>
+
+    <p><strong>Cláusula 18.2:</strong> É vedada a reprodução, modificação ou distribuição desses elementos sem autorização, salvo quando permitido pela legislação aplicável.</p>
+</div>
+
+<div class="card">
+    <h2>19. Alterações dos Termos</h2>
+
+    <p><strong>Cláusula 19.1:</strong> Estes Termos de Uso e Política de Privacidade poderão ser alterados a qualquer momento.</p>
+
+    <p><strong>Cláusula 19.2:</strong> Sempre que possível, a versão mais recente será disponibilizada nos canais oficiais do aplicativo.</p>
+
+    <p><strong>Cláusula 19.3:</strong> O uso continuado do aplicativo após a publicação de alterações representa a concordância do usuário com a versão atualizada.</p>
+</div>
+
+<div class="card">
+    <h2>20. Disposições Gerais</h2>
+
+    <p><strong>Cláusula 20.1:</strong> Caso qualquer disposição destes Termos seja considerada inválida ou inexequível, as demais cláusulas permanecerão plenamente válidas.</p>
+
+    <p><strong>Cláusula 20.2:</strong> A eventual tolerância quanto ao descumprimento de qualquer cláusula não constituirá renúncia de direitos.</p>
+
+    <p><strong>Cláusula 20.3:</strong> Estes Termos constituem o acordo integral entre o usuário e o desenvolvedor em relação ao uso do aplicativo.</p>
+
+    <p><strong>Cláusula 20.4:</strong> Em caso de dúvidas sobre estes Termos ou sobre a Política de Privacidade, o usuário poderá utilizar os canais oficiais de contato do projeto Mulher Amparada.</p>
+</div>
+
+<div class="card">
+    <h2>29. Lei Geral de Proteção de Dados (LGPD)</h2>
+
+    <p><strong>Cláusula 29.1:</strong> O Gerenciador de Arquivos do Mulher Amparada respeita os princípios previstos na Lei nº 13.709/2018 (Lei Geral de Proteção de Dados Pessoais - LGPD).</p>
+
+    <p><strong>Cláusula 29.2:</strong> O aplicativo foi desenvolvido priorizando a minimização do tratamento de dados pessoais, limitando-se ao estritamente necessário para o funcionamento de suas funcionalidades.</p>
+
+    <p><strong>Cláusula 29.3:</strong> O acesso aos arquivos do dispositivo ocorre exclusivamente em razão da permissão concedida pelo usuário e apenas para possibilitar as funcionalidades de gerenciamento de arquivos.</p>
+
+    <p><strong>Cláusula 29.4:</strong> Os arquivos acessados permanecem armazenados no próprio dispositivo do usuário, não sendo enviados automaticamente ao desenvolvedor ou a terceiros.</p>
+
+    <p><strong>Cláusula 29.5:</strong> O aplicativo não comercializa dados pessoais, não compartilha informações com anunciantes e não utiliza os dados para fins de marketing.</p>
+
+    <p><strong>Cláusula 29.6:</strong> O usuário poderá revogar as permissões concedidas ao aplicativo a qualquer momento nas configurações do Android, estando ciente de que determinadas funcionalidades poderão deixar de funcionar corretamente.</p>
+
+    <p><strong>Cláusula 29.7:</strong> Caso o aplicativo venha a tratar dados pessoais em futuras versões, tal tratamento ocorrerá em conformidade com a legislação aplicável e será informado por meio da atualização desta Política de Privacidade.</p>
+
+    <p><strong>Cláusula 29.8:</strong> O usuário poderá solicitar esclarecimentos sobre o tratamento de dados utilizando os canais oficiais de contato disponibilizados pelo desenvolvedor.</p>
+</div>
+
+<div class="card">
+    <h2>30. Direitos do Titular dos Dados</h2>
+
+    <p><strong>Cláusula 30.1:</strong> Nos termos da LGPD, o titular dos dados possui os direitos previstos na legislação aplicável, quando cabíveis.</p>
+
+    <p><strong>Cláusula 30.2:</strong> Sempre que houver tratamento de dados pessoais pelo aplicativo, o usuário poderá solicitar informações sobre esse tratamento, observadas as limitações legais e técnicas.</p>
+
+    <p><strong>Cláusula 30.3:</strong> O usuário poderá solicitar esclarecimentos sobre as permissões utilizadas pelo aplicativo.</p>
+
+    <p><strong>Cláusula 30.4:</strong> O exercício dos direitos previstos na LGPD poderá ser realizado por meio dos canais oficiais de atendimento do projeto Mulher Amparada.</p>
+</div>
+
+<div class="card">
+    <h2>31. Base Legal para Tratamento de Dados</h2>
+
+    <p><strong>Cláusula 31.1:</strong> Quando houver tratamento de dados pessoais, este ocorrerá com fundamento em uma das bases legais previstas na Lei nº 13.709/2018.</p>
+
+    <p><strong>Cláusula 31.2:</strong> O acesso aos arquivos do dispositivo decorre da autorização concedida pelo próprio usuário ao permitir o acesso aos arquivos do dispositivo.</p>
+
+    <p><strong>Cláusula 31.3:</strong> O tratamento de dados será limitado ao necessário para a execução das funcionalidades oferecidas pelo aplicativo.</p>
+</div>
+
+<div class="card">
+    <h2>32. Transparência</h2>
+
+    <p><strong>Cláusula 32.1:</strong> O desenvolvedor compromete-se a manter esta Política de Privacidade atualizada sempre que houver alterações relevantes no tratamento de dados.</p>
+
+    <p><strong>Cláusula 32.2:</strong> O usuário será informado sobre alterações significativas por meio da disponibilização da versão atualizada desta Política.</p>
+
+    <p><strong>Cláusula 32.3:</strong> O compromisso do aplicativo é oferecer transparência quanto às permissões utilizadas e às funcionalidades disponibilizadas.</p>
+
+    <p><strong>Cláusula 32.4:</strong> O aplicativo não utiliza técnicas destinadas a ocultar a finalidade das permissões solicitadas ao usuário.</p>
+</div>
+
+<div class="card">
+    <h2>33. Disposições Legais</h2>
+
+    <p><strong>Cláusula 33.1:</strong> Estes Termos de Uso e Política de Privacidade são regidos pelas leis da República Federativa do Brasil.</p>
+
+    <p><strong>Cláusula 33.2:</strong> A interpretação destes Termos observará a legislação brasileira aplicável, incluindo, quando pertinente, a Lei nº 13.709/2018 (LGPD), a Lei nº 12.965/2014 (Marco Civil da Internet) e o Código de Defesa do Consumidor.</p>
+
+    <p><strong>Cláusula 33.3:</strong> Caso qualquer disposição destes Termos seja considerada inválida ou inexequível, as demais permanecerão em pleno vigor.</p>
+
+    <p><strong>Cláusula 33.4:</strong> A nulidade de uma cláusula não prejudicará a validade das demais disposições deste documento.</p>
+    
+    
+</div>
+
+
+
+<style>
+
+body.fade-out {
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        opacity .26s
+        ease;
+
+}
+
+</style>
+
+
+<script>
+
+let navegando = false;
+
+function sairDaPagina(destino) {
+
+    if (navegando || !destino) {
+        return;
+    }
+
+    navegando = true;
+
+    document.body.classList.add("fade-out");
+
+    setTimeout(function() {
+        window.location.href = destino;
+    }, 260);
+
+}
+
+window.addEventListener("pageshow", function() {
+
+    navegando = false;
+
+    document.body.classList.remove("fade-out");
+
+});
+
+</script>
+</body>
+</html>

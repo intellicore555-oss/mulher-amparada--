@@ -1,0 +1,48 @@
+google-site-verification: google2d4f4bcc4021d81b.html
+
+<style>
+
+body.fade-out {
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        opacity .26s
+        ease;
+
+}
+
+</style>
+
+
+<script>
+
+let navegando = false;
+
+function sairDaPagina(destino) {
+
+    if (navegando || !destino) {
+        return;
+    }
+
+    navegando = true;
+
+    document.body.classList.add("fade-out");
+
+    setTimeout(function() {
+        window.location.href = destino;
+    }, 260);
+
+}
+
+window.addEventListener("pageshow", function() {
+
+    navegando = false;
+
+    document.body.classList.remove("fade-out");
+
+});
+
+</script>
