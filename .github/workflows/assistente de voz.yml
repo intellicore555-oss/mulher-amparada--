@@ -24,7 +24,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Verificar pasta do projeto
+      - name: Verificar projeto
         run: |
           if [ ! -d "$APP_DIR" ]; then
             echo "ERRO: pasta não encontrada:"
@@ -36,8 +36,6 @@ jobs:
             echo "ERRO: gradlew não encontrado."
             exit 1
           fi
-
-          echo "Projeto encontrado."
 
       - name: Configurar Java 17
         uses: actions/setup-java@v4
@@ -74,7 +72,7 @@ jobs:
         run: |
           SHA256=$(sha256sum "${{ steps.apk.outputs.apk }}" | awk '{print $1}')
 
-          echo "SHA-256 gerado:"
+          echo "SHA-256:"
           echo "$SHA256"
 
           echo "sha256=$SHA256" >> "$GITHUB_OUTPUT"
@@ -84,6 +82,8 @@ jobs:
         run: |
           rm -f App3.zip
           zip -j App3.zip "${{ steps.apk.outputs.apk }}"
+
+          echo "App3.zip criado:"
           unzip -l App3.zip
 
       - name: Enviar APK como artifact
@@ -114,7 +114,7 @@ jobs:
             git push origin main
           fi
 
-      - name: Verificar Release existente
+      - name: Verificar Release
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -127,25 +127,36 @@ jobs:
 
           echo "Release encontrada."
 
-      - name: Atualizar APK na Release
-        working-directory: ${{ env.APP_DIR }}
+      - name: Excluir App3.zip antigo da Release
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release upload "$RELEASE_TAG" \
-            "${{ steps.apk.outputs.apk }}" \
-            --clobber \
-            --repo "$GITHUB_REPOSITORY"
+          ASSET_ID=$(gh api \
+            "repos/$GITHUB_REPOSITORY/releases/tags/$RELEASE_TAG" \
+            --jq '.assets[] | select(.name == "App3.zip") | .id' \
+            | head -n 1)
 
-      - name: Atualizar App3.zip na Release
+          if [ -n "$ASSET_ID" ]; then
+            echo "Excluindo App3.zip antigo..."
+            gh api \
+              --method DELETE \
+              "repos/$GITHUB_REPOSITORY/releases/assets/$ASSET_ID"
+
+            echo "App3.zip antigo excluído."
+          else
+            echo "Nenhum App3.zip antigo encontrado."
+          fi
+
+      - name: Enviar novo App3.zip para a Release
         working-directory: ${{ env.APP_DIR }}
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh release upload "$RELEASE_TAG" \
             "App3.zip" \
-            --clobber \
             --repo "$GITHUB_REPOSITORY"
+
+          echo "Novo App3.zip enviado para a Release."
 
       - name: Atualizar SHA-256 da Release
         env:
@@ -170,7 +181,7 @@ jobs:
             --repo "$GITHUB_REPOSITORY" \
             --notes-file release-notes.txt
 
-          echo "SHA-256 atualizado na Release:"
+          echo "SHA-256 atualizado:"
           echo "$SHA256"
 
       - name: Mostrar resumo
@@ -179,9 +190,9 @@ jobs:
           echo "" >> "$GITHUB_STEP_SUMMARY"
           echo "**Release:** $RELEASE_TAG" >> "$GITHUB_STEP_SUMMARY"
           echo "**Branch:** main" >> "$GITHUB_STEP_SUMMARY"
-          echo "**Arquivo:** App3.zip" >> "$GITHUB_STEP_SUMMARY"
+          echo "**Release recebe:** App3.zip" >> "$GITHUB_STEP_SUMMARY"
           echo "" >> "$GITHUB_STEP_SUMMARY"
-          echo "**SHA-256 gerado:**" >> "$GITHUB_STEP_SUMMARY"
+          echo "**SHA-256:**" >> "$GITHUB_STEP_SUMMARY"
           echo '```' >> "$GITHUB_STEP_SUMMARY"
           echo "${{ steps.sha256.outputs.sha256 }}" >> "$GITHUB_STEP_SUMMARY"
           echo '```' >> "$GITHUB_STEP_SUMMARY"
