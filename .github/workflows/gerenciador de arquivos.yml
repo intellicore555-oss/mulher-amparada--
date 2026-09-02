@@ -204,27 +204,52 @@ jobs:
           else
             echo "app-debug.apk não está na Release."
           fi
-          
-                - name: Atualizar link do App3.zip no download2.html
+
+      - name: Atualizar link do App2.zip no download2.html
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           ASSET_URL=$(gh release view "$RELEASE_TAG" \
             --repo "$GITHUB_REPOSITORY" \
             --json assets \
-            --jq '.assets[] | select(.name == "App3.zip") | .url')
+            --jq '.assets[] | select(.name == "App2.zip") | .browser_download_url')
 
           if [ -z "$ASSET_URL" ]; then
-            echo "ERRO: URL do App3.zip não encontrada na Release."
+            echo "ERRO: URL do App2.zip não encontrada na Release."
             exit 1
           fi
 
           echo "Novo link:"
           echo "$ASSET_URL"
 
-          sed -i \
-            's|href="https://github.com/user-attachments/files/[^"]*App3\.zip"|href="'"$ASSET_URL"'"|' \
-            download2.html
+          python3 - <<PY
+          from pathlib import Path
+          import re
+
+          arquivo = Path("download2.html")
+          texto = arquivo.read_text(encoding="utf-8")
+
+          novo_url = """$ASSET_URL"""
+
+          padrao = r'(<a\s+class="download"\s+href=")[^"]*(")'
+
+          novo_texto, quantidade = re.subn(
+              padrao,
+              lambda m: m.group(1) + novo_url + m.group(2),
+              texto,
+              count=1
+          )
+
+          if quantidade == 0:
+              raise SystemExit(
+                  'ERRO: <a class="download" ...> não encontrado.'
+              )
+
+          arquivo.write_text(novo_texto, encoding="utf-8")
+
+          print("download2.html atualizado.")
+          print("Novo link:", novo_url)
+          PY
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -234,10 +259,10 @@ jobs:
           if git diff --cached --quiet; then
             echo "O link já está atualizado."
           else
-            git commit -m "Atualizar link do App3.zip [skip ci]"
+            git commit -m "Atualizar link do App2.zip [skip ci]"
             git push origin main
           fi
-          
+
       - name: Mostrar resumo
         run: |
           echo "## Compilação concluída" >> "$GITHUB_STEP_SUMMARY"
