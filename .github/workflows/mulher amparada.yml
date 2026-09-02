@@ -14,8 +14,12 @@ jobs:
     name: Compilar APK Kotlin
     runs-on: ubuntu-latest
 
+concurrency:
+      group: atualizar-main
+      cancel-in-progress: false
+      
     env:
-      App1_DIR: "Código-fonte do App1 = Mulher Amparada"
+      App1_DIR: "Código-fonte do App = Mulher Amparada"
       RELEASE_TAG: "App1mulheramparada"
 
     steps:
