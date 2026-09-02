@@ -1,6 +1,5 @@
 name: Compilar o assistente de voz
 
-
 on:
   push:
     branches:
@@ -15,11 +14,30 @@ jobs:
     name: Compilar APK Kotlin
     runs-on: ubuntu-latest
 
+    env:
+      APP_DIR: "Código-fonte do app = Assistente De Voz Do Mulher Amparada"
+      RELEASE_TAG: "appassistentedevozdomulheramparada"
+
     steps:
       - name: Baixar código
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
+      - name: Verificar pasta do projeto
+        run: |
+          if [ ! -d "$APP_DIR" ]; then
+            echo "ERRO: pasta não encontrada:"
+            echo "$APP_DIR"
+            exit 1
+          fi
+
+          if [ ! -f "$APP_DIR/gradlew" ]; then
+            echo "ERRO: gradlew não encontrado."
+            exit 1
+          fi
+
+          echo "Projeto encontrado."
 
       - name: Configurar Java 17
         uses: actions/setup-java@v4
@@ -29,65 +47,65 @@ jobs:
           cache: gradle
 
       - name: Dar permissão ao Gradle
-        working-directory: "Código-fonte do app = Assistente De Voz Do Mulher Amparada"
+        working-directory: ${{ env.APP_DIR }}
         run: chmod +x gradlew
 
       - name: Compilar APK
-        working-directory: "Código-fonte do app = Assistente De Voz Do Mulher Amparada"
-        run: ./gradlew assembleDebug
+        working-directory: ${{ env.APP_DIR }}
+        run: ./gradlew assembleDebug --stacktrace
 
       - name: Localizar APK
         id: apk
-        working-directory: "Código-fonte do app = Assistente De Voz Do Mulher Amparada"
+        working-directory: ${{ env.APP_DIR }}
         run: |
           APK=$(find app/build/outputs/apk/debug -type f -name "*.apk" | head -n 1)
 
           if [ -z "$APK" ]; then
-            echo "APK não encontrado."
+            echo "ERRO: APK não encontrado."
             exit 1
           fi
 
-          echo "apk=$APK" >> "$GITHUB_OUTPUT"
           echo "APK encontrado: $APK"
+          echo "apk=$APK" >> "$GITHUB_OUTPUT"
 
       - name: Calcular SHA-256
         id: sha256
-        working-directory: "Código-fonte do app = Assistente De Voz Do Mulher Amparada"
+        working-directory: ${{ env.APP_DIR }}
         run: |
           SHA256=$(sha256sum "${{ steps.apk.outputs.apk }}" | awk '{print $1}')
 
-          echo "sha256=$SHA256" >> "$GITHUB_OUTPUT"
-
-          echo "SHA-256 real do APK:"
+          echo "SHA-256 gerado:"
           echo "$SHA256"
 
+          echo "sha256=$SHA256" >> "$GITHUB_OUTPUT"
+
       - name: Criar App3.zip
-        working-directory: "Código-fonte do app = Assistente De Voz Do Mulher Amparada"
+        working-directory: ${{ env.APP_DIR }}
         run: |
           rm -f App3.zip
           zip -j App3.zip "${{ steps.apk.outputs.apk }}"
-
-          echo "App3.zip criado:"
           unzip -l App3.zip
 
       - name: Enviar APK como artifact
         uses: actions/upload-artifact@v4
         with:
           name: APK-Kotlin-Debug
-          path: "Código-fonte do app = Assistente De Voz Do Mulher Amparada/app/build/outputs/apk/debug/*.apk"
+          path: "${{ env.APP_DIR }}/app/build/outputs/apk/debug/*.apk"
+          if-no-files-found: error
 
       - name: Enviar App3.zip como artifact
         uses: actions/upload-artifact@v4
         with:
           name: App3
-          path: "Código-fonte do app = Assistente De Voz Do Mulher Amparada/App3.zip"
+          path: "${{ env.APP_DIR }}/App3.zip"
+          if-no-files-found: error
 
       - name: Fazer commit do App3.zip
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add "Código-fonte do app = Assistente De Voz Do Mulher Amparada/App3.zip"
+          git add "$APP_DIR/App3.zip"
 
           if git diff --cached --quiet; then
             echo "App3.zip não sofreu alterações."
@@ -100,54 +118,66 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          TAG="appassistentedevozdomulheramparada"
+          if ! gh release view "$RELEASE_TAG" \
+            --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
 
-          if ! gh release view "$TAG" >/dev/null 2>&1; then
-            echo "ERRO: A Release '$TAG' não existe."
+            echo "ERRO: A Release '$RELEASE_TAG' não existe."
             exit 1
           fi
 
-          echo "Release existente encontrada: $TAG"
+          echo "Release encontrada."
 
-      - name: Atualizar Release com APK e App3.zip
+      - name: Atualizar APK na Release
+        working-directory: ${{ env.APP_DIR }}
         env:
           GH_TOKEN: ${{ github.token }}
-        working-directory: "Código-fonte do app = Assistente De Voz Do Mulher Amparada"
         run: |
-          TAG="appassistentedevozdomulheramparada"
-
-          echo "Enviando APK..."
-          gh release upload "$TAG" \
+          gh release upload "$RELEASE_TAG" \
             "${{ steps.apk.outputs.apk }}" \
-            --clobber
+            --clobber \
+            --repo "$GITHUB_REPOSITORY"
 
-          echo "Enviando App3.zip..."
-          gh release upload "$TAG" \
-            "App3.zip" \
-            --clobber
-
-          echo "Release atualizada com sucesso."
-
-      - name: Atualizar informações da Release
+      - name: Atualizar App3.zip na Release
+        working-directory: ${{ env.APP_DIR }}
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          TAG="appassistentedevozdomulheramparada"
+          gh release upload "$RELEASE_TAG" \
+            "App3.zip" \
+            --clobber \
+            --repo "$GITHUB_REPOSITORY"
 
-          gh release edit "$TAG" \
-            --notes "Release atualizada automaticamente pelo GitHub Actions.
+      - name: Atualizar SHA-256 da Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          SHA256="${{ steps.sha256.outputs.sha256 }}"
 
-SHA-256 informado:
-dea5b0715bab7cc7646779b1702e387bb928fc8c0ce93bf5ba8ae059a62eda78
+          gh release view "$RELEASE_TAG" \
+            --repo "$GITHUB_REPOSITORY" \
+            --json body \
+            --jq '.body' > release-notes.txt
 
-SHA-256 gerado nesta compilação:
-${{ steps.sha256.outputs.sha256 }}"
+          if grep -q "SHA-256 gerado nesta compilação:" release-notes.txt; then
+            sed -i \
+              "s/^SHA-256 gerado nesta compilação:.*$/SHA-256 gerado nesta compilação: $SHA256/" \
+              release-notes.txt
+          else
+            printf '\n\nSHA-256 gerado nesta compilação: %s\n' "$SHA256" >> release-notes.txt
+          fi
+
+          gh release edit "$RELEASE_TAG" \
+            --repo "$GITHUB_REPOSITORY" \
+            --notes-file release-notes.txt
+
+          echo "SHA-256 atualizado na Release:"
+          echo "$SHA256"
 
       - name: Mostrar resumo
         run: |
           echo "## Compilação concluída" >> "$GITHUB_STEP_SUMMARY"
           echo "" >> "$GITHUB_STEP_SUMMARY"
-          echo "**Release:** appassistentedevozdomulheramparada" >> "$GITHUB_STEP_SUMMARY"
+          echo "**Release:** $RELEASE_TAG" >> "$GITHUB_STEP_SUMMARY"
           echo "**Branch:** main" >> "$GITHUB_STEP_SUMMARY"
           echo "**Arquivo:** App3.zip" >> "$GITHUB_STEP_SUMMARY"
           echo "" >> "$GITHUB_STEP_SUMMARY"
