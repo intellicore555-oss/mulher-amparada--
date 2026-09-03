@@ -449,7 +449,7 @@ Esta carta foi feita para apoiar você em sua caminhada, trazendo conhecimentos 
 
 Você não precisa saber tudo de uma vez. Conhecimento também é uma forma de proteção, e entender suas próprias finanças pode ajudar você a tomar decisões com mais segurança e independência.
 
-Para acessar o conteúdo completo sobre finanças, consulte a "Carta do desenvolvedor" (ABOUT.md).
+Para acessar o conteúdo completo sobre finanças, consulte a [Carta do desenvolvedor](ABOUT.md).
 
 ----
 
