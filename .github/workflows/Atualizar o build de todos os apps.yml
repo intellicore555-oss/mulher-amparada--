@@ -2,12 +2,19 @@ name: Atualizar Android SDK
 
 on:
   schedule:
-    # Executa automaticamente toda segunda-feira às 03:00 UTC
-    - cron: "0 3 * * 1"
+    # Executa automaticamente todos os dias às 03:00 da manhã (Brasília)
+    - cron: "0 6 * * *"
+
+  # Cria o botão "Run workflow" no GitHub
+  workflow_dispatch:
 
   push:
     paths:
       - ".github/workflows/atualizar-android-sdk.yml"
+
+concurrency:
+  group: atualizar-main
+  cancel-in-progress: false
 
 permissions:
   contents: write
