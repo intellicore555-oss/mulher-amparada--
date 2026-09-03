@@ -443,8 +443,6 @@ Para acessar o conteúdo completo sobre finanças, consulte **[Finanças](FINAN�
 
 # Considerações finais:
 
-eu penso que o android studio ou o github actions quando da erro, uma ia navega em todo o projeto e resolve (auto fix)
-
 e os audios do gravador de voz também são criptografados com a classe Cripto
 
 e o recurso de proteção ppr barulho, chacalhoar o celular e escurecer a tela, tem como ativar e desativar!
