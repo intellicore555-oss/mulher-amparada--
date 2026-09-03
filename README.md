@@ -441,6 +441,18 @@ Para acessar o conteúdo completo sobre finanças, consulte **[Finanças](FINAN�
 
 ----
 
+# Mensagem de apoio e acolhimento para as usuárias
+
+Uma carta para você
+
+Esta carta foi feita para apoiar você em sua caminhada, trazendo conhecimentos e informações que podem ajudar a compreender melhor sua vida financeira, organizar seu dinheiro e fortalecer, cada vez mais, sua autonomia.
+
+Você não precisa saber tudo de uma vez. Conhecimento também é uma forma de proteção, e entender suas próprias finanças pode ajudar você a tomar decisões com mais segurança e independência.
+
+Para acessar o conteúdo completo sobre finanças, consulte a "Carta do desenvolvedor" (ABOUT.md).
+
+----
+
 # Considerações finais:
 
 e os audios do gravador de voz também são criptografados com a classe Cripto
