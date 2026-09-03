@@ -1,4 +1,4 @@
-**E eu me inspiro em Martin Luther King para falar (nao é uma citação direta dele!):**
+**E eu me inspiro em Martin Luther King para lhes dizer (não é uma citação direta dele!):**
 
 * "eu tenho um sonho, que as mulheres vivam em paz, sem nenhuma violência, porque todos somos iguais..."
 
@@ -6,4 +6,6 @@
 
 * e honestamente, cada uma de vocês são importantes (tanto em talento e etc), e pelo amor de Deus, não deixem que esses agressores tirem o brilho de vocês..., vocês são as pessoas mais maravilhosas, vocês tem um valor que as vezes não conseguem perceber pela violência, mas ele existe, ele está aí, então nunca desista de você mesma, ainda tem gente que te ama e quer o seu bem!, (não precisa ter culpa ou vergonha por essa violência, você NÃO TEM CULPA DISSO!), lembre-se que você é forte, só de pedir ajuda já fez um grande passo!, e lembre-se que você é uma pessoa virtuosa, e que seu valor excede a de muitos rubis, e fica com esse fato aqui: QUEM TEM CULPA DA VIOLÊNCIA É O AGRESSOR, NÃO VOCÊ!, 
 
-* Geralmente, o padrão do agressor é assim, mas isso varia: te humilha, pede desculpas e fala que vai mudar, você acredita, te humilha denovo... (então, não acredite nas mentiras dele, acredite em si mesma e na esperança que você NÃO ESTÁ SOZINHA E QUE PODE SEMPRE PEDIR AJUDA!), (uma dica valiosa, se você estiver em sofrimento, ligue para o CVV = centro de Valorização da vida = 188, gratuito, sigiloso, funciona 24 horas, e você não precisa de créditos no chip para ligar pra esse número e tem profissionais treinadoa para ouvir você!, mas ele serve para apoio emocional, e não um canal de denúncia como a polícia, se quiser denunciar algo, ligue para o 190 = polícia, e 180 = central de atendimento á mulher),
+* Geralmente, o padrão do agressor é assim, mas isso varia: te humilha, pede desculpas e fala que vai mudar, você acredita, te humilha denovo... (Esse comportamento é um padrão reconhecido pela psicologia como o Ciclo da Violência)
+
+* (então, não acredite nas mentiras dele, acredite em si mesma e na esperança que você NÃO ESTÁ SOZINHA E QUE PODE SEMPRE PEDIR AJUDA!), (uma dica valiosa, se você estiver em sofrimento, ligue para o CVV = centro de Valorização da vida = 188, gratuito, sigiloso, funciona 24 horas, e você não precisa de créditos no chip para ligar pra esse número e tem profissionais treinadoa para ouvir você!, mas ele serve para apoio emocional, e não um canal de denúncia como a polícia, se quiser denunciar algo, ligue para o 190 = polícia, e 180 = central de atendimento á mulher),
