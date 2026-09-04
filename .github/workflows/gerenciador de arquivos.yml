@@ -81,6 +81,41 @@ jobs:
 
           echo "sha256=$SHA256" >> "$GITHUB_OUTPUT"
 
+      - name: Calcular tamanho do APK
+        id: apk_size
+        working-directory: ${{ env.APP_DIR }}
+        run: |
+          APK="${{ steps.apk.outputs.apk }}"
+
+          if [ ! -f "$APK" ]; then
+            echo "ERRO: APK não encontrado para calcular o tamanho."
+            exit 1
+          fi
+
+          BYTES=$(stat -c%s "$APK")
+
+          SIZE_MB=$(awk "BEGIN {
+            printf \"%.2f\", $BYTES / 1024 / 1024
+          }")
+
+          SIZE_FORMATADO="${SIZE_MB} MB"
+
+          echo "Tamanho real do APK:"
+          echo "$SIZE_FORMATADO"
+
+          echo "bytes=$BYTES" >> "$GITHUB_OUTPUT"
+          echo "size_mb=$SIZE_MB" >> "$GITHUB_OUTPUT"
+          echo "size_formatado=$SIZE_FORMATADO" >> "$GITHUB_OUTPUT"
+
+      - name: Criar App2.zip
+        working-directory: ${{ env.APP_DIR }}
+        run: |
+          rm -f App2.zip
+          zip -j App2.zip "${{ steps.apk.outputs.apk }}"
+
+          echo "App2.zip criado:"
+          unzip -l App2.zip
+
       - name: Criar App2.zip
         working-directory: ${{ env.APP_DIR }}
         run: |
@@ -212,43 +247,117 @@ jobs:
           else
             echo "app-debug.apk não está na Release."
           fi
-
-      - name: Atualizar link do App2.zip no download2.html
+      - name: Atualizar link e tamanho do APK no download2.html
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           ASSET_URL="https://github.com/$GITHUB_REPOSITORY/releases/download/$RELEASE_TAG/App2.zip"
+          APK_SIZE="${{ steps.apk_size.outputs.size_formatado }}"
 
           echo "Novo link:"
           echo "$ASSET_URL"
+
+          echo "Tamanho real do APK:"
+          echo "$APK_SIZE"
 
           python3 - <<PY
           from pathlib import Path
           import re
 
           arquivo = Path("download2.html")
+
+          if not arquivo.exists():
+              raise SystemExit(
+                  "ERRO: download2.html não encontrado."
+              )
+
           texto = arquivo.read_text(encoding="utf-8")
 
           novo_url = """$ASSET_URL"""
+          novo_tamanho = """$APK_SIZE"""
 
-          padrao = r'(<a\s+class="download"\s+href=")[^"]*(")'
+          # =====================================================
+          # ATUALIZAR LINK DO DOWNLOAD
+          # =====================================================
 
-          novo_texto, quantidade = re.subn(
-              padrao,
+          padrao_url = r'(<a\s+class="download"\s+href=")[^"]*(")'
+
+          novo_texto, quantidade_url = re.subn(
+              padrao_url,
               lambda m: m.group(1) + novo_url + m.group(2),
               texto,
               count=1
           )
 
-          if quantidade == 0:
+          if quantidade_url == 0:
               raise SystemExit(
                   'ERRO: <a class="download" ...> não encontrado.'
               )
 
-          arquivo.write_text(novo_texto, encoding="utf-8")
+          texto = novo_texto
+
+          # =====================================================
+          # ATUALIZAR TAMANHO DO RESUMO
+          #
+          # Exemplo:
+          # 09.10 MB
+          # =====================================================
+
+          padrao_resumo = (
+              r'(<strong\s+class="summary-value">\s*)'
+              r'(?:[0-9]+(?:[.,][0-9]+)?\s*MB)'
+              r'(\s*</strong>)'
+          )
+
+          texto, quantidade_resumo = re.subn(
+              padrao_resumo,
+              lambda m: m.group(1) + novo_tamanho + m.group(2),
+              texto,
+              count=1
+          )
+
+          if quantidade_resumo == 0:
+              raise SystemExit(
+                  "ERRO: tamanho no resumo não encontrado."
+              )
+
+          # =====================================================
+          # ATUALIZAR TAMANHO DAS INFORMAÇÕES
+          #
+          # Exemplo:
+          # ≈ 09.10 MB
+          # =====================================================
+
+          padrao_detalhe = (
+              r'(<strong\s+class="detail-value">\s*)'
+              r'≈?\s*[0-9]+(?:[.,][0-9]+)?\s*MB'
+              r'(\s*</strong>)'
+          )
+
+          texto, quantidade_detalhe = re.subn(
+              padrao_detalhe,
+              lambda m: m.group(1) + "≈ " + novo_tamanho + m.group(2),
+              texto,
+              count=1
+          )
+
+          if quantidade_detalhe == 0:
+              raise SystemExit(
+                  "ERRO: tamanho nas informações do app não encontrado."
+              )
+
+          # =====================================================
+          # SALVAR
+          # =====================================================
+
+          arquivo.write_text(
+              texto,
+              encoding="utf-8"
+          )
 
           print("download2.html atualizado.")
           print("Novo link:", novo_url)
+          print("Novo tamanho do APK:", novo_tamanho)
           PY
 
           git config user.name "github-actions[bot]"
@@ -257,23 +366,30 @@ jobs:
           git add download2.html
 
           if git diff --cached --quiet; then
-            echo "O link já está atualizado."
+            echo "download2.html já está atualizado."
           else
-            git commit -m "Atualizar link do App2.zip [skip ci]"
+            git commit -m "Atualizar link e tamanho do APK [skip ci]"
 
             git reset --hard HEAD
             git pull --rebase origin main
             git push origin main
           fi
 
+
       - name: Mostrar resumo
         run: |
           echo "## Compilação concluída" >> "$GITHUB_STEP_SUMMARY"
           echo "" >> "$GITHUB_STEP_SUMMARY"
+
           echo "**Release:** $RELEASE_TAG" >> "$GITHUB_STEP_SUMMARY"
           echo "**Branch:** main" >> "$GITHUB_STEP_SUMMARY"
           echo "**Release recebe:** App2.zip" >> "$GITHUB_STEP_SUMMARY"
           echo "" >> "$GITHUB_STEP_SUMMARY"
+
+          echo "**Tamanho real do APK:** ${{ steps.apk_size.outputs.size_formatado }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "**Tamanho em bytes:** ${{ steps.apk_size.outputs.bytes }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+
           echo "**SHA-256:**" >> "$GITHUB_STEP_SUMMARY"
           echo '```' >> "$GITHUB_STEP_SUMMARY"
           echo "${{ steps.sha256.outputs.sha256 }}" >> "$GITHUB_STEP_SUMMARY"
