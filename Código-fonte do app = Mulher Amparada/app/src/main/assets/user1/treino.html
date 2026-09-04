@@ -122,125 +122,12 @@ body {
     color: var(--text);
 
     background:
-        radial-gradient(
-            circle at 50% -10%,
-            rgba(255,122,168,.13),
-            transparent 32%
-        ),
-        radial-gradient(
-            circle at 100% 100%,
-            rgba(130,100,255,.08),
-            transparent 30%
-        ),
-        var(--bg);
+        #000;
 
     overflow-x: hidden;
     margin-top: 2.5%;
 }
 
-
-/* =========================================================
-   SCROLLBAR
-========================================================= */
-
-::-webkit-scrollbar {
-    width: 7px;
-    height: 7px;
-}
-
-::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-
-    background:
-        linear-gradient(
-            180deg,
-            rgba(255,122,168,.75),
-            rgba(255,181,205,.45)
-        );
-
-    border-radius: 999px;
-
-    border:
-        2px solid
-        transparent;
-
-    background-clip: padding-box;
-}
-
-::-webkit-scrollbar-thumb:hover {
-
-    background:
-        linear-gradient(
-            180deg,
-            var(--accent),
-            var(--accent-light)
-        );
-
-    background-clip: padding-box;
-}
-
-::-webkit-scrollbar-corner {
-    background: transparent;
-}
-
-
-/* =========================================================
-   FUNDO DECORATIVO
-========================================================= */
-
-body::before {
-
-    content: "";
-
-    position: fixed;
-
-    width: 420px;
-    height: 420px;
-
-    top: -180px;
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(255,122,168,.12),
-            transparent 70%
-        );
-
-    filter: blur(30px);
-
-    pointer-events: none;
-
-    z-index: -1;
-}
-
-body::after {
-
-    content: "";
-
-    position: fixed;
-
-    inset: 0;
-
-    background:
-        linear-gradient(
-            rgba(255,255,255,.012) 1px,
-            transparent 1px
-        );
-
-    background-size: 100% 5px;
-
-    opacity: .18;
-
-    pointer-events: none;
-
-    z-index: 9999;
-}
 
 
 /* =========================================================
