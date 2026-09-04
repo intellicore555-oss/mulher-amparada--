@@ -1,432 +1,20 @@
-name: Converter Android para iOS
+# ============================================================
+      # 14. COMPILAR PROJETO IOS
+      #
+      # O BUILD PODE FALHAR.
+      # ISSO NÃO IMPEDE A GERAÇÃO DO ZIP.
+      # ============================================================
 
-on:
-  workflow_dispatch:
-
-permissions:
-  contents: read
-
-jobs:
-  convert:
-    name: Converter projeto Android → iOS
-    runs-on: macos-latest
-
-    steps:
-      - name: Baixar projeto
-        uses: actions/checkout@v4
-
-      - name: Preparar ambiente
-        run: |
-          set -e
-
-          mkdir -p conversion/ios-project
-          mkdir -p conversion/ios-project/MulherAmparada
-          mkdir -p conversion/ios-project/MulherAmparada/Resources
-          mkdir -p conversion/report
-
-      - name: Analisar projeto Android
+      - name: Compilar projeto iOS
+        id: ios_build
+        continue-on-error: true
         shell: bash
         run: |
-          set -e
+          set -o pipefail
 
-          REPORT="conversion/report/adaptation-report.md"
+          cd conversion/ios
 
-          cat > "$REPORT" <<'EOF'
-          # Relatório de conversão Android → iOS
-
-          Gerado automaticamente pelo GitHub Actions.
-
-          ## Status
-
-          EOF
-
-          echo "- Data: $(date)" >> "$REPORT"
-          echo "- Runner: macOS" >> "$REPORT"
-          echo "" >> "$REPORT"
-
-          echo "## Arquivos encontrados" >> "$REPORT"
-          echo "" >> "$REPORT"
-
-          echo '```text' >> "$REPORT"
-          find . \
-            -not -path './.git/*' \
-            -not -path './conversion/*' \
-            -type f \
-            | sort \
-            | head -1000 >> "$REPORT"
-          echo '```' >> "$REPORT"
-          echo "" >> "$REPORT"
-
-          echo "## APIs Android detectadas" >> "$REPORT"
-          echo "" >> "$REPORT"
-
-          FOUND=0
-
-          check_api() {
-            NAME="$1"
-            PATTERN="$2"
-            IOS="$3"
-
-            if grep -RInE \
-              --exclude-dir=.git \
-              --exclude-dir=conversion \
-              "$PATTERN" . >/tmp/android-api-result 2>/dev/null; then
-
-              FOUND=$((FOUND + 1))
-
-              echo "### $NAME" >> "$REPORT"
-              echo "" >> "$REPORT"
-              echo "**Possível equivalente iOS:** $IOS" >> "$REPORT"
-              echo "" >> "$REPORT"
-
-              echo '```text' >> "$REPORT"
-              head -30 /tmp/android-api-result >> "$REPORT"
-              echo '```' >> "$REPORT"
-              echo "" >> "$REPORT"
-            fi
-          }
-
-          check_api \
-            "WebView" \
-            'android\.webkit\.WebView|WebView\(' \
-            "WKWebView"
-
-          check_api \
-            "Biometria" \
-            'BiometricPrompt|androidx\.biometric' \
-            "LocalAuthentication"
-
-          check_api \
-            "Localização" \
-            'FusedLocationProvider|LocationManager|ACCESS_FINE_LOCATION|ACCESS_COARSE_LOCATION' \
-            "Core Location"
-
-          check_api \
-            "Sensores / acelerômetro" \
-            'SensorManager|TYPE_ACCELEROMETER|Sensor\.TYPE' \
-            "Core Motion"
-
-          check_api \
-            "SharedPreferences" \
-            'SharedPreferences|EncryptedSharedPreferences' \
-            "UserDefaults / Keychain"
-
-          check_api \
-            "Serviço Android" \
-            'extends Service|: Service\(' \
-            "Background Tasks / APIs específicas do iOS"
-
-          check_api \
-            "BroadcastReceiver" \
-            'BroadcastReceiver' \
-            "NotificationCenter / APIs específicas"
-
-          check_api \
-            "Quick Settings" \
-            'TileService|Quick Settings' \
-            "Não existe equivalente direto"
-
-          check_api \
-            "Device Admin" \
-            'DevicePolicyManager|BIND_DEVICE_ADMIN' \
-            "Não existe equivalente geral para apps comuns"
-
-          check_api \
-            "Telefone" \
-            'CALL_PHONE|TelephonyManager|ACTION_CALL' \
-            "Phone / tel: URL"
-
-          check_api \
-            "SMS" \
-            'SEND_SMS|SmsManager' \
-            "MFMessageComposeViewController"
-
-          check_api \
-            "Câmera" \
-            'android\.hardware\.camera|CameraManager|android\.permission\.CAMERA' \
-            "AVFoundation"
-
-          check_api \
-            "Bluetooth" \
-            'BluetoothAdapter|BluetoothManager|BLUETOOTH_' \
-            "CoreBluetooth"
-
-          check_api \
-            "Notificações" \
-            'NotificationManager|POST_NOTIFICATIONS|NotificationCompat' \
-            "UserNotifications"
-
-          check_api \
-            "Foreground Service" \
-            'FOREGROUND_SERVICE|startForeground|startForegroundService' \
-            "Não há equivalente direto"
-
-          check_api \
-            "AlarmManager" \
-            'AlarmManager|setExact|setRepeating' \
-            "UNUserNotificationCenter / Background Tasks"
-
-          check_api \
-            "WorkManager" \
-            'WorkManager|androidx\.work' \
-            "BackgroundTasks"
-
-          echo "## Resumo" >> "$REPORT"
-          echo "" >> "$REPORT"
-          echo "- APIs Android detectadas: **$FOUND**" >> "$REPORT"
-          echo "" >> "$REPORT"
-
-      - name: Copiar recursos HTML/CSS/JavaScript
-        shell: bash
-        run: |
-          set -e
-
-          DEST="conversion/ios-project/MulherAmparada/Resources"
-
-          find . \
-            -type d \
-            \( \
-              -path './.git' -o \
-              -path './conversion' \
-            \) -prune -false \
-            -o -type f \
-            \( \
-              -name '*.html' -o \
-              -name '*.css' -o \
-              -name '*.js' -o \
-              -name '*.json' -o \
-              -name '*.png' -o \
-              -name '*.jpg' -o \
-              -name '*.jpeg' -o \
-              -name '*.webp' -o \
-              -name '*.svg' -o \
-              -name '*.mp3' -o \
-              -name '*.wav' \
-            \) \
-            -print0 |
-          while IFS= read -r -d '' FILE; do
-            REL="${FILE#./}"
-            mkdir -p "$DEST/$(dirname "$REL")"
-            cp "$FILE" "$DEST/$REL"
-          done
-
-      - name: Criar implementação WKWebView
-        shell: bash
-        run: |
-          set -e
-
-          APP="conversion/ios-project/MulherAmparada"
-
-          cat > "$APP/WebView.swift" <<'EOF'
-          import SwiftUI
-          import WebKit
-
-          struct WebView: UIViewRepresentable {
-
-              func makeUIView(context: Context) -> WKWebView {
-                  let configuration = WKWebViewConfiguration()
-
-                  let webView = WKWebView(
-                      frame: .zero,
-                      configuration: configuration
-                  )
-
-                  webView.allowsBackForwardNavigationGestures = true
-
-                  if let url = Bundle.main.url(
-                      forResource: "index",
-                      withExtension: "html",
-                      subdirectory: "Resources"
-                  ) {
-                      webView.loadFileURL(
-                          url,
-                          allowingReadAccessTo:
-                              url.deletingLastPathComponent()
-                      )
-                  }
-
-                  return webView
-              }
-
-              func updateUIView(
-                  _ webView: WKWebView,
-                  context: Context
-              ) {}
-          }
-          EOF
-
-      - name: Criar ContentView
-        shell: bash
-        run: |
-          cat > conversion/ios-project/MulherAmparada/ContentView.swift <<'EOF'
-          import SwiftUI
-
-          struct ContentView: View {
-
-              var body: some View {
-                  WebView()
-                      .ignoresSafeArea()
-              }
-          }
-          EOF
-
-      - name: Criar App Swift
-        shell: bash
-        run: |
-          cat > conversion/ios-project/MulherAmparada/MulherAmparadaApp.swift <<'EOF'
-          import SwiftUI
-
-          @main
-          struct MulherAmparadaApp: App {
-
-              var body: some Scene {
-                  WindowGroup {
-                      ContentView()
-                  }
-              }
-          }
-          EOF
-
-      - name: Criar README
-        shell: bash
-        run: |
-          cat > conversion/ios-project/README.md <<'EOF'
-          # Projeto iOS convertido
-
-          Este projeto foi gerado automaticamente a partir de um projeto Android.
-
-          ## O que foi convertido
-
-          - Recursos HTML
-          - CSS
-          - JavaScript
-          - Imagens
-          - Áudios
-          - Estrutura básica SwiftUI
-          - WKWebView
-
-          ## Importante
-
-          O projeto Android pode conter APIs que não possuem equivalente
-          direto no iOS.
-
-          Consulte:
-
-          `report/adaptation-report.md`
-
-          antes de utilizar o projeto em produção.
-
-          ## Próximos passos
-
-          1. Abra o projeto no Xcode.
-          2. Configure o Bundle Identifier.
-          3. Configure a Signing Team.
-          4. Revise as APIs nativas.
-          5. Teste em simulador.
-          6. Teste em dispositivo físico.
-          EOF
-
-      - name: Procurar index.html
-        shell: bash
-        run: |
-          set -e
-
-          INDEX=$(find conversion/ios-project/MulherAmparada/Resources \
-            -type f \
-            -name 'index.html' \
-            | head -1 || true)
-
-          if [ -z "$INDEX" ]; then
-            echo "Nenhum index.html encontrado."
-
-            cat >> conversion/report/adaptation-report.md <<'EOF'
-
-          ## ⚠️ WebView
-
-          Nenhum `index.html` foi encontrado automaticamente.
-
-          A página inicial precisa ser configurada manualmente no
-          `WebView.swift`.
-          EOF
-          else
-            echo "Página encontrada: $INDEX"
-          fi
-
-      - name: Criar estrutura Xcode
-        shell: bash
-        run: |
-          set -e
-
-          cd conversion/ios-project
-
-          if command -v xcodegen >/dev/null 2>&1; then
-            echo "XcodeGen encontrado."
-          else
-            brew install xcodegen
-          fi
-
-          cat > project.yml <<'EOF'
-          name: MulherAmparada
-
-          options:
-            bundleIdPrefix: com.mulheramparada
-
-          targets:
-            MulherAmparada:
-              type: application
-              platform: iOS
-
-              deploymentTarget: "17.0"
-
-              sources:
-                - MulherAmparada
-
-              settings:
-                PRODUCT_BUNDLE_IDENTIFIER: com.mulheramparada.app
-                SWIFT_VERSION: "5.0"
-
-              info:
-                path: MulherAmparada/Info.plist
-                properties:
-                  CFBundleDisplayName: Mulher Amparada
-                  UILaunchScreen: {}
-                  NSLocationWhenInUseUsageDescription: "O aplicativo pode usar sua localização quando necessário."
-                  NSFaceIDUsageDescription: "A autenticação biométrica pode ser usada para proteger recursos do aplicativo."
-          EOF
-
-          cat > MulherAmparada/Info.plist <<'EOF'
-          <?xml version="1.0" encoding="UTF-8"?>
-          <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
-          "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-
-          <plist version="1.0">
-          <dict>
-              <key>CFBundleName</key>
-              <string>MulherAmparada</string>
-
-              <key>CFBundleDisplayName</key>
-              <string>Mulher Amparada</string>
-
-              <key>UILaunchScreen</key>
-              <dict/>
-
-              <key>NSLocationWhenInUseUsageDescription</key>
-              <string>O aplicativo pode usar sua localização quando necessário.</string>
-
-              <key>NSFaceIDUsageDescription</key>
-              <string>A autenticação biométrica pode proteger recursos do aplicativo.</string>
-          </dict>
-          </plist>
-          EOF
-
-          xcodegen generate
-
-      - name: Validar projeto Xcode
-        shell: bash
-        run: |
-          set -e
-
-          cd conversion/ios-project
+          echo "Iniciando build do projeto iOS..."
 
           xcodebuild \
             -project MulherAmparada.xcodeproj \
@@ -435,53 +23,193 @@ jobs:
             -configuration Debug \
             -derivedDataPath build \
             CODE_SIGNING_ALLOWED=NO \
-            build
+            build \
+            2>&1 | tee ../../xcodebuild.log
 
-      - name: Adicionar informações do build
+          STATUS=${PIPESTATUS[0]}
+
+          echo "Build terminou com código: $STATUS"
+
+          exit $STATUS
+
+
+      # ============================================================
+      # 15. REGISTRAR RESULTADO DO BUILD
+      # ============================================================
+
+      - name: Registrar resultado do build
+        if: always()
         shell: bash
         run: |
-          cat >> conversion/report/adaptation-report.md <<'EOF'
+          REPORT="conversion/report/adaptation-report.md"
 
-          ## Build
+          echo "" >> "$REPORT"
+          echo "## Resultado do Build" >> "$REPORT"
+          echo "" >> "$REPORT"
 
-          O projeto iOS foi gerado e validado com `xcodebuild`
-          utilizando o SDK do simulador.
+          if [ "${{ steps.ios_build.outcome }}" = "success" ]; then
 
-          **Observação:** isso não significa que o aplicativo esteja
-          pronto para distribuição em dispositivos físicos ou App Store.
-          Assinatura Apple e configurações de distribuição ainda podem
-          ser necessárias.
+            echo "✅ O projeto iOS foi compilado com sucesso." \
+              >> "$REPORT"
 
-          ## Arquivos gerados
+          else
 
-          - Projeto Xcode
-          - Código Swift
-          - Recursos HTML/CSS/JS
-          - Recursos multimídia
-          - README
-          - Relatório de adaptação
-          EOF
+            echo "⚠️ O projeto iOS apresentou erros durante a compilação." \
+              >> "$REPORT"
 
-      - name: Criar ZIP
+            echo "" >> "$REPORT"
+
+            echo "O ZIP foi gerado mesmo assim para permitir correções manuais." \
+              >> "$REPORT"
+
+            echo "" >> "$REPORT"
+
+            if [ -f xcodebuild.log ]; then
+
+              echo "### Erros do Xcode" >> "$REPORT"
+              echo "" >> "$REPORT"
+
+              echo '```text' >> "$REPORT"
+
+              grep -Ei \
+                'error:|fatal error:|BUILD FAILED|warning:' \
+                xcodebuild.log \
+                | tail -100 \
+                >> "$REPORT" || true
+
+              echo '```' >> "$REPORT"
+
+            fi
+
+          fi
+
+
+      # ============================================================
+      # 16. README
+      # ============================================================
+
+      - name: Criar README
+        if: always()
+        shell: bash
+        run: |
+          cat > conversion/ios/README.md <<'EOF'
+# Mulher Amparada — versão iOS
+
+Este projeto foi gerado automaticamente a partir do projeto Android.
+
+## Conversão automática
+
+O conversor tentou transformar automaticamente:
+
+- HTML
+- CSS
+- JavaScript
+- imagens
+- áudio
+- recursos Web
+- WebView → WKWebView
+- estrutura básica → SwiftUI
+- APIs Android conhecidas → equivalentes iOS quando possível
+
+## Funcionalidades que precisam de adaptação
+
+Consulte:
+
+`../report/adaptation-report.md`
+
+O relatório lista APIs Android encontradas durante a análise.
+
+## Build
+
+O GitHub Actions tentou compilar o projeto usando o Xcode.
+
+### Se o build falhar
+
+O projeto continuará disponível.
+
+O objetivo do workflow é gerar o máximo possível mesmo quando
+existem partes que precisam de adaptação manual.
+
+## Arquivos importantes
+
+- `MulherAmparada/`
+- `MulherAmparada.xcodeproj`
+- `Resources/`
+- `../report/adaptation-report.md`
+- `../../xcodebuild.log`
+
+## Assinatura
+
+Para instalar em um iPhone físico ou distribuir o aplicativo,
+a configuração de assinatura da Apple ainda precisa ser realizada.
+EOF
+
+
+      # ============================================================
+      # 17. COPIAR LOG PARA O PACOTE
+      # ============================================================
+
+      - name: Copiar log do Xcode
+        if: always()
+        shell: bash
+        run: |
+          if [ -f xcodebuild.log ]; then
+            cp xcodebuild.log conversion/report/
+          fi
+
+
+      # ============================================================
+      # 18. GERAR ZIP MESMO COM ERRO
+      # ============================================================
+
+      - name: Gerar ZIP
+        if: always()
         shell: bash
         run: |
           set -e
 
+          rm -f projeto-ios.zip
+
           cd conversion
 
-          zip -r ../projeto-ios.zip ios-project report \
-            -x "*/build/*"
+          # Não incluir o diretório de build do Xcode.
+          rm -rf ios/build
+
+          zip -r ../projeto-ios.zip \
+            ios \
+            report
+
+          echo ""
+          echo "========================================"
+          echo "ZIP GERADO"
+          echo "========================================"
+
+          ls -lh ../projeto-ios.zip
+
+
+      # ============================================================
+      # 19. PUBLICAR ZIP
+      # ============================================================
 
       - name: Publicar projeto iOS
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: projeto-ios
           path: projeto-ios.zip
+          if-no-files-found: error
           retention-days: 30
 
+
+      # ============================================================
+      # 20. PUBLICAR RELATÓRIO
+      # ============================================================
+
       - name: Publicar relatório
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: adaptation-report
-          path: conversion/report/adaptation-report.md
+          path: conversion/report/
+          if-no-files-found: warn
           retention-days: 30
