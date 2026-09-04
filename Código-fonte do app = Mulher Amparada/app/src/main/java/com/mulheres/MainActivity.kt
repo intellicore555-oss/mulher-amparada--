@@ -405,10 +405,39 @@ class MainActivity : AppCompatActivity() {
 
     private fun configurarWebView() {
 
-        webView.addJavascriptInterface(
-            WebAppInterface(this),
-            "Android"
-        )
+    // =====================================================
+    // RENDERIZAÇÃO DO WEBVIEW
+    // =====================================================
+
+    webView.setBackgroundColor(Color.BLACK)
+
+    // Mantém a renderização acelerada por GPU.
+    webView.setLayerType(
+    View.LAYER_TYPE_SOFTWARE,
+    null
+)
+
+    webView.overScrollMode =
+        View.OVER_SCROLL_NEVER
+
+    webView.isVerticalScrollBarEnabled =
+        false
+
+    webView.isHorizontalScrollBarEnabled =
+        false
+
+    webView.scrollBarStyle =
+        View.SCROLLBARS_INSIDE_OVERLAY
+
+
+    // =====================================================
+    // INTERFACES JAVASCRIPT
+    // =====================================================
+
+    webView.addJavascriptInterface(
+        WebAppInterface(this),
+        "Android"
+    )
 
         webView.addJavascriptInterface(
             TiltBrightnessController.WebAppInterface(
@@ -423,21 +452,47 @@ class MainActivity : AppCompatActivity() {
         )
 
         val settings =
-            webView.settings
-            
-            webView.overScrollMode = View.OVER_SCROLL_NEVER
+    webView.settings
 
-        webView.isVerticalScrollBarEnabled =
-            false
+settings.javaScriptEnabled =
+    true
 
-        webView.isHorizontalScrollBarEnabled =
-            false
+settings.domStorageEnabled =
+    true
 
-        webView.scrollBarStyle =
-            View.SCROLLBARS_INSIDE_OVERLAY
+settings.databaseEnabled =
+    true
 
-        settings.javaScriptEnabled =
-            true
+settings.loadsImagesAutomatically =
+    true
+
+settings.blockNetworkImage =
+    false
+
+settings.cacheMode =
+    android.webkit.WebSettings.LOAD_DEFAULT
+
+settings.mediaPlaybackRequiresUserGesture =
+    false
+
+settings.setGeolocationEnabled(
+    true
+)
+
+settings.allowFileAccess =
+    true
+
+settings.allowContentAccess =
+    true
+
+settings.javaScriptCanOpenWindowsAutomatically =
+    true
+
+settings.allowFileAccessFromFileURLs =
+    true
+
+settings.allowUniversalAccessFromFileURLs =
+    true
 
         settings.mediaPlaybackRequiresUserGesture =
             false
@@ -654,24 +709,33 @@ class MainActivity : AppCompatActivity() {
 
 
                 override fun onPageFinished(
-                    view: WebView?,
-                    url: String?
-                ) {
+    view: WebView?,
+    url: String?
+) {
 
-                    super.onPageFinished(
-                        view,
-                        url
-                    )
+    super.onPageFinished(
+        view,
+        url
+    )
 
-                    view?.evaluateJavascript(
-                        """
-                        if (typeof mostrarConteudo === 'function') {
-                            mostrarConteudo();
-                        }
-                        """.trimIndent(),
-                        null
-                    )
-                }
+    view?.setBackgroundColor(
+        Color.BLACK
+    )
+
+    view?.post {
+
+        view.invalidate()
+
+        view.evaluateJavascript(
+            """
+            if (typeof mostrarConteudo === 'function') {
+                mostrarConteudo();
+            }
+            """.trimIndent(),
+            null
+        )
+    }
+}
             }
     }
 
