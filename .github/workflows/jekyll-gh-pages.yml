@@ -2,23 +2,43 @@
 name: Deploy Jekyll with GitHub Pages dependencies preinstalled
 
 on:
+  schedule:
+    # Executa a cada 1 hora
+    - cron: "0 * * * *"
+
   push:
     branches: ["main"]
 
   workflow_dispatch:
 
-  schedule:
-    # Executa a cada 1 hora
-    - cron: "0 * * * *"
+  workflow_run:
+    workflows:
+      - "Compilar o assistente de voz"
+      - "Atualizar Android SDK"
+      - "Compilar o gerenciador de arquivos"
+      - "Compilar o mulher amparada"
+    types:
+      - completed
 
 permissions:
   contents: read
   pages: write
   id-token: write
 
-concurrency:
-  group: atualizar-main
-  cancel-in-progress: false
+jobs:
+  build:
+    if: >
+      github.event_name != 'workflow_run' ||
+      github.event.workflow_run.conclusion == 'cancelled'
+
+    runs-on: ubuntu-latest
+
+    concurrency:
+      group: "pages"
+      cancel-in-progress: false
+
+    steps:
+      # seus steps originais entram aqui
 
 jobs:
   build:

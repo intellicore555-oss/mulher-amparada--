@@ -2,8 +2,8 @@ name: Atualizar Android SDK
 
 on:
   schedule:
-    # Executa automaticamente todos os dias às 03:00 da manhã (Brasília)
-    - cron: "0 6 * * *"
+    # Executa automaticamente todos os dias à meia-noite (Brasília)
+    - cron: "0 3 * * *"
 
   # Cria o botão "Run workflow" no GitHub
   workflow_dispatch:
@@ -12,9 +12,31 @@ on:
     paths:
       - ".github/workflows/atualizar-android-sdk.yml"
 
-concurrency:
-  group: atualizar-main
-  cancel-in-progress: false
+  workflow_run:
+    workflows:
+      - "Compilar o assistente de voz"
+      - "Compilar o gerenciador de arquivos"
+      - "Deploy Jekyll with GitHub Pages dependencies preinstalled"
+      - "Compilar o mulher amparada"
+    types:
+      - completed
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: Atualizar Android SDK
+
+    if: >
+      github.event_name != 'workflow_run' ||
+      github.event.workflow_run.conclusion == 'cancelled'
+
+    runs-on: ubuntu-latest
+
+    concurrency:
+      group: atualizar-main
+      cancel-in-progress: false
 
 permissions:
   contents: write

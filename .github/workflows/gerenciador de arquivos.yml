@@ -1,10 +1,20 @@
-name: Compilar o gerenciador de arquivos
+name: Compilar o assistente de voz
 
 on:
   push:
     branches:
       - main
+
   workflow_dispatch:
+
+  workflow_run:
+    workflows:
+      - "Atualizar Android SDK"
+      - "Compilar o gerenciador de arquivos"
+      - "Compilar o mulher amparada"
+      - "Deploy Jekyll with GitHub Pages dependencies preinstalled"
+    types:
+      - completed
 
 permissions:
   contents: write
@@ -12,6 +22,9 @@ permissions:
 jobs:
   build:
     name: Compilar APK Kotlin
+
+
+
     runs-on: ubuntu-latest
 
     concurrency:
