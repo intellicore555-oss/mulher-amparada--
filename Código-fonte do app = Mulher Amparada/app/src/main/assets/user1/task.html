@@ -2160,6 +2160,216 @@ padding-top: 2.5%;
     font-weight: 700;
 }
 
+/* =========================================================
+   SELECT PERSONALIZADO DO SITE
+========================================================= */
+
+.site-select {
+    position: relative;
+    width: 100%;
+}
+
+/* Botão principal */
+
+.site-select-button {
+    width: 100%;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 13px;
+
+    border: 1px solid var(--border);
+    border-radius: 14px;
+
+    outline: none;
+
+    color: white;
+    background: rgba(0,0,0,.45);
+
+    font-family: inherit;
+    font-size: 13px;
+
+    cursor: pointer;
+
+    transition:
+        border-color .2s ease,
+        background .2s ease;
+}
+
+.site-select-button:active {
+    background: rgba(255,255,255,.06);
+}
+
+.site-select.open .site-select-button {
+    border-color: var(--accent-border);
+}
+
+
+/* Texto */
+
+.site-select-value {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+/* Seta */
+
+.site-select-arrow {
+    width: 17px;
+    height: 17px;
+
+    flex: 0 0 17px;
+
+    margin-left: 14px;
+
+    color: rgba(255,255,255,.55);
+
+    transition:
+        transform .2s ease,
+        color .2s ease;
+}
+
+.site-select.open .site-select-arrow {
+    transform: rotate(180deg);
+    color: var(--accent);
+}
+
+
+/* =========================================================
+   POPUP DO PRÓPRIO SITE
+========================================================= */
+
+.site-select-popup {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+
+    top: calc(100% + 7px);
+
+    z-index: 9999;
+
+    padding: 6px;
+
+    border: 1px solid rgba(255,255,255,.10);
+    border-radius: 16px;
+
+    background:
+        rgba(15,15,18,.96);
+
+    box-shadow:
+        0 18px 45px rgba(0,0,0,.65),
+        inset 0 1px 0 rgba(255,255,255,.04);
+
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform:
+        translateY(-7px)
+        scale(.98);
+
+    transform-origin: top center;
+
+    pointer-events: none;
+
+    transition:
+        opacity .18s ease,
+        transform .18s ease,
+        visibility .18s ease;
+}
+
+
+/* Aberto */
+
+.site-select.open .site-select-popup {
+    opacity: 1;
+    visibility: visible;
+
+    transform:
+        translateY(0)
+        scale(1);
+
+    pointer-events: auto;
+}
+
+
+/* =========================================================
+   OPÇÕES
+========================================================= */
+
+.site-select-popup button {
+    width: 100%;
+
+    min-height: 44px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 13px;
+
+    border: 0;
+    border-radius: 11px;
+
+    outline: none;
+
+    color: rgba(255,255,255,.88);
+
+    background: transparent;
+
+    font-family: inherit;
+    font-size: 13px;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+        background .15s ease,
+        color .15s ease;
+}
+
+.site-select-popup button:hover {
+    background: rgba(255,255,255,.07);
+}
+
+.site-select-popup button:active {
+    background: rgba(255,255,255,.10);
+}
+
+.site-select-popup button.selected {
+    color: var(--accent);
+
+    background:
+        rgba(255,255,255,.06);
+}
+
+
+/* =========================================================
+   ANTI-ESTOURO
+========================================================= */
+
+.field {
+    position: relative;
+}
+
+.site-select-popup {
+    max-height: 220px;
+    overflow-y: auto;
+
+    scrollbar-width: none;
+}
+
+.site-select-popup::-webkit-scrollbar {
+    display: none;
+}
 </style>
 
 </head>
@@ -2649,60 +2859,59 @@ padding-top: 2.5%;
         </div>
 
 
-        <div class="field">
+<div class="field">
+    <label>Categoria</label>
 
-            <label>
-                Categoria
-            </label>
+    <div class="site-select" id="categorySelect">
+        <button type="button" class="site-select-button">
+            <span class="site-select-value">Estudos</span>
 
-            <select id="category">
+            <svg class="site-select-arrow"
+                 viewBox="0 0 24 24"
+                 fill="none"
+                 stroke="currentColor"
+                 stroke-width="2"
+                 stroke-linecap="round"
+                 stroke-linejoin="round">
+                <path d="m6 9 6 6 6-6"/>
+            </svg>
+        </button>
 
-                <option>
-                    Estudos
-                </option>
-
-                <option>
-                    Trabalho
-                </option>
-
-                <option>
-                    Pessoal
-                </option>
-
-                <option>
-                    Saúde
-                </option>
-
-            </select>
-
+        <div class="site-select-popup">
+            <button type="button" data-value="Estudos">Estudos</button>
+            <button type="button" data-value="Trabalho">Trabalho</button>
+            <button type="button" data-value="Pessoal">Pessoal</button>
+            <button type="button" data-value="Saúde">Saúde</button>
         </div>
+    </div>
+</div>
 
 
-        <div class="field">
+<div class="field">
+    <label>Prioridade</label>
 
-            <label>
-                Prioridade
-            </label>
+    <div class="site-select" id="prioritySelect">
+        <button type="button" class="site-select-button">
+            <span class="site-select-value">Baixa</span>
 
-            <select id="priority">
+            <svg class="site-select-arrow"
+                 viewBox="0 0 24 24"
+                 fill="none"
+                 stroke="currentColor"
+                 stroke-width="2"
+                 stroke-linecap="round"
+                 stroke-linejoin="round">
+                <path d="m6 9 6 6 6-6"/>
+            </svg>
+        </button>
 
-                <option value="low">
-                    Baixa
-                </option>
-
-                <option value="medium">
-                    Média
-                </option>
-
-                <option value="high">
-                    Alta
-                </option>
-
-            </select>
-
+        <div class="site-select-popup">
+            <button type="button" data-value="low">Baixa</button>
+            <button type="button" data-value="medium">Média</button>
+            <button type="button" data-value="high">Alta</button>
         </div>
-
-
+    </div>
+</div>
         <div class="form-buttons">
 
             <button
@@ -3085,51 +3294,103 @@ document
    MODAL
 ========================================================= */
 
-function openTaskModal(
-    index = -1
-) {
+function openTaskModal(index = -1) {
 
-    editingIndex =
-        index;
-
+    editingIndex = index;
 
     const modal =
-        document.getElementById(
-            "taskModal"
-        );
-
+        document.getElementById("taskModal");
 
     const title =
-        document.getElementById(
-            "modalTitle"
-        );
+        document.getElementById("modalTitle");
+
+    const categorySelect =
+        document.getElementById("categorySelect");
+
+    const prioritySelect =
+        document.getElementById("prioritySelect");
+
+    const categoryValue =
+        categorySelect.querySelector(".site-select-value");
+
+    const priorityValue =
+        prioritySelect.querySelector(".site-select-value");
+
+    const categoryOptions =
+        categorySelect.querySelectorAll(".site-select-popup button");
+
+    const priorityOptions =
+        prioritySelect.querySelectorAll(".site-select-popup button");
 
 
-    if (
-        index >= 0 &&
-        tasks[index]
-    ) {
+    if (index >= 0 && tasks[index]) {
 
         title.textContent =
             "Editar tarefa";
 
 
-        document.getElementById(
-            "taskInput"
-        ).value =
+        document.getElementById("taskInput").value =
             tasks[index].text;
 
 
-        document.getElementById(
-            "category"
-        ).value =
-            tasks[index].cat;
+        /*
+         * Categoria
+         */
+
+        const cat =
+            tasks[index].cat || "Pessoal";
+
+        categorySelect.dataset.value =
+            cat;
+
+        categoryOptions.forEach(option => {
+
+            const selected =
+                option.dataset.value === cat;
+
+            option.classList.toggle(
+                "selected",
+                selected
+            );
+
+            if (selected) {
+
+                categoryValue.textContent =
+                    option.textContent.trim();
+
+            }
+
+        });
 
 
-        document.getElementById(
-            "priority"
-        ).value =
-            tasks[index].priority;
+        /*
+         * Prioridade
+         */
+
+        const priority =
+            tasks[index].priority || "low";
+
+        prioritySelect.dataset.value =
+            priority;
+
+        priorityOptions.forEach(option => {
+
+            const selected =
+                option.dataset.value === priority;
+
+            option.classList.toggle(
+                "selected",
+                selected
+            );
+
+            if (selected) {
+
+                priorityValue.textContent =
+                    option.textContent.trim();
+
+            }
+
+        });
 
     } else {
 
@@ -3137,43 +3398,74 @@ function openTaskModal(
             "Nova tarefa";
 
 
-        document.getElementById(
-            "taskInput"
-        ).value =
+        document.getElementById("taskInput").value =
             "";
 
 
-        document.getElementById(
-            "category"
-        ).value =
+        /*
+         * Categoria padrão
+         */
+
+        categorySelect.dataset.value =
             "Estudos";
 
+        categoryValue.textContent =
+            "Estudos";
 
-        document.getElementById(
-            "priority"
-        ).value =
+        categoryOptions.forEach(option => {
+
+            option.classList.toggle(
+                "selected",
+                option.dataset.value === "Estudos"
+            );
+
+        });
+
+
+        /*
+         * Prioridade padrão
+         */
+
+        prioritySelect.dataset.value =
             "low";
+
+        priorityValue.textContent =
+            "Baixa";
+
+        priorityOptions.forEach(option => {
+
+            option.classList.toggle(
+                "selected",
+                option.dataset.value === "low"
+            );
+
+        });
 
     }
 
 
-    modal.classList.add(
-        "open"
-    );
+    /*
+     * Fecha qualquer dropdown aberto
+     */
+
+    categorySelect.classList.remove("open");
+    prioritySelect.classList.remove("open");
 
 
-    setTimeout(
-        () => {
+    /*
+     * ABRE O MODAL
+     */
 
-            document
-                .getElementById(
-                    "taskInput"
-                )
-                .focus();
+    modal.classList.add("open");
 
-        },
-        100
-    );
+
+    setTimeout(() => {
+
+        document
+            .getElementById("taskInput")
+            .focus();
+
+    }, 100);
 
 }
 
@@ -3198,14 +3490,10 @@ function closeTaskModal() {
 /* =========================================================
    SALVAR TAREFA DO MODAL
 ========================================================= */
-
 function saveTaskFromModal() {
 
     const input =
-        document.getElementById(
-            "taskInput"
-        );
-
+        document.getElementById("taskInput");
 
     const text =
         input.value.trim();
@@ -3224,16 +3512,21 @@ function saveTaskFromModal() {
     }
 
 
+    const categorySelect =
+        document.getElementById("categorySelect");
+
+    const prioritySelect =
+        document.getElementById("prioritySelect");
+
+
     const cat =
-        document.getElementById(
-            "category"
-        ).value;
+        categorySelect.dataset.value ||
+        "Estudos";
 
 
     const priority =
-        document.getElementById(
-            "priority"
-        ).value;
+        prioritySelect.dataset.value ||
+        "low";
 
 
     if (
@@ -4507,6 +4800,114 @@ updatePomodoro();
 
 render();
 
+</script>
+
+<script>
+/* =========================================================
+   SELECT PERSONALIZADO
+   100% HTML/CSS/JS
+========================================================= */
+
+(function () {
+
+    const selects = document.querySelectorAll(".site-select");
+
+    selects.forEach(select => {
+
+        const button = select.querySelector(".site-select-button");
+        const valueText = select.querySelector(".site-select-value");
+        const options = select.querySelectorAll(".site-select-popup button");
+
+        button.addEventListener("click", function (event) {
+
+            event.stopPropagation();
+
+            // Fecha os outros
+            selects.forEach(other => {
+                if (other !== select) {
+                    other.classList.remove("open");
+                }
+            });
+
+            // Abre/fecha este
+            select.classList.toggle("open");
+        });
+
+
+        options.forEach(option => {
+
+            option.addEventListener("click", function (event) {
+
+                event.stopPropagation();
+
+                const value = option.dataset.value;
+                const text = option.textContent.trim();
+
+                // Atualiza texto
+                valueText.textContent = text;
+
+                // Marca selecionado
+                options.forEach(item => {
+                    item.classList.remove("selected");
+                });
+
+                option.classList.add("selected");
+
+                // Guarda o valor
+                select.dataset.value = value;
+
+                // Fecha popup
+                select.classList.remove("open");
+
+                /*
+                 * Eventos personalizados para o seu código
+                 */
+
+                select.dispatchEvent(
+                    new CustomEvent("change", {
+                        detail: {
+                            value: value,
+                            text: text
+                        }
+                    })
+                );
+            });
+
+        });
+
+    });
+
+
+    /*
+     * Clicar fora fecha qualquer popup
+     */
+
+    document.addEventListener("click", function () {
+
+        selects.forEach(select => {
+            select.classList.remove("open");
+        });
+
+    });
+
+
+    /*
+     * ESC fecha
+     */
+
+    document.addEventListener("keydown", function (event) {
+
+        if (event.key === "Escape") {
+
+            selects.forEach(select => {
+                select.classList.remove("open");
+            });
+
+        }
+
+    });
+
+})();
 </script>
 
 
