@@ -1,8 +1,21 @@
-# ============================================================
+name: Converter Android para iOS
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  converter:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # ============================================================
       # 14. COMPILAR PROJETO IOS
-      #
-      # O BUILD PODE FALHAR.
-      # ISSO NÃO IMPEDE A GERAÇÃO DO ZIP.
       # ============================================================
 
       - name: Compilar projeto iOS
@@ -32,7 +45,6 @@
 
           exit $STATUS
 
-
       # ============================================================
       # 15. REGISTRAR RESULTADO DO BUILD
       # ============================================================
@@ -43,32 +55,23 @@
         run: |
           REPORT="conversion/report/adaptation-report.md"
 
+          mkdir -p conversion/report
+
           echo "" >> "$REPORT"
           echo "## Resultado do Build" >> "$REPORT"
           echo "" >> "$REPORT"
 
           if [ "${{ steps.ios_build.outcome }}" = "success" ]; then
-
-            echo "✅ O projeto iOS foi compilado com sucesso." \
-              >> "$REPORT"
-
+            echo "✅ O projeto iOS foi compilado com sucesso." >> "$REPORT"
           else
-
-            echo "⚠️ O projeto iOS apresentou erros durante a compilação." \
-              >> "$REPORT"
-
+            echo "⚠️ O projeto iOS apresentou erros durante a compilação." >> "$REPORT"
             echo "" >> "$REPORT"
-
-            echo "O ZIP foi gerado mesmo assim para permitir correções manuais." \
-              >> "$REPORT"
-
+            echo "O ZIP foi gerado mesmo assim para permitir correções manuais." >> "$REPORT"
             echo "" >> "$REPORT"
 
             if [ -f xcodebuild.log ]; then
-
               echo "### Erros do Xcode" >> "$REPORT"
               echo "" >> "$REPORT"
-
               echo '```text' >> "$REPORT"
 
               grep -Ei \
@@ -78,11 +81,8 @@
                 >> "$REPORT" || true
 
               echo '```' >> "$REPORT"
-
             fi
-
           fi
-
 
       # ============================================================
       # 16. README
@@ -117,33 +117,17 @@ Consulte:
 
 `../report/adaptation-report.md`
 
-O relatório lista APIs Android encontradas durante a análise.
-
 ## Build
 
 O GitHub Actions tentou compilar o projeto usando o Xcode.
 
-### Se o build falhar
-
-O projeto continuará disponível.
-
-O objetivo do workflow é gerar o máximo possível mesmo quando
-existem partes que precisam de adaptação manual.
-
-## Arquivos importantes
-
-- `MulherAmparada/`
-- `MulherAmparada.xcodeproj`
-- `Resources/`
-- `../report/adaptation-report.md`
-- `../../xcodebuild.log`
+Se o build falhar, o projeto continuará disponível no ZIP.
 
 ## Assinatura
 
 Para instalar em um iPhone físico ou distribuir o aplicativo,
 a configuração de assinatura da Apple ainda precisa ser realizada.
 EOF
-
 
       # ============================================================
       # 17. COPIAR LOG PARA O PACOTE
@@ -156,7 +140,6 @@ EOF
           if [ -f xcodebuild.log ]; then
             cp xcodebuild.log conversion/report/
           fi
-
 
       # ============================================================
       # 18. GERAR ZIP MESMO COM ERRO
@@ -172,7 +155,6 @@ EOF
 
           cd conversion
 
-          # Não incluir o diretório de build do Xcode.
           rm -rf ios/build
 
           zip -r ../projeto-ios.zip \
@@ -186,7 +168,6 @@ EOF
 
           ls -lh ../projeto-ios.zip
 
-
       # ============================================================
       # 19. PUBLICAR ZIP
       # ============================================================
@@ -199,7 +180,6 @@ EOF
           path: projeto-ios.zip
           if-no-files-found: error
           retention-days: 30
-
 
       # ============================================================
       # 20. PUBLICAR RELATÓRIO
