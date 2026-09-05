@@ -1,4 +1,4 @@
-package com.mulheres
+package com.assist
 
 import android.Manifest
 import android.app.admin.DevicePolicyManager
@@ -251,7 +251,7 @@ private fun aplicarFonte(view: View) {
 
         adminComponent = ComponentName(
             this,
-            MyDeviceAdminReceiver::clas.java
+            MyDeviceAdminReceiver::class.java
         )
 
 
