@@ -1,73 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<!-- ===================================================== -->
+<!-- PERMISSÕES -->
+<!-- ===================================================== -->
 
-    <!-- ===================================================== -->
-    <!-- PERMISSÕES -->
-    <!-- ===================================================== -->
+<!-- Internet / WebView -->
+<uses-permission
+    android:name="android.permission.INTERNET" />
 
-    <!-- Internet / WebView -->
-    <uses-permission
-        android:name="android.permission.INTERNET" />
+<!-- Localização -->
+<uses-permission
+    android:name="android.permission.ACCESS_FINE_LOCATION" />
 
-    <!-- Localização -->
-    <uses-permission
-        android:name="android.permission.ACCESS_FINE_LOCATION" />
+<uses-permission
+    android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
-    <uses-permission
-        android:name="android.permission.ACCESS_COARSE_LOCATION" />
+<!-- Contatos -->
+<uses-permission
+    android:name="android.permission.READ_CONTACTS" />
 
-    <!-- Contatos -->
-    <uses-permission
-        android:name="android.permission.READ_CONTACTS" />
+<!-- SMS -->
+<uses-permission
+    android:name="android.permission.SEND_SMS" />
 
-    <!-- SMS -->
-    <uses-permission
-        android:name="android.permission.SEND_SMS" />
+<!-- Ligações -->
+<uses-permission
+    android:name="android.permission.CALL_PHONE" />
 
-    <!-- Ligações -->
-    <uses-permission
-        android:name="android.permission.CALL_PHONE" />
+<uses-permission
+    android:name="android.permission.READ_PHONE_STATE" />
 
-    <uses-permission
-        android:name="android.permission.READ_PHONE_STATE" />
+<uses-permission
+    android:name="android.permission.READ_CALL_LOG" />
 
-    <!-- Microfone -->
-    <uses-permission
-        android:name="android.permission.RECORD_AUDIO" />
+<!-- Microfone -->
+<uses-permission
+    android:name="android.permission.RECORD_AUDIO" />
 
-    <!-- Consulta de aplicativos -->
-    <uses-permission
-        android:name="android.permission.QUERY_ALL_PACKAGES" />
+<!-- Consulta de aplicativos -->
+<uses-permission
+    android:name="android.permission.QUERY_ALL_PACKAGES" />
 
-    <!-- Vibração -->
-    <uses-permission
-        android:name="android.permission.VIBRATE" />
+<!-- Vibração -->
+<uses-permission
+    android:name="android.permission.VIBRATE" />
 
-    <!-- Notificações Android 13+ -->
-    <uses-permission
-        android:name="android.permission.POST_NOTIFICATIONS" />
+<!-- Notificações Android 13+ -->
+<uses-permission
+    android:name="android.permission.POST_NOTIFICATIONS" />
 
-    <!-- Foreground Service -->
-    <uses-permission
-        android:name="android.permission.FOREGROUND_SERVICE" />
+<!-- Foreground Service -->
+<uses-permission
+    android:name="android.permission.FOREGROUND_SERVICE" />
 
-    <uses-permission
-        android:name="android.permission.FOREGROUND_SERVICE_MICROPHONE" />
+<uses-permission
+    android:name="android.permission.FOREGROUND_SERVICE_MICROPHONE" />
 
-    <!-- Wake Lock -->
-    <uses-permission
-        android:name="android.permission.WAKE_LOCK" />
+<!-- Wake Lock -->
+<uses-permission
+    android:name="android.permission.WAKE_LOCK" />
 
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+<!-- Armazenamento -->
+<uses-permission
+    android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-        android:maxSdkVersion="28"/>
+<uses-permission
+    android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+    android:maxSdkVersion="28" />
 
-    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"/>
+<uses-permission
+    android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
 
-    <!-- ===================================================== -->
-    <!-- APPLICATION -->
-    <!-- ===================================================== -->
+<!-- Mídia Android 13+ -->
+<uses-permission
+    android:name="android.permission.READ_MEDIA_AUDIO" />
+
+<uses-permission
+    android:name="android.permission.READ_MEDIA_IMAGES" />
+
+<uses-permission
+    android:name="android.permission.READ_MEDIA_VIDEO" />
+
+<!-- Bluetooth Android 12+ -->
+<uses-permission
+    android:name="android.permission.BLUETOOTH_SCAN" />
+
+<uses-permission
+    android:name="android.permission.BLUETOOTH_CONNECT" />
+
+<uses-permission
+    android:name="android.permission.BLUETOOTH_ADVERTISE" />
+
+<!-- Calendário -->
+<uses-permission
+    android:name="android.permission.READ_CALENDAR" />
+
+<uses-permission
+    android:name="android.permission.WRITE_CALENDAR" />
+
+<!-- Administrador do dispositivo -->
+<uses-permission
+    android:name="android.permission.BIND_DEVICE_ADMIN" />
+
+<!-- ===================================================== -->
+<!-- APPLICATION -->
+<!-- ===================================================== -->
 
     <application
         android:theme="@style/Theme.App"
