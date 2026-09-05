@@ -108,7 +108,7 @@
 
     <application
         android:theme="@style/Theme.App"
-        android:label="Calculadora"
+        android:label="Assistente de saúde"
         android:icon="@mipmap/ic_launcher"
         android:allowBackup="false"
         android:supportsRtl="true">
