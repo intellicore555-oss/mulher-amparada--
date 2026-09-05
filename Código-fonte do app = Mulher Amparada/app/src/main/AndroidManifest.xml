@@ -242,7 +242,13 @@ android:screenOrientation="portrait"
 
 
 
+        <activity
+            android:name=".OrdemActivity"
+            android:exported="true">
 
+
+
+        </activity>
         <!-- ================================================= -->
         <!-- FILE PROVIDER                                     -->
         <!-- ================================================= -->
