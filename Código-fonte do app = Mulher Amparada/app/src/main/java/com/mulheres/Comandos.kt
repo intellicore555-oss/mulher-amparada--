@@ -424,7 +424,7 @@ private fun bloquearCelular(contexto: Context) {
 
     val admin = ComponentName(
         contexto,
-        MeuAdministrador::class.java
+        MyDeviceAdminReceiver::class.java
     )
 
 
