@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000">
+
+    <!-- Imagem -->
+    <ImageView
+        android:id="@+id/imgVisualizador"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"/>
+
+    <!-- Player de áudio/vídeo -->
+<androidx.media3.ui.PlayerView
+    android:id="@+id/playerView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="24dp"
+    android:paddingBottom="24dp"
+    android:visibility="gone"
+    app:show_buffering="always"
+    app:use_controller="true"/>
+
+    <!-- Barra de progresso -->
+    <ProgressBar
+        android:id="@+id/progresso"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_gravity="center"
+        android:visibility="gone"/>
+
+    <!-- Mensagem -->
+    <TextView
+        android:id="@+id/txtMensagem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:visibility="gone"
+        android:text="Carregando..."/>
+
+<ScrollView
+    android:id="@+id/scrollEditor"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:scrollbarThumbVertical="@drawable/scrollbar_personalizado"
+    android:visibility="gone">
+
+    <TextView
+        android:id="@+id/txtEditor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="32dp"
+android:paddingBottom="16dp"
+android:paddingStart="16dp"
+android:paddingEnd="16dp"
+        android:gravity="top"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:fontFamily="monospace"
+        android:background="#000000"
+        android:textIsSelectable="true"/>
+</ScrollView>
+
+</FrameLayout>
