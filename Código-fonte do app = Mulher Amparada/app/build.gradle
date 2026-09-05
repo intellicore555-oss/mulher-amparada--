@@ -55,11 +55,8 @@ android {
 
 dependencies {
 
-    // =========================================================
-    // ANDROIDX
-    // =========================================================
-
-    implementation 'androidx.core:core-ktx:1.16.0'
+    // AndroidX
+    implementation 'androidx.core:core-ktx:1.13.1'
     implementation 'androidx.appcompat:appcompat:1.7.1'
     implementation 'androidx.activity:activity-ktx:1.10.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.2.1'
@@ -67,66 +64,32 @@ dependencies {
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
     implementation 'androidx.webkit:webkit:1.12.1'
 
-
-    // =========================================================
-    // MATERIAL DESIGN
-    // =========================================================
-
+    // Material
     implementation 'com.google.android.material:material:1.12.0'
 
-
-    // =========================================================
-    // BIOMETRIA
-    // =========================================================
-
+    // Biometria
     implementation 'androidx.biometric:biometric:1.1.0'
 
-
-    // =========================================================
-    // LOCALIZAÇÃO
-    // =========================================================
-
+    // Localização
     implementation 'com.google.android.gms:play-services-location:21.3.0'
 
-
-    // =========================================================
-    // SEGURANÇA
-    // =========================================================
-
+    // Segurança
     implementation 'androidx.security:security-crypto:1.1.0-alpha06'
 
-
-    // =========================================================
-    // LIFECYCLE
-    // =========================================================
-
+    // Lifecycle
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.9.1'
 
-
-    // =========================================================
-    // MEDIA3
-    // =========================================================
-
+    // Media3
     implementation 'androidx.media3:media3-exoplayer:1.8.0'
     implementation 'androidx.media3:media3-ui:1.8.0'
     implementation 'androidx.media3:media3-common:1.8.0'
     implementation 'androidx.media3:media3-session:1.8.0'
 
-
-    // =========================================================
     // ZIP4J
-    // =========================================================
-
     implementation 'net.lingala.zip4j:zip4j:2.11.5'
 
-
-    // =========================================================
-    // TESTES
-    // =========================================================
-
+    // Testes
     testImplementation 'junit:junit:4.13.2'
-
     androidTestImplementation 'androidx.test.ext:junit:1.2.1'
-
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
 }
