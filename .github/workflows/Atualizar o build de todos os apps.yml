@@ -2,10 +2,9 @@ name: Atualizar Android SDK
 
 on:
   schedule:
-    # Executa automaticamente todos os dias à meia-noite (Brasília)
+    # Todos os dias à meia-noite de Brasília (03:00 UTC)
     - cron: "0 3 * * *"
 
-  # Cria o botão "Run workflow" no GitHub
   workflow_dispatch:
 
   push:
@@ -25,25 +24,17 @@ permissions:
   contents: write
 
 jobs:
-  build:
+  atualizar-sdk:
     name: Atualizar Android SDK
+    runs-on: ubuntu-latest
 
     if: >
       github.event_name != 'workflow_run' ||
       github.event.workflow_run.conclusion == 'cancelled'
 
-    runs-on: ubuntu-latest
-
     concurrency:
       group: atualizar-main
       cancel-in-progress: false
-
-permissions:
-  contents: write
-
-jobs:
-  atualizar-sdk:
-    runs-on: ubuntu-latest
 
     steps:
       - name: Baixar repositório
@@ -138,35 +129,30 @@ jobs:
 
           original = content
 
-          # compileSdk 35
           content = re.sub(
               r'(\bcompileSdk\s+)\d+',
               rf'\g<1>{sdk}',
               content
           )
 
-          # compileSdk = 35
           content = re.sub(
               r'(\bcompileSdk\s*=\s*)\d+',
               rf'\g<1>{sdk}',
               content
           )
 
-          # targetSdk 35
           content = re.sub(
               r'(\btargetSdk\s+)\d+',
               rf'\g<1>{sdk}',
               content
           )
 
-          # targetSdk = 35
           content = re.sub(
               r'(\btargetSdk\s*=\s*)\d+',
               rf'\g<1>{sdk}',
               content
           )
 
-          # targetSdkVersion 35
           content = re.sub(
               r'(\btargetSdkVersion\s+)\d+',
               rf'\g<1>{sdk}',
