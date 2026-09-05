@@ -1,4 +1,4 @@
-package com.assist
+package com.mulheres
 
 import android.Manifest
 import android.app.admin.DevicePolicyManager
