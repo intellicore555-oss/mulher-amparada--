@@ -256,7 +256,7 @@ Meus arquivos:
 Dentro do app, ele só visualiza as pastas e ao clicar em um arquivo, abre um seletor de apps para executar/visualizar ele
 
 Desligar o celular:
-Ao tocar neste botão, o aplicativo solicitará a permissão de Administrador do dispositivo, caso ela ainda não tenha sido concedida. Quando essa permissão estiver ativa, o aplicativo poderá bloquear imediatamente a tela do dispositivo.
+Ao tocar neste botão, o aplicativo solicitará a permissão de Administrador do dispositivo, caso ela ainda não tenha sido concedida. Quando essa permissão estiver ativa, o aplicativo poderá bloquear imediatamente a tela do dispositivo, (aviso: possivelmente você não poderá usar a sua biometria!)
 
 Tela de aplicativos:
 Ao tocar neste botão, o app mostrará um site dentro do app que lista todos os outros apps com a permissão query all packpages...
@@ -268,7 +268,7 @@ Antes de conceder essa permissão, leia atentamente as informações exibidas pe
 
 (como o código esta dentro do repositório , nao precisarei explicar!)
 
-**APPS DIFERENTES!:**
+**FUNÇÕES AVANÇADAS DA ÁREA PROTEGIDA!:**
 
 **lembrando que, sobre esses apps, ja tem o código fonte dele dentro do repositório no site!:**
 
@@ -280,7 +280,7 @@ e o de comando de voz, também precisa desbloquear com biometria
 
 Conheça um gerenciador de arquivos pensado para ser leve, rápido e fácil de usar. Tudo foi desenvolvido para que você encontre seus documentos, fotos, vídeos e músicas sem complicação.
 
-Com a permissão de acesso a todos os arquivos, o aplicativo consegue visualizar os arquivos armazenados no dispositivo e organizá-los de forma prática, facilitando a navegação pelas pastas.
+Com a permissão de acesso a todos os arquivos, a activity consegue visualizar os arquivos armazenados no dispositivo e organizá-los de forma prática, facilitando a navegação pelas pastas.
 
 Visualize suas fotos em uma experiência imersiva, ocupando praticamente toda a tela para aproveitar cada detalhe das suas imagens.
 
@@ -422,10 +422,6 @@ Seja para abrir um documento, encontrar uma foto especial, ouvir uma música ou 
 # Sobre a permissão de sms:
 
 é um avanço, pois é uma permissão a menos pro app!, deixei esses registros dessa permissão nesse repositório porque pode ser que precise... (esse aviso serve apenas pro app do Mulher Amparada!)
-       
-# Sobre como os apps adicionais são abertos:
-
-Esses apps são abertos por intent (todos que não são o mulher amparada), e não está disponível na tela de aplicativos, aumentandk a segurança, já que só abre pelo app mulher amparada pela área protegida e para abrir o app pede a biometria dele!
 
 ---- 
 
@@ -465,12 +461,10 @@ e os audios do gravador de voz também são criptografados com a classe Cripto
 
 e o recurso de proteção ppr barulho, chacalhoar o celular e escurecer a tela, tem como ativar e desativar!
 
-todas as activitys tem a flag secure de todos os 3 apps
+todas as activitys tem a flag secure!
 
-e no application do AndroidManifest dos 3 apps tem allowBackup="false" 
+e no application do AndroidManifest do app tem allowBackup="false" 
 
-e nos 2 apps que são apenas abertos por intent, no mulher amparada tem que passar pela area protegida após validado a sua identidade pelo BiometricPrompt, e dentro desses apps, é preciso validar denovo!
-
-O aplicativo possui um navegador interno. A navegação para o Google é feita diretamente pelo código usando window location replace(), sem disponibilizar o endereço como um link na interface. O aplicativo também não implementa um sistema próprio de registro de histórico de navegação.
+O aplicativo possui um navegador interno. A navegação para o Google é feita diretamente pelo código usando window location replace(), sem disponibilizar o endereço como um link na interface. O aplicativo também não implementa um sistema próprio de registro de histórico de navegação, (ou pelo ou mebos eu não coloquei na página)
 
 ❤️Mulher Amparada❤️, um projeto totalmente gratuito e livre de anúncios, projetado por um menino autista nível 1 de 15 anos!, usando o apoio do chatgpt, sem curso formal!
