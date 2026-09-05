@@ -31,6 +31,8 @@ e se digitar a senha ele desbloqueia...
 Disfarce do app (assistente de saúde falso!):
 tutorial: ao entrar no app, clique no canto superior direito com o icone de calculadora. e ai quando ele for iniciado, ele pedirá para criar uma senha (e salva em uma classe kt de criptografia), assim so acessa com a senha informada, para resetar essa senha (dê 5 toques em menos de 2 segundos, e digite como você gosta de ser chamada, e digite sua nova senha!), mas antes dessa tela, tem outra tipo uma gaveta de apps..., porém, agora no mulher amparada, ele já vem com o icone de calculadora e o nome calculadora, só dá para mudar o icone, (o gerenciador de arquivos virou Explorador de arquivos com seu icone e o assistente de voz virou Saúde & Fitness com seu icone, os dois podem ser visto com os dados originais dentro da área protegida), isto significa que o disfarce já está dentro do packpage id inicial!
 
+Os dados da primeira página do app são meramente fictícios e não representam informações reais!
+
 Botão de Pânico:
 Botão de Pânico, com ligação ao 180 de forma direta no primeiro clique.
 
