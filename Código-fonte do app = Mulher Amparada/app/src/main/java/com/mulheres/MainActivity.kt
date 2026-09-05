@@ -1629,13 +1629,10 @@ class MainActivity : AppCompatActivity() {
     // NOVA INTENT  
     // =========================================================  
   
-    override fun onNewIntent(  
-        intent: Intent?  
-    ) {  
-  
-        super.onNewIntent(  
-            intent  
-        )  
+    override fun onNewIntent(intent: Intent) {
+    super.onNewIntent(intent)
+
+    // seu código aqui
   
         if (intent == null) {  
             return  
