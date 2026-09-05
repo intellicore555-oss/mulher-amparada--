@@ -184,9 +184,17 @@ fun solicitarAdministrador() {
 
 @JavascriptInterface
 fun abrirGerenciador() {
-    activity.startActivity(
-        Intent(activity, GerenciarActivity::class.java)
-    )
+    try {
+        val intent = Intent(activity, GerenciarActivity::class.java)
+        activity.startActivity(intent)
+    } catch (e: Exception) {
+        e.printStackTrace()
+        android.widget.Toast.makeText(
+            activity,
+            "Erro: ${e.message}",
+            android.widget.Toast.LENGTH_LONG
+        ).show()
+    }
 }
 
     @JavascriptInterface
