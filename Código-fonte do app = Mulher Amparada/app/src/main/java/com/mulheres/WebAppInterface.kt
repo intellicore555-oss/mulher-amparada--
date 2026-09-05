@@ -182,7 +182,12 @@ fun solicitarAdministrador() {
         )
     }
 
-
+@JavascriptInterface
+fun abrirGerenciador() {
+    activity.startActivity(
+        Intent(activity, GerenciarActivity::class.java)
+    )
+}
 
     @JavascriptInterface
     fun salvar(chave: String, valor: String) {
