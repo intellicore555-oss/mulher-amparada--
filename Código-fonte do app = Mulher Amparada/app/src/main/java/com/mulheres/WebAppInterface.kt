@@ -192,6 +192,16 @@ fun abrirGerenciador() {
     )
 }
 
+@JavascriptInterface
+fun abrirOrdem() {
+    activity.startActivity(
+        Intent(
+            activity,
+            OrdemActivity::class.java
+        )
+    )
+}
+
     @JavascriptInterface
     fun salvar(chave: String, valor: String) {
         val prefs = activity.getSharedPreferences(
