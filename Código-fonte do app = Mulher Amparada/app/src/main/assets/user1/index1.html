@@ -1,482 +1,522 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Neo Calc</title>
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+<meta name="theme-color" content="#000000">
+
+<title>Assistente de Saúde</title>
 
 <style>
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    -webkit-tap-highlight-color:transparent;
+}
+
+html,
+body{
+    width:100%;
+    min-height:100%;
+    background:#000;
+}
+
+
+@keyframes Opacity {
+    0% {
+        opacity: 0;
+    }
+
+    
+
+    100% {
+        opacity: 1;
+    }
+}
+
+body{
+    color:#fff;
+    font-family:"Quicksand",sans-serif;
+    overflow-x:hidden;
+    animation: Opacity .55s ease both;
+}
+
+button{
+    font-family:inherit;
+}
+
+svg{
+    display:block;
+}
+
+
+
 /* =========================================================
-   BARRAS DE ROLAGEM — TOTALMENTE TRANSPARENTES
+   APP
 ========================================================= */
 
-/* Chrome, Edge, Safari, Android WebView */
-*::-webkit-scrollbar {
-    width: 0;
-    height: 0;
-    background: transparent;
+.app{
+    position:relative;
+    z-index:1;
+
+    width:100%;
+    max-width:760px;
+
+    margin:auto;
+
+    padding:
+        calc(20px + env(safe-area-inset-top))
+        18px
+        calc(35px + env(safe-area-inset-bottom));
 }
 
-*::-webkit-scrollbar-track {
-    background: transparent;
+/* =========================================================
+   TOPO
+========================================================= */
+
+.topbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    margin-bottom:28px;
 }
 
-*::-webkit-scrollbar-thumb {
-    background: transparent;
-    border: none;
+.greeting small{
+    display:block;
+
+    color:#858585;
+
+    font-size:13px;
+    font-weight:500;
+
+    margin-bottom:5px;
 }
 
-/* Firefox */
-* {
-    scrollbar-width: none;
-    scrollbar-color: transparent transparent;
+.greeting h1{
+    color:#fff;
+
+    font-size:25px;
+    font-weight:700;
+
+    line-height:1.05;
+    letter-spacing:-1px;
 }
 
-/* Página */
-html,
-body {
-    scrollbar-width: none;
-    scrollbar-color: transparent transparent;
+.profile{
+    width:48px;
+    height:48px;
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:
+        linear-gradient(
+            145deg,
+            #292929,
+            #111
+        );
+
+    border:1px solid rgba(255,255,255,.08);
+
+    box-shadow:
+        inset 0 1px rgba(255,255,255,.08),
+        0 12px 35px rgba(0,0,0,.45);
 }
 
-html.launcher-loading,
-html.launcher-loading body {
-    background: #000;
+.profile svg{
+    width:23px;
+    height:23px;
+
+    fill:none;
+    stroke:#fff;
+    stroke-width:1.7;
 }
 
+/* =========================================================
+   CARTÃO PRINCIPAL
+========================================================= */
 
-/* Remove qualquer fundo da área de rolagem */
-html::-webkit-scrollbar,
-body::-webkit-scrollbar {
-    width: 0;
-    height: 0;
-    background: transparent;
+.assistant{
+    position:relative;
+
+    overflow:hidden;
+
+    min-height:295px;
+
+    padding:25px;
+
+    border-radius:34px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.105),
+            rgba(255,255,255,.035)
+        );
+
+    border:1px solid rgba(255,255,255,.085);
+
+    box-shadow:
+        inset 0 1px rgba(255,255,255,.08),
+        0 25px 70px rgba(0,0,0,.48);
+
+    backdrop-filter:blur(25px);
+    -webkit-backdrop-filter:blur(25px);
 }
 
-@font-face {
-    font-family: "Quicksand";
-    src: url("font.ttf") format("truetype");
-    font-weight: 400 800;
+.assistant::before{
+    content:"";
+
+    position:absolute;
+
+    width:230px;
+    height:230px;
+
+    right:-90px;
+    top:-105px;
+
+    border-radius:50%;
+
+    background:rgba(255,164,201,.17);
+
+    filter:blur(45px);
+
+    pointer-events:none;
 }
 
-:root {
-    --bg: #000;
-    --button: #151515;
-    --button-hover: #202020;
-    --action: #20D9C2;
-    --action-hover: #38E8D2;
-    --operator: #FF8A3D;
-    --operator-hover: #FF9F5A;
-    --text: #fff;
+.assistant::after{
+    content:"";
+
+    position:absolute;
+
+    width:130px;
+    height:130px;
+
+    left:-70px;
+    bottom:-90px;
+
+    border-radius:50%;
+
+    background:rgba(180,190,255,.07);
+
+    filter:blur(35px);
+
+    pointer-events:none;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-
-    font-family: "Quicksand", sans-serif;
-
-    -webkit-tap-highlight-color: transparent;
-    -webkit-touch-callout: none;
+.assistant-content{
+    position:relative;
+    z-index:2;
 }
 
-@keyframes transformar {
-  from {
-    opacity: 0;
-  }
+.ai-icon{
+    width:59px;
+    height:59px;
 
-  to {
-    opacity: 1;
-  }
+    border-radius:20px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffc0da,
+            #ff82b0
+        );
+
+    box-shadow:
+        0 15px 35px rgba(255,115,166,.25);
 }
 
-html,
-body {
-    width: 100%;
-    min-height: 100%;
-    background: #000;
+.ai-icon svg{
+    width:30px;
+    height:30px;
+
+    fill:none;
+    stroke:#000;
+    stroke-width:1.8;
+    stroke-linecap:round;
+    stroke-linejoin:round;
 }
 
-body {
-    
-width: 90%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.assistant h2{
+    margin-top:21px;
 
-    margin-left: 5%;
-    margin-right: 5%;
-margin-top: 30%;
+    font-size:27px;
+    line-height:1.1;
 
-    overflow-x: hidden;
+    letter-spacing:-.8px;
 }
 
+.assistant p{
+    max-width:500px;
 
-/* =====================================================
-   CALCULADORA
-===================================================== */
+    margin-top:8px;
 
-.calculadora {
-    width: min(100%, 430px);
+    color:#999;
 
-    display: flex;
-    flex-direction: column;
-
-    gap: clamp(12px, 3vw, 22px);
-}
-
-
-/* =====================================================
-   VISOR
-===================================================== */
-
-.tela {
-    width: 100%;
-    max-width: 430px;
-
-    /*
-     * Altura controlada.
-     * O conteúdo NÃO pode aumentar o visor.
-     */
-    height: clamp(
-        125px,
-        24dvh,
-        220px
-    );
-
-
-    min-height: 125px;
-    max-height: 220px;
-
-    /*
-     * Sem margin-bottom.
-     * O body centraliza a calculadora inteira.
-     */
-    margin: 0;
-
-    padding: clamp(
-        18px,
-        5vw,
-        30px
-    );
-
-    display: block;
-
-    position: relative;
-
-    min-width: 0;
-
-    background: var(--bg);
-
-    color: var(--text);
-
-    border-radius: 20px;
-
-    font-size: clamp(
-        38px,
-        11vw,
-        64px
-    );
-
-    font-weight: 600;
-
-    line-height: 1.05;
-
-    text-align: right;
-
-    /*
-     * ROLAGEM NOS DOIS EIXOS
-     */
-    overflow-x: auto;
-    overflow-y: auto;
-
-    /*
-     * Permite arrastar horizontal
-     * e verticalmente no Android.
-     */
-    touch-action: pan-x pan-y;
-
-    -webkit-overflow-scrolling: touch;
-
-    overscroll-behavior: contain;
-
-    /*
-     * QUEBRA DE LINHA
-     */
-    white-space: normal;
-
-    overflow-wrap: anywhere;
-
-    word-break: break-word;
-
-    /*
-     * Scrollbar invisível
-     */
-    scrollbar-width: none;
-
-    -ms-overflow-style: none;
-
-    /*
-     * Impede seleção
-     */
-    user-select: none;
-
-    -webkit-user-select: none;
-    
-    margin-bottom: 5%;
-}
-
-/* =====================================================
-   GRID DOS BOTÕES
-===================================================== */
-
-.botoes {
-    width: 100%;
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(4, 1fr);
-
-    gap: clamp(8px, 2.5vw, 14px);
-    margin-top: 3%:
-    
+    font-size:14px;
+    line-height:1.5;
 }
 
 
-/* =====================================================
-   BOTÕES
-===================================================== */
 
-button {
-    width: 100%;
+/* =========================================================
+   TÍTULOS
+========================================================= */
 
-    aspect-ratio: 1 / 1;
+.section{
+    margin-top:30px;
+}
 
-    min-width: 0;
-    min-height: 0;
+.section-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
 
-    border: 0;
-    outline: 0;
+    margin-bottom:13px;
+}
 
-    border-radius: 200px;
+.section-header h3{
+    font-size:19px;
+    font-weight:700;
+}
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.section-header span{
+    color:#777;
+    font-size:12px;
+}
 
-    background: var(--button);
-    color: var(--text);
+/* =========================================================
+   INDICADORES
+========================================================= */
 
-    font-size: clamp(20px, 6vw, 27px);
-    font-weight: 600;
+.health-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
 
-    padding: 0;
-    margin: 0;
+    gap:12px;
+}
 
-    cursor: pointer;
+.health-card{
+    position:relative;
+
+    min-height:177px;
+
+    padding:19px;
+
+    overflow:hidden;
+
+    border-radius:28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.075),
+            rgba(255,255,255,.025)
+        );
+
+    border:1px solid rgba(255,255,255,.07);
+
+    box-shadow:
+        inset 0 1px rgba(255,255,255,.045);
+}
+
+.health-card::after{
+    content:"";
+
+    position:absolute;
+
+    width:90px;
+    height:90px;
+
+    right:-40px;
+    bottom:-45px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.025);
+
+    filter:blur(15px);
+}
+
+.health-icon{
+    width:45px;
+    height:45px;
+
+    border-radius:16px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:rgba(255,255,255,.07);
+}
+
+.health-icon svg{
+    width:23px;
+    height:23px;
+
+    fill:none;
+    stroke:#fff;
+    stroke-width:1.7;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+}
+
+.health-card h4{
+    margin-top:17px;
+
+    color:#999;
+
+    font-size:12px;
+    font-weight:600;
+}
+
+.value-line{
+    display:flex;
+    align-items:baseline;
+    gap:5px;
+
+    margin-top:2px;
+}
+
+.value{
+    font-size:28px;
+    font-weight:700;
+    letter-spacing:-1px;
+
+    transition:opacity .2s ease;
+}
+
+.unit{
+    color:#777;
+    font-size:12px;
+}
+
+/* =========================================================
+   BEM-ESTAR
+========================================================= */
+
+.wellbeing{
+    margin-top:12px;
+
+    padding:22px;
+
+    border-radius:28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.075),
+            rgba(255,255,255,.025)
+        );
+
+    border:1px solid rgba(255,255,255,.07);
+}
+
+.wellbeing-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.wellbeing-left{
+    display:flex;
+    align-items:center;
+    gap:13px;
+}
+
+.wellbeing-icon{
+    width:45px;
+    height:45px;
+
+    border-radius:16px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:rgba(255,255,255,.07);
+}
+
+.wellbeing-icon svg{
+    width:23px;
+    height:23px;
+
+    fill:none;
+    stroke:#fff;
+    stroke-width:1.7;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+}
+
+.wellbeing-title strong{
+    display:block;
+    font-size:15px;
+}
+
+.wellbeing-title span{
+    display:block;
+
+    margin-top:3px;
+
+    color:#777;
+
+    font-size:11px;
+}
+
+.wellbeing-score{
+    font-size:25px;
+    font-weight:700;
+}
+
+.progress{
+    width:100%;
+    height:7px;
+
+    margin-top:20px;
+
+    overflow:hidden;
+
+    border-radius:20px;
+
+    background:#1d1d1d;
+}
+
+.progress-bar{
+    width:72%;
+    height:100%;
+
+    border-radius:20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff9fc4,
+            #ffd0e0
+        );
 
     transition:
-        transform .12s ease,
-        background .12s ease;
+        width 1s ease;
 }
 
 
-/* =====================================================
-   ZERO
-===================================================== */
-
-.zero {
-    width: 100%;
-
-    aspect-ratio: 1 / 1;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    padding: 0;
-    margin: 0;
-
-    border-radius: 200px;
-}
-
-
-/* =====================================================
-   HOVER
-===================================================== */
-
-button:hover {
-    background: var(--button-hover);
-}
-
-
-/* =====================================================
-   CLIQUE
-===================================================== */
-
-button:active {
-    transform: scale(.90);
-}
-
-
-/* =====================================================
-   BOTÕES DE AÇÃO
-===================================================== */
-
-.acao {
-    background: var(--action);
-}
-
-.acao:hover {
-    background: var(--action-hover);
-}
-
-
-/* =====================================================
-   OPERADORES
-===================================================== */
-
-.operador,
-.igual {
-    background: var(--operator);
-}
-
-.operador:hover,
-.igual:hover {
-    background: var(--operator-hover);
-}
-
-.operador:active,
-.igual:active {
-    background: var(--operator-hover);
-}
-
-
-/* =====================================================
-   SVG
-===================================================== */
-
-svg {
-    width: clamp(23px, 7vw, 31px);
-    height: clamp(23px, 7vw, 31px);
-
-    pointer-events: none;
-}
-
-
-/* =====================================================
-   CELULARES PEQUENOS
-===================================================== */
-
-@media (max-width: 360px) {
-
-    body {
-        padding: 8px;
-    }
-
-    .calculadora {
-        gap: 10px;
-    }
-
-    .botoes {
-        gap: 7px;
-    }
-
-    .tela {
-        min-height: 100px;
-
-        padding: 15px;
-
-        font-size: 34px;
-    }
-
-    button {
-        font-size: 19px;
-    }
-
-    svg {
-        width: 23px;
-        height: 23px;
-    }
-}
-
-
-/* =====================================================
-   TELAS GRANDES
-===================================================== */
-
-@media (min-width: 600px) {
-
-    .calculadora {
-        width: min(90vw, 430px);
-    }
-}
-
-
-/* =====================================================
-   TELAS BAIXAS
-===================================================== */
-
-@media (max-height: 700px) {
-
-    body {
-        align-items: flex-start;
-
-        padding-top: 8px;
-        padding-bottom: 8px;
-    }
-
-    .calculadora {
-        margin-top: 0;
-    }
-
-    .tela {
-        min-height: 105px;
-    }
-}
-
-
-/* =====================================================
-   LANDSCAPE
-===================================================== */
-
-@media (orientation: landscape) and (max-height: 600px) {
-
-    body {
-        align-items: center;
-
-        overflow-y: auto;
-    }
-
-    .calculadora {
-        width: min(90vw, 650px);
-
-        display: grid;
-
-        grid-template-columns: .9fr 1.4fr;
-
-        align-items: center;
-
-        gap: 25px;
-    }
-
-    .tela {
-        min-height: 260px;
-
-        font-size: clamp(36px, 7vw, 58px);
-    }
-
-    .botoes {
-        gap: 8px;
-    }
-
-    button {
-        font-size: clamp(18px, 4vw, 25px);
-    }
-}
 
 
 
@@ -486,914 +526,439 @@ svg {
 
 <body>
 
-<div class="calculadora">
+<div class="app">
 
-    <!-- =================================================
-         VISOR
-    ================================================== -->
-<div
-        class="tela"
-        id="display"
-        tabindex="0"
-        role="status"
-        aria-live="polite"
-        aria-label="Visor da calculadora"
-    >
+    <!-- =====================================================
+         TOPO
+    ====================================================== -->
 
-        <span id="displayTexto">
-            0
-        </span>
+    <header class="topbar">
 
-    </div>
+        <div class="greeting">
 
+            <small>Seu espaço de cuidado</small>
 
+            <h1>Assistente de Saúde</h1>
 
-    <!-- =================================================
-         TECLADO
-    ================================================== -->
+        </div>
 
-    <div class="botoes">
-
-        <!-- ================= LINHA 1 ================= -->
-
-        <button
-            type="button"
-            class="acao"
-            onclick="limpar()"
-            aria-label="Limpar calculadora"
+        <div class="profile" 
+        onclick="abrirAreaSecreta()"
+        aria-hidden="true"
         >
-            AC
-        </button>
 
-        <button
-            type="button"
-            class="acao"
-            onclick="apagar()"
-            aria-label="Apagar último caractere"
-        >
-<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="m560-424 76 76q11 11 28 11t28-11q11-11 11-28t-11-28l-76-76 76-76q11-11 11-28t-11-28q-11-11-28-11t-28 11l-76 76-76-76q-11-11-28-11t-28 11q-11 11-11 28t11 28l76 76-76 76q-11 11-11 28t11 28q11 11 28 11t28-11l76-76ZM360-160q-19 0-36-8.5T296-192L116-432q-16-21-16-48t16-48l180-240q11-15 28-23.5t36-8.5h440q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H360Zm0-80h440v-480H360L180-480l180 240Zm130-240Z"/></svg>
-        </button>
+            <img src="8.svg" alt="">
 
-        <button
-            type="button"
-            class="acao"
-            onclick="porcentagem()"
-            aria-label="Porcentagem"
-        >
-            %
-        </button>
+        </div>
 
-        <button
-            type="button"
-            class="operador"
-            onclick="operacao('/')"
-            aria-label="Divisão"
-        >
-            ÷
-        </button>
+    </header>
 
 
-        <!-- ================= LINHA 2 ================= -->
+    <!-- =====================================================
+         ASSISTENTE
+    ====================================================== -->
 
-        <button
-            type="button"
-            onclick="add('7')"
-            aria-label="7"
-        >7</button>
+    <section class="assistant">
 
-        <button
-            type="button"
-            onclick="add('8')"
-            aria-label="8"
-        >8</button>
+        <div class="assistant-content">
 
-        <button
-            type="button"
-            onclick="add('9')"
-            aria-label="9"
-        >9</button>
+            <div class="ai-icon">
 
-        <button
-            type="button"
-            class="operador"
-            onclick="operacao('*')"
-            aria-label="Multiplicação"
-        >
-            ×
-        </button>
+                <img src="assistente1.svg" alt="">
+
+            </div>
+
+            <h2>Como posso ajudar?</h2>
+
+            <p>
+                Converse comigo, consulte informações de saúde
+                ou acompanhe seus indicadores simulados.
+            </p>
+
+        </div>
+
+    </section>
 
 
-        <!-- ================= LINHA 3 ================= -->
+    <!-- =====================================================
+         INDICADORES
+    ====================================================== -->
 
-        <button
-            type="button"
-            onclick="add('4')"
-            aria-label="4"
-        >4</button>
+    <section class="section">
 
-        <button
-            type="button"
-            onclick="add('5')"
-            aria-label="5"
-        >5</button>
+        <div class="section-header">
 
-        <button
-            type="button"
-            onclick="add('6')"
-            aria-label="6"
-        >6</button>
+            <h3>Indicadores</h3>
 
-        <button
-            type="button"
-            class="operador"
-            onclick="operacao('-')"
-            aria-label="Subtração"
-        >
-            −
-        </button>
+            <span>Atualização automática</span>
+
+        </div>
 
 
-        <!-- ================= LINHA 4 ================= -->
-
-        <button
-            type="button"
-            onclick="add('1')"
-            aria-label="1"
-        >1</button>
-
-        <button
-            type="button"
-            onclick="add('2')"
-            aria-label="2"
-        >2</button>
-
-        <button
-            type="button"
-            onclick="add('3')"
-            aria-label="3"
-        >3</button>
-
-        <button
-            type="button"
-            class="operador"
-            onclick="operacao('+')"
-            aria-label="Adição"
-        >
-            +
-        </button>
+        <div class="health-grid">
 
 
-        <!-- ================= LINHA 5 ================= -->
+            <!-- BATIMENTOS -->
 
-        <button
-            type="button"
-            class="especial"
-            onclick="add('(')"
-            aria-label="Parêntese esquerdo"
-        >
-            ()
-        </button>
+            <div class="health-card">
 
-<button
-    type="button"
-    class="zero"
-    onclick="add('0')"
-    aria-label="0"
->
-    0
-</button>
+                <div class="health-icon">
 
-        <button
-            type="button"
-            onclick="add('.')"
-            aria-label="Ponto decimal"
-        >
-            .
-        </button>
+                    <img src="batimentos1.svg" alt="">
 
-        <button
-            type="button"
-            class="igual"
-            onclick="calcular()"
-            aria-label="Calcular resultado"
-        >
-            =
-        </button>
+                </div>
 
-    </div>
+                <h4>Batimentos</h4>
 
-</div>
+                <div class="value-line">
+
+                    <span
+                        class="value"
+                        id="batimentos"
+                    >72</span>
+
+                    <span class="unit">bpm</span>
+
+                </div>
+
+            </div>
+
+
+            <!-- RESPIRAÇÃO -->
+
+            <div class="health-card">
+
+                <div class="health-icon">
+
+                    <img src="respiracao1.svg" alt="">
+
+                </div>
+
+                <h4>Respiração</h4>
+
+                <div class="value-line">
+
+                    <span
+                        class="value"
+                        id="respiracao"
+                    >16</span>
+
+                    <span class="unit">rpm</span>
+
+                </div>
+
+            </div>
+
+
+            <!-- TEMPERATURA -->
+
+            <div class="health-card">
+
+                <div class="health-icon">
+
+                    <img src="temperatura1.svg" alt="">
+
+                </div>
+
+                <h4>Temperatura</h4>
+
+                <div class="value-line">
+
+                    <span
+                        class="value"
+                        id="temperatura"
+                    >36.5</span>
+
+                    <span class="unit">°C</span>
+
+                </div>
+
+            </div>
+
+
+            <!-- HIDRATAÇÃO -->
+
+            <div class="health-card">
+
+                <div class="health-icon">
+
+                    <img src="hidratacao1.svg" alt="">
+
+                </div>
+
+                <h4>Hidratação</h4>
+
+                <div class="value-line">
+
+                    <span
+                        class="value"
+                        id="hidratacao"
+                    >68</span>
+
+                    <span class="unit">%</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         BEM-ESTAR
+    ====================================================== -->
+
+    <section class="section">
+
+        <div class="section-header">
+
+            <h3>Bem-estar</h3>
+
+            <span>Índice simulado</span>
+
+        </div>
+
+        <div class="wellbeing">
+
+            <div class="wellbeing-top">
+
+                <div class="wellbeing-left">
+
+                    <div class="wellbeing-icon">
+
+                        <img src="bemestar1.svg" alt="">
+
+                    </div>
+
+                    <div class="wellbeing-title">
+
+                        <strong>Estado geral</strong>
+
+                        <span>Estimativa fictícia</span>
+
+                    </div>
+
+                </div>
+
+                <div
+                    class="wellbeing-score"
+                    id="bemEstar"
+                >
+                    72
+                </div>
+
+            </div>
+
+            <div class="progress">
+
+                <div
+                    class="progress-bar"
+                    id="barraBemEstar"
+                ></div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+
+
+
+
+
 <script>
 
-/* =====================================================
-   CHAVES
-===================================================== */
+/* =========================================================
+   DADOS SIMULADOS
+========================================================= */
 
-const CHAVE_SENHA =
-    "senha";
+const dados = {
 
-const CHAVE_RECUPERACAO =
-    "nome_recuperacao";
+    batimentos: {
+        valor:72,
+        min:65,
+        max:82,
+        passo:2
+    },
+
+    respiracao: {
+        valor:16,
+        min:12,
+        max:20,
+        passo:.5
+    },
+
+    temperatura: {
+        valor:36.5,
+        min:36.1,
+        max:36.9,
+        passo:.05
+    },
+
+    hidratacao: {
+        valor:68,
+        min:55,
+        max:82,
+        passo:1
+    },
+
+    bemEstar: {
+        valor:72,
+        min:60,
+        max:88,
+        passo:2
+    }
+
+};
 
 
-/* =====================================================
-   ELEMENTOS
-===================================================== */
+/* =========================================================
+   VARIAÇÃO SUAVE
+========================================================= */
 
-const display =
-    document.getElementById(
-        "display"
+function variar(valor,min,max,passo){
+
+    const variacao =
+        (Math.random() * 2 - 1) * passo;
+
+    return Math.min(
+        max,
+        Math.max(
+            min,
+            valor + variacao
+        )
     );
 
-
-const displayTexto =
-    document.getElementById(
-        "displayTexto"
-    );
-
-
-/* =====================================================
-   ESTADO
-===================================================== */
-
-let expr = "";
-
-let contadorToques = 0;
-
-let timerToques = null;
-
-
-/* =====================================================
-   ROLAGEM DO VISOR
-===================================================== */
-
-function rolarVisor() {
-
-    requestAnimationFrame(() => {
-
-        /*
-         * Mantém o final da expressão
-         * visível horizontalmente.
-         */
-
-        display.scrollLeft =
-            display.scrollWidth -
-            display.clientWidth;
-
-
-        /*
-         * Mantém a última linha
-         * visível verticalmente.
-         */
-
-        display.scrollTop =
-            display.scrollHeight -
-            display.clientHeight;
-
-    });
 }
 
 
-/* =====================================================
-   SENHA
-===================================================== */
+/* =========================================================
+   ATUALIZAR INDICADORES
+========================================================= */
 
-function inicializarSenha() {
+function atualizarIndicadores(){
 
-    let senhaSalva = "";
-
-
-    try {
-
-        senhaSalva =
-            String(
-                Cripto.carregar(
-                    CHAVE_SENHA
-                ) || ""
-            ).trim();
-
-    } catch (e) {
-
-        senhaSalva = "";
-    }
-
-
-    if (senhaSalva) {
-
-        atualizar();
-
-        return;
-    }
-
-
-    const novaSenha =
-        prompt(
-            "Crie uma senha"
+    dados.batimentos.valor =
+        variar(
+            dados.batimentos.valor,
+            dados.batimentos.min,
+            dados.batimentos.max,
+            dados.batimentos.passo
         );
 
 
-    if (
-        !novaSenha ||
-        !novaSenha.trim()
-    ) {
-
-        location.reload();
-
-        return;
-    }
-
-
-    const resposta =
-        prompt(
-            "Como você gosta de ser chamada?"
+    dados.respiracao.valor =
+        variar(
+            dados.respiracao.valor,
+            dados.respiracao.min,
+            dados.respiracao.max,
+            dados.respiracao.passo
         );
 
 
-    if (
-        !resposta ||
-        !resposta.trim()
-    ) {
-
-        location.reload();
-
-        return;
-    }
-
-
-    try {
-
-        Cripto.salvar(
-            CHAVE_SENHA,
-            novaSenha.trim()
+    dados.temperatura.valor =
+        variar(
+            dados.temperatura.valor,
+            dados.temperatura.min,
+            dados.temperatura.max,
+            dados.temperatura.passo
         );
 
 
-        Cripto.salvar(
-            CHAVE_RECUPERACAO,
-            resposta
-                .trim()
-                .toLowerCase()
+    dados.hidratacao.valor =
+        variar(
+            dados.hidratacao.valor,
+            dados.hidratacao.min,
+            dados.hidratacao.max,
+            dados.hidratacao.passo
         );
 
-    } catch (e) {
 
-        alert(
-            "Não foi possível salvar os dados."
+    dados.bemEstar.valor =
+        variar(
+            dados.bemEstar.valor,
+            dados.bemEstar.min,
+            dados.bemEstar.max,
+            dados.bemEstar.passo
         );
 
-        return;
-    }
+
+    document.getElementById("batimentos")
+        .textContent =
+        Math.round(
+            dados.batimentos.valor
+        );
 
 
-    location.reload();
+    document.getElementById("respiracao")
+        .textContent =
+        dados.respiracao.valor
+            .toFixed(1);
+
+
+    document.getElementById("temperatura")
+        .textContent =
+        dados.temperatura.valor
+            .toFixed(1);
+
+
+    document.getElementById("hidratacao")
+        .textContent =
+        Math.round(
+            dados.hidratacao.valor
+        );
+
+
+    const bemEstar =
+        Math.round(
+            dados.bemEstar.valor
+        );
+
+
+    document.getElementById("bemEstar")
+        .textContent = bemEstar;
+
+
+    document.getElementById("barraBemEstar")
+        .style.width = bemEstar + "%";
+
 }
 
 
-/* =====================================================
-   VISOR
-===================================================== */
-
-function atualizar() {
-
-    displayTexto.textContent =
-        expr.length
-            ? expr
-            : "0";
-
-
-    rolarVisor();
-}
-
-
-/* =====================================================
-   ADICIONAR
-===================================================== */
-
-function add(valor) {
-
-
-    if (valor === ".") {
-
-        /*
-         * Procura somente a parte
-         * atual da expressão.
-         */
-
-        const partes =
-            expr.split(
-                /[+\-*/()]/
-            );
-
-
-        const parteAtual =
-            partes[
-                partes.length - 1
-            ];
-
-
-        if (
-            parteAtual.includes(".")
-        ) {
-
-            return;
-        }
-    }
-
-
-    expr += valor;
-
-
-    atualizar();
-}
-
-
-/* =====================================================
-   OPERAÇÃO
-===================================================== */
-
-function operacao(op) {
-
-
-    if (!expr) {
-
-        if (op === "-") {
-
-            expr = "-";
-
-            atualizar();
-        }
-
-        return;
-    }
-
-
-    if (
-        /[+\-*/]$/.test(expr)
-    ) {
-
-        expr =
-            expr.slice(0, -1) +
-            op;
-
-    } else {
-
-        expr += op;
-    }
-
-
-    atualizar();
-}
-
-
-/* =====================================================
-   PORCENTAGEM
-===================================================== */
-
-function porcentagem() {
-
-    if (!expr) {
-
-        return;
-    }
-
-
-    expr =
-        expr.replace(
-            /(\d+(?:\.\d+)?)$/,
-            "($1/100)"
-        );
-
-
-    atualizar();
-}
-
-
-/* =====================================================
-   LIMPAR
-===================================================== */
-
-function limpar() {
-
-    expr = "";
-
-    atualizar();
-}
-
-
-/* =====================================================
-   APAGAR
-===================================================== */
-
-function apagar() {
-
-    expr =
-        expr.slice(0, -1);
-
-    atualizar();
-}
-
-
-/* =====================================================
-   CALCULAR
-===================================================== */
-
-function calcular() {
-
-
-    const senha =
-        String(
-            Cripto.carregar(
-                CHAVE_SENHA
-            ) || ""
-        ).trim();
-
-
-    /*
-     * Senha especial
-     */
-
-    if (
-        expr.trim() !== "" &&
-        expr.trim() === senha
-    ) {
-
-        window.location.href =
-            "file:///android_asset/user1/index2.html";
-
-        return;
-    }
-
-
-    /*
-     * Expressão vazia
-     */
-
-    if (!expr.trim()) {
-
-        return;
-    }
-
-
-    try {
-
-        const resultado =
-            Function(
-                '"use strict";return (' +
-                expr +
-                ')'
-            )();
-
-
-        if (
-            typeof resultado ===
-                "number" &&
-
-            Number.isFinite(
-                resultado
-            )
-        ) {
-
-            expr =
-                String(resultado);
-
-
-            displayTexto.textContent =
-                expr;
-
-
-            rolarVisor();
-
-
-            return;
-        }
-
-    } catch (e) {}
-
-
-    mostrarMensagem(
-        "Erro"
-    );
-
-
-    expr = "";
-}
-
-
-/* =====================================================
-   MENSAGEM
-===================================================== */
-
-function mostrarMensagem(
-    texto,
-    tempo = 1000
-) {
-
-
-    displayTexto.textContent =
-        texto;
-
-
-    rolarVisor();
-
-
-    clearTimeout(
-        mostrarMensagem.timer
-    );
-
-
-    mostrarMensagem.timer =
-        setTimeout(
-            atualizar,
-            tempo
-        );
-}
-
-
-/* =====================================================
-   RECUPERAÇÃO DE SENHA
-===================================================== */
-
-function recuperarSenha() {
-
-
-    let respostaSalva = "";
-
-
-    try {
-
-        respostaSalva =
-            String(
-                Cripto.carregar(
-                    CHAVE_RECUPERACAO
-                ) || ""
-            )
-            .toLowerCase()
-            .trim();
-
-    } catch (e) {
-
-        mostrarMensagem(
-            "Erro",
-            1500
-        );
-
-        return;
-    }
-
-
-    const resposta =
-        prompt(
-            "Como você gosta de ser chamada?"
-        );
-
-
-    if (
-        !resposta ||
-
-        resposta
-            .toLowerCase()
-            .trim() !==
-        respostaSalva
-    ) {
-
-        mostrarMensagem(
-            "Resposta incorreta",
-            1500
-        );
-
-        return;
-    }
-
-
-    const novaSenha =
-        prompt(
-            "Digite a nova senha"
-        );
-
-
-    if (
-        !novaSenha ||
-        !novaSenha.trim()
-    ) {
-
-        return;
-    }
-
-
-    const confirmarSenha =
-        prompt(
-            "Confirme a nova senha"
-        );
-
-
-    if (
-        confirmarSenha !==
-        novaSenha
-    ) {
-
-        mostrarMensagem(
-            "Senhas diferentes",
-            1500
-        );
-
-        return;
-    }
-
-
-    try {
-
-        Cripto.salvar(
-            CHAVE_SENHA,
-            novaSenha.trim()
-        );
-
-    } catch (e) {
-
-        mostrarMensagem(
-            "Erro ao salvar",
-            1500
-        );
-
-        return;
-    }
-
-
-    const trocarResposta =
-        confirm(
-            "Deseja alterar a resposta de recuperação?"
-        );
-
-
-    if (trocarResposta) {
-
-        const novaResposta =
-            prompt(
-                "Como você gosta de ser chamada?"
-            );
-
-
-        if (
-            novaResposta &&
-            novaResposta.trim()
-        ) {
-
-            try {
-
-                Cripto.salvar(
-                    CHAVE_RECUPERACAO,
-                    novaResposta
-                        .trim()
-                        .toLowerCase()
-                );
-
-            } catch (e) {
-
-                mostrarMensagem(
-                    "Erro ao salvar",
-                    1500
-                );
-
-                return;
-            }
-        }
-    }
-
-
-    expr = "";
-
-
-    mostrarMensagem(
-        "Senha alterada",
-        1500
-    );
-}
-
-
-/* =====================================================
-   CINCO TOQUES
-===================================================== */
-
-function registrarToque() {
-
-
-    contadorToques++;
-
-
-    clearTimeout(
-        timerToques
-    );
-
-
-    if (
-        contadorToques >= 5
-    ) {
-
-        contadorToques = 0;
-
-        recuperarSenha();
-
-        return;
-    }
-
-
-    timerToques =
-        setTimeout(
-            () => {
-
-                contadorToques = 0;
-
-            },
-            2000
-        );
-}
-
-
-display.addEventListener(
-    "click",
-    registrarToque
-);
-
-
-/* =====================================================
-   TECLADO FÍSICO
-===================================================== */
-
-document.addEventListener(
-    "keydown",
-    e => {
-
-
-        if (
-            /^\d$/.test(
-                e.key
-            )
-        ) {
-
-            add(e.key);
-
-
-        } else if (
-            [
-                "+",
-                "-",
-                "*",
-                "/"
-            ].includes(e.key)
-        ) {
-
-            operacao(e.key);
-
-
-        } else if (
-            e.key === "."
-        ) {
-
-            add(".");
-
-
-        } else if (
-            e.key === "Backspace"
-        ) {
-
-            apagar();
-
-
-        } else if (
-            e.key === "Escape"
-        ) {
-
-            limpar();
-
-
-        } else if (
-            e.key === "Enter" ||
-            e.key === "="
-        ) {
-
-            calcular();
-
-
-        } else if (
-            e.key === "%"
-        ) {
-
-            porcentagem();
-        }
-
-    }
-);
-
-
-/* =====================================================
+/* =========================================================
    INICIALIZAÇÃO
-===================================================== */
+========================================================= */
 
-inicializarSenha();
+atualizarIndicadores();
 
-atualizar();
+
+/* =========================================================
+   ATUALIZAÇÃO AUTOMÁTICA
+========================================================= */
+
+setInterval(
+    atualizarIndicadores,
+    3000
+);
+
+
+/* =========================================================
+   ÁREA SECRETA
+========================================================= */
+
+function abrirAreaSecreta(){
+
+    window.location.href = "index11.html";
+
+}
 
 </script>
 
-
 </body>
+
 </html>
