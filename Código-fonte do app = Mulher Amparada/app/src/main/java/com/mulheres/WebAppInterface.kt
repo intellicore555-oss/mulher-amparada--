@@ -118,14 +118,6 @@ private fun drawableToBase64(drawable: Drawable): String {
         Base64.encodeToString(stream.toByteArray(), Base64.NO_WRAP)
 }
 
-@JavascriptInterface
-fun abrirPorIntent() {
-    val intent = Intent("com.assist.OPEN").apply {
-        setPackage("com.assist")
-    }
-
-    activity.startActivity(intent)
-}
     
 @JavascriptInterface
 fun solicitarAdministrador() {
@@ -166,15 +158,6 @@ fun solicitarAdministrador() {
 
     }
 
-}
-
-@JavascriptInterface
-fun abrirGerenciador() {
-    val intent = Intent("com.gerenciar.OPEN").apply {
-        setPackage("com.gerenciar")
-    }
-
-    activity.startActivity(intent)
 }
 
     @JavascriptInterface
