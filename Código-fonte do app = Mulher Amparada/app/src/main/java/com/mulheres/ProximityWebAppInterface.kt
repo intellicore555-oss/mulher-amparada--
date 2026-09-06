@@ -33,6 +33,33 @@ class ProximityWebAppInterface(
      */
     private val LIMITE_LUX = 5f
 
+@JavascriptInterface
+fun diagnosticarSensores(): String {
+
+    val sensores =
+        sensorManager.getSensorList(
+            Sensor.TYPE_ALL
+        )
+
+    if (sensores.isEmpty()) {
+        return "Nenhum sensor disponibilizado pelo Android."
+    }
+
+    return sensores.joinToString(
+        separator = "\n\n"
+    ) { sensor ->
+
+        """
+        Nome: ${sensor.name}
+        Tipo: ${sensor.type}
+        Tipo string: ${sensor.stringType}
+        Fabricante: ${sensor.vendor}
+        Wake-up: ${sensor.isWakeUpSensor}
+        Alcance: ${sensor.maximumRange}
+        """.trimIndent()
+    }
+}
+
     @JavascriptInterface
     fun iniciarSensorProximidade(): Boolean {
 
