@@ -1506,7 +1506,7 @@ class MainActivity : AppCompatActivity() {
                 "Contato salvo",
                 Toast.LENGTH_SHORT
             ).show()
-        
+        }
     }
 }
     // =========================================================  
