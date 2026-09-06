@@ -419,10 +419,7 @@ class MainActivity : AppCompatActivity() {
             "Cripto"  
         )  
 
-webView.addJavascriptInterface(
-    ProximityWebAppInterface(this),
-    "Proximidade"
-)
+
 
         val settings =  
             webView.settings  
