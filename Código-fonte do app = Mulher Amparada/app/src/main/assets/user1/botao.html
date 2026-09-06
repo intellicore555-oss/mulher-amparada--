@@ -12,43 +12,20 @@
 
 <meta name="theme-color" content="#000000">
 
-<meta
-    name="description"
-    content="Central de recursos e acessos do aplicativo"
->
-
 <title>Meus Acessos</title>
 
-
 <style>
-/* =========================================================
-   MEUS ACESSOS
-   PREMIUM APP HUB
-   BLACK × BLUE × SLATE
-   WEBVIEW OPTIMIZED
-========================================================= */
-
 
 /* =========================================================
-   FONTE
+   FONT
 ========================================================= */
 
 @font-face {
-
     font-family: "Quicksand";
-
-    src:
-        url("file:///android_asset/font.ttf")
-        format("truetype");
-
-    font-weight:
-        400 800;
-
-    font-style:
-        normal;
-
-    font-display:
-        swap;
+    src: url("file:///android_asset/font.ttf") format("truetype");
+    font-weight: 400 800;
+    font-style: normal;
+    font-display: swap;
 }
 
 
@@ -58,79 +35,26 @@
 
 :root {
 
-    --black: #000000;
-
     --bg: #000000;
+    --surface: #0d0d0f;
+    --surface-2: #121216;
+    --surface-3: #18181d;
 
-    --surface: #09090c;
-
-    --surface-2: #0d0d11;
-
-    --surface-3: #121218;
-
-    --surface-active: #18181f;
-
-
-    --blue: #7c6cff;
-
-    --blue-2: #9589ff;
-
-    --blue-dark: #5548d8;
-
-
-    --blue-soft:
-        rgba(124, 108, 255, 0.09);
-
-    --blue-soft-2:
-        rgba(124, 108, 255, 0.045);
-
-    --blue-border:
-        rgba(124, 108, 255, 0.22);
-
-    --blue-border-strong:
-        rgba(124, 108, 255, 0.38);
-
-
-    --white: #ffffff;
+    --line: #24242a;
+    --line-light: #303038;
 
     --text: #ffffff;
+    --text-soft: #a6a6ae;
+    --text-muted: #707078;
 
-    --text-soft: #c8c8d0;
+    --blue: #7c6cff;
+    --blue-2: #9589ff;
+    --blue-dark: #5548d8;
 
-    --text-muted: #777781;
+    --danger: #ff4f67;
 
-    --text-dark: #51515a;
+    --radius: 24px;
 
-
-    --border:
-        rgba(255, 255, 255, 0.065);
-
-    --border-strong:
-        rgba(255, 255, 255, 0.11);
-
-
-    --danger: #ff708f;
-
-    --danger-soft:
-        rgba(255, 112, 143, 0.08);
-
-    --danger-border:
-        rgba(255, 112, 143, 0.22);
-
-
-    --success: #7dffb2;
-
-
-    --radius-xl: 30px;
-
-    --radius-lg: 23px;
-
-    --radius-md: 18px;
-
-    --radius-sm: 14px;
-
-
-    --max-width: 680px;
 }
 
 
@@ -139,129 +63,32 @@
 ========================================================= */
 
 * {
-
-    margin: 0;
-
-    padding: 0;
-
     box-sizing: border-box;
-
-    font-family:
-        "Quicksand",
-        sans-serif;
-
-    -webkit-tap-highlight-color:
-        transparent;
-
-    -webkit-touch-callout:
-        none;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
 }
-
-
-/* =========================================================
-   HTML
-========================================================= */
 
 html {
-
     width: 100%;
-
-    min-width: 100%;
-
     min-height: 100%;
-
-    background:
-        #000000 !important;
-
-    color:
-        #ffffff;
-
-    color-scheme:
-        dark;
-
-    scrollbar-width:
-        none;
-
-    overscroll-behavior:
-        none;
+    background: #000000 !important;
+    scroll-behavior: smooth;
 }
-
-
-html::-webkit-scrollbar {
-
-    width: 0;
-
-    height: 0;
-
-    display: none;
-}
-
-
-/* =========================================================
-   BODY
-========================================================= */
 
 body {
-
     width: 100%;
-
-    min-width: 100%;
-
     min-height: 100vh;
 
-    min-height: 100dvh;
+    background: #000000 !important;
+    color: var(--text);
 
-    margin: 0;
+    font-family: "Quicksand", sans-serif;
 
-    padding: 0;
+    overflow-x: hidden;
 
-    background:
-        #000000 !important;
-
-    background-color:
-        #000000 !important;
-
-    color:
-        #ffffff;
-
-    overflow-x:
-        hidden;
-
-    scrollbar-width:
-        none;
-
-    overscroll-behavior:
-        none;
-
-    -webkit-overflow-scrolling:
-        touch;
-
-    touch-action:
-        pan-y;
-}
-
-
-body::-webkit-scrollbar {
-
-    width: 0 !important;
-
-    height: 0 !important;
-
-    display: none !important;
-}
-
-
-/* =========================================================
-   SELEÇÃO
-========================================================= */
-
-::selection {
-
-    background:
-        var(--blue);
-
-    color:
-        #ffffff;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
 }
 
 
@@ -272,181 +99,74 @@ body::-webkit-scrollbar {
 .container {
 
     width: 100%;
+    max-width: 720px;
 
-    min-height: 100vh;
+    margin: 0 auto;
 
-    min-height: 100dvh;
+    padding:
+        0
+        clamp(18px, 5vw, 34px)
+        60px;
+
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+
+    width: 100%;
+
+    min-height: clamp(190px, 32vh, 270px);
 
     display: flex;
+    flex-direction: column;
 
+    align-items: center;
     justify-content: center;
 
-    padding:
-        calc(
-            18px +
-            env(safe-area-inset-top)
-        )
+    text-align: center;
 
-        15px
+    padding-top: 20px;
+    padding-bottom: 24px;
 
-        calc(
-            38px +
-            env(safe-area-inset-bottom)
-        );
-
-    background:
-        #000000;
 }
 
 
 /* =========================================================
-   CARD PRINCIPAL
+   HEROTAG
+   SEM BACKGROUND
 ========================================================= */
 
-.card {
+.heroTag {
 
     width: 100%;
 
-    max-width:
-        var(--max-width);
-
-    min-height: 100%;
-
-    position: relative;
-
-    background:
-        #000000;
-
-    animation:
-        pageIn
-        .45s
-        ease-out
-        both;
-}
-
-
-@keyframes pageIn {
-
-    from {
-
-        opacity: 0;
-
-        transform:
-            translateY(10px);
-    }
-
-    to {
-
-        opacity: 1;
-
-        transform:
-            translateY(0);
-    }
-}
-
-
-/* =========================================================
-   CABEÇALHO
-========================================================= */
-
-.header {
-
-    width: 100%;
-
-    padding:
-        10px
-        2px
-        21px;
-}
-
-
-/* =========================================================
-   EYEBROW
-========================================================= */
-
-.eyebrow {
+    min-height: 70px;
 
     display: flex;
 
     align-items: center;
+    justify-content: center;
 
-    gap: 8px;
+    margin: 0 auto 12px;
 
-    margin-bottom:
-        9px;
+    color: #ffffff;
 
-    color:
-        var(--text-muted);
+    font-family: "Quicksand", sans-serif;
 
-    font-size:
-        9px;
+    font-size: clamp(27px, 8vw, 42px);
 
-    font-weight:
-        800;
+    font-weight: 800;
 
-    line-height:
-        1;
+    line-height: 1.1;
 
-    letter-spacing:
-        1.7px;
+    letter-spacing: -0.8px;
 
-    text-transform:
-        uppercase;
-}
+    text-align: center;
 
-
-/*
-   Indicador criado com elemento real,
-   sem ::before / ::after
-*/
-
-.eyebrow-indicator {
-
-    width: 7px;
-
-    height: 7px;
-
-    flex: 0 0 7px;
-
-    border-radius:
-        50%;
-
-    background:
-        var(--blue);
-
-    box-shadow:
-        0 0 0 4px
-        rgba(124,108,255,.07),
-
-        0 0 13px
-        rgba(124,108,255,.45);
-}
-
-
-/* =========================================================
-   TÍTULO
-========================================================= */
-
-.header h1 {
-
-    color:
-        #ffffff;
-
-    font-size:
-        clamp(
-            28px,
-            8vw,
-            39px
-        );
-
-    font-weight:
-        800;
-
-    line-height:
-        1.04;
-
-    letter-spacing:
-        -.9px;
 }
 
 
@@ -454,548 +174,246 @@ body::-webkit-scrollbar {
    SUBTÍTULO
 ========================================================= */
 
-.header p {
+.heroSubtitle {
 
-    max-width:
-        540px;
+    max-width: 500px;
 
-    margin-top:
-        9px;
+    color: var(--text-soft);
 
-    color:
-        var(--text-muted);
+    font-size: clamp(14px, 3.8vw, 17px);
 
-    font-size:
-        12px;
+    font-weight: 500;
 
-    font-weight:
-        600;
+    line-height: 1.5;
 
-    line-height:
-        1.5;
+    text-align: center;
+
 }
 
 
 
 
 /* =========================================================
-   SEÇÕES
+   SEÇÃO
 ========================================================= */
 
 .section {
 
-    width:
-        100%;
+    width: 100%;
 
-    min-height:
-        20px;
+    margin-bottom: 34px;
 
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    gap:
-        9px;
-
-    margin:
-        22px
-        3px
-        9px;
 }
 
 
-.section:first-child {
+.sectionHeader {
 
-    margin-top:
-        0;
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 13px;
+
 }
 
 
-.section-label {
+.sectionTitle {
 
-    color:
-        var(--text-muted);
+    color: #ffffff;
 
-    font-size:
-        9px;
+    font-size: 19px;
 
-    font-weight:
-        800;
+    font-weight: 800;
 
-    line-height:
-        1;
+    letter-spacing: -0.3px;
 
-    letter-spacing:
-        1.45px;
-
-    text-transform:
-        uppercase;
-
-    white-space:
-        nowrap;
 }
 
 
-.section-line {
-
-    width:
-        auto;
-
-    height:
-        1px;
-
-    flex:
-        1;
-
-    background:
-        rgba(255,255,255,.065);
-}
-
-
-.counter {
-
-    min-width:
-        24px;
-
-    height:
-        21px;
-
-    display:
-        inline-flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    padding:
-        0 7px;
-
-    border:
-        1px solid
-        var(--blue-border);
-
-    border-radius:
-        999px;
-
-    background:
-        var(--blue-soft);
-
-    color:
-        var(--blue-2);
-
-    font-size:
-        8px;
-
-    font-weight:
-        800;
-}
 
 
 /* =========================================================
    LISTA
 ========================================================= */
 
-.buttons {
+.list {
 
-    width:
-        100%;
+    width: 100%;
 
-    display:
-        flex;
+    display: flex;
 
-    flex-direction:
-        column;
+    flex-direction: column;
 
-    gap:
-        10px;
+    gap: 9px;
+
 }
 
 
 /* =========================================================
-   BOTÃO PRINCIPAL
+   BOTÃO
 ========================================================= */
 
 .btn {
 
-    width:
-        100%;
+    width: 100%;
 
-    min-height:
-        82px;
+    min-height: 78px;
 
-    display:
-        block;
+    display: flex;
 
-    position:
-        relative;
+    align-items: center;
 
-    padding:
-        8px;
+    gap: 14px;
 
-    overflow:
-        hidden;
+    padding: 10px 13px;
 
-    border:
-        1px solid
-        var(--border);
+    border: 1px solid var(--line);
 
-    border-radius:
-        var(--radius-lg);
+    border-radius: var(--radius);
 
-    outline:
-        none;
+    background: var(--surface);
 
-    background:
-        #0a0a0d;
+    color: #ffffff;
 
-    color:
-        #ffffff;
+    text-align: left;
 
-    text-align:
-        left;
+    font-family: "Quicksand", sans-serif;
 
-    cursor:
-        pointer;
-
-    -webkit-appearance:
-        none;
-
-    appearance:
-        none;
-
-    box-shadow:
-        inset 0 1px 0
-        rgba(255,255,255,.018),
-
-        0 7px 20px
-        rgba(0,0,0,.20);
+    cursor: pointer;
 
     transition:
         transform .15s ease,
-        border-color .15s ease,
-        background-color .15s ease,
-        box-shadow .15s ease;
-}
-
-
-/* =========================================================
-   HOVER
-========================================================= */
-
-@media (hover: hover) {
-
-    .btn:hover {
-
-        transform:
-            translateY(-2px);
-
-        border-color:
-            var(--blue-border);
-
-        background:
-            #0f0f13;
-
-        box-shadow:
-            inset 0 1px 0
-            rgba(255,255,255,.025),
-
-            0 13px 28px
-            rgba(0,0,0,.32);
-    }
+        background .15s ease,
+        border-color .15s ease;
 
 }
 
-
-/* =========================================================
-   TOQUE
-========================================================= */
 
 .btn:active {
 
-    transform:
-        scale(.975);
+    transform: scale(.985);
 
-    border-color:
-        var(--blue-border-strong);
+    background: var(--surface-2);
 
-    background:
-        #17171d;
+}
 
-    box-shadow:
-        0 4px 12px
-        rgba(0,0,0,.35);
+
+.btn:hover {
+
+    background: var(--surface-2);
+
+    border-color: var(--line-light);
+
 }
 
 
 /* =========================================================
-   CONTEÚDO INTERNO
-========================================================= */
-
-.left {
-
-    width:
-        100%;
-
-    min-height:
-        64px;
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    position:
-        relative;
-
-    z-index:
-        1;
-}
-
-
-/* =========================================================
-   ÍCONE
+   ÍCONE / EMOJI
 ========================================================= */
 
 .emoji {
 
-    width:
-        62px;
+    width: 44px;
+    height: 44px;
 
-    height:
-        62px;
+    flex: 0 0 44px;
 
-    flex:
-        0 0 62px;
+    display: flex;
 
-    display:
-        flex;
+    align-items: center;
+    justify-content: center;
 
-    align-items:
-        center;
+    overflow: hidden;
 
-    justify-content:
-        center;
+    border-radius: 14px;
 
-    overflow:
-        hidden;
+    
 
-    border:
-        1px solid
-        rgba(255,255,255,.075);
-
-    border-radius:
-        200px;
-
-    background:
-        #15151a;
-
-    box-shadow:
-        inset 0 1px 0
-        rgba(255,255,255,.035),
-
-        0 5px 15px
-        rgba(0,0,0,.25);
-
-    transition:
-        transform .17s ease,
-        border-color .17s ease,
-        background-color .17s ease;
 }
 
-
-/* =========================================================
-   IMAGEM
-   OCUPA TODO O .EMOJI
-========================================================= */
 
 .emoji img {
 
-    width:
-        100%;
+    width: 100%;
+    height: 100%;
 
-    height:
-        100%;
+    display: block;
 
-    min-width:
-        100%;
+    object-fit: cover;
+    object-position: center;
 
-    min-height:
-        100%;
-
-    max-width:
-        none;
-
-    max-height:
-        none;
-
-    display:
-        block;
-
-    margin:
-        0;
-
-    padding:
-        0;
-
-    border:
-        0;
-
-    border-radius:
-        200px;
-
-    object-fit:
-        cover;
-
-    object-position:
-        center center;
-
-    background:
-        transparent;
-
-    user-select:
-        none;
-
-    pointer-events:
-        none;
-
-    -webkit-user-drag:
-        none;
-
-    transition:
-        transform .18s ease;
 }
 
-
-/* =========================================================
-   SVG DOS ÍCONES
-========================================================= */
 
 .emoji svg {
 
-    width:
-        34px;
+    width: 23px;
+    height: 23px;
 
-    height:
-        34px;
+    display: block;
 
-    flex:
-        0 0 34px;
-
-    display:
-        block;
-
-    fill:
-        #ffffff;
-
-    color:
-        #ffffff;
-
-    pointer-events:
-        none;
-
-    transition:
-        transform .17s ease;
-}
-
-
-/* =========================================================
-   HOVER DO ÍCONE
-========================================================= */
-
-@media (hover: hover) {
-
-    .btn:hover .emoji {
-
-        transform:
-            scale(1.035);
-
-        border-color:
-            rgba(124,108,255,.30);
-
-        background:
-            #1a1921;
-    }
-
-
-    .btn:hover .emoji img {
-
-        transform:
-            scale(1.035);
-    }
-
-
-    .btn:hover .emoji svg {
-
-        transform:
-            scale(1.07);
-    }
+    color: #ffffff;
 
 }
 
 
 /* =========================================================
-   TEXTO DO BOTÃO
+   CONTEÚDO
 ========================================================= */
 
-.btn-content {
+.content {
 
-    min-width:
-        0;
+    min-width: 0;
 
-    flex:
-        1;
+    flex: 1;
 
-    padding:
-        0 12px;
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    gap: 3px;
+
 }
 
 
-.btn-title {
+.title {
 
-    display:
-        block;
+    overflow: hidden;
 
-    color:
-        #ffffff;
+    color: #ffffff;
 
-    font-size:
-        14px;
+    font-size: 15px;
 
-    font-weight:
-        750;
+    font-weight: 750;
 
-    line-height:
-        1.25;
+    line-height: 1.25;
 
-    letter-spacing:
-        0;
+    white-space: nowrap;
+
+    text-overflow: ellipsis;
+
 }
 
 
-.btn-description {
+.description {
 
-    display:
-        block;
+    overflow: hidden;
 
-    margin-top:
-        4px;
+    color: var(--text-muted);
 
-    color:
-        var(--text-muted);
+    font-size: 12px;
 
-    font-size:
-        9px;
+    font-weight: 500;
 
-    font-weight:
-        600;
+    line-height: 1.3;
 
-    line-height:
-        1.4;
+    white-space: nowrap;
+
+    text-overflow: ellipsis;
+
 }
 
 
@@ -1005,177 +423,25 @@ body::-webkit-scrollbar {
 
 .arrow {
 
-    width:
-        34px;
+    width: 30px;
+    height: 30px;
 
-    height:
-        34px;
+    flex: 0 0 30px;
 
-    flex:
-        0 0 34px;
+    display: flex;
 
-    display:
-        flex;
+    align-items: center;
+    justify-content: center;
 
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    border:
-        1px solid
-        rgba(255,255,255,.06);
-
-    border-radius:
-        12px;
-
-    color:
-        var(--text-muted);
-
-    background:
-        rgba(255,255,255,.015);
-
-    font-size:
-        19px;
-
-    font-weight:
-        500;
-
-    line-height:
-        1;
-
-    transition:
-        transform .17s ease,
-        color .17s ease,
-        border-color .17s ease,
-        background-color .17s ease;
-}
-
-
-@media (hover: hover) {
-
-    .btn:hover .arrow {
-
-        transform:
-            translateX(2px);
-
-        border-color:
-            var(--blue-border);
-
-        background:
-            var(--blue-soft);
-
-        color:
-            var(--blue-2);
-    }
+    color: #64646d;
 
 }
 
 
-/* =========================================================
-   BADGE
-========================================================= */
+.arrow svg {
 
-.badge {
-
-    display:
-        inline-flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    min-height:
-        18px;
-
-    margin-left:
-        6px;
-
-    padding:
-        2px 7px;
-
-    vertical-align:
-        middle;
-
-    border:
-        1px solid
-        var(--blue-border);
-
-    border-radius:
-        999px;
-
-    background:
-        var(--blue-soft);
-
-    color:
-        var(--blue-2);
-
-    font-size:
-        7px;
-
-    font-weight:
-        800;
-
-    line-height:
-        1;
-
-    letter-spacing:
-        .6px;
-
-    text-transform:
-        uppercase;
-}
-
-
-/* =========================================================
-   CARD PRIMARY
-========================================================= */
-
-.btn.primary {
-
-    border-color:
-        var(--blue-border);
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(124,108,255,.085),
-            rgba(124,108,255,.018)
-        ),
-
-        #0a0a0d;
-}
-
-
-.btn.primary .emoji {
-
-    border-color:
-        rgba(124,108,255,.28);
-
-    background:
-        rgba(124,108,255,.08);
-}
-
-
-@media (hover: hover) {
-
-    .btn.primary:hover {
-
-        border-color:
-            var(--blue-border-strong);
-
-        background:
-            linear-gradient(
-                135deg,
-                rgba(124,108,255,.12),
-                rgba(124,108,255,.025)
-            ),
-
-            #0f0f14;
-    }
+    width: 18px;
+    height: 18px;
 
 }
 
@@ -1184,265 +450,141 @@ body::-webkit-scrollbar {
    EMERGÊNCIA
 ========================================================= */
 
-.btn.emergency {
+.emergency {
 
-    border-color:
-        var(--danger-border);
+    border-color: #32171c;
 
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,112,143,.055),
-            rgba(255,112,143,.008)
-        ),
+    background: #100a0c;
 
-        #0a0a0d;
 }
 
 
-.btn.emergency .emoji {
 
-    border-color:
-        rgba(255,112,143,.24);
 
-    background:
-        var(--danger-soft);
+.emergency .title {
+
+    color: #ff6679;
+
 }
 
 
-.btn.emergency .arrow {
+.emergency .description {
 
-    color:
-        rgba(255,112,143,.70);
+    color: #98616a;
+
 }
 
 
-@media (hover: hover) {
+.emergency .arrow {
 
-    .btn.emergency:hover {
-
-        border-color:
-            rgba(255,112,143,.35);
-
-        background:
-            linear-gradient(
-                135deg,
-                rgba(255,112,143,.075),
-                rgba(255,112,143,.012)
-            ),
-
-            #0f0b0d;
-    }
+    color: #a94453;
 
 }
 
 
 /* =========================================================
-   QUICK GRID
+   APPS
 ========================================================= */
 
-.quick-grid {
+.appCard {
 
-    width:
-        100%;
+    min-height: 84px;
 
-    display:
-        grid;
-
-    grid-template-columns:
-        repeat(2, minmax(0, 1fr));
-
-    gap:
-        10px;
-
-    margin-bottom:
-        3px;
 }
 
 
-/* =========================================================
-   QUICK CARD
-========================================================= */
+.appCard .emoji {
 
-.quick {
+    width: 50px;
+    height: 50px;
 
-    width:
-        100%;
+    flex-basis: 50px;
 
-    min-height:
-        108px;
+    border-radius: 15px;
 
-    display:
-        flex;
-
-    flex-direction:
-        column;
-
-    justify-content:
-        space-between;
-
-    padding:
-        14px;
-
-    border:
-        1px solid
-        var(--border);
-
-    border-radius:
-        20px;
-
-    outline:
-        none;
-
-    background:
-        #09090c;
-
-    color:
-        #ffffff;
-
-    text-align:
-        left;
-
-    cursor:
-        pointer;
-
-    -webkit-appearance:
-        none;
-
-    appearance:
-        none;
-
-    box-shadow:
-        inset 0 1px 0
-        rgba(255,255,255,.018);
-
-    transition:
-        transform .15s ease,
-        border-color .15s ease,
-        background-color .15s ease;
 }
 
 
-.quick:active {
+.appCard .emoji img {
 
-    transform:
-        scale(.965);
-
-    border-color:
-        var(--blue-border);
-
-    background:
-        #15151b;
-}
-
-
-@media (hover: hover) {
-
-    .quick:hover {
-
-        transform:
-            translateY(-2px);
-
-        border-color:
-            var(--blue-border);
-
-        background:
-            #101014;
-    }
+    object-fit: cover;
 
 }
 
 
 /* =========================================================
-   QUICK ICON
+   EMPTY STATE
 ========================================================= */
 
-.quick-icon {
+.emptyState {
 
-    width:
-        38px;
+    display: none;
 
-    height:
-        38px;
+    width: 100%;
 
-    flex:
-        0 0 38px;
+    padding: 34px 20px;
 
-    display:
-        flex;
+    border: 1px solid var(--line);
 
-    align-items:
-        center;
+    border-radius: 22px;
 
-    justify-content:
-        center;
+    background: var(--surface);
 
-    border:
-        1px solid
-        var(--border);
+    text-align: center;
 
-    border-radius:
-        13px;
-
-    background:
-        var(--surface-2);
-
-    color:
-        var(--blue-2);
-
-    font-size:
-        17px;
-
-    font-weight:
-        800;
 }
 
 
-/* =========================================================
-   QUICK TEXTO
-========================================================= */
+.emptyIcon {
 
-.quick strong {
+    width: 46px;
+    height: 46px;
 
-    display:
-        block;
+    display: flex;
 
-    margin-top:
-        11px;
+    align-items: center;
+    justify-content: center;
 
-    color:
-        #ffffff;
+    margin: 0 auto 12px;
 
-    font-size:
-        11px;
+    border-radius: 14px;
 
-    font-weight:
-        750;
+    background: #17171c;
 
-    line-height:
-        1.2;
+    color: #8b8b94;
+
 }
 
 
-.quick span {
+.emptyIcon svg {
 
-    display:
-        block;
+    width: 23px;
+    height: 23px;
 
-    margin-top:
-        3px;
+}
 
-    color:
-        var(--text-muted);
 
-    font-size:
-        8px;
+.emptyTitle {
 
-    font-weight:
-        600;
+    color: #ffffff;
 
-    line-height:
-        1.25;
+    font-size: 16px;
+
+    font-weight: 750;
+
+}
+
+
+.emptyText {
+
+    margin-top: 5px;
+
+    color: var(--text-muted);
+
+    font-size: 13px;
+
+    font-weight: 500;
+
 }
 
 
@@ -1452,271 +594,67 @@ body::-webkit-scrollbar {
 
 .footer {
 
-    width:
-        100%;
+    padding-top: 4px;
 
-    margin-top:
-        30px;
+    color: #4f4f56;
 
-    padding:
-        21px
-        5px
-        6px;
+    font-size: 11px;
 
-    border-top:
-        1px solid
-        rgba(255,255,255,.06);
+    font-weight: 600;
 
-    color:
-        var(--text-dark);
+    text-align: center;
 
-    text-align:
-        center;
-
-    font-size:
-        9px;
-
-    font-weight:
-        650;
-
-    line-height:
-        1.6;
-
-    letter-spacing:
-        .5px;
-}
-
-
-.footer strong {
-
-    color:
-        #686870;
-
-    font-weight:
-        800;
 }
 
 
 /* =========================================================
-   LINHA DECORATIVA DO FOOTER
+   RESPONSIVO
 ========================================================= */
 
-.footer-line {
+@media (max-width: 380px) {
 
-    width:
-        65px;
+    .container {
 
-    height:
-        1px;
+        padding-left: 14px;
+        padding-right: 14px;
 
-    margin:
-        0 auto 17px;
+    }
 
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(124,108,255,.55),
-            transparent
-        );
+    .btn {
+
+        min-height: 72px;
+
+        padding: 9px 10px;
+
+        gap: 11px;
+
+    }
+
+    .emoji {
+
+        width: 41px;
+        height: 41px;
+
+        flex-basis: 41px;
+
+        border-radius: 13px;
+
+    }
+
+    .title {
+
+        font-size: 14px;
+
+    }
+
+    .description {
+
+        font-size: 11px;
+
+    }
+
 }
 
-
-/* =========================================================
-   ESTADO VAZIO DA PESQUISA
-========================================================= */
-
-.empty-state {
-
-    width:
-        100%;
-
-    display:
-        none;
-
-    padding:
-        35px 20px;
-
-    border:
-        1px solid
-        var(--border);
-
-    border-radius:
-        var(--radius-lg);
-
-    background:
-        #09090c;
-
-    text-align:
-        center;
-}
-
-
-.empty-state-icon {
-
-    width:
-        45px;
-
-    height:
-        45px;
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    margin:
-        0 auto 12px;
-
-    border:
-        1px solid
-        var(--border);
-
-    border-radius:
-        15px;
-
-    background:
-        var(--surface-2);
-
-    color:
-        var(--text-muted);
-
-    font-size:
-        18px;
-}
-
-
-.empty-state strong {
-
-    display:
-        block;
-
-    color:
-        #ffffff;
-
-    font-size:
-        12px;
-
-    font-weight:
-        750;
-}
-
-
-.empty-state span {
-
-    display:
-        block;
-
-    margin-top:
-        5px;
-
-    color:
-        var(--text-muted);
-
-    font-size:
-        9px;
-
-    font-weight:
-        600;
-}
-
-
-/* =========================================================
-   FOCO
-========================================================= */
-
-.btn:focus-visible,
-.quick:focus-visible,
-.search input:focus-visible {
-
-    outline:
-        2px solid
-        var(--blue);
-
-    outline-offset:
-        3px;
-}
-
-
-/* =========================================================
-   TÍTULO
-========================================================= */
-
-.heroTag {
-
-    width:
-        80%;
-
-    margin-left:
-        10%;
-
-    margin-top:
-        55px;
-
-    margin-bottom:
-        55px;
-
-    min-height:
-        70px;
-
-    padding:
-        13px
-        18px;
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    color:
-        #ffffff;
-
-    
-
-    border-radius:
-        24px;
-
-    font-family:
-        "Quicksand",
-        sans-serif;
-
-    font-size:
-        clamp(
-            27px,
-            8vw,
-            42px
-        );
-
-    font-weight:
-        800;
-
-    line-height:
-        1.1;
-
-    letter-spacing:
-        -0.8px;
-
-    text-align:
-        center;
-
-    box-shadow:
-        0 14px 40px
-        rgba(
-            0,
-            0,
-            0,
-            .55
-        );
-
-}
 </style>
 
 </head>
@@ -1724,757 +662,730 @@ body::-webkit-scrollbar {
 
 <body>
 
-    <div class="heroTag">
-        Mulher Amparada
-    </div>
-
 <div class="container">
 
-<main class="card">
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+    <header class="hero">
+
+        <div class="heroTag">
+            Meus Acessos
+        </div>
+
+        <div class="heroSubtitle">
+            Tudo o que você precisa, organizado em um só lugar.
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         BUSCA
+    ====================================================== -->
 
 
 
 
-<div class="buttons">
+    <!-- =====================================================
+         RECURSOS DO APLICATIVO
+    ====================================================== -->
+
+    <section
+        class="section"
+        data-section
+    >
+
+        <div class="sectionHeader">
+
+            <h2 class="sectionTitle">
+                Recursos do aplicativo
+            </h2>
 
 
-<!-- =======================================================
-     ACESSO RÁPIDO
-======================================================== -->
+
+        </div>
 
 
-<!-- =======================================================
-     RECURSOS
-======================================================== -->
-
-<div class="section">
-
-    <span class="section-label">
-        Recursos do aplicativo
-    </span>
-
-    <span class="counter">
-        9
-    </span>
-
-    <span class="section-line"></span>
-
-</div>
+        <div class="list">
 
 
-<!-- CALENDÁRIO MENSTRUAL -->
-
-<button
-    class="btn"
-    type="button"
-    data-search="calendário menstrual ciclo período"
-    onclick="ir('calendario.html')"
->
-
-    <div class="left">
-
-        <div class="emoji">
-
-            <img
-                src="2.svg"
-                alt=""
-                draggable="false"
+            <button
+                class="btn"
+                type="button"
+                data-search="calendario menstrual ciclo"
+                onclick="ir('calendario.html')"
             >
 
-        </div>
+                <div class="emoji">
+                    <img src="2.svg" alt="">
+                </div>
 
-        <div class="btn-content">
+                <div class="content">
 
-            <span class="btn-title">
-                Calendário menstrual
-            </span>
+                    <div class="title">
+                        Calendário menstrual
+                    </div>
 
-            <span class="btn-description">
-                Acompanhe informações do seu calendário
-            </span>
+                    <div class="description">
+                        Acompanhe seu ciclo
+                    </div>
 
-        </div>
+                </div>
 
-        <div class="arrow">
-            ›
-        </div>
+                <div class="arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"></path>
+                    </svg>
+                </div>
 
-    </div>
-
-</button>
+            </button>
 
 
-<!-- CALENDÁRIO -->
-
-<button
-    class="btn"
-    type="button"
-    data-search="calendário eventos agenda compromissos"
-    onclick="ir('calendar.html')"
->
-
-    <div class="left">
-
-        <div class="emoji">
-
-            <img
-                src="3.svg"
-                alt=""
-                draggable="false"
+            <button
+                class="btn"
+                type="button"
+                data-search="calendario eventos"
+                onclick="ir('calendar.html')"
             >
 
-        </div>
+                <div class="emoji">
+                    <img src="3.svg" alt="">
+                </div>
 
-        <div class="btn-content">
+                <div class="content">
 
-            <span class="btn-title">
-                Calendário de eventos
-            </span>
+                    <div class="title">
+                        Calendário de eventos
+                    </div>
 
-            <span class="btn-description">
-                Organize seus eventos e compromissos
-            </span>
+                    <div class="description">
+                        Organize seus compromissos
+                    </div>
 
-        </div>
+                </div>
 
-        <div class="arrow">
-            ›
-        </div>
+                <div class="arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"></path>
+                    </svg>
+                </div>
 
-    </div>
-
-</button>
+            </button>
 
 
-<!-- MAPA -->
-
-<button
-    class="btn"
-    type="button"
-    data-search="mapa localização região localização"
-    onclick="ir('mapa.html')"
->
-
-    <div class="left">
-
-        <div class="emoji">
-
-            <img
-                src="4.svg"
-                alt=""
-                draggable="false"
+            <button
+                class="btn"
+                type="button"
+                data-search="mapa região localização"
+                onclick="ir('mapa.html')"
             >
 
-        </div>
+                <div class="emoji">
+                    <img src="4.svg" alt="">
+                </div>
 
-        <div class="btn-content">
+                <div class="content">
 
-            <span class="btn-title">
-                Mapa da sua região
-            </span>
+                    <div class="title">
+                        Mapa da sua região
+                    </div>
 
-            <span class="btn-description">
-                Consulte sua localização e região
-            </span>
+                    <div class="description">
+                        Visualize locais próximos
+                    </div>
 
-        </div>
+                </div>
 
-        <div class="arrow">
-            ›
-        </div>
+                <div class="arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"></path>
+                    </svg>
+                </div>
 
-    </div>
-
-</button>
+            </button>
 
 
-<!-- CADERNO -->
-
-<button
-    class="btn"
-    type="button"
-    data-search="diário anotações caderno notas"
-    onclick="ir('caderno.html')"
->
-
-    <div class="left">
-
-        <div class="emoji">
-
-            <img
-                src="5.svg"
-                alt=""
-                draggable="false"
+            <button
+                class="btn"
+                type="button"
+                data-search="diário anotações caderno"
+                onclick="ir('caderno.html')"
             >
 
-        </div>
+                <div class="emoji">
+                    <img src="5.svg" alt="">
+                </div>
 
-        <div class="btn-content">
+                <div class="content">
 
-            <span class="btn-title">
-                Diário e anotações
-            </span>
+                    <div class="title">
+                        Diário e anotações
+                    </div>
 
-            <span class="btn-description">
-                Escreva, registre e organize suas anotações
-            </span>
+                    <div class="description">
+                        Escreva e guarde seus registros
+                    </div>
 
-        </div>
+                </div>
 
-        <div class="arrow">
-            ›
-        </div>
+                <div class="arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"></path>
+                    </svg>
+                </div>
 
-    </div>
-
-</button>
+            </button>
 
 
-<!-- ROTINA -->
-
-<button
-    class="btn"
-    type="button"
-    data-search="rotina gamificada treino hábitos"
-    onclick="ir('treino.html')"
->
-
-    <div class="left">
-
-        <div class="emoji">
-
-            <img
-                src="6.svg"
-                alt=""
-                draggable="false"
+            <button
+                class="btn"
+                type="button"
+                data-search="rotina gamificada treino"
+                onclick="ir('treino.html')"
             >
 
-        </div>
+                <div class="emoji">
+                    <img src="6.svg" alt="">
+                </div>
 
-        <div class="btn-content">
+                <div class="content">
 
-            <span class="btn-title">
-                Rotina gamificada
-            </span>
+                    <div class="title">
+                        Rotina gamificada
+                    </div>
 
-            <span class="btn-description">
-                Transforme sua rotina em objetivos
-            </span>
+                    <div class="description">
+                        Transforme tarefas em desafios
+                    </div>
 
-        </div>
+                </div>
 
-        <div class="arrow">
-            ›
-        </div>
+                <div class="arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"></path>
+                    </svg>
+                </div>
 
-    </div>
-
-</button>
+            </button>
 
 
-<!-- RELÓGIO -->
-
-<button
-    class="btn"
-    type="button"
-    data-search="relógio localização hora localização"
-    onclick="ir('daora.html')"
->
-
-    <div class="left">
-
-        <div class="emoji">
-
-            <img
-                src="7.svg"
-                alt=""
-                draggable="false"
+            <button
+                class="btn"
+                type="button"
+                data-search="relógio localização"
+                onclick="ir('daora.html')"
             >
 
-        </div>
+                <div class="emoji">
+                    <img src="7.svg" alt="">
+                </div>
 
-        <div class="btn-content">
+                <div class="content">
 
-            <span class="btn-title">
-                Relógio + Localização
-            </span>
+                    <div class="title">
+                        Relógio + Localização
+                    </div>
 
-            <span class="btn-description">
-                Informações de horário e localização
-            </span>
+                    <div class="description">
+                        Horário e posição atual
+                    </div>
 
-        </div>
+                </div>
 
-        <div class="arrow">
-            ›
-        </div>
+                <div class="arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"></path>
+                    </svg>
+                </div>
 
-    </div>
-
-</button>
+            </button>
 
 
-<!-- CALCULADORA -->
-
-<button
-    class="btn"
-    type="button"
-    data-search="calculadora contas matemática"
-    onclick="ir('calc.html')"
->
-
-    <div class="left">
-
-        <div class="emoji">
-
-            <img
-                src="8.svg"
-                alt=""
-                draggable="false"
+            <button
+                class="btn"
+                type="button"
+                data-search="calculadora cálculo"
+                onclick="ir('calc.html')"
             >
 
-        </div>
+                <div class="emoji">
+                    <img src="8.svg" alt="">
+                </div>
 
-        <div class="btn-content">
+                <div class="content">
 
-            <span class="btn-title">
-                Calculadora
-            </span>
+                    <div class="title">
+                        Calculadora
+                    </div>
 
-            <span class="btn-description">
-                Faça cálculos rapidamente
-            </span>
+                    <div class="description">
+                        Faça seus cálculos rapidamente
+                    </div>
 
-        </div>
+                </div>
 
-        <div class="arrow">
-            ›
-        </div>
+                <div class="arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"></path>
+                    </svg>
+                </div>
 
-    </div>
-
-</button>
+            </button>
 
 
-<!-- TAREFAS -->
-
-<button
-    class="btn"
-    type="button"
-    data-search="tarefas lista organização afazeres"
-    onclick="ir('task.html')"
->
-
-    <div class="left">
-
-        <div class="emoji">
-
-            <img
-                src="9.svg"
-                alt=""
-                draggable="false"
+            <button
+                class="btn"
+                type="button"
+                data-search="tarefas lista"
+                onclick="ir('task.html')"
             >
 
+                <div class="emoji">
+                    <img src="9.svg" alt="">
+                </div>
+
+                <div class="content">
+
+                    <div class="title">
+                        Minhas tarefas
+                    </div>
+
+                    <div class="description">
+                        Organize o que precisa fazer
+                    </div>
+
+                </div>
+
+                <div class="arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"></path>
+                    </svg>
+                </div>
+
+            </button>
+
+
+            <button
+                class="btn"
+                type="button"
+                data-search="navegador internet web"
+                onclick="ir('navegador.html')"
+            >
+
+                <div class="emoji">
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                    >
+
+                        <circle
+                            cx="12"
+                            cy="12"
+                            r="9"
+                        ></circle>
+
+                        <path
+                            d="M3 12h18"
+                        ></path>
+
+                        <path
+                            d="M12 3c2.3 2.5 3.5 5.5 3.5 9S14.3 18.5 12 21"
+                        ></path>
+
+                        <path
+                            d="M12 3c-2.3 2.5-3.5 5.5-3.5 9S9.7 18.5 12 21"
+                        ></path>
+
+                    </svg>
+
+                </div>
+
+                <div class="content">
+
+                    <div class="title">
+                        Navegador
+                    </div>
+
+                    <div class="description">
+                        Acesse páginas da internet
+                    </div>
+
+                </div>
+
+                <div class="arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"></path>
+                    </svg>
+                </div>
+
+            </button>
+
+
         </div>
 
-        <div class="btn-content">
+    </section>
 
-            <span class="btn-title">
-                Minhas tarefas
-            </span>
 
-            <span class="btn-description">
-                Controle suas tarefas e atividades
-            </span>
+    <!-- =====================================================
+         OUTRAS FUNÇÕES
+    ====================================================== -->
+
+    <section
+        class="section"
+        data-section
+    >
+
+        <div class="sectionHeader">
+
+            <h2 class="sectionTitle">
+                Outras funções
+            </h2>
+
+
 
         </div>
 
-        <div class="arrow">
-            ›
+
+        <div class="list">
+
+
+            <button
+                class="btn"
+                type="button"
+                data-search="gravador voz áudio"
+                onclick="androidCall('openRecorder')"
+            >
+
+                <div class="emoji">
+                    <img src="10.svg" alt="">
+                </div>
+
+                <div class="content">
+
+                    <div class="title">
+                        Gravador de voz
+                    </div>
+
+                    <div class="description">
+                        Grave áudios rapidamente
+                    </div>
+
+                </div>
+
+                <div class="arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"></path>
+                    </svg>
+                </div>
+
+            </button>
+
+
+            <button
+                class="btn"
+                type="button"
+                data-search="arquivos gerenciador"
+                onclick="androidCall('openFiles')"
+            >
+
+                <div class="emoji">
+                    <img src="11.svg" alt="">
+                </div>
+
+                <div class="content">
+
+                    <div class="title">
+                        Meus arquivos
+                    </div>
+
+                    <div class="description">
+                        Acesse seus arquivos
+                    </div>
+
+                </div>
+
+                <div class="arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"></path>
+                    </svg>
+                </div>
+
+            </button>
+
+
         </div>
 
-    </div>
-
-</button>
+    </section>
 
 
-<!-- NAVEGADOR -->
+    <!-- =====================================================
+         EMERGÊNCIA
+    ====================================================== -->
 
-<button
-    class="btn"
-    type="button"
-    data-search="navegador internet web"
-    onclick="ir('navegador.html')"
->
+    <section
+        class="section"
+        data-section
+    >
 
-    <div class="left">
+        <div class="sectionHeader">
 
-        <div class="emoji">
+            <h2 class="sectionTitle">
+                Emergência
+            </h2>
+
+
+
+        </div>
+
+
+        <div class="list">
+
+
+            <button
+                class="btn emergency"
+                type="button"
+                data-search="bloquear dispositivo tela segurança"
+                onclick="androidCall('bloquearTela')"
+            >
+
+                <div class="emoji">
+                    <img src="11.png" alt="">
+                </div>
+
+                <div class="content">
+
+                    <div class="title">
+                        Bloquear dispositivo
+                    </div>
+
+                    <div class="description">
+                        Bloqueie a tela imediatamente
+                    </div>
+
+                </div>
+
+                <div class="arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"></path>
+                    </svg>
+                </div>
+
+            </button>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         NOSSOS APLICATIVOS
+    ====================================================== -->
+
+    <section
+        class="section"
+        data-section
+    >
+
+        <div class="sectionHeader">
+
+            <h2 class="sectionTitle">
+                Nossos aplicativos
+            </h2>
+
+
+
+        </div>
+
+
+        <div class="list">
+
+
+            <button
+                class="btn appCard"
+                type="button"
+                data-search="assistente voz aplicativo"
+                onclick="androidCall('abrirOrdem')"
+            >
+
+                <div class="emoji">
+                    <img src="assist.png" alt="">
+                </div>
+
+                <div class="content">
+
+                    <div class="title">
+                        Assistente de voz APP
+                    </div>
+
+                    <div class="description">
+                        Seu assistente inteligente
+                    </div>
+
+                </div>
+
+                <div class="arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"></path>
+                    </svg>
+                </div>
+
+            </button>
+
+
+            <button
+                class="btn appCard"
+                type="button"
+                data-search="gerenciador arquivos aplicativo"
+                onclick="androidCall('abrirGerenciador')"
+            >
+
+                <div class="emoji">
+                    <img src="gerenciar.png" alt="">
+                </div>
+
+                <div class="content">
+
+                    <div class="title">
+                        Gerenciador de arquivos APP
+                    </div>
+
+                    <div class="description">
+                        Organize seus arquivos
+                    </div>
+
+                </div>
+
+                <div class="arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"></path>
+                    </svg>
+                </div>
+
+            </button>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         LINKS
+    ====================================================== -->
+
+    <section
+        class="section"
+        data-section
+    >
+
+        <div class="sectionHeader">
+
+            <h2 class="sectionTitle">
+                Links
+            </h2>
+
+
+
+        </div>
+
+
+        <div class="list">
+
+
+            <button
+                class="btn"
+                type="button"
+                data-search="dia mulheres feliz"
+                onclick="ir('dia.html')"
+            >
+
+                <div class="emoji">
+
+                    <img src="2.svg" alt="">
+
+                </div>
+
+                <div class="content">
+
+                    <div class="title">
+                        Feliz Dia das Mulheres!
+                    </div>
+
+                    <div class="description">
+                        Uma mensagem especial
+                    </div>
+
+                </div>
+
+                <div class="arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"></path>
+                    </svg>
+                </div>
+
+            </button>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         PESQUISA VAZIA
+    ====================================================== -->
+
+    <div
+        id="emptyState"
+        class="emptyState"
+    >
+
+        <div class="emptyIcon">
 
             <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 -960 960 960"
-                aria-hidden="true"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
             >
 
-                <path d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q32-45 54-95t35-105H391q13 55 35 105t54 95Zm-91-14q-17-36-30-73t-22-73H204q29 51 74 87t111 59Zm182 0q66-23 111-59t74-87H623q-9 36-22 73t-30 73ZM170-400h137q-4-20-5.5-40t-1.5-40q0-20 1.5-40t5.5-40H170q-5 20-7.5 40t-2.5 40q0 20 2.5 40t7.5 40Zm221 0h178q4-20 5.5-40t1.5-40q0-20-1.5-40t-5.5-40H391q-4 20-5.5 40t-1.5 40q0 20 1.5 40t5.5 40Zm258 0h137q5-20 7.5-40t2.5-40q0-20-2.5-40t-7.5-40H649q4 20 5.5 40t1.5 40q0 20-1.5 40t-5.5 40ZM204-640h133q9-36 22-73t30-73q-66 23-111 59t-74 87Zm187 0h178q-13-55-35-105t-54-95q-32 45-54 95t-35 105Zm232 0h133q-29-51-74-87t-111-59q17 36 30 73t22 73Z"/>
+                <circle
+                    cx="11"
+                    cy="11"
+                    r="7"
+                ></circle>
+
+                <path
+                    d="M16.5 16.5L21 21"
+                ></path>
 
             </svg>
 
         </div>
 
-        <div class="btn-content">
 
-            <span class="btn-title">
-                Navegador
-            </span>
-
-            <span class="btn-description">
-                Acesse a navegação pela internet
-            </span>
-
+        <div class="emptyTitle">
+            Nenhum acesso encontrado
         </div>
 
-        <div class="arrow">
-            ›
+        <div class="emptyText">
+            Tente pesquisar por outro termo.
         </div>
 
     </div>
 
-</button>
 
+    <footer class="footer">
+        Meus Acessos
+    </footer>
 
-<!-- =======================================================
-     OUTRAS FUNÇÕES
-======================================================== -->
-
-<div class="section">
-
-    <span class="section-label">
-        Outras funções
-    </span>
-
-    <span class="section-line"></span>
-
-</div>
-
-
-<!-- GRAVADOR -->
-
-<button
-    class="btn"
-    type="button"
-    data-search="gravador voz áudio gravação"
-    onclick="androidCall('openRecorder')"
->
-
-    <div class="left">
-
-        <div class="emoji">
-
-            <img
-                src="10.svg"
-                alt=""
-                draggable="false"
-            >
-
-        </div>
-
-        <div class="btn-content">
-
-            <span class="btn-title">
-                Gravador de voz
-            </span>
-
-            <span class="btn-description">
-                Grave e registre áudios
-            </span>
-
-        </div>
-
-        <div class="arrow">
-            ›
-        </div>
-
-    </div>
-
-</button>
-
-
-<!-- ARQUIVOS -->
-
-<button
-    class="btn"
-    type="button"
-    data-search="arquivos documentos gerenciador arquivos"
-    onclick="androidCall('openFiles')"
->
-
-    <div class="left">
-
-        <div class="emoji">
-
-            <img
-                src="11.svg"
-                alt=""
-                draggable="false"
-            >
-
-        </div>
-
-        <div class="btn-content">
-
-            <span class="btn-title">
-                Meus arquivos
-            </span>
-
-            <span class="btn-description">
-                Acesse seus arquivos e documentos
-            </span>
-
-        </div>
-
-        <div class="arrow">
-            ›
-        </div>
-
-    </div>
-
-</button>
-
-
-<!-- =======================================================
-     EMERGÊNCIA
-======================================================== -->
-
-<div class="section">
-
-    <span class="section-label">
-        Emergência
-    </span>
-
-    <span class="section-line"></span>
-
-</div>
-
-
-<button
-    class="btn emergency"
-    type="button"
-    data-search="emergência bloquear tela segurança"
-    onclick="androidCall('bloquearTela')"
->
-
-    <div class="left">
-
-        <div class="emoji">
-
-            <img
-                src="11.png"
-                alt=""
-                draggable="false"
-            >
-
-        </div>
-
-        <div class="btn-content">
-
-            <span class="btn-title">
-                Bloquear dispositivo
-            </span>
-
-            <span class="btn-description">
-                Bloqueia o celular imediatamente. A biometria poderá ficar indisponível.
-            </span>
-
-        </div>
-
-        <div class="arrow">
-            ›
-        </div>
-
-    </div>
-
-</button>
-
-
-<!-- =======================================================
-     OUTROS APLICATIVOS
-======================================================== -->
-
-<div class="section">
-
-    <span class="section-label">
-        Nossos aplicativos
-    </span>
-
-    <span class="section-line"></span>
-
-</div>
-
-
-<button
-    class="btn primary"
-    type="button"
-    data-search="assistente voz assistente inteligente"
-    onclick="androidCall('abrirOrdem')"
->
-
-    <div class="left">
-
-        <div class="emoji">
-
-            <img
-                src="assist.png"
-                alt=""
-                draggable="false"
-            >
-
-        </div>
-
-        <div class="btn-content">
-
-            <span class="btn-title">
-                Assistente de voz
-                <span class="badge">
-                    APP
-                </span>
-            </span>
-
-            <span class="btn-description">
-                Seu assistente inteligente integrado ao aplicativo
-            </span>
-
-        </div>
-
-        <div class="arrow">
-            ›
-        </div>
-
-    </div>
-
-</button>
-
-
-<button
-    class="btn primary"
-    type="button"
-    data-search="gerenciador arquivos documentos"
-    onclick="androidCall('abrirGerenciador')"
->
-
-    <div class="left">
-
-        <div class="emoji">
-
-            <img
-                src="gerenciar.png"
-                alt=""
-                draggable="false"
-            >
-
-        </div>
-
-        <div class="btn-content">
-
-            <span class="btn-title">
-                Gerenciador de arquivos
-                <span class="badge">
-                    APP
-                </span>
-            </span>
-
-            <span class="btn-description">
-                Gerencie arquivos, pastas e documentos
-            </span>
-
-        </div>
-
-        <div class="arrow">
-            ›
-        </div>
-
-    </div>
-
-</button>
-
-
-<!-- =======================================================
-     LINKS
-======================================================== -->
-
-<div class="section">
-
-    <span class="section-label">
-        Links
-    </span>
-
-    <span class="section-line"></span>
-
-</div>
-
-
-<button
-    class="btn"
-    type="button"
-    data-search="dia mulheres feliz dia mulheres"
-    onclick="ir('dia.html')"
->
-
-    <div class="left">
-
-        <div class="emoji">
-
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 -960 960 960"
-                aria-hidden="true"
-            >
-
-                <path d="M400-120v-200h-61q-21 0-33-17.5t-4-37.5l100-253q10-24 31-38t47-14q26 0 47 14t31 38l100 253q8 20-4 37.5T621-320h-61v200q0 17-11.5 28.5T520-80h-80q-17 0-28.5-11.5T400-120Zm23.5-623.5Q400-767 400-800t23.5-56.5Q447-880 480-880t56.5 23.5Q560-833 560-800t-23.5 56.5Q513-720 480-720t-56.5-23.5Z"/>
-
-            </svg>
-
-        </div>
-
-        <div class="btn-content">
-
-            <span class="btn-title">
-                Feliz Dia das Mulheres!
-            </span>
-
-            <span class="btn-description">
-                Uma página especial
-            </span>
-
-        </div>
-
-        <div class="arrow">
-            ›
-        </div>
-
-    </div>
-
-</button>
-
-
-</div>
-
-
-<!-- =======================================================
-     FOOTER
-======================================================== -->
-
-<footer class="footer">
-
-    <strong>Meus Acessos</strong>
-    <br>
-    Central de recursos do aplicativo
-
-</footer>
-
-
-</main>
 
 </div>
 
@@ -2487,11 +1398,10 @@ body::-webkit-scrollbar {
 
 function ir(pagina) {
 
-    if (!pagina) {
-        return;
-    }
+    if (!pagina) return;
 
     window.location.href = pagina;
+
 }
 
 
@@ -2512,6 +1422,7 @@ function androidCall(metodo) {
             Android[metodo]();
 
             return true;
+
         }
 
         console.warn(
@@ -2530,130 +1441,28 @@ function androidCall(metodo) {
         );
 
         return false;
+
     }
-}
-
-
-/* =========================================================
-   PESQUISA EM TEMPO REAL
-========================================================= */
-
-const searchInput =
-    document.getElementById(
-        "searchInput"
-    );
-
-
-const cards =
-    document.querySelectorAll(
-        ".btn[data-search]"
-    );
-
-
-if (searchInput) {
-
-    searchInput.addEventListener(
-        "input",
-        function () {
-
-            const termo =
-                this.value
-                    .toLowerCase()
-                    .trim();
-
-
-            cards.forEach(
-                function (card) {
-
-                    const texto =
-                        card
-                            .getAttribute(
-                                "data-search"
-                            )
-                            .toLowerCase();
-
-
-                    if (
-                        !termo ||
-                        texto.includes(termo)
-                    ) {
-
-                        card.style.display =
-                            "";
-
-                    } else {
-
-                        card.style.display =
-                            "none";
-                    }
-
-                }
-            );
-
-        }
-    );
 
 }
 
 
+
+
 /* =========================================================
-   EVITA MENU DE CONTEXTO NOS CARDS
+   DESATIVA MENU DE CONTEXTO
 ========================================================= */
 
 document.addEventListener(
     "contextmenu",
-    function (evento) {
+    function (event) {
 
-        if (
-            evento.target.closest(".btn") ||
-            evento.target.closest(".quick")
-        ) {
+        event.preventDefault();
 
-            evento.preventDefault();
-
-        }
-
-    }
-);
-
-
-/* =========================================================
-   PREVENÇÃO DE DUPLO TOQUE
-========================================================= */
-
-let ultimoToque =
-    0;
-
-
-document.addEventListener(
-    "touchend",
-    function (evento) {
-
-        const agora =
-            Date.now();
-
-
-        if (
-            agora - ultimoToque <
-            250
-        ) {
-
-            evento.preventDefault();
-
-        }
-
-
-        ultimoToque =
-            agora;
-
-    },
-    {
-        passive: false
     }
 );
 
 </script>
-
 
 </body>
 
