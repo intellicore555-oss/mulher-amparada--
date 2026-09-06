@@ -262,12 +262,12 @@ body {
 .btn {
 
     width: 100%;
-    height: 88px;
+    height: 98px;
 
     display: flex;
     align-items: center;
 
-    padding: 0 26px;
+    padding: 26px;
 
     border: 1px solid var(--line);
     border-radius: var(--radius);
@@ -284,6 +284,9 @@ body {
         background .15s ease,
         border-color .15s ease;
 
+
+padding-bottom: 15px;
+padding-top: 15px;
 }
 
 .btn:active {
@@ -375,43 +378,27 @@ body {
 
 
 .title {
-
-    overflow: hidden;
-
     color: #ffffff;
 
     font-size: 15px;
-
     font-weight: 750;
 
     line-height: 1.25;
 
-    white-space: nowrap;
 
-    text-overflow: ellipsis;
-
+    
 }
 
-
 .description {
-
-    overflow: hidden;
-
     color: var(--text-muted);
 
     font-size: 12px;
-
     font-weight: 500;
 
     line-height: 1.3;
 
-    white-space: nowrap;
-
-    text-overflow: ellipsis;
-
+    
 }
-
-
 /* =========================================================
    SETA
 ========================================================= */
@@ -558,29 +545,6 @@ body {
 
 }
 
-
-.emptyTitle {
-
-    color: #ffffff;
-
-    font-size: 16px;
-
-    font-weight: 750;
-
-}
-
-
-.emptyText {
-
-    margin-top: 5px;
-
-    color: var(--text-muted);
-
-    font-size: 13px;
-
-    font-weight: 500;
-
-}
 
 
 /* =========================================================
@@ -1320,16 +1284,7 @@ body {
         </div>
 
 
-        <div class="emptyTitle">
-            Nenhum acesso encontrado
-        </div>
-
-        <div class="emptyText">
-            Tente pesquisar por outro termo.
-        </div>
-
-    </div>
-
+        
 
     <footer class="footer">
         Meus Acessos
@@ -1410,6 +1365,52 @@ document.addEventListener(
 
     }
 );
+
+</script>
+
+<script>
+
+document.querySelectorAll(".btn").forEach(function (btn) {
+
+    btn.querySelectorAll(".title, .description").forEach(function (element) {
+
+        const texto = element.textContent.trim();
+
+        if (texto.length > 20) {
+
+            const palavras = texto.split(" ");
+            let linha1 = "";
+            let linha2 = "";
+
+            palavras.forEach(function (palavra) {
+
+                if (
+                    (linha1 + " " + palavra).trim().length <= 14 &&
+                    linha2 === ""
+                ) {
+
+                    linha1 += (linha1 ? " " : "") + palavra;
+
+                } else {
+
+                    linha2 += (linha2 ? " " : "") + palavra;
+
+                }
+
+            });
+
+            if (linha2) {
+
+                element.innerHTML =
+                    linha1 + "<br>" + linha2;
+
+            }
+
+        }
+
+    });
+
+});
 
 </script>
 
