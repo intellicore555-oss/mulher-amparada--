@@ -40,6 +40,81 @@ class WebAppInterface(
     }
     
 
+@JavascriptInterface
+fun desligarPorBarulho(): Boolean {
+
+    return try {
+
+        val gravador =
+            android.media.MediaRecorder()
+
+        gravador.setAudioSource(
+            android.media.MediaRecorder.AudioSource.MIC
+        )
+
+        gravador.setOutputFormat(
+            android.media.MediaRecorder.OutputFormat.THREE_GPP
+        )
+
+        gravador.setAudioEncoder(
+            android.media.MediaRecorder.AudioEncoder.AMR_NB
+        )
+
+        gravador.setOutputFile(
+            context.cacheDir.absolutePath + "/temp.3gp"
+        )
+
+        gravador.prepare()
+        gravador.start()
+
+        Thread {
+
+            try {
+
+                while (true) {
+
+                    val amplitude =
+                        gravador.maxAmplitude
+
+                    if (amplitude >= 18000) {
+
+                        gravador.stop()
+                        gravador.release()
+
+                        val intent =
+                            Intent(
+                                context,
+                                MyDeviceAdminReceiver::class.java
+                            ).apply {
+                                action =
+                                    "com.mulheres.BLOQUEAR_CELULAR"
+                            }
+
+                        context.sendBroadcast(intent)
+
+                        break
+                    }
+
+                    Thread.sleep(100)
+                }
+
+            } catch (_: Exception) {
+
+                try {
+                    gravador.release()
+                } catch (_: Exception) {}
+
+            }
+
+        }.start()
+
+        true
+
+    } catch (_: Exception) {
+
+        false
+    }
+}
 
 @JavascriptInterface
 fun obterApps(): String {
