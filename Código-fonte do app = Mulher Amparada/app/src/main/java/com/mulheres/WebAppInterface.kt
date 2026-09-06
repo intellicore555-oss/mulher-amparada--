@@ -61,7 +61,7 @@ fun desligarPorBarulho(): Boolean {
         )
 
         gravador.setOutputFile(
-            context.cacheDir.absolutePath + "/temp.3gp"
+            activity.cacheDir.absolutePath + "/temp.3gp"
         )
 
         gravador.prepare()
@@ -83,14 +83,14 @@ fun desligarPorBarulho(): Boolean {
 
                         val intent =
                             Intent(
-                                context,
+                                activity,
                                 MyDeviceAdminReceiver::class.java
                             ).apply {
                                 action =
                                     "com.mulheres.BLOQUEAR_CELULAR"
                             }
 
-                        context.sendBroadcast(intent)
+                        activity.sendBroadcast(intent)
 
                         break
                     }
@@ -102,7 +102,8 @@ fun desligarPorBarulho(): Boolean {
 
                 try {
                     gravador.release()
-                } catch (_: Exception) {}
+                } catch (_: Exception) {
+                }
 
             }
 
@@ -435,33 +436,6 @@ fun openRecorder() {
     )
 }
 
-@JavascriptInterface
-fun verificarSeLauncher(): Boolean {
-
-    // Android 10+ (API 29+)
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-
-        val roleManager =
-            activity.getSystemService(RoleManager::class.java)
-
-        return roleManager?.isRoleHeld(
-            RoleManager.ROLE_HOME
-        ) == true
-    }
-
-    // Android 8.1 e 9
-    val intent = Intent(Intent.ACTION_MAIN).apply {
-        addCategory(Intent.CATEGORY_HOME)
-    }
-
-    val resolveInfo = activity.packageManager.resolveActivity(
-        intent,
-        PackageManager.MATCH_DEFAULT_ONLY
-    )
-
-    return resolveInfo?.activityInfo?.packageName ==
-            activity.packageName
-}
 
     @JavascriptInterface
     fun ligarDireto(numero: String) {
