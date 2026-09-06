@@ -16,7 +16,7 @@ e agora a pagina la no GitHub pages atualiza a cada 1 hora
 
 e no site, ele conta com 3 botoes que ligam pro 192, 190 e 180 (ai voce escolhe), e eles usam o "tel:" do navegador
 
-e os contatos de confiança também são criptografados!
+e os contatos de confiança, quando são cadrastados eles também são criptografados!
 
 > ⚠️Vale lembrar que o Gerenciador De Arquivos Do Mulher Amparada na verdade ele so visualiza, e ele tem esse nome porque isso faz parte do disfarce do app, e ele so visualiza para a seguranca e nao apagar provas, e para não apagar algo importante acidentalmente!
 
