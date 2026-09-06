@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
 <title>Meus Acessos</title>
+
 <style>
 
 /* =========================================================
@@ -109,7 +115,6 @@ body {
     width: 100%;
     min-height: 100vh;
 
-overflow: hidden;
     
 
     color: var(--text);
@@ -184,7 +189,7 @@ body::-webkit-scrollbar,
     isolation: isolate;
 
     animation:
-        hubAppear .45s cubic-bezier(.2,.7,.2,1) both;
+        hubAppear .55s ease both;
 }
 
 
@@ -349,13 +354,7 @@ body::-webkit-scrollbar,
 
     background: #111122;
 
-    box-shadow:
 
-        inset 0 1px 0
-        rgba(255,255,255,.025),
-
-        0 8px 26px
-        rgba(0,0,0,.25);
 
     transition:
 
@@ -1117,7 +1116,9 @@ body,
 }
 
 </style>
+
 </head>
+
 
 <body>
 
@@ -1127,83 +1128,399 @@ body,
 
     <main class="card">
 
-
-
         <div class="buttons">
 
             <div class="title">
-                Atalhos:
+                Recursos do aplicativo:
             </div>
 
-            <button class="btn" onclick="ir('botao1.html')">
+
+            <button
+                class="btn"
+                type="button"
+                onclick="ir('calendario.html')"
+            >
+
                 <div class="left">
-                
+
                     <div class="emoji">
-<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M200-640v440h560v-440H640v255q0 23-19 34.5t-39 1.5l-102-51-102 51q-20 10-39-1.5T320-385v-255H200Zm0 520q-33 0-56.5-23.5T120-200v-499q0-14 4.5-27t13.5-24l50-61q11-14 27.5-21.5T250-840h460q18 0 34.5 7.5T772-811l50 61q9 11 13.5 24t4.5 27v499q0 33-23.5 56.5T760-120H200Zm16-600h528l-34-40H250l-34 40Zm184 80v190l80-40 80 40v-190H400Zm-200 0h560-560Z"/></svg>
+
+                        <img
+                            src="2.svg"
+                            alt=""
+                        >
+
                     </div>
-                    <span>Recursos do aplicativo</span>
+
+                    <span>
+                        Calendário menstrual
+                    </span>
+
                 </div>
+
             </button>
 
-            <button class="btn" onclick="ir('botao2.html')">
+
+            <button
+                class="btn"
+                type="button"
+                onclick="ir('calendar.html')"
+            >
+
                 <div class="left">
-                
+
                     <div class="emoji">
-<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M714-162 537-339l84-84 177 177q17 17 17 42t-17 42q-17 17-42 17t-42-17Zm-569-42q0-25 17-42l234-234-68-68q-11 11-28 11t-28-11l-23-23v90q0 14-12 19t-22-5L106-576q-10-10-5-22t19-12h90l-22-22q-12-12-12-28t12-28l114-114q20-20 43-29t47-9q20 0 37.5 6t34.5 18q8 5 8.5 14t-6.5 16l-76 76 22 22q11 11 11 28t-11 28l68 68 90-90q-4-11-6.5-23t-2.5-24q0-59 40.5-99.5T701-841q8 0 15 .5t14 2.5q9 3 11.5 12.5T737-809l-65 65q-6 6-6 14t6 14l44 44q6 6 14 6t14-6l65-65q7-7 16.5-5t12.5 12q2 7 2.5 14t.5 15q0 59-40.5 99.5T701-561q-12 0-24-2t-23-7L246-162q-17 17-42 17t-42-17q-17-17-17-42Z"/></svg>
+
+                        <img
+                            src="3.svg"
+                            alt=""
+                        >
+
                     </div>
-                    <span>Outras funções do aplicativo</span>
+
+                    <span>
+                        Calendário de eventos
+                    </span>
+
                 </div>
+
             </button>
 
-            <button class="btn" onclick="ir('botao3.html')">
+
+            <button
+                class="btn"
+                type="button"
+                onclick="ir('mapa.html')"
+            >
+
                 <div class="left">
-                                    <div class="emoji" style="display: flex; justify-content: center; align-items: center;">
-<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M410-190v-168l-146 84q-25 14-53 7t-42-33q-14-25-7-53t32-42l146-85-146-84q-25-14-32-42.5t7-53.5q14-25 42-32t53 7l146 84v-169q0-29 20.5-49.5T480-840q29 0 49.5 20.5T550-770v169l146-84q25-14 53-7t42 32q14 25 6.5 53.5T765-564l-145 84 146 85q25 14 32 42t-7 54q-14 25-42 32t-53-7l-146-84v168q0 29-20.5 49.5T480-120q-29 0-49.5-20.5T410-190Z"/></svg>
+
+                    <div class="emoji">
+
+                        <img
+                            src="4.svg"
+                            alt=""
+                        >
+
                     </div>
-                    
-                    <span>Funções de emergência</span>
+
+                    <span>
+                        Mapa da sua região
+                    </span>
+
                 </div>
+
             </button>
 
-            <button class="btn" onclick="ir('botao4.html')">
+
+            <button
+                class="btn"
+                type="button"
+                onclick="ir('caderno.html')"
+            >
+
                 <div class="left">
-                                    <div class="emoji">
-<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M468.5-451.5Q480-463 480-480t-11.5-28.5Q457-520 440-520t-28.5 11.5Q400-497 400-480t11.5 28.5Q423-440 440-440t28.5-11.5ZM280-120v-80l240-40v-445q0-15-9-27t-23-14l-208-34v-80l220 36q44 8 72 41t28 77v444q0 29-19 51.5T533-163l-253 43Zm0-80h400v-560H280v560Zm-120 80q-17 0-28.5-11.5T120-160q0-17 11.5-28.5T160-200h40v-560q0-33 23.5-56.5T280-840h400q33 0 56.5 23.5T760-760v560h40q17 0 28.5 11.5T840-160q0 17-11.5 28.5T800-120H160Z"/></svg>
+
+                    <div class="emoji">
+
+                        <img
+                            src="5.svg"
+                            alt=""
+                        >
+
                     </div>
 
-                    <span>Funções avançadas</span>
+                    <span>
+                        Diário e anotações
+                    </span>
+
                 </div>
+
             </button>
 
-            <button class="btn" onclick="ir('botao5.html')">
+
+            <button
+                class="btn"
+                type="button"
+                onclick="ir('treino.html')"
+            >
+
                 <div class="left">
-                                    <div class="emoji">
-<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M318-120q-82 0-140-58t-58-140q0-40 15-76t43-64l105-105q12-12 28.5-12t28.5 12q12 12 12 28t-12 28L234-401q-17 17-25.5 38.5T200-318q0 49 34.5 83.5T318-200q23 0 45-8.5t39-25.5l105-106q12-11 28-11t28 12q12 12 12 28t-12 28L458-178q-28 28-64 43t-76 15Zm50-248q-12-12-12-28.5t12-28.5l167-167q12-12 28.5-12t28.5 12q12 12 12 28.5T592-535L425-368q-12 12-28.5 12T368-368Zm252-29q-12-12-12-28t12-28l106-105q17-17 25-38t8-44q0-50-34-85t-84-35q-23 0-44.5 8.5T558-726L453-620q-12 12-28 12t-28-12q-12-12-12-28.5t12-28.5l105-105q28-28 64-43t76-15q82 0 139.5 58T839-641q0 39-14.5 75T782-502L677-397q-12 12-28.5 12T620-397Z"/></svg>
+
+                    <div class="emoji">
+
+                        <img
+                            src="6.svg"
+                            alt=""
+                        >
+
                     </div>
 
-                    <span>Links</span>
+                    <span>
+                        Rotina gamificada
+                    </span>
+
                 </div>
+
             </button>
 
 
+            <button
+                class="btn"
+                type="button"
+                onclick="ir('daora.html')"
+            >
+
+                <div class="left">
+
+                    <div class="emoji">
+
+                        <img
+                            src="7.svg"
+                            alt=""
+                        >
+
+                    </div>
+
+                    <span>
+                        Relógio + Localização
+                    </span>
+
+                </div>
+
+            </button>
 
 
-        </div>
+            <button
+                class="btn"
+                type="button"
+                onclick="ir('calc.html')"
+            >
 
-        <div class="footer">
-            Secured By • Mulher Amparada
+                <div class="left">
+
+                    <div class="emoji">
+
+                        <img
+                            src="8.svg"
+                            alt=""
+                        >
+
+                    </div>
+
+                    <span>
+                        Calculadora
+                    </span>
+
+                </div>
+
+            </button>
+
+
+            <button
+                class="btn"
+                type="button"
+                onclick="ir('task.html')"
+            >
+
+                <div class="left">
+
+                    <div class="emoji">
+
+                        <img
+                            src="9.svg"
+                            alt=""
+                        >
+
+                    </div>
+
+                    <span>
+                        Minhas tarefas
+                    </span>
+
+                </div>
+
+            </button>
+            
+            
+
+            <button
+                class="btn"
+                type="button"
+                onclick="ir('navegador.html')"
+            >
+
+                <div class="left">
+
+                    <div class="emoji">
+<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M720-183v49q0 17-11.5 28.5T680-94q-17 0-28.5-11.5T640-134v-126q0-25 17.5-42.5T700-320h126q17 0 28.5 11.5T866-280q0 17-11.5 28.5T826-240h-50l90 90q11 11 11 27.5T866-94q-12 12-28.5 12T809-94l-89-89ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 10-.5 22t-1.5 22q-2 17-14 26.5t-30 9.5q-16 0-27-14t-9-30q2-10 2-18v-18q0-20-2.5-40t-7.5-40H654q3 20 4.5 40t1.5 40v21.5q0 11.5-1 21.5-2 17-14 27t-29 10q-16 0-27.5-13t-9.5-29q1-10 1-19v-19q0-20-1.5-40t-4.5-40H386q-3 20-4.5 40t-1.5 40q0 20 1.5 40t4.5 40h94q17 0 28.5 11.5T520-360q0 17-11.5 28.5T480-320h-76q12 43 31 82.5t45 75.5q10 0 20 .5t20-.5q17-2 28 8.5t11 27.5q0 18-9 30t-26 14q-10 1-22 1.5t-22 .5ZM170-400h136q-3-20-4.5-40t-1.5-40q0-20 1.5-40t4.5-40H170q-5 20-7.5 40t-2.5 40q0 20 2.5 40t7.5 40Zm206 222q-18-34-31.5-69.5T322-320H204q29 51 73 87.5t99 54.5ZM204-640h118q9-37 22.5-72.5T376-782q-55 18-99 54.5T204-640Zm200 0h152q-12-43-31-82.5T480-798q-26 36-45 75.5T404-640Zm234 0h118q-29-51-73-87.5T584-782q18 34 31.5 69.5T638-640Z"/></svg>
+
+                    </div>
+
+                    <span>
+                        Navegador
+                    </span>
+
+                </div>
+
+            </button>
+            
+                        <div class="title">
+                Outras funções do aplicativo:
+            </div>
+
+
+            <button
+                class="btn"
+                type="button"
+                onclick="Android.openRecorder()"
+            >
+
+                <div class="left">
+
+                    <div class="emoji">
+
+                        <img
+                            src="10.svg"
+                            alt=""
+                        >
+
+                    </div>
+
+                    <span>
+                        Gravador de voz
+                    </span>
+
+                </div>
+
+            </button>
+
+
+            <button
+                class="btn"
+                type="button"
+                onclick="Android.openFiles()"
+            >
+
+                <div class="left">
+
+                    <div class="emoji">
+
+                        <img
+                            src="11.svg"
+                            alt=""
+                        >
+
+                    </div>
+
+                    <span>
+                        Meus arquivos
+                    </span>
+
+                </div>
+
+            </button>
+
+
+            <div class="title">
+                Funções de emergência:
+            </div>
+
+
+            <button
+                class="btn"
+                type="button"
+                onclick="ativarEbloquear()"
+            >
+
+                <div class="left">
+
+                    <div class="emoji">
+
+                        <img
+                            src="11.png"
+                            alt=""
+                        >
+
+                    </div>
+
+                    <span>
+                        Desligar o celular, (aviso: você não poderá usar biometria!)
+                    </span>
+
+                </div>
+
+            </button>
+
+            <div class="title">
+                Nossos outros aplicativos:
+            </div>
+
+            <button class="btn" onclick="Android.abrirOrdem();">
+                <div class="left">
+<div class="emoji">
+                        <img src="assist.png" alt="">
+                                        </div>
+                    <span>Assistente de voz</span>
+
+                </div>
+            </button>
+
+            <button class="btn" onclick="Android.abrirGerenciador();">
+                <div class="left">
+<div class="emoji">
+                        <img src="gerenciar.png" alt="">
+                    </div>
+                    <span>Gerenciador de arquivos</span>
+                </div>
+            </button>
+
+            <div class="title">
+                Links
+            </div>
+
+            <button
+                class="btn"
+                type="button"
+                onclick="ir('dia.html')"
+            >
+
+                <div class="left">
+
+                    <div class="emoji">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M400-120v-200h-61q-21 0-33-17.5t-4-37.5l100-253q10-24 31-38t47-14q26 0 47 14t31 38l100 253q8 20-4 37.5T621-320h-61v200q0 17-11.5 28.5T520-80h-80q-17 0-28.5-11.5T400-120Zm23.5-623.5Q400-767 400-800t23.5-56.5Q447-880 480-880t56.5 23.5Q560-833 560-800t-23.5 56.5Q513-720 480-720t-56.5-23.5Z"/></svg>
+                    </div>
+
+                    <span>
+                        Feliz dia das mulheres!
+                    </span>
+
+                </div>
+
+            </button>
+
+            
+<br>
+
         </div>
 
     </main>
 
 </div>
+
+
 <script>
 
 function ir(pagina) {
+
     window.location.href = pagina;
+
 }
 
 </script>
 
+
 </body>
+
 </html>
