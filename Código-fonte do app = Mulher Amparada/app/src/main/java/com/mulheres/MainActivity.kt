@@ -56,6 +56,8 @@ class MainActivity : AppCompatActivity() {
   
     private var acelerometro: Sensor? = null  
   
+  private lateinit var cripto: Cripto
+  
     var destinoBiometria: Int = 0  
   
     private lateinit var tiltBrightness: TiltBrightnessController  
@@ -151,6 +153,8 @@ class MainActivity : AppCompatActivity() {
                 )  
   
         configurarWebView()  
+        
+        cripto = Cripto(this)
   
   
         // =====================================================  
@@ -328,17 +332,10 @@ class MainActivity : AppCompatActivity() {
         mensagem: String  
     ) {  
   
-        val prefs =  
-            getSharedPreferences(  
-                "contatos",  
-                MODE_PRIVATE  
-            )  
-  
-        val lista =  
-            prefs.getString(  
-                "lista",  
-                ""  
-            ) ?: ""  
+        val lista =
+    cripto.carregar(
+        "contatos_lista"
+    )
   
         if (  
             lista.trim().isEmpty()  
@@ -1338,160 +1335,180 @@ class MainActivity : AppCompatActivity() {
     // RESULTADO DO CONTATO  
     // =========================================================  
   
-    override fun onActivityResult(  
-        requestCode: Int,  
-        resultCode: Int,  
-        data: Intent?  
-    ) {  
-  
-        super.onActivityResult(  
-            requestCode,  
-            resultCode,  
-            data  
-        )  
-  
-        if (  
-            requestCode ==  
-                PICK_CONTACT &&  
-            resultCode ==  
-                RESULT_OK  
-        ) {  
-  
-            val uri =  
-                data?.data ?: return  
-  
-            val cursor =  
-                contentResolver.query(  
-                    uri,  
-                    null,  
-                    null,  
-                    null,  
-                    null  
-                )  
-  
-            if (  
-                cursor != null &&  
-                cursor.moveToFirst()  
-            ) {  
-  
-                val numeroIndex =  
-                    cursor.getColumnIndex(  
-                        "data1"  
-                    )  
-  
-                val nomeIndex =  
-                    cursor.getColumnIndex(  
-                        "display_name"  
-                    )  
-  
-  
-                val numero =  
-                    if (  
-                        numeroIndex >= 0  
-                    ) {  
-  
-                        cursor.getString(  
-                            numeroIndex  
-                        )  
-                            ?.replace(  
-                                Regex("\\s"),  
-                                ""  
-                            )  
-                            ?.replace(  
-                                "-",  
-                                ""  
-                            )  
-                            ?: ""  
-  
-                    } else {  
-  
-                        ""  
-                    }  
-  
-  
-                val nome =  
-                    if (  
-                        nomeIndex >= 0  
-                    ) {  
-  
-                        cursor.getString(  
-                            nomeIndex  
-                        ) ?: "Contato"  
-  
-                    } else {  
-  
-                        "Contato"  
-                    }  
-  
-  
-                val prefs =  
-                    getSharedPreferences(  
-                        "contatos",  
-                        MODE_PRIVATE  
-                    )  
-  
-                val listaAtual =  
-                    prefs.getString(  
-                        "lista",  
-                        ""  
-                    ) ?: ""  
-  
-                val nomesAtual =  
-                    prefs.getString(  
-                        "nomes",  
-                        ""  
-                    ) ?: ""  
-  
-  
-                val novaLista =  
-                    if (  
-                        listaAtual.isEmpty()  
-                    ) {  
-  
-                        numero  
-  
-                    } else {  
-  
-                        "$listaAtual,$numero"  
-                    }  
-  
-  
-                val novosNomes =  
-                    if (  
-                        nomesAtual.isEmpty()  
-                    ) {  
-  
-                        "$nome - $numero"  
-  
-                    } else {  
-  
-                        "$nomesAtual\n$nome - $numero"  
-                    }  
-  
-  
-                prefs.edit()  
-                    .putString(  
-                        "lista",  
-                        novaLista  
-                    )  
-                    .putString(  
-                        "nomes",  
-                        novosNomes  
-                    )  
-                    .apply()  
-  
-                cursor.close()  
-  
-                Toast.makeText(  
-                    this,  
-                    "Contato salvo",  
-                    Toast.LENGTH_SHORT  
-                ).show()  
-            }  
-        }  
-    }  
-  
-  
+    override fun onActivityResult(
+    requestCode: Int,
+    resultCode: Int,
+    data: Intent?
+) {
+
+    super.onActivityResult(
+        requestCode,
+        resultCode,
+        data
+    )
+
+    if (
+        requestCode ==
+            PICK_CONTACT &&
+        resultCode ==
+            RESULT_OK
+    ) {
+
+        val uri =
+            data?.data ?: return
+
+        val cursor =
+            contentResolver.query(
+                uri,
+                null,
+                null,
+                null,
+                null
+            )
+
+        if (
+            cursor != null &&
+            cursor.moveToFirst()
+        ) {
+
+            val numeroIndex =
+                cursor.getColumnIndex(
+                    "data1"
+                )
+
+            val nomeIndex =
+                cursor.getColumnIndex(
+                    "display_name"
+                )
+
+            val numero =
+                if (
+                    numeroIndex >= 0
+                ) {
+
+                    cursor.getString(
+                        numeroIndex
+                    )
+                        ?.replace(
+                            Regex("\\s"),
+                            ""
+                        )
+                        ?.replace(
+                            "-",
+                            ""
+                        )
+                        ?: ""
+
+                } else {
+
+                    ""
+                }
+
+            val nome =
+                if (
+                    nomeIndex >= 0
+                ) {
+
+                    cursor.getString(
+                        nomeIndex
+                    ) ?: "Contato"
+
+                } else {
+
+                    "Contato"
+                }
+
+
+            /*
+             * =====================================================
+             * CRIPTOGRAFIA
+             * =====================================================
+             *
+             * Os dados são armazenados através da classe Cripto.
+             *
+             * NÃO usar mais:
+             *
+             * getSharedPreferences("contatos", ...)
+             */
+
+
+            val listaAtual =
+                cripto.carregar(
+                    "contatos_lista"
+                )
+
+            val nomesAtual =
+                cripto.carregar(
+                    "contatos_nomes"
+                )
+
+
+            /*
+             * =====================================================
+             * ADICIONA O NÚMERO À LISTA
+             * =====================================================
+             */
+
+            val novaLista =
+                if (
+                    listaAtual.isEmpty()
+                ) {
+
+                    numero
+
+                } else {
+
+                    "$listaAtual,$numero"
+                }
+
+
+            /*
+             * =====================================================
+             * ADICIONA NOME + NÚMERO
+             * =====================================================
+             */
+
+            val novosNomes =
+                if (
+                    nomesAtual.isEmpty()
+                ) {
+
+                    "$nome - $numero"
+
+                } else {
+
+                    "$nomesAtual\n$nome - $numero"
+                }
+
+
+            /*
+             * =====================================================
+             * SALVA CRIPTOGRAFADO
+             * =====================================================
+             */
+
+            cripto.salvar(
+                "contatos_lista",
+                novaLista
+            )
+
+            cripto.salvar(
+                "contatos_nomes",
+                novosNomes
+            )
+
+
+            cursor.close()
+
+
+            Toast.makeText(
+                this,
+                "Contato salvo",
+                Toast.LENGTH_SHORT
+            ).show()
+        
+    }
+}
     // =========================================================  
     // LAUNCHER  
     // =========================================================  
