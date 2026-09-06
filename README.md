@@ -56,7 +56,7 @@ Escurecimento por inclinação:
 com isso, voce pode controlar o brilho da tela clicando em um botão..., porém, e tipo como se fosse o menor brilho do celular, e ai depois ele deixa a tela preta (nao com brilho e sim colocando a cor), (honestamente, antes aparecia as duas barras, agora elas se escondem!), e o efeito e vitalicio ate fechar e abrir o app!
 
 Desligar o celular pelo barulho:
-ao ativado, ao fazer barulho alto, ele usa o administrador do dispositivo e desliga o celular!
+ao ativado, ao fazer barulho alto, ele usa o administrador do dispositivo e desliga o celular!, e o melhor e que da para ativar essa e a proteção por barulho ao mesmo tempo!, (sim, eu testei isso no dia 06/09/2026, e não só isso, se o agressor jogar o celular e ele não quebrar, a proteção por barulho se tiver ativa em teoria pode iniciar a ligação pro 180!)
 
 Emergência:
 Saindo dessa área, existem botões que abrem o aplicativo nativo do telefone nos números 190, 192 e 180.
