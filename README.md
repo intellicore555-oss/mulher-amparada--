@@ -18,7 +18,7 @@ e no site, ele conta com 3 botoes que ligam pro 192, 190 e 180 (ai voce escolhe)
 
 e os contatos de confiança, quando são cadrastados eles também são criptografados!
 
-e o bloqueio do celular por barulho é assim: bloqueia, voce desbloqueia e pra ter denovo tem que desativar e ativar denovo!, e sobre ele, mulheres, não usem ele junto com a proteção por barulho ou qualquer recurso que use o microfone ao mesmo tempo!
+e o bloqueio do celular por barulho é assim: bloqueia, voce desbloqueia e pra ter denovo tem que desativar e ativar denovo!
 
 > ⚠️Vale lembrar que o Gerenciador De Arquivos Do Mulher Amparada na verdade ele so visualiza, e ele tem esse nome porque isso faz parte do disfarce do app, e ele so visualiza para a seguranca e nao apagar provas, e para não apagar algo importante acidentalmente!
 
