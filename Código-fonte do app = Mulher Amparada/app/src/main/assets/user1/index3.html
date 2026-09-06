@@ -890,11 +890,10 @@ body {
 
     </section>
 
-
 <section class="section">
 
     <div class="label">
-        Proximidade
+        Desligar o celular
     </div>
 
     <div
@@ -905,12 +904,12 @@ body {
         <div class="control-card-content">
 
             <h3>
-                Bloqueio por proximidade
+                Bloqueio por barulho
             </h3>
 
             <p>
-                Bloqueia o celular automaticamente
-                quando algo se aproxima do sensor.
+                Detecta sons altos e bloqueia
+                o celular automaticamente.
             </p>
 
             <span
@@ -928,13 +927,12 @@ body {
             type="button"
             role="switch"
             aria-checked="false"
-            aria-label="Ativar bloqueio por proximidade"
+            aria-label="Ativar bloqueio por barulho"
         ></button>
 
     </div>
 
 </section>
-
 
 </main>
 
@@ -1374,6 +1372,9 @@ window.addEventListener(
     }
 );
 
+</script>
+
+<script>
 /* =========================================================
    PROTEÇÃO POR PROXIMIDADE
 ========================================================= */
@@ -1396,6 +1397,10 @@ const proximidadeStatus =
 
 let proximidadeAtiva = false;
 
+
+/* =========================================================
+   ATUALIZAÇÃO DA INTERFACE
+========================================================= */
 
 function atualizarProximidadeUI() {
 
@@ -1428,36 +1433,64 @@ function atualizarProximidadeUI() {
 }
 
 
+/* =========================================================
+   CLIQUE
+========================================================= */
+
 proximidadeSwitch.addEventListener(
     "click",
     function() {
 
-        proximidadeAtiva =
-            !proximidadeAtiva;
-
         vibrar(70);
 
 
+        /* =============================================
+           DESATIVAR
+        ============================================= */
+
         if (proximidadeAtiva) {
-
-            chamarAndroid(
-                "iniciarSensorProximidade"
-            );
-
-        } else {
 
             chamarAndroid(
                 "pararSensorProximidade"
             );
 
+            proximidadeAtiva = false;
+
+            atualizarProximidadeUI();
+
+            return;
         }
 
 
-        atualizarProximidadeUI();
+        /* =============================================
+           ATIVAR
+        ============================================= */
+
+        const resultado =
+            chamarAndroid(
+                "desligarPorBarulho"
+            );
+
+
+        if (resultado === true) {
+
+            proximidadeAtiva = true;
+
+            atualizarProximidadeUI();
+
+        } else {
+
+            proximidadeAtiva = false;
+
+            proximidadeStatus.innerText =
+                "NÃO FOI POSSÍVEL ATIVAR";
+
+            vibrar(150);
+
+        }
 
     }
 );
-
 </script>
 
 </body>
