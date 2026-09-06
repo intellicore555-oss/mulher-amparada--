@@ -661,6 +661,58 @@ body {
 
 }
 
+/* =========================================================
+   PROXIMIDADE
+========================================================= */
+
+.control-card.proximity.active {
+
+    background:
+
+        linear-gradient(
+            145deg,
+            #18191d,
+            #101114
+        );
+
+    border:
+        1px solid rgba(255,255,255,.28);
+
+    box-shadow:
+        0 16px 40px rgba(255,255,255,.06);
+}
+
+
+.control-card.proximity.active .control-status {
+
+    color:
+        #ffffff;
+}
+
+
+/* =========================================================
+   SWITCH BRANCO
+========================================================= */
+
+.switch.white.active {
+
+    background:
+        #ffffff;
+
+    box-shadow:
+        0 0 0 4px rgba(255,255,255,.08);
+}
+
+
+.switch.white.active::after {
+
+    background:
+        #000000;
+
+    transform:
+        translateX(24px);
+}
+
 </style>
 
 
@@ -839,7 +891,49 @@ body {
     </section>
 
 
+<section class="section">
 
+    <div class="label">
+        Proximidade
+    </div>
+
+    <div
+        class="control-card proximity"
+        id="proximidadeCard"
+    >
+
+        <div class="control-card-content">
+
+            <h3>
+                Bloqueio por proximidade
+            </h3>
+
+            <p>
+                Bloqueia o celular automaticamente
+                quando algo se aproxima do sensor.
+            </p>
+
+            <span
+                class="control-status"
+                id="proximidadeStatus"
+            >
+                DESATIVADO
+            </span>
+
+        </div>
+
+        <button
+            class="switch white"
+            id="proximidadeSwitch"
+            type="button"
+            role="switch"
+            aria-checked="false"
+            aria-label="Ativar bloqueio por proximidade"
+        ></button>
+
+    </div>
+
+</section>
 
 
 </main>
@@ -1280,6 +1374,89 @@ window.addEventListener(
     }
 );
 
+/* =========================================================
+   PROTEÇÃO POR PROXIMIDADE
+========================================================= */
+
+const proximidadeCard =
+    document.getElementById(
+        "proximidadeCard"
+    );
+
+const proximidadeSwitch =
+    document.getElementById(
+        "proximidadeSwitch"
+    );
+
+const proximidadeStatus =
+    document.getElementById(
+        "proximidadeStatus"
+    );
+
+
+let proximidadeAtiva = false;
+
+
+function atualizarProximidadeUI() {
+
+    proximidadeSwitch.classList.toggle(
+        "active",
+        proximidadeAtiva
+    );
+
+    proximidadeCard.classList.toggle(
+        "active",
+        proximidadeAtiva
+    );
+
+    proximidadeSwitch.setAttribute(
+        "aria-checked",
+        String(proximidadeAtiva)
+    );
+
+    proximidadeSwitch.setAttribute(
+        "aria-label",
+        proximidadeAtiva
+            ? "Desativar bloqueio por proximidade"
+            : "Ativar bloqueio por proximidade"
+    );
+
+    proximidadeStatus.innerText =
+        proximidadeAtiva
+            ? "ATIVADO"
+            : "DESATIVADO";
+}
+
+
+proximidadeSwitch.addEventListener(
+    "click",
+    function() {
+
+        proximidadeAtiva =
+            !proximidadeAtiva;
+
+        vibrar(70);
+
+
+        if (proximidadeAtiva) {
+
+            chamarAndroid(
+                "iniciarSensorProximidade"
+            );
+
+        } else {
+
+            chamarAndroid(
+                "pararSensorProximidade"
+            );
+
+        }
+
+
+        atualizarProximidadeUI();
+
+    }
+);
 
 </script>
 
