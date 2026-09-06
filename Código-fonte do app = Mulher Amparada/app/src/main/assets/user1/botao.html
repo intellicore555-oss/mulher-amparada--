@@ -7,23 +7,50 @@
 
 <meta
     name="viewport"
-    content="width=device-width, initial-scale=1.0"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+>
+
+<meta name="theme-color" content="#000000">
+
+<meta
+    name="description"
+    content="Central de recursos e acessos do aplicativo"
 >
 
 <title>Meus Acessos</title>
 
+
 <style>
+/* =========================================================
+   MEUS ACESSOS
+   PREMIUM APP HUB
+   BLACK × BLUE × SLATE
+   WEBVIEW OPTIMIZED
+========================================================= */
+
 
 /* =========================================================
-   HUB PREMIUM — ROSA CLARO
-   Design system completo
+   FONTE
 ========================================================= */
 
 @font-face {
+
     font-family: "Quicksand";
-    src: url("file:///android_asset/font.ttf") format("truetype");
-    font-weight: 400 800;
+
+    src:
+        url("file:///android_asset/font.ttf")
+        format("truetype");
+
+    font-weight:
+        400 800;
+
+    font-style:
+        normal;
+
+    font-display:
+        swap;
 }
+
 
 /* =========================================================
    VARIÁVEIS
@@ -31,32 +58,79 @@
 
 :root {
 
-    --bg: #050304;
+    --black: #000000;
 
-    --surface: #0b080a;
-    --surface-2: #100c0f;
-    --surface-3: #151014;
+    --bg: #000000;
 
-    --pink: mediumslateblue;
-    --pink-2: royalblue;
-    --pink-3: pink;
+    --surface: #09090c;
 
-    --pink-soft: blue;
-    --pink-soft-2: mediumslateblue;
+    --surface-2: #0d0d11;
 
-    --border: rgba(255,255,255,.065);
-    --border-pink: rgba(255,193,214,.18);
-    --border-pink-strong: rgba(255,193,214,.35);
+    --surface-3: #121218;
 
-    --text: #fffafd;
-    --text-soft: #c8bdc2;
-    --text-muted: #776c72;
+    --surface-active: #18181f;
 
-    --danger: #ff8fae;
+
+    --blue: #7c6cff;
+
+    --blue-2: #9589ff;
+
+    --blue-dark: #5548d8;
+
+
+    --blue-soft:
+        rgba(124, 108, 255, 0.09);
+
+    --blue-soft-2:
+        rgba(124, 108, 255, 0.045);
+
+    --blue-border:
+        rgba(124, 108, 255, 0.22);
+
+    --blue-border-strong:
+        rgba(124, 108, 255, 0.38);
+
+
+    --white: #ffffff;
+
+    --text: #ffffff;
+
+    --text-soft: #c8c8d0;
+
+    --text-muted: #777781;
+
+    --text-dark: #51515a;
+
+
+    --border:
+        rgba(255, 255, 255, 0.065);
+
+    --border-strong:
+        rgba(255, 255, 255, 0.11);
+
+
+    --danger: #ff708f;
+
+    --danger-soft:
+        rgba(255, 112, 143, 0.08);
+
+    --danger-border:
+        rgba(255, 112, 143, 0.22);
+
+
+    --success: #7dffb2;
+
 
     --radius-xl: 30px;
+
     --radius-lg: 23px;
-    --radius-md: 17px;
+
+    --radius-md: 18px;
+
+    --radius-sm: 14px;
+
+
+    --max-width: 680px;
 }
 
 
@@ -67,14 +141,20 @@
 * {
 
     margin: 0;
+
     padding: 0;
 
     box-sizing: border-box;
 
-    font-family: "Quicksand", sans-serif;
+    font-family:
+        "Quicksand",
+        sans-serif;
 
-    -webkit-tap-highlight-color: transparent;
-    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color:
+        transparent;
+
+    -webkit-touch-callout:
+        none;
 }
 
 
@@ -84,24 +164,35 @@
 
 html {
 
-    width: 95%;
+    width: 100%;
+
+    min-width: 100%;
+
     min-height: 100%;
 
-    background: #000000;
+    background:
+        #000000 !important;
 
-    color-scheme: dark;
+    color:
+        #ffffff;
 
-    scrollbar-width: none;
-    overscroll-behavior: none;
-    margin-left: 2.5%;
-    margin-right: 2.5%;
+    color-scheme:
+        dark;
+
+    scrollbar-width:
+        none;
+
+    overscroll-behavior:
+        none;
 }
 
 
 html::-webkit-scrollbar {
 
     width: 0;
+
     height: 0;
+
     display: none;
 }
 
@@ -113,30 +204,50 @@ html::-webkit-scrollbar {
 body {
 
     width: 100%;
+
+    min-width: 100%;
+
     min-height: 100vh;
 
-    
+    min-height: 100dvh;
 
-    color: var(--text);
+    margin: 0;
+
+    padding: 0;
 
     background:
-#000000;
+        #000000 !important;
 
-    scrollbar-width: none;
+    background-color:
+        #000000 !important;
 
-    overscroll-behavior-y: none;
+    color:
+        #ffffff;
+
+    overflow-x:
+        hidden;
+
+    scrollbar-width:
+        none;
+
+    overscroll-behavior:
+        none;
+
+    -webkit-overflow-scrolling:
+        touch;
+
+    touch-action:
+        pan-y;
 }
 
 
-body::-webkit-scrollbar,
-*::-webkit-scrollbar {
+body::-webkit-scrollbar {
 
     width: 0 !important;
+
     height: 0 !important;
 
     display: none !important;
-
-    background: transparent;
 }
 
 
@@ -146,9 +257,11 @@ body::-webkit-scrollbar,
 
 ::selection {
 
-    color: #160b10;
+    background:
+        var(--blue);
 
-    background: var(--pink);
+    color:
+        #ffffff;
 }
 
 
@@ -159,274 +272,413 @@ body::-webkit-scrollbar,
 .container {
 
     width: 100%;
+
     min-height: 100vh;
+
+    min-height: 100dvh;
 
     display: flex;
 
     justify-content: center;
-    align-items: flex-start;
 
     padding:
-        18px
-        13px
-        48px;
+        calc(
+            18px +
+            env(safe-area-inset-top)
+        )
+
+        15px
+
+        calc(
+            38px +
+            env(safe-area-inset-bottom)
+        );
+
+    background:
+        #000000;
 }
 
 
 /* =========================================================
-   HUB
+   CARD PRINCIPAL
 ========================================================= */
 
 .card {
 
     width: 100%;
-    max-width: 560px;
+
+    max-width:
+        var(--max-width);
+
+    min-height: 100%;
 
     position: relative;
 
-    padding: 2px 0;
-
-    isolation: isolate;
+    background:
+        #000000;
 
     animation:
-        hubAppear .55s ease both;
+        pageIn
+        .45s
+        ease-out
+        both;
 }
 
 
-/* =========================================================
-   ENTRADA
-========================================================= */
-
-@keyframes hubAppear {
+@keyframes pageIn {
 
     from {
 
         opacity: 0;
 
-        
+        transform:
+            translateY(10px);
     }
 
     to {
 
         opacity: 1;
 
-        
+        transform:
+            translateY(0);
     }
 }
 
 
-
-
 /* =========================================================
-   GRID
+   CABEÇALHO
 ========================================================= */
 
-.buttons {
+.header {
 
     width: 100%;
 
-    display: grid;
-
-    grid-template-columns:
-        repeat(1, minmax(0, 1fr));
-
-    gap: 11px;
-
-    position: relative;
-
-    z-index: 2;
+    padding:
+        10px
+        2px
+        21px;
 }
 
 
 /* =========================================================
-   TÍTULOS
+   EYEBROW
 ========================================================= */
 
-.title {
-
-    grid-column: 1 / -1;
-
-    position: relative;
+.eyebrow {
 
     display: flex;
 
     align-items: center;
 
-    gap: 9px;
+    gap: 8px;
 
-    margin:
-        20px
-        4px
-        1px;
+    margin-bottom:
+        9px;
 
-    min-height: 22px;
+    color:
+        var(--text-muted);
 
-    color: var(--text-muted);
+    font-size:
+        9px;
 
-    font-size: 10px;
+    font-weight:
+        800;
 
-    font-weight: 800;
+    line-height:
+        1;
 
-    letter-spacing: 1.5px;
+    letter-spacing:
+        1.7px;
 
-    text-transform: uppercase;
+    text-transform:
+        uppercase;
 }
 
 
-/* =========================================================
-   LINHA DO TÍTULO
-========================================================= */
+/*
+   Indicador criado com elemento real,
+   sem ::before / ::after
+*/
 
-.title::after {
+.eyebrow-indicator {
 
-    content: "";
+    width: 7px;
 
-    height: 1px;
+    height: 7px;
 
-    flex: 1;
+    flex: 0 0 7px;
 
-    margin-left: 3px;
+    border-radius:
+        50%;
 
     background:
-        linear-gradient(
-            90deg,
-            rgba(255,193,214,.14),
-            transparent
-        );
-}
-
-
-/* =========================================================
-   PONTO DO TÍTULO
-========================================================= */
-
-.title::before {
-
-    content: "";
-
-    width: 6px;
-    height: 6px;
-
-    flex: 0 0 6px;
-
-    border-radius: 50%;
-
-    background: var(--pink);
+        var(--blue);
 
     box-shadow:
-        0 0 0 4px rgba(255,193,214,.07),
-        0 0 14px rgba(255,193,214,.55);
+        0 0 0 4px
+        rgba(124,108,255,.07),
+
+        0 0 13px
+        rgba(124,108,255,.45);
 }
 
 
 /* =========================================================
-   BOTÃO
+   TÍTULO
+========================================================= */
+
+.header h1 {
+
+    color:
+        #ffffff;
+
+    font-size:
+        clamp(
+            28px,
+            8vw,
+            39px
+        );
+
+    font-weight:
+        800;
+
+    line-height:
+        1.04;
+
+    letter-spacing:
+        -.9px;
+}
+
+
+/* =========================================================
+   SUBTÍTULO
+========================================================= */
+
+.header p {
+
+    max-width:
+        540px;
+
+    margin-top:
+        9px;
+
+    color:
+        var(--text-muted);
+
+    font-size:
+        12px;
+
+    font-weight:
+        600;
+
+    line-height:
+        1.5;
+}
+
+
+
+
+/* =========================================================
+   SEÇÕES
+========================================================= */
+
+.section {
+
+    width:
+        100%;
+
+    min-height:
+        20px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        9px;
+
+    margin:
+        22px
+        3px
+        9px;
+}
+
+
+.section:first-child {
+
+    margin-top:
+        0;
+}
+
+
+.section-label {
+
+    color:
+        var(--text-muted);
+
+    font-size:
+        9px;
+
+    font-weight:
+        800;
+
+    line-height:
+        1;
+
+    letter-spacing:
+        1.45px;
+
+    text-transform:
+        uppercase;
+
+    white-space:
+        nowrap;
+}
+
+
+.section-line {
+
+    width:
+        auto;
+
+    height:
+        1px;
+
+    flex:
+        1;
+
+    background:
+        rgba(255,255,255,.065);
+}
+
+
+.counter {
+
+    min-width:
+        24px;
+
+    height:
+        21px;
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    padding:
+        0 7px;
+
+    border:
+        1px solid
+        var(--blue-border);
+
+    border-radius:
+        999px;
+
+    background:
+        var(--blue-soft);
+
+    color:
+        var(--blue-2);
+
+    font-size:
+        8px;
+
+    font-weight:
+        800;
+}
+
+
+/* =========================================================
+   LISTA
+========================================================= */
+
+.buttons {
+
+    width:
+        100%;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        10px;
+}
+
+
+/* =========================================================
+   BOTÃO PRINCIPAL
 ========================================================= */
 
 .btn {
 
-    width: 100%;
+    width:
+        100%;
 
-    min-height: 88px;
+    min-height:
+        82px;
 
-    position: relative;
+    display:
+        block;
 
-    display: block;
+    position:
+        relative;
 
-    overflow: hidden;
+    padding:
+        8px;
 
-    padding: 9px;
+    overflow:
+        hidden;
 
     border:
-
         1px solid
         var(--border);
 
-    border-radius: 30px;
+    border-radius:
+        var(--radius-lg);
 
-    outline: none;
+    outline:
+        none;
 
-    color: var(--text);
+    background:
+        #0a0a0d;
 
-    text-align: left;
+    color:
+        #ffffff;
 
-    cursor: pointer;
+    text-align:
+        left;
 
-    background: #111122;
+    cursor:
+        pointer;
 
+    -webkit-appearance:
+        none;
 
+    appearance:
+        none;
+
+    box-shadow:
+        inset 0 1px 0
+        rgba(255,255,255,.018),
+
+        0 7px 20px
+        rgba(0,0,0,.20);
 
     transition:
-
-        transform .16s ease,
-
-        border-color .2s ease,
-
-        background .2s ease,
-
-        box-shadow .2s ease;
-}
-
-
-/* =========================================================
-   BORDA INTERNA
-========================================================= */
-
-.btn::before {
-
-    content: "";
-
-    position: absolute;
-
-    inset: 1px;
-
-    border-radius:
-        calc(var(--radius-lg) - 1px);
-
-    pointer-events: none;
-
-    background:
-
-        linear-gradient(
-            135deg,
-            rgba(255,193,214,.045),
-            transparent 35%
-        );
-
-    opacity: .7;
-}
-
-
-/* =========================================================
-   BRILHO DE PASSAGEM
-========================================================= */
-
-.btn::after {
-
-    content: "";
-
-    position: absolute;
-
-    width: 100px;
-    height: 180%;
-
-    top: -40%;
-    left: -140px;
-
-    pointer-events: none;
-
-    transform: rotate(18deg);
-
-    background:
-
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(255,255,255,.055),
-            transparent
-        );
-
-    opacity: 0;
+        transform .15s ease,
+        border-color .15s ease,
+        background-color .15s ease,
+        box-shadow .15s ease;
 }
 
 
@@ -434,55 +686,27 @@ body::-webkit-scrollbar,
    HOVER
 ========================================================= */
 
-.btn:hover {
+@media (hover: hover) {
 
-    transform:
-        translateY(-2px);
+    .btn:hover {
 
-    border-color:
-        var(--border-pink);
+        transform:
+            translateY(-2px);
 
-    background:
+        border-color:
+            var(--blue-border);
 
-        linear-gradient(
-            145deg,
-            rgba(255,193,214,.085),
-            rgba(255,255,255,.012)
-        ),
+        background:
+            #0f0f13;
 
-        var(--surface-2);
+        box-shadow:
+            inset 0 1px 0
+            rgba(255,255,255,.025),
 
-    box-shadow:
-
-        inset 0 1px 0
-        rgba(255,255,255,.035),
-
-        0 14px 35px
-        rgba(0,0,0,.32),
-
-        0 0 26px
-        rgba(255,193,214,.045);
-}
-
-
-.btn:hover::after {
-
-    opacity: 1;
-
-    animation:
-        hubShine .65s ease;
-}
-
-
-@keyframes hubShine {
-
-    from {
-        left: -140px;
+            0 13px 28px
+            rgba(0,0,0,.32);
     }
 
-    to {
-        left: calc(100% + 40px);
-    }
 }
 
 
@@ -493,34 +717,43 @@ body::-webkit-scrollbar,
 .btn:active {
 
     transform:
-        scale(.965);
+        scale(.975);
 
     border-color:
-        var(--border-pink-strong);
+        var(--blue-border-strong);
 
     background:
-        var(--surface-3);
+        #17171d;
 
     box-shadow:
-        0 5px 15px
-        rgba(0,0,0,.38);
+        0 4px 12px
+        rgba(0,0,0,.35);
 }
 
 
 /* =========================================================
-   ÁREA INTERNA
+   CONTEÚDO INTERNO
 ========================================================= */
 
 .left {
 
-    width: 100%;
-    min-height: 68px;
+    width:
+        100%;
 
-    display: flex;
+    min-height:
+        64px;
 
-    align-items: center;
+    display:
+        flex;
 
-    position: relative;
+    align-items:
+        center;
+
+    position:
+        relative;
+
+    z-index:
+        1;
 }
 
 
@@ -530,150 +763,239 @@ body::-webkit-scrollbar,
 
 .emoji {
 
-    width: 56px;
-    height: 56px;
+    width:
+        62px;
 
-    position: absolute;
+    height:
+        62px;
 
-    left: 1px;
-    top: 50%;
+    flex:
+        0 0 62px;
 
-    transform:
-        translateY(-50%);
+    display:
+        flex;
 
-    display: flex;
+    align-items:
+        center;
 
-    align-items: center;
-    justify-content: center;
+    justify-content:
+        center;
 
-    border-radius: 180px;
-
-    background:
-
-        linear-gradient(
-            145deg,
-            rgba(255,193,214,.18),
-            rgba(255,193,214,.045)
-        );
+    overflow:
+        hidden;
 
     border:
-
         1px solid
-        rgba(255,193,214,.16);
+        rgba(255,255,255,.075);
 
-    box-shadow:
-
-        inset 0 1px 0
-        rgba(255,255,255,.055),
-
-        0 5px 16px
-        rgba(0,0,0,.2);
-
-    transition:
-
-        transform .18s ease,
-
-        background .18s ease,
-
-        border-color .18s ease,
-
-        box-shadow .18s ease;
-}
-
-
-/* =========================================================
-   ÍCONE HOVER
-========================================================= */
-
-.btn:hover .emoji {
-
-    transform:
-        translateY(-50%)
-        scale(1.055);
+    border-radius:
+        200px;
 
     background:
-
-        linear-gradient(
-            145deg,
-            rgba(255,193,214,.29),
-            rgba(255,193,214,.075)
-        );
-
-    border-color:
-        rgba(255,193,214,.30);
+        #15151a;
 
     box-shadow:
-
         inset 0 1px 0
-        rgba(255,255,255,.07),
+        rgba(255,255,255,.035),
 
-        0 0 24px
-        rgba(255,193,214,.10);
+        0 5px 15px
+        rgba(0,0,0,.25);
+
+    transition:
+        transform .17s ease,
+        border-color .17s ease,
+        background-color .17s ease;
 }
 
 
 /* =========================================================
-   IMAGENS / SVG
+   IMAGEM
+   OCUPA TODO O .EMOJI
 ========================================================= */
 
-.emoji img,
-.emoji svg {
+.emoji img {
 
-    width: 31px;
-    height: 31px;
+    width:
+        100%;
 
-    display: block;
+    height:
+        100%;
 
-    object-fit: contain;
+    min-width:
+        100%;
+
+    min-height:
+        100%;
+
+    max-width:
+        none;
+
+    max-height:
+        none;
+
+    display:
+        block;
+
+    margin:
+        0;
+
+    padding:
+        0;
+
+    border:
+        0;
+
+    border-radius:
+        200px;
+
+    object-fit:
+        cover;
+
+    object-position:
+        center center;
+
+    background:
+        transparent;
+
+    user-select:
+        none;
+
+    pointer-events:
+        none;
+
+    -webkit-user-drag:
+        none;
 
     transition:
         transform .18s ease;
 }
 
 
-.btn:hover .emoji img,
-.btn:hover .emoji svg {
+/* =========================================================
+   SVG DOS ÍCONES
+========================================================= */
 
-    transform: scale(1.04);
+.emoji svg {
+
+    width:
+        34px;
+
+    height:
+        34px;
+
+    flex:
+        0 0 34px;
+
+    display:
+        block;
+
+    fill:
+        #ffffff;
+
+    color:
+        #ffffff;
+
+    pointer-events:
+        none;
+
+    transition:
+        transform .17s ease;
 }
 
 
 /* =========================================================
-   TEXTO
+   HOVER DO ÍCONE
 ========================================================= */
 
-.btn span {
+@media (hover: hover) {
 
-    display: block;
+    .btn:hover .emoji {
 
-    width: 100%;
+        transform:
+            scale(1.035);
 
-    padding:
-        0
-        30px
-        0
-        72px;
+        border-color:
+            rgba(124,108,255,.30);
 
-    color:
-        var(--text);
+        background:
+            #1a1921;
+    }
 
-    font-size: 14px;
 
-    font-weight: 750;
+    .btn:hover .emoji img {
 
-    line-height: 1.28;
+        transform:
+            scale(1.035);
+    }
 
-    letter-spacing: .05px;
 
-    transition:
-        color .18s ease;
+    .btn:hover .emoji svg {
+
+        transform:
+            scale(1.07);
+    }
+
 }
 
 
-.btn:hover span {
+/* =========================================================
+   TEXTO DO BOTÃO
+========================================================= */
+
+.btn-content {
+
+    min-width:
+        0;
+
+    flex:
+        1;
+
+    padding:
+        0 12px;
+}
+
+
+.btn-title {
+
+    display:
+        block;
 
     color:
-        var(--pink-3);
+        #ffffff;
+
+    font-size:
+        14px;
+
+    font-weight:
+        750;
+
+    line-height:
+        1.25;
+
+    letter-spacing:
+        0;
+}
+
+
+.btn-description {
+
+    display:
+        block;
+
+    margin-top:
+        4px;
+
+    color:
+        var(--text-muted);
+
+    font-size:
+        9px;
+
+    font-weight:
+        600;
+
+    line-height:
+        1.4;
 }
 
 
@@ -681,162 +1003,446 @@ body::-webkit-scrollbar,
    SETA
 ========================================================= */
 
-.btn > *:last-child {
-    position: relative;
+.arrow {
+
+    width:
+        34px;
+
+    height:
+        34px;
+
+    flex:
+        0 0 34px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border:
+        1px solid
+        rgba(255,255,255,.06);
+
+    border-radius:
+        12px;
+
+    color:
+        var(--text-muted);
+
+    background:
+        rgba(255,255,255,.015);
+
+    font-size:
+        19px;
+
+    font-weight:
+        500;
+
+    line-height:
+        1;
+
+    transition:
+        transform .17s ease,
+        color .17s ease,
+        border-color .17s ease,
+        background-color .17s ease;
+}
+
+
+@media (hover: hover) {
+
+    .btn:hover .arrow {
+
+        transform:
+            translateX(2px);
+
+        border-color:
+            var(--blue-border);
+
+        background:
+            var(--blue-soft);
+
+        color:
+            var(--blue-2);
+    }
+
 }
 
 
 /* =========================================================
-   BADGE / DETALHE EXTRA
-   Funciona caso existam elementos com .badge
+   BADGE
 ========================================================= */
 
 .badge {
 
-    display: inline-flex;
+    display:
+        inline-flex;
 
-    align-items: center;
+    align-items:
+        center;
 
-    justify-content: center;
+    justify-content:
+        center;
 
-    min-height: 21px;
+    min-height:
+        18px;
+
+    margin-left:
+        6px;
 
     padding:
-        3px
-        8px;
+        2px 7px;
 
-    border-radius: 999px;
+    vertical-align:
+        middle;
 
     border:
         1px solid
-        rgba(255,193,214,.18);
+        var(--blue-border);
+
+    border-radius:
+        999px;
 
     background:
-        rgba(255,193,214,.07);
+        var(--blue-soft);
 
     color:
-        var(--pink);
+        var(--blue-2);
 
-    font-size: 9px;
+    font-size:
+        7px;
 
-    font-weight: 800;
+    font-weight:
+        800;
 
-    letter-spacing: .5px;
+    line-height:
+        1;
 
-    text-transform: uppercase;
+    letter-spacing:
+        .6px;
+
+    text-transform:
+        uppercase;
 }
 
 
 /* =========================================================
-   BOTÃO LARGO
-========================================================= */
-
-.btn.wide {
-
-    grid-column:
-        1 / -1;
-
-    min-height: 80px;
-}
-
-
-/* =========================================================
-   BOTÃO PRINCIPAL
+   CARD PRIMARY
 ========================================================= */
 
 .btn.primary {
 
     border-color:
-        rgba(255,193,214,.30);
+        var(--blue-border);
 
     background:
-
         linear-gradient(
             135deg,
-            rgba(255,193,214,.13),
-            rgba(255,193,214,.035)
+            rgba(124,108,255,.085),
+            rgba(124,108,255,.018)
         ),
 
-        #0b080a;
-
-    box-shadow:
-
-        inset 0 1px 0
-        rgba(255,255,255,.04),
-
-        0 10px 30px
-        rgba(0,0,0,.28),
-
-        0 0 28px
-        rgba(255,193,214,.055);
+        #0a0a0d;
 }
 
 
 .btn.primary .emoji {
 
-    background:
-
-        linear-gradient(
-            145deg,
-            rgba(255,193,214,.34),
-            rgba(255,193,214,.09)
-        );
-
     border-color:
-        rgba(255,193,214,.32);
+        rgba(124,108,255,.28);
 
-    box-shadow:
+    background:
+        rgba(124,108,255,.08);
+}
 
-        0 0 25px
-        rgba(255,193,214,.10);
+
+@media (hover: hover) {
+
+    .btn.primary:hover {
+
+        border-color:
+            var(--blue-border-strong);
+
+        background:
+            linear-gradient(
+                135deg,
+                rgba(124,108,255,.12),
+                rgba(124,108,255,.025)
+            ),
+
+            #0f0f14;
+    }
+
 }
 
 
 /* =========================================================
-   ESTADO ATIVO
+   EMERGÊNCIA
 ========================================================= */
 
-.btn.active {
+.btn.emergency {
 
     border-color:
-        rgba(255,193,214,.40);
+        var(--danger-border);
 
     background:
-
         linear-gradient(
             135deg,
-            rgba(255,193,214,.15),
-            rgba(255,193,214,.045)
+            rgba(255,112,143,.055),
+            rgba(255,112,143,.008)
         ),
 
-        var(--surface-2);
+        #0a0a0d;
 }
 
 
-.btn.active::before {
+.btn.emergency .emoji {
+
+    border-color:
+        rgba(255,112,143,.24);
 
     background:
+        var(--danger-soft);
+}
 
-        linear-gradient(
-            135deg,
-            rgba(255,193,214,.10),
-            transparent 45%
-        );
+
+.btn.emergency .arrow {
+
+    color:
+        rgba(255,112,143,.70);
+}
+
+
+@media (hover: hover) {
+
+    .btn.emergency:hover {
+
+        border-color:
+            rgba(255,112,143,.35);
+
+        background:
+            linear-gradient(
+                135deg,
+                rgba(255,112,143,.075),
+                rgba(255,112,143,.012)
+            ),
+
+            #0f0b0d;
+    }
+
 }
 
 
 /* =========================================================
-   ESTADO DESATIVADO
+   QUICK GRID
 ========================================================= */
 
-.btn.disabled,
-.btn[disabled] {
+.quick-grid {
 
-    opacity: .45;
+    width:
+        100%;
 
-    pointer-events: none;
+    display:
+        grid;
 
-    filter: grayscale(.25);
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap:
+        10px;
+
+    margin-bottom:
+        3px;
+}
+
+
+/* =========================================================
+   QUICK CARD
+========================================================= */
+
+.quick {
+
+    width:
+        100%;
+
+    min-height:
+        108px;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    justify-content:
+        space-between;
+
+    padding:
+        14px;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        20px;
+
+    outline:
+        none;
+
+    background:
+        #09090c;
+
+    color:
+        #ffffff;
+
+    text-align:
+        left;
+
+    cursor:
+        pointer;
+
+    -webkit-appearance:
+        none;
+
+    appearance:
+        none;
+
+    box-shadow:
+        inset 0 1px 0
+        rgba(255,255,255,.018);
+
+    transition:
+        transform .15s ease,
+        border-color .15s ease,
+        background-color .15s ease;
+}
+
+
+.quick:active {
+
+    transform:
+        scale(.965);
+
+    border-color:
+        var(--blue-border);
+
+    background:
+        #15151b;
+}
+
+
+@media (hover: hover) {
+
+    .quick:hover {
+
+        transform:
+            translateY(-2px);
+
+        border-color:
+            var(--blue-border);
+
+        background:
+            #101014;
+    }
+
+}
+
+
+/* =========================================================
+   QUICK ICON
+========================================================= */
+
+.quick-icon {
+
+    width:
+        38px;
+
+    height:
+        38px;
+
+    flex:
+        0 0 38px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        13px;
+
+    background:
+        var(--surface-2);
+
+    color:
+        var(--blue-2);
+
+    font-size:
+        17px;
+
+    font-weight:
+        800;
+}
+
+
+/* =========================================================
+   QUICK TEXTO
+========================================================= */
+
+.quick strong {
+
+    display:
+        block;
+
+    margin-top:
+        11px;
+
+    color:
+        #ffffff;
+
+    font-size:
+        11px;
+
+    font-weight:
+        750;
+
+    line-height:
+        1.2;
+}
+
+
+.quick span {
+
+    display:
+        block;
+
+    margin-top:
+        3px;
+
+    color:
+        var(--text-muted);
+
+    font-size:
+        8px;
+
+    font-weight:
+        600;
+
+    line-height:
+        1.25;
 }
 
 
@@ -846,175 +1452,90 @@ body::-webkit-scrollbar,
 
 .footer {
 
-    width: 100%;
+    width:
+        100%;
 
-    margin-top: 28px;
+    margin-top:
+        30px;
 
     padding:
-        19px
-        6px
-        0;
-
-    position: relative;
+        21px
+        5px
+        6px;
 
     border-top:
         1px solid
-        rgba(255,255,255,.055);
+        rgba(255,255,255,.06);
 
     color:
-        var(--text-muted);
+        var(--text-dark);
 
-    text-align: center;
+    text-align:
+        center;
 
-    font-size: 10px;
+    font-size:
+        9px;
 
-    font-weight: 600;
+    font-weight:
+        650;
 
-    letter-spacing: .7px;
+    line-height:
+        1.6;
+
+    letter-spacing:
+        .5px;
 }
 
 
-/* =========================================================
-   FOOTER BRILHO
-========================================================= */
-
-.footer::before {
-
-    content: "";
-
-    position: absolute;
-
-    width: 80px;
-    height: 1px;
-
-    top: -1px;
-    left: 50%;
-
-    transform:
-        translateX(-50%);
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            var(--pink),
-            transparent
-        );
-
-    opacity: .35;
-}
-
-
-/* =========================================================
-   FOCUS
-========================================================= */
-
-button:focus-visible,
-.btn:focus-visible {
-
-    outline:
-        2px solid
-        var(--pink);
-
-    outline-offset: 3px;
-}
-
-
-/* =========================================================
-   INPUTS — CASO EXISTAM NO HUB
-========================================================= */
-
-input,
-textarea,
-select {
-
-    width: 100%;
-
-    border:
-        1px solid
-        var(--border);
-
-    border-radius:
-        var(--radius-md);
-
-    outline: none;
-
-    background:
-        var(--surface);
+.footer strong {
 
     color:
-        var(--text);
+        #686870;
 
-    padding:
-        13px
-        15px;
-
-    font-size: 14px;
-
-    transition:
-        border-color .2s ease,
-        box-shadow .2s ease,
-        background .2s ease;
-}
-
-
-input:focus,
-textarea:focus,
-select:focus {
-
-    border-color:
-        var(--border-pink-strong);
-
-    background:
-        var(--surface-2);
-
-    box-shadow:
-        0 0 0 3px
-        rgba(255,193,214,.06);
-}
-
-
-input::placeholder,
-textarea::placeholder {
-
-    color:
-        #62585d;
+    font-weight:
+        800;
 }
 
 
 /* =========================================================
-   DIVISOR
+   LINHA DECORATIVA DO FOOTER
 ========================================================= */
 
-.divider {
+.footer-line {
 
-    width: 100%;
-    height: 1px;
+    width:
+        65px;
+
+    height:
+        1px;
 
     margin:
-        18px
-        0;
+        0 auto 17px;
 
     background:
-
         linear-gradient(
             90deg,
             transparent,
-            rgba(255,193,214,.13),
+            rgba(124,108,255,.55),
             transparent
         );
 }
 
 
 /* =========================================================
-   CARTÃO AUXILIAR
+   ESTADO VAZIO DA PESQUISA
 ========================================================= */
 
-.panel {
+.empty-state {
 
-    width: 100%;
+    width:
+        100%;
 
-    padding: 17px;
+    display:
+        none;
+
+    padding:
+        35px 20px;
 
     border:
         1px solid
@@ -1024,97 +1545,178 @@ textarea::placeholder {
         var(--radius-lg);
 
     background:
+        #09090c;
 
-        linear-gradient(
-            145deg,
-            rgba(255,193,214,.055),
-            rgba(255,255,255,.008)
-        ),
-
-        var(--surface);
-
-    box-shadow:
-
-        inset 0 1px 0
-        rgba(255,255,255,.025),
-
-        0 10px 30px
-        rgba(0,0,0,.22);
+    text-align:
+        center;
 }
 
 
-/* =========================================================
-   INDICADOR
-========================================================= */
+.empty-state-icon {
 
-.status {
+    width:
+        45px;
 
-    display: inline-flex;
+    height:
+        45px;
 
-    align-items: center;
+    display:
+        flex;
 
-    gap: 7px;
+    align-items:
+        center;
 
-    color:
-        var(--text-soft);
+    justify-content:
+        center;
 
-    font-size: 10px;
+    margin:
+        0 auto 12px;
 
-    font-weight: 700;
-}
+    border:
+        1px solid
+        var(--border);
 
-
-.status::before {
-
-    content: "";
-
-    width: 7px;
-    height: 7px;
-
-    border-radius: 50%;
+    border-radius:
+        15px;
 
     background:
-        var(--pink);
+        var(--surface-2);
+
+    color:
+        var(--text-muted);
+
+    font-size:
+        18px;
+}
+
+
+.empty-state strong {
+
+    display:
+        block;
+
+    color:
+        #ffffff;
+
+    font-size:
+        12px;
+
+    font-weight:
+        750;
+}
+
+
+.empty-state span {
+
+    display:
+        block;
+
+    margin-top:
+        5px;
+
+    color:
+        var(--text-muted);
+
+    font-size:
+        9px;
+
+    font-weight:
+        600;
+}
+
+
+/* =========================================================
+   FOCO
+========================================================= */
+
+.btn:focus-visible,
+.quick:focus-visible,
+.search input:focus-visible {
+
+    outline:
+        2px solid
+        var(--blue);
+
+    outline-offset:
+        3px;
+}
+
+
+/* =========================================================
+   TÍTULO
+========================================================= */
+
+.heroTag {
+
+    width:
+        80%;
+
+    margin-left:
+        10%;
+
+    margin-top:
+        55px;
+
+    margin-bottom:
+        55px;
+
+    min-height:
+        70px;
+
+    padding:
+        13px
+        18px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    color:
+        #ffffff;
+
+    
+
+    border-radius:
+        24px;
+
+    font-family:
+        "Quicksand",
+        sans-serif;
+
+    font-size:
+        clamp(
+            27px,
+            8vw,
+            42px
+        );
+
+    font-weight:
+        800;
+
+    line-height:
+        1.1;
+
+    letter-spacing:
+        -0.8px;
+
+    text-align:
+        center;
 
     box-shadow:
-        0 0 10px
-        rgba(255,193,214,.6);
+        0 14px 40px
+        rgba(
+            0,
+            0,
+            0,
+            .55
+        );
+
 }
-
-
-
-
-/* =========================================================
-   ANDROID WEBVIEW
-========================================================= */
-
-html,
-body {
-
-    -webkit-overflow-scrolling: touch;
-
-    overscroll-behavior:
-        none;
-
-    touch-action:
-        pan-y;
-}
-
-
-/* =========================================================
-   PROTEÇÃO CONTRA FUNDO BRANCO
-========================================================= */
-
-html,
-body,
-.container,
-.card,
-.buttons {
-
-    background-color:
-        #000000;
-}
-
 </style>
 
 </head>
@@ -1122,401 +1724,933 @@ body,
 
 <body>
 
-<br>
+    <div class="heroTag">
+        Mulher Amparada
+    </div>
 
 <div class="container">
 
-    <main class="card">
-
-        <div class="buttons">
-
-            <div class="title">
-                Recursos do aplicativo:
-            </div>
+<main class="card">
 
 
-            <button
-                class="btn"
-                type="button"
-                onclick="ir('calendario.html')"
+
+
+<div class="buttons">
+
+
+<!-- =======================================================
+     ACESSO RÁPIDO
+======================================================== -->
+
+
+<!-- =======================================================
+     RECURSOS
+======================================================== -->
+
+<div class="section">
+
+    <span class="section-label">
+        Recursos do aplicativo
+    </span>
+
+    <span class="counter">
+        9
+    </span>
+
+    <span class="section-line"></span>
+
+</div>
+
+
+<!-- CALENDÁRIO MENSTRUAL -->
+
+<button
+    class="btn"
+    type="button"
+    data-search="calendário menstrual ciclo período"
+    onclick="ir('calendario.html')"
+>
+
+    <div class="left">
+
+        <div class="emoji">
+
+            <img
+                src="2.svg"
+                alt=""
+                draggable="false"
             >
-
-                <div class="left">
-
-                    <div class="emoji">
-
-                        <img
-                            src="2.svg"
-                            alt=""
-                        >
-
-                    </div>
-
-                    <span>
-                        Calendário menstrual
-                    </span>
-
-                </div>
-
-            </button>
-
-
-            <button
-                class="btn"
-                type="button"
-                onclick="ir('calendar.html')"
-            >
-
-                <div class="left">
-
-                    <div class="emoji">
-
-                        <img
-                            src="3.svg"
-                            alt=""
-                        >
-
-                    </div>
-
-                    <span>
-                        Calendário de eventos
-                    </span>
-
-                </div>
-
-            </button>
-
-
-            <button
-                class="btn"
-                type="button"
-                onclick="ir('mapa.html')"
-            >
-
-                <div class="left">
-
-                    <div class="emoji">
-
-                        <img
-                            src="4.svg"
-                            alt=""
-                        >
-
-                    </div>
-
-                    <span>
-                        Mapa da sua região
-                    </span>
-
-                </div>
-
-            </button>
-
-
-            <button
-                class="btn"
-                type="button"
-                onclick="ir('caderno.html')"
-            >
-
-                <div class="left">
-
-                    <div class="emoji">
-
-                        <img
-                            src="5.svg"
-                            alt=""
-                        >
-
-                    </div>
-
-                    <span>
-                        Diário e anotações
-                    </span>
-
-                </div>
-
-            </button>
-
-
-            <button
-                class="btn"
-                type="button"
-                onclick="ir('treino.html')"
-            >
-
-                <div class="left">
-
-                    <div class="emoji">
-
-                        <img
-                            src="6.svg"
-                            alt=""
-                        >
-
-                    </div>
-
-                    <span>
-                        Rotina gamificada
-                    </span>
-
-                </div>
-
-            </button>
-
-
-            <button
-                class="btn"
-                type="button"
-                onclick="ir('daora.html')"
-            >
-
-                <div class="left">
-
-                    <div class="emoji">
-
-                        <img
-                            src="7.svg"
-                            alt=""
-                        >
-
-                    </div>
-
-                    <span>
-                        Relógio + Localização
-                    </span>
-
-                </div>
-
-            </button>
-
-
-            <button
-                class="btn"
-                type="button"
-                onclick="ir('calc.html')"
-            >
-
-                <div class="left">
-
-                    <div class="emoji">
-
-                        <img
-                            src="8.svg"
-                            alt=""
-                        >
-
-                    </div>
-
-                    <span>
-                        Calculadora
-                    </span>
-
-                </div>
-
-            </button>
-
-
-            <button
-                class="btn"
-                type="button"
-                onclick="ir('task.html')"
-            >
-
-                <div class="left">
-
-                    <div class="emoji">
-
-                        <img
-                            src="9.svg"
-                            alt=""
-                        >
-
-                    </div>
-
-                    <span>
-                        Minhas tarefas
-                    </span>
-
-                </div>
-
-            </button>
-            
-            
-
-            <button
-                class="btn"
-                type="button"
-                onclick="ir('navegador.html')"
-            >
-
-                <div class="left">
-
-                    <div class="emoji">
-<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M720-183v49q0 17-11.5 28.5T680-94q-17 0-28.5-11.5T640-134v-126q0-25 17.5-42.5T700-320h126q17 0 28.5 11.5T866-280q0 17-11.5 28.5T826-240h-50l90 90q11 11 11 27.5T866-94q-12 12-28.5 12T809-94l-89-89ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 10-.5 22t-1.5 22q-2 17-14 26.5t-30 9.5q-16 0-27-14t-9-30q2-10 2-18v-18q0-20-2.5-40t-7.5-40H654q3 20 4.5 40t1.5 40v21.5q0 11.5-1 21.5-2 17-14 27t-29 10q-16 0-27.5-13t-9.5-29q1-10 1-19v-19q0-20-1.5-40t-4.5-40H386q-3 20-4.5 40t-1.5 40q0 20 1.5 40t4.5 40h94q17 0 28.5 11.5T520-360q0 17-11.5 28.5T480-320h-76q12 43 31 82.5t45 75.5q10 0 20 .5t20-.5q17-2 28 8.5t11 27.5q0 18-9 30t-26 14q-10 1-22 1.5t-22 .5ZM170-400h136q-3-20-4.5-40t-1.5-40q0-20 1.5-40t4.5-40H170q-5 20-7.5 40t-2.5 40q0 20 2.5 40t7.5 40Zm206 222q-18-34-31.5-69.5T322-320H204q29 51 73 87.5t99 54.5ZM204-640h118q9-37 22.5-72.5T376-782q-55 18-99 54.5T204-640Zm200 0h152q-12-43-31-82.5T480-798q-26 36-45 75.5T404-640Zm234 0h118q-29-51-73-87.5T584-782q18 34 31.5 69.5T638-640Z"/></svg>
-
-                    </div>
-
-                    <span>
-                        Navegador
-                    </span>
-
-                </div>
-
-            </button>
-            
-                        <div class="title">
-                Outras funções do aplicativo:
-            </div>
-
-
-            <button
-                class="btn"
-                type="button"
-                onclick="Android.openRecorder()"
-            >
-
-                <div class="left">
-
-                    <div class="emoji">
-
-                        <img
-                            src="10.svg"
-                            alt=""
-                        >
-
-                    </div>
-
-                    <span>
-                        Gravador de voz
-                    </span>
-
-                </div>
-
-            </button>
-
-
-            <button
-                class="btn"
-                type="button"
-                onclick="Android.openFiles()"
-            >
-
-                <div class="left">
-
-                    <div class="emoji">
-
-                        <img
-                            src="11.svg"
-                            alt=""
-                        >
-
-                    </div>
-
-                    <span>
-                        Meus arquivos
-                    </span>
-
-                </div>
-
-            </button>
-
-
-            <div class="title">
-                Funções de emergência:
-            </div>
-
-
-            <button
-                class="btn"
-                type="button"
-                onclick="Android.bloquearTela()"
-            >
-
-                <div class="left">
-
-                    <div class="emoji">
-
-                        <img
-                            src="11.png"
-                            alt=""
-                        >
-
-                    </div>
-
-                    <span>
-                        Desligar o celular, (aviso: você não poderá usar biometria!)
-                    </span>
-
-                </div>
-
-            </button>
-
-            <div class="title">
-                Nossos outros aplicativos:
-            </div>
-
-            <button class="btn" onclick="Android.abrirOrdem();">
-                <div class="left">
-<div class="emoji">
-                        <img src="assist.png" alt="">
-                                        </div>
-                    <span>Assistente de voz</span>
-
-                </div>
-            </button>
-
-            <button class="btn" onclick="Android.abrirGerenciador();">
-                <div class="left">
-<div class="emoji">
-                        <img src="gerenciar.png" alt="">
-                    </div>
-                    <span>Gerenciador de arquivos</span>
-                </div>
-            </button>
-
-            <div class="title">
-                Links
-            </div>
-
-            <button
-                class="btn"
-                type="button"
-                onclick="ir('dia.html')"
-            >
-
-                <div class="left">
-
-                    <div class="emoji">
-
-<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M400-120v-200h-61q-21 0-33-17.5t-4-37.5l100-253q10-24 31-38t47-14q26 0 47 14t31 38l100 253q8 20-4 37.5T621-320h-61v200q0 17-11.5 28.5T520-80h-80q-17 0-28.5-11.5T400-120Zm23.5-623.5Q400-767 400-800t23.5-56.5Q447-880 480-880t56.5 23.5Q560-833 560-800t-23.5 56.5Q513-720 480-720t-56.5-23.5Z"/></svg>
-                    </div>
-
-                    <span>
-                        Feliz dia das mulheres!
-                    </span>
-
-                </div>
-
-            </button>
-
-            
-<br>
 
         </div>
 
-    </main>
+        <div class="btn-content">
+
+            <span class="btn-title">
+                Calendário menstrual
+            </span>
+
+            <span class="btn-description">
+                Acompanhe informações do seu calendário
+            </span>
+
+        </div>
+
+        <div class="arrow">
+            ›
+        </div>
+
+    </div>
+
+</button>
+
+
+<!-- CALENDÁRIO -->
+
+<button
+    class="btn"
+    type="button"
+    data-search="calendário eventos agenda compromissos"
+    onclick="ir('calendar.html')"
+>
+
+    <div class="left">
+
+        <div class="emoji">
+
+            <img
+                src="3.svg"
+                alt=""
+                draggable="false"
+            >
+
+        </div>
+
+        <div class="btn-content">
+
+            <span class="btn-title">
+                Calendário de eventos
+            </span>
+
+            <span class="btn-description">
+                Organize seus eventos e compromissos
+            </span>
+
+        </div>
+
+        <div class="arrow">
+            ›
+        </div>
+
+    </div>
+
+</button>
+
+
+<!-- MAPA -->
+
+<button
+    class="btn"
+    type="button"
+    data-search="mapa localização região localização"
+    onclick="ir('mapa.html')"
+>
+
+    <div class="left">
+
+        <div class="emoji">
+
+            <img
+                src="4.svg"
+                alt=""
+                draggable="false"
+            >
+
+        </div>
+
+        <div class="btn-content">
+
+            <span class="btn-title">
+                Mapa da sua região
+            </span>
+
+            <span class="btn-description">
+                Consulte sua localização e região
+            </span>
+
+        </div>
+
+        <div class="arrow">
+            ›
+        </div>
+
+    </div>
+
+</button>
+
+
+<!-- CADERNO -->
+
+<button
+    class="btn"
+    type="button"
+    data-search="diário anotações caderno notas"
+    onclick="ir('caderno.html')"
+>
+
+    <div class="left">
+
+        <div class="emoji">
+
+            <img
+                src="5.svg"
+                alt=""
+                draggable="false"
+            >
+
+        </div>
+
+        <div class="btn-content">
+
+            <span class="btn-title">
+                Diário e anotações
+            </span>
+
+            <span class="btn-description">
+                Escreva, registre e organize suas anotações
+            </span>
+
+        </div>
+
+        <div class="arrow">
+            ›
+        </div>
+
+    </div>
+
+</button>
+
+
+<!-- ROTINA -->
+
+<button
+    class="btn"
+    type="button"
+    data-search="rotina gamificada treino hábitos"
+    onclick="ir('treino.html')"
+>
+
+    <div class="left">
+
+        <div class="emoji">
+
+            <img
+                src="6.svg"
+                alt=""
+                draggable="false"
+            >
+
+        </div>
+
+        <div class="btn-content">
+
+            <span class="btn-title">
+                Rotina gamificada
+            </span>
+
+            <span class="btn-description">
+                Transforme sua rotina em objetivos
+            </span>
+
+        </div>
+
+        <div class="arrow">
+            ›
+        </div>
+
+    </div>
+
+</button>
+
+
+<!-- RELÓGIO -->
+
+<button
+    class="btn"
+    type="button"
+    data-search="relógio localização hora localização"
+    onclick="ir('daora.html')"
+>
+
+    <div class="left">
+
+        <div class="emoji">
+
+            <img
+                src="7.svg"
+                alt=""
+                draggable="false"
+            >
+
+        </div>
+
+        <div class="btn-content">
+
+            <span class="btn-title">
+                Relógio + Localização
+            </span>
+
+            <span class="btn-description">
+                Informações de horário e localização
+            </span>
+
+        </div>
+
+        <div class="arrow">
+            ›
+        </div>
+
+    </div>
+
+</button>
+
+
+<!-- CALCULADORA -->
+
+<button
+    class="btn"
+    type="button"
+    data-search="calculadora contas matemática"
+    onclick="ir('calc.html')"
+>
+
+    <div class="left">
+
+        <div class="emoji">
+
+            <img
+                src="8.svg"
+                alt=""
+                draggable="false"
+            >
+
+        </div>
+
+        <div class="btn-content">
+
+            <span class="btn-title">
+                Calculadora
+            </span>
+
+            <span class="btn-description">
+                Faça cálculos rapidamente
+            </span>
+
+        </div>
+
+        <div class="arrow">
+            ›
+        </div>
+
+    </div>
+
+</button>
+
+
+<!-- TAREFAS -->
+
+<button
+    class="btn"
+    type="button"
+    data-search="tarefas lista organização afazeres"
+    onclick="ir('task.html')"
+>
+
+    <div class="left">
+
+        <div class="emoji">
+
+            <img
+                src="9.svg"
+                alt=""
+                draggable="false"
+            >
+
+        </div>
+
+        <div class="btn-content">
+
+            <span class="btn-title">
+                Minhas tarefas
+            </span>
+
+            <span class="btn-description">
+                Controle suas tarefas e atividades
+            </span>
+
+        </div>
+
+        <div class="arrow">
+            ›
+        </div>
+
+    </div>
+
+</button>
+
+
+<!-- NAVEGADOR -->
+
+<button
+    class="btn"
+    type="button"
+    data-search="navegador internet web"
+    onclick="ir('navegador.html')"
+>
+
+    <div class="left">
+
+        <div class="emoji">
+
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 -960 960 960"
+                aria-hidden="true"
+            >
+
+                <path d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q32-45 54-95t35-105H391q13 55 35 105t54 95Zm-91-14q-17-36-30-73t-22-73H204q29 51 74 87t111 59Zm182 0q66-23 111-59t74-87H623q-9 36-22 73t-30 73ZM170-400h137q-4-20-5.5-40t-1.5-40q0-20 1.5-40t5.5-40H170q-5 20-7.5 40t-2.5 40q0 20 2.5 40t7.5 40Zm221 0h178q4-20 5.5-40t1.5-40q0-20-1.5-40t-5.5-40H391q-4 20-5.5 40t-1.5 40q0 20 1.5 40t5.5 40Zm258 0h137q5-20 7.5-40t2.5-40q0-20-2.5-40t-7.5-40H649q4 20 5.5 40t1.5 40q0 20-1.5 40t-5.5 40ZM204-640h133q9-36 22-73t30-73q-66 23-111 59t-74 87Zm187 0h178q-13-55-35-105t-54-95q-32 45-54 95t-35 105Zm232 0h133q-29-51-74-87t-111-59q17 36 30 73t22 73Z"/>
+
+            </svg>
+
+        </div>
+
+        <div class="btn-content">
+
+            <span class="btn-title">
+                Navegador
+            </span>
+
+            <span class="btn-description">
+                Acesse a navegação pela internet
+            </span>
+
+        </div>
+
+        <div class="arrow">
+            ›
+        </div>
+
+    </div>
+
+</button>
+
+
+<!-- =======================================================
+     OUTRAS FUNÇÕES
+======================================================== -->
+
+<div class="section">
+
+    <span class="section-label">
+        Outras funções
+    </span>
+
+    <span class="section-line"></span>
+
+</div>
+
+
+<!-- GRAVADOR -->
+
+<button
+    class="btn"
+    type="button"
+    data-search="gravador voz áudio gravação"
+    onclick="androidCall('openRecorder')"
+>
+
+    <div class="left">
+
+        <div class="emoji">
+
+            <img
+                src="10.svg"
+                alt=""
+                draggable="false"
+            >
+
+        </div>
+
+        <div class="btn-content">
+
+            <span class="btn-title">
+                Gravador de voz
+            </span>
+
+            <span class="btn-description">
+                Grave e registre áudios
+            </span>
+
+        </div>
+
+        <div class="arrow">
+            ›
+        </div>
+
+    </div>
+
+</button>
+
+
+<!-- ARQUIVOS -->
+
+<button
+    class="btn"
+    type="button"
+    data-search="arquivos documentos gerenciador arquivos"
+    onclick="androidCall('openFiles')"
+>
+
+    <div class="left">
+
+        <div class="emoji">
+
+            <img
+                src="11.svg"
+                alt=""
+                draggable="false"
+            >
+
+        </div>
+
+        <div class="btn-content">
+
+            <span class="btn-title">
+                Meus arquivos
+            </span>
+
+            <span class="btn-description">
+                Acesse seus arquivos e documentos
+            </span>
+
+        </div>
+
+        <div class="arrow">
+            ›
+        </div>
+
+    </div>
+
+</button>
+
+
+<!-- =======================================================
+     EMERGÊNCIA
+======================================================== -->
+
+<div class="section">
+
+    <span class="section-label">
+        Emergência
+    </span>
+
+    <span class="section-line"></span>
+
+</div>
+
+
+<button
+    class="btn emergency"
+    type="button"
+    data-search="emergência bloquear tela segurança"
+    onclick="androidCall('bloquearTela')"
+>
+
+    <div class="left">
+
+        <div class="emoji">
+
+            <img
+                src="11.png"
+                alt=""
+                draggable="false"
+            >
+
+        </div>
+
+        <div class="btn-content">
+
+            <span class="btn-title">
+                Bloquear dispositivo
+            </span>
+
+            <span class="btn-description">
+                Bloqueia o celular imediatamente. A biometria poderá ficar indisponível.
+            </span>
+
+        </div>
+
+        <div class="arrow">
+            ›
+        </div>
+
+    </div>
+
+</button>
+
+
+<!-- =======================================================
+     OUTROS APLICATIVOS
+======================================================== -->
+
+<div class="section">
+
+    <span class="section-label">
+        Nossos aplicativos
+    </span>
+
+    <span class="section-line"></span>
+
+</div>
+
+
+<button
+    class="btn primary"
+    type="button"
+    data-search="assistente voz assistente inteligente"
+    onclick="androidCall('abrirOrdem')"
+>
+
+    <div class="left">
+
+        <div class="emoji">
+
+            <img
+                src="assist.png"
+                alt=""
+                draggable="false"
+            >
+
+        </div>
+
+        <div class="btn-content">
+
+            <span class="btn-title">
+                Assistente de voz
+                <span class="badge">
+                    APP
+                </span>
+            </span>
+
+            <span class="btn-description">
+                Seu assistente inteligente integrado ao aplicativo
+            </span>
+
+        </div>
+
+        <div class="arrow">
+            ›
+        </div>
+
+    </div>
+
+</button>
+
+
+<button
+    class="btn primary"
+    type="button"
+    data-search="gerenciador arquivos documentos"
+    onclick="androidCall('abrirGerenciador')"
+>
+
+    <div class="left">
+
+        <div class="emoji">
+
+            <img
+                src="gerenciar.png"
+                alt=""
+                draggable="false"
+            >
+
+        </div>
+
+        <div class="btn-content">
+
+            <span class="btn-title">
+                Gerenciador de arquivos
+                <span class="badge">
+                    APP
+                </span>
+            </span>
+
+            <span class="btn-description">
+                Gerencie arquivos, pastas e documentos
+            </span>
+
+        </div>
+
+        <div class="arrow">
+            ›
+        </div>
+
+    </div>
+
+</button>
+
+
+<!-- =======================================================
+     LINKS
+======================================================== -->
+
+<div class="section">
+
+    <span class="section-label">
+        Links
+    </span>
+
+    <span class="section-line"></span>
+
+</div>
+
+
+<button
+    class="btn"
+    type="button"
+    data-search="dia mulheres feliz dia mulheres"
+    onclick="ir('dia.html')"
+>
+
+    <div class="left">
+
+        <div class="emoji">
+
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 -960 960 960"
+                aria-hidden="true"
+            >
+
+                <path d="M400-120v-200h-61q-21 0-33-17.5t-4-37.5l100-253q10-24 31-38t47-14q26 0 47 14t31 38l100 253q8 20-4 37.5T621-320h-61v200q0 17-11.5 28.5T520-80h-80q-17 0-28.5-11.5T400-120Zm23.5-623.5Q400-767 400-800t23.5-56.5Q447-880 480-880t56.5 23.5Q560-833 560-800t-23.5 56.5Q513-720 480-720t-56.5-23.5Z"/>
+
+            </svg>
+
+        </div>
+
+        <div class="btn-content">
+
+            <span class="btn-title">
+                Feliz Dia das Mulheres!
+            </span>
+
+            <span class="btn-description">
+                Uma página especial
+            </span>
+
+        </div>
+
+        <div class="arrow">
+            ›
+        </div>
+
+    </div>
+
+</button>
+
+
+</div>
+
+
+<!-- =======================================================
+     FOOTER
+======================================================== -->
+
+<footer class="footer">
+
+    <strong>Meus Acessos</strong>
+    <br>
+    Central de recursos do aplicativo
+
+</footer>
+
+
+</main>
 
 </div>
 
 
 <script>
 
+/* =========================================================
+   NAVEGAÇÃO
+========================================================= */
+
 function ir(pagina) {
 
+    if (!pagina) {
+        return;
+    }
+
     window.location.href = pagina;
+}
+
+
+/* =========================================================
+   ANDROID BRIDGE
+========================================================= */
+
+function androidCall(metodo) {
+
+    try {
+
+        if (
+            typeof Android !== "undefined" &&
+            Android !== null &&
+            typeof Android[metodo] === "function"
+        ) {
+
+            Android[metodo]();
+
+            return true;
+        }
+
+        console.warn(
+            "Método Android indisponível:",
+            metodo
+        );
+
+        return false;
+
+    } catch (erro) {
+
+        console.error(
+            "Erro no método Android:",
+            metodo,
+            erro
+        );
+
+        return false;
+    }
+}
+
+
+/* =========================================================
+   PESQUISA EM TEMPO REAL
+========================================================= */
+
+const searchInput =
+    document.getElementById(
+        "searchInput"
+    );
+
+
+const cards =
+    document.querySelectorAll(
+        ".btn[data-search]"
+    );
+
+
+if (searchInput) {
+
+    searchInput.addEventListener(
+        "input",
+        function () {
+
+            const termo =
+                this.value
+                    .toLowerCase()
+                    .trim();
+
+
+            cards.forEach(
+                function (card) {
+
+                    const texto =
+                        card
+                            .getAttribute(
+                                "data-search"
+                            )
+                            .toLowerCase();
+
+
+                    if (
+                        !termo ||
+                        texto.includes(termo)
+                    ) {
+
+                        card.style.display =
+                            "";
+
+                    } else {
+
+                        card.style.display =
+                            "none";
+                    }
+
+                }
+            );
+
+        }
+    );
 
 }
+
+
+/* =========================================================
+   EVITA MENU DE CONTEXTO NOS CARDS
+========================================================= */
+
+document.addEventListener(
+    "contextmenu",
+    function (evento) {
+
+        if (
+            evento.target.closest(".btn") ||
+            evento.target.closest(".quick")
+        ) {
+
+            evento.preventDefault();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   PREVENÇÃO DE DUPLO TOQUE
+========================================================= */
+
+let ultimoToque =
+    0;
+
+
+document.addEventListener(
+    "touchend",
+    function (evento) {
+
+        const agora =
+            Date.now();
+
+
+        if (
+            agora - ultimoToque <
+            250
+        ) {
+
+            evento.preventDefault();
+
+        }
+
+
+        ultimoToque =
+            agora;
+
+    },
+    {
+        passive: false
+    }
+);
 
 </script>
 
