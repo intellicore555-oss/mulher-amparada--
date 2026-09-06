@@ -53,8 +53,8 @@ Ative e, ao chacoalhar o celular, ele liga para o 180.
 Escurecimento por inclinação:
 com isso, voce pode controlar o brilho da tela clicando em um botão..., porém, e tipo como se fosse o menor brilho do celular, e ai depois ele deixa a tela preta (nao com brilho e sim colocando a cor), (honestamente, antes aparecia as duas barras, agora elas se escondem!), e o efeito e vitalicio ate fechar e abrir o app!
 
-Desligar o celular pelo sensor de luz:
-ao ativado, ao aproximar qualquer coisa do celular, ele usa o administrador do dispositivo e desliga o celular!
+Desligar o celular pelo barulho:
+ao ativado, ao fazer barulho alto, ele usa o administrador do dispositivo e desliga o celular!
 
 Emergência:
 Saindo dessa área, existem botões que abrem o aplicativo nativo do telefone nos números 190, 192 e 180.
