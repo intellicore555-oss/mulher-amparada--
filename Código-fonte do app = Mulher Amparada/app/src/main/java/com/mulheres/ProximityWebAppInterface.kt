@@ -13,18 +13,30 @@ class ProximityWebAppInterface(
 ) : SensorEventListener {
 
     private val sensorManager =
-        context.getSystemService(Context.SENSOR_SERVICE) as SensorManager
+        context.getSystemService(
+            Context.SENSOR_SERVICE
+        ) as SensorManager
 
-    private val proximitySensor =
-        sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY)
+    private val lightSensor =
+        sensorManager.getDefaultSensor(
+            Sensor.TYPE_LIGHT
+        )
 
     private var sensorAtivo = false
-    private var estavaPerto = false
+    private var estavaCoberto = false
+
+    /*
+     * Valor em lux.
+     *
+     * Abaixo desse valor consideramos
+     * que o sensor foi coberto.
+     */
+    private val LIMITE_LUX = 5f
 
     @JavascriptInterface
     fun iniciarSensorProximidade(): Boolean {
 
-        if (proximitySensor == null) {
+        if (lightSensor == null) {
             return false
         }
 
@@ -32,7 +44,7 @@ class ProximityWebAppInterface(
 
             sensorManager.registerListener(
                 this,
-                proximitySensor,
+                lightSensor,
                 SensorManager.SENSOR_DELAY_NORMAL
             )
 
@@ -48,46 +60,48 @@ class ProximityWebAppInterface(
         sensorManager.unregisterListener(this)
 
         sensorAtivo = false
-        estavaPerto = false
+        estavaCoberto = false
     }
 
     @JavascriptInterface
     fun sensorProximidadeDisponivel(): Boolean {
-        return proximitySensor != null
+        return lightSensor != null
     }
 
-    override fun onSensorChanged(event: SensorEvent?) {
+    override fun onSensorChanged(
+        event: SensorEvent?
+    ) {
 
         if (event == null) return
 
-        val distancia = event.values[0]
+        val luminosidade = event.values[0]
 
-        // Sensor de proximidade:
-        // true  = perto
-        // false = longe
-        val estaPerto =
-            distancia < proximitySensor!!.maximumRange
+        /*
+         * Quanto menor a luminosidade,
+         * mais provavelmente o sensor está coberto.
+         */
+        val estaCoberto =
+            luminosidade <= LIMITE_LUX
 
         /*
          * Executa somente na transição:
          *
-         * LONGE -> PERTO
-         *
-         * Enquanto continuar perto, não dispara novamente.
+         * DESCOBERTO -> COBERTO
          */
-        if (estaPerto && !estavaPerto) {
+        if (estaCoberto && !estavaCoberto) {
 
             val intent = Intent(
                 context,
                 MyDeviceAdminReceiver::class.java
             )
 
-            intent.action = "com.mulheres.BLOQUEAR_CELULAR"
+            intent.action =
+                "com.mulheres.BLOQUEAR_CELULAR"
 
             context.sendBroadcast(intent)
         }
 
-        estavaPerto = estaPerto
+        estavaCoberto = estaCoberto
     }
 
     override fun onAccuracyChanged(
