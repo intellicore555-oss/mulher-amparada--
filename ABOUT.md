@@ -1,4 +1,4 @@
-# Uma carta para você, mulher!
+# Uma carta para você, mulher!:
 
 **E eu me inspiro em Martin Luther King para lhes dizer (não é uma citação direta dele!):**
 
@@ -22,7 +22,7 @@ se quiser denunciar algo, ligue para o 190 = polícia, e 180 = central de atendi
 
 ----
 
-# A minha palavra favorita do português!
+# A minha palavra favorita do português!:
 
 e se  eu fosse escolher a palavra mais bonita da língua portuguesa, seria:
 
