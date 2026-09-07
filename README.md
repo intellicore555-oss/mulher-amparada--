@@ -1,14 +1,26 @@
-## Mulher Amparada
+# ❤️Mulher Amparada❤️, um projeto totalmente gratuito e livre de anúncios, projetado por um menino autista nível 1 de 15 anos!, usando o apoio do chatgpt, sem curso formal!
 
 O **Mulher Amparada** é um aplicativo de segurança e proteção desenvolvido especialmente para mulheres que desejam se sentir mais seguras em situações do dia a dia. O objetivo principal do aplicativo é oferecer suporte rápido, eficiente e acessível em momentos de risco, permitindo que a usuária consiga pedir ajuda de forma simples e imediata. Em um cenário onde muitas mulheres enfrentam situações de vulnerabilidade, ter uma ferramenta confiável pode fazer toda a diferença, e é exatamente isso que o Mulher Amparada busca proporcionar.
 
+❤️Mulher Amparada❤️, 
+
 O aplicativo foi pensado para funcionar como um apoio digital em momentos críticos, permitindo acesso rápido a serviços essenciais como **Polícia (190)**, **SAMU (192)** e **Central de Atendimento à Mulher (180)**. Com apenas alguns toques, a usuária pode realizar ligações de emergência, reduzindo o tempo de reação em situações onde cada segundo é importante. Essa agilidade pode ser decisiva para evitar agravamentos e garantir assistência o mais rápido possível.
 
+## Avisos:
+
 > ⚠️Vale lembrar que o projeto não substitui serviços oficiais do governo e também não garante segurança imediata, bem como as funções dependem do estado e hardware de cada aparelho!
+
+> ⚠️Vale lembrar que o Gerenciador De Arquivos Do Mulher Amparada na verdade ele so visualiza, e ele tem esse nome porque isso faz parte do disfarce do app, e ele so visualiza para a seguranca e nao apagar provas, e para não apagar algo importante acidentalmente!
+
+> ⚠️E também quando for clicar em qualquer botão de apagar no app, ele pode apagar TODOS OS CONTEÚDOS criptografados de TODO O APP, então CUIDADO!
+
+## Sobre como o aplicativo é compilado;
 
 e os apps são compilados com o workflow, gera o código sha-256 e o zip com o app, envia para a release pela tag correspondente, e atualiza o link das páginas de download, e o tamanho do apk dessas páginas!
 
 no repositório tem um yml que ativa todos os dias, procura no codigo fonte dos 3 apps o arquivo build do módulo do app, e se ele ver que saiu uma versão android nova, ele atualiza, totalmente sozinho!, garantindo que elas tenham os apps mais recentes possíveis!
+
+## Sobre como eu automatizo o projeto:
 
 E eu também já consegui configurar um ssh na conta, e 2fa nela tambem, e com o ssh, eu consegui mover pastas inteiras para o repositório, e transformei 4 em 1, e mais de 100 commits em 1,
 
@@ -20,21 +32,44 @@ e os contatos de confiança, quando são cadrastados eles também são criptogra
 
 e o bloqueio do celular por barulho é assim: bloqueia, voce desbloqueia e pra ter denovo tem que desativar e ativar denovo!
 
-> ⚠️Vale lembrar que o Gerenciador De Arquivos Do Mulher Amparada na verdade ele so visualiza, e ele tem esse nome porque isso faz parte do disfarce do app, e ele so visualiza para a seguranca e nao apagar provas, e para não apagar algo importante acidentalmente!
+# Sobre a permissão de sms:
 
-> ⚠️E também quando for clicar em qualquer botão de apagar no app, ele pode apagar TODOS OS CONTEÚDOS criptografados de TODO O APP, então CUIDADO!
+é um avanço, pois é uma permissão a menos pro app!, deixei esses registros dessa permissão nesse repositório porque pode ser que precise... (esse aviso serve apenas pro app do Mulher Amparada!)
 
-E temos um recurso na área protegida que é um especial de dia das mulheree: consiste em um jogo clicker que ao ganhar pontos (1 => 2) ou 1 ponto por segundo, você avança na história delas entre cada era da humanidade (antiguidade, idade média, e etc!)
 
-e eu programei todo esse projeto no A16 5g da samsung, e nas primeiras versoes, onde nem tinha os recursos, ja programei ele num app de A-IDE, num A05, e eu ja perdi vários projetos porque o celular nao aguentava, matava o projeto porque matou o processo de compilação!, e uma vez eu fiz o projeto do mulher amparada e eu mesmo fiz o app do mulher amparada (primeiro eu refiz, depois na 2 vez que perdi portei tudo do apk compilado para descompilado, e depois perdi denovo mas ai eu ja tinha o código-fonte!)
+---- 
 
-e a calculadora falsa realmente faz contas, se digitar:
+# Direitos que toda mulher tem!
 
-2 + 2, aparece 4!
+Conheça 100 direitos e garantias assegurados às mulheres pela legislação brasileira.
 
-e se digitar a senha ele desbloqueia...
+Para consultar a legislação completa e as referências utilizadas nesta seção, acesse **[LEIS.md](LEIS.md)**.
 
-**Funções:**
+Conhecer seus direitos é importante para reconhecer situações de proteção, buscar ajuda quando necessário e entender as garantias previstas em lei.
+
+----
+
+# Conhecimentos para recuperar sua autonomia
+
+Conhecimentos e informações para ajudar você a compreender melhor sua vida financeira, organizar seu dinheiro e fortalecer sua autonomia.
+
+Para acessar o conteúdo completo sobre finanças, consulte **[Finanças](FINANÇAS.md)**.
+
+----
+
+# Mensagem de apoio e acolhimento para as usuárias
+
+Uma carta para você
+
+Esta carta foi feita para apoiar você em sua caminhada, trazendo conhecimentos e informações que podem ajudar a compreender melhor sua vida financeira, organizar seu dinheiro e fortalecer, cada vez mais, sua autonomia.
+
+Você não precisa saber tudo de uma vez. Conhecimento também é uma forma de proteção, e entender suas próprias finanças pode ajudar você a tomar decisões com mais segurança e independência.
+
+Para acessar o conteúdo completo sobre finanças, consulte a [Carta do desenvolvedor](ABOUT.md).
+
+----
+
+## Todas as funções do aplicativo!:
 
 Disfarce do app (assistente de saúde falso!):
 tutorial: ao entrar no app, clique no canto superior direito com o icone de calculadora. e ai quando ele for iniciado, ele pedirá para criar uma senha (e salva em uma classe kt de criptografia), assim so acessa com a senha informada, para resetar essa senha (dê 5 toques em menos de 2 segundos, e digite como você gosta de ser chamada, e digite sua nova senha!), mas antes dessa tela, tem outra tipo uma gaveta de apps..., porém, agora no mulher amparada, ele já vem com o icone de calculadora e o nome calculadora, só dá para mudar o icone, ou seja, o app ja vem com icone de (Assistente de saúde), uma tela genérica de elementos de medição de saúde (bpm e etc), e vale lembrar que:
@@ -43,7 +78,7 @@ Os dados da primeira página do app são meramente fictícios e não representam
 
 e tambem, reforcando que no canto superior direito tem um icone de calculadora que quando clica vai pra uma calculadora e aparece o disfarce de calculadora 
 
-Botão de Pânico:
+Botão de Pânico: 
 Botão de Pânico, com ligação ao 180 de forma direta no primeiro clique.
 
 Proteção por Barulho:
@@ -67,7 +102,7 @@ Além disso, existe um botão dentro do app que pega a localização atual, mont
 Contatos de Confiança:
 Além dos contatos de confiança, clicando no primeiro botão você seleciona e salva o contato. O botão abaixo envia um pedido de ajuda para ele.
 
-Área Protegida:
+## Área Protegida:
 Se estiver cadastrado no celular, com Biometric Prompt junto com Device Credential e autenticação weak, pode desbloquear essa área com impressão digital, rosto, PIN, padrão, senha e outros métodos.
 
 
@@ -283,7 +318,7 @@ Antes de conceder essa permissão, leia atentamente as informações exibidas pe
 
 (como o código esta dentro do repositório , nao precisarei explicar!)
 
-**FUNÇÕES AVANÇADAS DA ÁREA PROTEGIDA!:**
+## FUNÇÕES AVANÇADAS DA ÁREA PROTEGIDA!:
 
 **lembrando que, sobre esses apps, ja tem o código fonte dele dentro do repositório no site!:**
 
@@ -311,164 +346,123 @@ Seja para abrir um documento, encontrar uma foto especial, ouvir uma música ou 
 
 # Assistente Inteligente do Mulher Amparada 🤖💗
 
-        O Assistente Inteligente do Mulher Amparada permite controlar diversas funções do aplicativo utilizando comandos em linguagem natural, tornando o uso mais rápido e acessível.
+O Assistente Inteligente do Mulher Amparada permite controlar diversas funções do aplicativo utilizando comandos em linguagem natural, tornando o uso mais rápido e acessível.
 
-        Com apenas um comando, é possível abrir aplicativos instalados no dispositivo sem precisar procurá-los manualmente.
+Com apenas um comando, é possível abrir aplicativos instalados no dispositivo sem precisar procurá-los manualmente.
 
-        O assistente também pode ligar diretamente para a Central de Atendimento à Mulher (180), agilizando o acesso ao serviço em situações de necessidade.
+O assistente também pode ligar diretamente para a Central de Atendimento à Mulher (180), agilizando o acesso ao serviço em situações de necessidade.
 
-        Caso autorizado, é possível enviar sua localização pelo WhatsApp para o número oficial do Ligue 180, facilitando o compartilhamento da sua posição.
+Caso autorizado, é possível enviar sua localização pelo WhatsApp para o número oficial do Ligue 180, facilitando o compartilhamento da sua posição.
 
-        Você pode solicitar o envio de notificações personalizadas para lembrar compromissos, informações importantes ou qualquer mensagem desejada.
+Você pode solicitar o envio de notificações personalizadas para lembrar compromissos, informações importantes ou qualquer mensagem desejada.
 
-        Também existe a opção de simular uma notificação de download com barra de progresso, exibindo o andamento até a conclusão.
+Também existe a opção de simular uma notificação de download com barra de progresso, exibindo o andamento até a conclusão.
 
-        Crie eventos no calendário do dispositivo utilizando comandos simples. O aplicativo abre a tela de criação do evento já preenchida para confirmação.
+Crie eventos no calendário do dispositivo utilizando comandos simples. O aplicativo abre a tela de criação do evento já preenchida para confirmação.
 
-        Inicie timers por tempo determinado e receba uma notificação quando o tempo terminar. O timer também pode ser cancelado por comando.
+Inicie timers por tempo determinado e receba uma notificação quando o tempo terminar. O timer também pode ser cancelado por comando.
 
-        Consulte rapidamente os principais telefones de apoio e emergência disponíveis no Brasil diretamente pelo assistente.
+Consulte rapidamente os principais telefones de apoio e emergência disponíveis no Brasil diretamente pelo assistente.
 
-        Visualize quantas vezes números de emergência, como 180, 181, 188, 190, 191, 192, 193 e 156 foram acionados, utilizando o histórico de chamadas do dispositivo quando autorizado.
+Visualize quantas vezes números de emergência, como 180, 181, 188, 190, 191, 192, 193 e 156 foram acionados, utilizando o histórico de chamadas do dispositivo quando autorizado.
 
-        Abra fotos armazenadas no aparelho informando apenas o nome do arquivo.
+Abra fotos armazenadas no aparelho informando apenas o nome do arquivo.
 
-        Também é possível abrir músicas e vídeos diretamente pelo nome do arquivo, utilizando os aplicativos compatíveis instalados no dispositivo.
+Também é possível abrir músicas e vídeos diretamente pelo nome do arquivo, utilizando os aplicativos compatíveis instalados no dispositivo.
 
-        Verifique se o Bluetooth está ligado ou desligado por comando de voz ou texto.
+Verifique se o Bluetooth está ligado ou desligado por comando de voz ou texto.
 
-        Abra rapidamente as configurações do Bluetooth quando desejar conectar ou gerenciar dispositivos.
+Abra rapidamente as configurações do Bluetooth quando desejar conectar ou gerenciar dispositivos.
 
-        Consulte a lista de dispositivos Bluetooth pareados no aparelho de forma prática.
+Consulte a lista de dispositivos Bluetooth pareados no aparelho de forma prática.
 
-        Quando configurado como Administrador do Dispositivo, o assistente também pode bloquear imediatamente a tela do celular.
+Quando configurado como Administrador do Dispositivo, o assistente também pode bloquear imediatamente a tela do celular.
 
-        Todas essas funções foram desenvolvidas para oferecer praticidade, rapidez e facilidade no dia a dia, mantendo uma experiência simples, intuitiva e totalmente gratuita, sem anúncios.
+Todas essas funções foram desenvolvidas para oferecer praticidade, rapidez e facilidade no dia a dia, mantendo uma experiência simples, intuitiva e totalmente gratuita, sem anúncios.
     
+Comandos do Assistente Inteligente 🤖💗
+
+O Assistente Inteligente reconhece comandos em linguagem natural. Veja alguns exemplos:
+
+📱 Aplicativos
+• Abrir WhatsApp
+• Abrir Instagram
+• Abrir Configurações
+
+📞 Emergência
+• Alô e da companhia de energia
+• Alô é da energia
+• Alô e da energia
+• é da energia
+• e da companhia de energia
+• É da companhia de energia
 
 
-    
-        Comandos do Assistente Inteligente 🤖💗
+📍 Localização
+• Enviar minha localização para o 180
+• Mandar minha localização para o 180
 
-        O Assistente Inteligente reconhece comandos em linguagem natural. Veja alguns exemplos:
+🔔 Notificações
+• Me mande uma notificação Estou chegando.
+• Me mande uma notificação Lembrete importante.
 
-        📱 Aplicativos
-        • Abrir WhatsApp
-        • Abrir Instagram
-        • Abrir Configurações
+⬇️ Download fictício
 
-        📞 Emergência
-        • Alô e da companhia de energia
-        • Alô é da energia
-        • Alô e da energia
-        • é da energia
-        • e da companhia de energia
-        • É da companhia de energia
+• me envie uma notificação de download ficticio
+• Me envie uma notificação de download ficticio
+• me envie uma notificação de download fictício
+• Me envie uma notificação de download fictício
+• me mande uma notificação de download fictício
+• Me mande uma notificação de download fictício
+• me mande uma notificação de download ficticio
+• Me mande uma notificação de download ficticio
 
+📅 Calendário
+• Criar evento Reunião
+• Crie um evento Consulta médica
+• Adicionar evento Aniversário
+• Marcar compromisso Academia
 
-        📍 Localização
-        • Enviar minha localização para o 180
-        • Mandar minha localização para o 180
+⏲️ Timer
+• Inicie um timer de 5 minutos
+• Inicie um timer de 30 minutos
+• Cancelar timer
 
-        🔔 Notificações
-        • Me mande uma notificação Estou chegando.
-        • Me mande uma notificação Lembrete importante.
+☎️ Telefones de apoio
+• Quais são os meus apoios
+• Quais sao os meus apoios
+• Meus apoios
 
-        ⬇️ Download fictício
-        
-        • me envie uma notificação de download ficticio
-        • Me envie uma notificação de download ficticio
-        • me envie uma notificação de download fictício
-        • Me envie uma notificação de download fictício
-        • me mande uma notificação de download fictício
-        • Me mande uma notificação de download fictício
-        • me mande uma notificação de download ficticio
-        • Me mande uma notificação de download ficticio
+📋 Histórico de ajuda
+• Quantas vezes liguei para pedir ajuda
+• Ligações de ajuda
+• Histórico de ajuda
 
-        📅 Calendário
-        • Criar evento Reunião
-        • Crie um evento Consulta médica
-        • Adicionar evento Aniversário
-        • Marcar compromisso Academia
+🖼️ Fotos
+• Abrir foto viagem.jpg
+• Abrir foto imagem.png
 
-        ⏲️ Timer
-        • Inicie um timer de 5 minutos
-        • Inicie um timer de 30 minutos
-        • Cancelar timer
+🎵 Músicas
+• Abrir música musica.mp3
 
-        ☎️ Telefones de apoio
-        • Quais são os meus apoios
-        • Quais sao os meus apoios
-        • Meus apoios
+🎬 Vídeos
+• Abrir vídeo video.mp4
 
-        📋 Histórico de ajuda
-        • Quantas vezes liguei para pedir ajuda
-        • Ligações de ajuda
-        • Histórico de ajuda
+📶 Bluetooth
+• Bluetooth está ligado
+• Bluetooth esta ligado
+• Abrir Bluetooth
+• Configurações do Bluetooth
+• Listar dispositivos Bluetooth
+• Quais dispositivos Bluetooth
+• Dispositivos pareados
 
-        🖼️ Fotos
-        • Abrir foto viagem.jpg
-        • Abrir foto imagem.png
+🔒 Bloqueio do aparelho
+• Bloquear celular
+• Bloquear aparelho
 
-        🎵 Músicas
-        • Abrir música musica.mp3
-
-        🎬 Vídeos
-        • Abrir vídeo video.mp4
-
-        📶 Bluetooth
-        • Bluetooth está ligado
-        • Bluetooth esta ligado
-        • Abrir Bluetooth
-        • Configurações do Bluetooth
-        • Listar dispositivos Bluetooth
-        • Quais dispositivos Bluetooth
-        • Dispositivos pareados
-
-        🔒 Bloqueio do aparelho
-        • Bloquear celular
-        • Bloquear aparelho
-
-        🔍 Pesquisa
-        • Pesquisar + termo a ser pesquisado (e ai ele abre o navegador com a pesquisa feita no google)
-        
-**E eu não fiz curso nem nada, só usei a I.A (o ChatGPT) e o que aprendi de programação com ela!**
-
-# Sobre a permissão de sms:
-
-é um avanço, pois é uma permissão a menos pro app!, deixei esses registros dessa permissão nesse repositório porque pode ser que precise... (esse aviso serve apenas pro app do Mulher Amparada!)
-
----- 
-
-# Direitos que toda mulher tem!
-
-Conheça 100 direitos e garantias assegurados às mulheres pela legislação brasileira.
-
-Para consultar a legislação completa e as referências utilizadas nesta seção, acesse **[LEIS.md](LEIS.md)**.
-
-Conhecer seus direitos é importante para reconhecer situações de proteção, buscar ajuda quando necessário e entender as garantias previstas em lei.
-
-----
-
-# Conhecimentos para recuperar sua autonomia
-
-Conhecimentos e informações para ajudar você a compreender melhor sua vida financeira, organizar seu dinheiro e fortalecer sua autonomia.
-
-Para acessar o conteúdo completo sobre finanças, consulte **[Finanças](FINANÇAS.md)**.
-
-----
-
-# Mensagem de apoio e acolhimento para as usuárias
-
-Uma carta para você
-
-Esta carta foi feita para apoiar você em sua caminhada, trazendo conhecimentos e informações que podem ajudar a compreender melhor sua vida financeira, organizar seu dinheiro e fortalecer, cada vez mais, sua autonomia.
-
-Você não precisa saber tudo de uma vez. Conhecimento também é uma forma de proteção, e entender suas próprias finanças pode ajudar você a tomar decisões com mais segurança e independência.
-
-Para acessar o conteúdo completo sobre finanças, consulte a [Carta do desenvolvedor](ABOUT.md).
-
-----
+🔍 Pesquisa
+• Pesquisar + termo a ser pesquisado (e ai ele abre o navegador com a pesquisa feita no google)
 
 # Considerações finais:
 
@@ -482,4 +476,13 @@ e no application do AndroidManifest do app tem allowBackup="false"
 
 O aplicativo possui um navegador interno. A navegação para o Google é feita diretamente pelo código usando window location replace(), sem disponibilizar o endereço como um link na interface. O aplicativo também não implementa um sistema próprio de registro de histórico de navegação, (ou pelo ou menos eu não coloquei na página)
 
-❤️Mulher Amparada❤️, um projeto totalmente gratuito e livre de anúncios, projetado por um menino autista nível 1 de 15 anos!, usando o apoio do chatgpt, sem curso formal!
+
+E temos um recurso na área protegida que é um especial de dia das mulheree: consiste em um jogo clicker que ao ganhar pontos (1 => 2) ou 1 ponto por segundo, você avança na história delas entre cada era da humanidade (antiguidade, idade média, e etc!)
+
+e eu programei todo esse projeto no A16 5g da samsung, e nas primeiras versoes, onde nem tinha os recursos, ja programei ele num app de A-IDE, num A05, e eu ja perdi vários projetos porque o celular nao aguentava, matava o projeto porque matou o processo de compilação!, e uma vez eu fiz o projeto do mulher amparada e eu mesmo fiz o app do mulher amparada (primeiro eu refiz, depois na 2 vez que perdi portei tudo do apk compilado para descompilado, e depois perdi denovo mas ai eu ja tinha o código-fonte!)
+
+e a calculadora falsa realmente faz contas, se digitar:
+
+2 + 2, aparece 4!
+
+e se digitar a senha ele desbloqueia...
