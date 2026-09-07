@@ -8,7 +8,7 @@ O aplicativo foi pensado para funcionar como um apoio digital em momentos críti
 
 e os apps são compilados com o workflow, gera o código sha-256 e o zip com o app, envia para a release pela tag correspondente, e atualiza o link das páginas de download, e o tamanho do apk dessas páginas!
 
-no repositório tem um yml que ativa todos os dias as meia noite em ponto, procure no codigo fonte dos 3 apps o arquivo build do módulo do app, e se ele ver que saiu uma versão android nova, ele atualiza, totalmente sozinho!, garantindo que elas tenham os apps mais recentes possíveis!
+no repositório tem um yml que ativa todos os dias, procura no codigo fonte dos 3 apps o arquivo build do módulo do app, e se ele ver que saiu uma versão android nova, ele atualiza, totalmente sozinho!, garantindo que elas tenham os apps mais recentes possíveis!
 
 E eu também já consegui configurar um ssh na conta, e 2fa nela tambem, e com o ssh, eu consegui mover pastas inteiras para o repositório, e transformei 4 em 1, e mais de 100 commits em 1,
 
