@@ -548,9 +548,12 @@ Porque usei a permissão de Administrador do dispositivo e não serviço de aces
 porque os serviços de acessibilidade para os ativar precisa ir para a tela de acessibilidade e conceder as permissões restritas, enquanto o administrador do dispositivo ele só precisa ativar e as permissões restritas só acontece quando o desativa!
 
 
+
 ----
 
 # Decisões técnicas:
+
+lembre-se que hoje em dia uso github para compilar os apps e o a16 5g da samsung, então ele nao mata o processo de compilação mais!
 
 Porque usei webview e html?
 
