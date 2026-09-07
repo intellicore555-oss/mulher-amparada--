@@ -1,539 +1,64 @@
-name: Atualizar Android SDK
+name: Deploy Jekyll with GitHub Pages dependencies preinstalled
 
 on:
-
-  # =========================================================
-  # EXECUÇÃO DIÁRIA
-  # 03:00 UTC = 00:00 em Brasília
-  # =========================================================
-
   schedule:
-    - cron: "0 3 * * *"
+    - cron: "0 * * * *"
 
-
-  # =========================================================
-  # BOTÃO "RUN WORKFLOW"
-  # =========================================================
+  push:
+    branches: ["main"]
 
   workflow_dispatch:
 
-
-  # =========================================================
-  # EXECUTAR QUANDO ESTE WORKFLOW FOR ALTERADO
-  # =========================================================
-
-  push:
-    paths:
-      - ".github/workflows/atualizar-android-sdk.yml"
-
-
-  # =========================================================
-  # EXECUTAR APÓS OUTROS WORKFLOWS
-  # =========================================================
-
   workflow_run:
     workflows:
-      
 
-      - "Deploy Jekyll with GitHub Pages dependencies preinstalled"
+      - "Atualizar Android SDK"
+
       - "Compilar o mulher amparada"
-
     types:
       - completed
 
-
-# ===========================================================
-# PERMISSÕES
-# ===========================================================
-
 permissions:
-  contents: write
-
-
-# ===========================================================
-# EVITAR DUAS ATUALIZAÇÕES DO MAIN AO MESMO TEMPO
-# ===========================================================
-
-concurrency:
-  group: atualizar-main
-  cancel-in-progress: false
-
-
-# ===========================================================
-# JOB
-# ===========================================================
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
-
-  atualizar-sdk:
-
-    name: Atualizar Android SDK
-
-    runs-on: ubuntu-latest
-
-
-    # =======================================================
-    # IMPORTANTE
-    #
-    # Se vier de workflow_run, somente executa quando o
-    # workflow anterior terminou com sucesso.
-    #
-    # Para schedule, push e workflow_dispatch, executa
-    # normalmente.
-    # =======================================================
-
+  build:
     if: >
       github.event_name != 'workflow_run' ||
       github.event.workflow_run.conclusion == 'success'
 
+    runs-on: ubuntu-latest
+
+    
 
     steps:
-
-
-      # =====================================================
-      # BAIXAR REPOSITÓRIO
-      # =====================================================
-
-      - name: Baixar repositório
+      - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Build with Jekyll
+        uses: actions/jekyll-build-pages@v1
         with:
-          fetch-depth: 0
+          source: ./
+          destination: ./_site
 
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
 
-      # =====================================================
-      # CONFIGURAR JAVA 17
-      # =====================================================
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
-      - name: Configurar Java 17
-        uses: actions/setup-java@v4
-        with:
-          distribution: temurin
-          java-version: "17"
+    runs-on: ubuntu-latest
 
+    needs: build
 
-      # =====================================================
-      # CONFIGURAR ANDROID SDK
-      # =====================================================
-
-      - name: Configurar Android SDK
-        uses: android-actions/setup-android@v3
-
-
-      # =====================================================
-      # DESCOBRIR ANDROID SDK MAIS RECENTE
-      # =====================================================
-
-      - name: Descobrir Android SDK mais recente
-        id: sdk
-        shell: bash
-        run: |
-
-          set -e
-
-          echo "Consultando versões disponíveis do Android SDK..."
-
-          SDK=$(
-            sdkmanager --list 2>/dev/null |
-            grep -oE 'platforms;android-[0-9]+' |
-            sed 's/platforms;android-//' |
-            sort -n |
-            tail -n 1
-          )
-
-
-          # =================================================
-          # VERIFICAR RESULTADO
-          # =================================================
-
-          if [ -z "$SDK" ]; then
-
-            echo "ERRO: não foi possível descobrir o Android SDK mais recente."
-
-            echo ""
-            echo "Saída do sdkmanager:"
-            sdkmanager --list || true
-
-            exit 1
-
-          fi
-
-
-          echo "=========================================="
-          echo "Android SDK mais recente encontrado:"
-          echo "Android API $SDK"
-          echo "=========================================="
-
-
-          echo "compile_sdk=$SDK" >> "$GITHUB_OUTPUT"
-
-
-      # =====================================================
-      # INSTALAR A PLATAFORMA DESCOBERTA
-      #
-      # Isso garante que o runner realmente tenha a API
-      # disponível para compilação.
-      # =====================================================
-
-      - name: Instalar Android SDK encontrado
-        env:
-          SDK: ${{ steps.sdk.outputs.compile_sdk }}
-        shell: bash
-        run: |
-
-          set -e
-
-          echo "Instalando platform android-$SDK..."
-
-          yes | sdkmanager \
-            "platforms;android-$SDK"
-
-
-          echo ""
-          echo "SDK instalado:"
-          sdkmanager --list_installed |
-            grep "platforms;android-$SDK" || true
-
-
-      # =====================================================
-      # ENCONTRAR BUILD.GRADLE
-      # =====================================================
-
-      - name: Encontrar todos os build.gradle dos módulos app
-        id: files
-        shell: bash
-        run: |
-
-          set -e
-
-          echo "=========================================="
-          echo "Procurando build.gradle dentro de módulos app"
-          echo "=========================================="
-
-
-          find . \
-            -type f \
-            \( \
-              -name "build.gradle" \
-              -o \
-              -name "build.gradle.kts" \
-            \) \
-            -path "*/app/*" \
-            -print
-
-
-          FILES=$(
-            find . \
-              -type f \
-              \( \
-                -name "build.gradle" \
-                -o \
-                -name "build.gradle.kts" \
-              \) \
-              -path "*/app/*"
-          )
-
-
-          if [ -z "$FILES" ]; then
-
-            echo ""
-            echo "ERRO: nenhum build.gradle encontrado dentro de uma pasta app."
-
-            exit 1
-
-          fi
-
-
-          echo ""
-          echo "Arquivos encontrados:"
-          echo "$FILES"
-
-
-      # =====================================================
-      # ATUALIZAR compileSdk
-      # targetSdk
-      # targetSdkVersion
-      # =====================================================
-
-      - name: Atualizar compileSdk e targetSdk
-        env:
-          SDK: ${{ steps.sdk.outputs.compile_sdk }}
-        shell: bash
-        run: |
-
-          set -e
-
-
-          find . \
-            -type f \
-            \( \
-              -name "build.gradle" \
-              -o \
-              -name "build.gradle.kts" \
-            \) \
-            -path "*/app/*" \
-            -print0 |
-          while IFS= read -r -d '' FILE; do
-
-
-            echo ""
-            echo "=========================================="
-            echo "Arquivo:"
-            echo "$FILE"
-            echo ""
-            echo "Novo SDK:"
-            echo "$SDK"
-            echo "=========================================="
-
-
-            python3 - "$FILE" "$SDK" <<'PY'
-
-          import re
-          import sys
-
-
-          file = sys.argv[1]
-          sdk = sys.argv[2]
-
-
-          # =================================================
-          # LER ARQUIVO
-          # =================================================
-
-          with open(
-              file,
-              "r",
-              encoding="utf-8"
-          ) as f:
-
-              content = f.read()
-
-
-          original = content
-
-
-          # =================================================
-          # compileSdk
-          #
-          # Groovy:
-          # compileSdk 35
-          #
-          # Kotlin:
-          # compileSdk = 35
-          # =================================================
-
-          content = re.sub(
-              r'(\bcompileSdk\s+)\d+',
-              rf'\g<1>{sdk}',
-              content
-          )
-
-
-          content = re.sub(
-              r'(\bcompileSdk\s*=\s*)\d+',
-              rf'\g<1>{sdk}',
-              content
-          )
-
-
-          # =================================================
-          # targetSdk
-          #
-          # Groovy:
-          # targetSdk 35
-          #
-          # Kotlin:
-          # targetSdk = 35
-          # =================================================
-
-          content = re.sub(
-              r'(\btargetSdk\s+)\d+',
-              rf'\g<1>{sdk}',
-              content
-          )
-
-
-          content = re.sub(
-              r'(\btargetSdk\s*=\s*)\d+',
-              rf'\g<1>{sdk}',
-              content
-          )
-
-
-          # =================================================
-          # targetSdkVersion
-          # =================================================
-
-          content = re.sub(
-              r'(\btargetSdkVersion\s+)\d+',
-              rf'\g<1>{sdk}',
-              content
-          )
-
-
-          content = re.sub(
-              r'(\btargetSdkVersion\s*\(\s*)\d+',
-              rf'\g<1>{sdk}',
-              content
-          )
-
-
-          # =================================================
-          # SALVAR SOMENTE SE HOUVE ALTERAÇÃO
-          # =================================================
-
-          if content == original:
-
-              print("Nenhuma alteração necessária.")
-
-          else:
-
-              with open(
-                  file,
-                  "w",
-                  encoding="utf-8"
-              ) as f:
-
-                  f.write(content)
-
-
-              print(
-                  f"Atualizado para Android SDK {sdk}"
-              )
-
-          PY
-
-
-          done
-
-
-      # =====================================================
-      # MOSTRAR DIFF
-      # =====================================================
-
-      - name: Verificar alterações
-        id: changes
-        shell: bash
-        run: |
-
-          if git diff --quiet; then
-
-            echo "changed=false" >> "$GITHUB_OUTPUT"
-
-            echo ""
-            echo "=========================================="
-            echo "Nenhuma alteração necessária."
-            echo "=========================================="
-
-
-          else
-
-            echo "changed=true" >> "$GITHUB_OUTPUT"
-
-            echo ""
-            echo "=========================================="
-            echo "ALTERAÇÕES ENCONTRADAS"
-            echo "=========================================="
-
-            git diff
-
-          fi
-
-
-      # =====================================================
-      # COMMIT E PUSH
-      # =====================================================
-
-      - name: Commit e push
-        if: steps.changes.outputs.changed == 'true'
-        shell: bash
-        run: |
-
-          set -e
-
-
-          git config user.name \
-            "github-actions[bot]"
-
-          git config user.email \
-            "41898282+github-actions[bot]@users.noreply.github.com"
-
-
-          echo "Adicionando alterações..."
-
-          git add .
-
-
-          # =================================================
-          # VERIFICAR SE EXISTE ALGO PARA COMMITAR
-          # =================================================
-
-          if git diff --cached --quiet; then
-
-            echo "Nenhuma alteração para commit."
-
-            exit 0
-
-          fi
-
-
-          # =================================================
-          # COMMIT
-          # =================================================
-
-          git commit \
-            -m "chore: atualizar Android SDK [skip ci]"
-
-
-          # =================================================
-          # ATUALIZAR REFERÊNCIA REMOTA
-          # =================================================
-
-          git fetch origin main
-
-
-          # =================================================
-          # REAPLICAR COMMIT SOBRE O MAIN ATUAL
-          # =================================================
-
-          git rebase origin/main
-
-
-          # =================================================
-          # ENVIAR
-          # =================================================
-
-          git push origin HEAD:main
-
-
-      # =====================================================
-      # RESUMO
-      # =====================================================
-
-      - name: Mostrar resumo
-        env:
-          SDK: ${{ steps.sdk.outputs.compile_sdk }}
-        run: |
-
-          echo "## Atualização do Android SDK" \
-            >> "$GITHUB_STEP_SUMMARY"
-
-          echo "" \
-            >> "$GITHUB_STEP_SUMMARY"
-
-          echo "**Android API encontrada:** $SDK" \
-            >> "$GITHUB_STEP_SUMMARY"
-
-          echo "" \
-            >> "$GITHUB_STEP_SUMMARY"
-
-          if [ "${{ steps.changes.outputs.changed }}" = "true" ]; then
-
-            echo "**Resultado:** arquivos atualizados" \
-              >> "$GITHUB_STEP_SUMMARY"
-
-          else
-
-            echo "**Resultado:** nenhum arquivo precisava de atualização" \
-              >> "$GITHUB_STEP_SUMMARY"
-
-          fi
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
