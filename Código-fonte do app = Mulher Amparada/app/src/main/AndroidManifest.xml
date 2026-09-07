@@ -21,10 +21,6 @@
     <uses-permission
         android:name="android.permission.READ_CONTACTS" />
 
-    <!-- SMS -->
-    <uses-permission
-        android:name="android.permission.SEND_SMS" />
-
     <!-- Ligações -->
     <uses-permission
         android:name="android.permission.CALL_PHONE" />
@@ -57,6 +53,9 @@
 
     <uses-permission
         android:name="android.permission.FOREGROUND_SERVICE_MICROPHONE" />
+
+    <uses-permission
+        android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
 
     <!-- Wake Lock -->
     <uses-permission
@@ -221,7 +220,7 @@
         <service
             android:name=".MediaPlaybackService"
             android:foregroundServiceType="mediaPlayback"
-            android:exported="false">
+            android:exported="true">
 
             <intent-filter>
 
