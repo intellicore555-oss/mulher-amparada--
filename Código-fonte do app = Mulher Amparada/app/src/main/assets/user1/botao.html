@@ -1167,36 +1167,6 @@ margin-bottom: 1.5%;
             </button>
 
 
-            <button
-                class="btn appCard"
-                type="button"
-                data-search="gerenciador arquivos aplicativo"
-                onclick="androidCall('abrirGerenciador')"
-            >
-
-                <div class="emoji">
-                    <img src="gerenciar.png" alt="">
-                </div>
-
-                <div class="content">
-
-                    <div class="title">
-                        Gerenciador de arquivos
-                    </div>
-
-                    <div class="description">
-                        Organize seus arquivos
-                    </div>
-
-                </div>
-
-                <div class="arrow">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M9 18l6-6-6-6"></path>
-                    </svg>
-                </div>
-
-            </button>
 
 
         </div>
@@ -1376,14 +1346,35 @@ margin-bottom: 1.5%;
 <script>
 
 /* =========================================================
-   NAVEGAÇÃO
+   NAVEGAÇÃO ENTRE PÁGINAS HTML
 ========================================================= */
 
 function ir(pagina) {
 
-    if (!pagina) return;
+    if (
+        typeof pagina !== "string" ||
+        pagina.trim() === ""
+    ) {
+        return false;
+    }
 
-    window.location.href = pagina;
+    try {
+
+        window.location.href = pagina;
+
+        return true;
+
+    } catch (erro) {
+
+        console.error(
+            "Erro ao navegar para:",
+            pagina,
+            erro
+        );
+
+        return false;
+
+    }
 
 }
 
@@ -1394,31 +1385,66 @@ function ir(pagina) {
 
 function androidCall(metodo) {
 
+    if (
+        typeof metodo !== "string" ||
+        metodo.trim() === ""
+    ) {
+        console.warn("Método Android inválido.");
+        return false;
+    }
+
+
     try {
 
+        /*
+         * Verifica se a interface Android existe.
+         */
+
         if (
-            typeof Android !== "undefined" &&
-            Android !== null &&
-            typeof Android[metodo] === "function"
+            typeof Android === "undefined" ||
+            Android === null
         ) {
 
-            Android[metodo]();
+            console.warn(
+                "Interface Android não disponível."
+            );
 
-            return true;
+            return false;
 
         }
 
-        console.warn(
-            "Método Android indisponível:",
-            metodo
-        );
 
-        return false;
+        /*
+         * Verifica se o método realmente existe
+         * no WebAppInterface.
+         */
+
+        if (
+            typeof Android[metodo] !== "function"
+        ) {
+
+            console.warn(
+                "Método Android não encontrado:",
+                metodo
+            );
+
+            return false;
+
+        }
+
+
+        /*
+         * Executa o método.
+         */
+
+        Android[metodo]();
+
+        return true;
 
     } catch (erro) {
 
         console.error(
-            "Erro no método Android:",
+            "Erro ao executar método Android:",
             metodo,
             erro
         );
@@ -1430,10 +1456,234 @@ function androidCall(metodo) {
 }
 
 
+/* =========================================================
+   QUEBRA DE TEXTO
+   LIMITE DE 14 CARACTERES
+========================================================= */
+
+function quebrarTexto(texto, limite) {
+
+    if (
+        typeof texto !== "string" ||
+        texto.trim() === ""
+    ) {
+        return "";
+    }
+
+
+    /*
+     * Garante um limite válido.
+     */
+
+    limite = Number(limite);
+
+    if (
+        !Number.isFinite(limite) ||
+        limite < 1
+    ) {
+        limite = 14;
+    }
+
+
+    /*
+     * Normaliza espaços.
+     */
+
+    texto = texto
+        .replace(/\s+/g, " ")
+        .trim();
+
+
+    /*
+     * Se já estiver dentro do limite,
+     * não precisa quebrar.
+     */
+
+    if (texto.length <= limite) {
+        return texto;
+    }
+
+
+    const palavras = texto.split(" ");
+
+    const linhas = [];
+
+    let linhaAtual = "";
+
+
+    palavras.forEach(function (palavra) {
+
+        /*
+         * Se a palavra for maior que 14 caracteres,
+         * ela será dividida em blocos.
+         */
+
+        if (palavra.length > limite) {
+
+            /*
+             * Primeiro salva a linha atual.
+             */
+
+            if (linhaAtual) {
+
+                linhas.push(linhaAtual);
+
+                linhaAtual = "";
+
+            }
+
+
+            /*
+             * Divide a palavra em blocos de 14.
+             */
+
+            while (palavra.length > limite) {
+
+                linhas.push(
+                    palavra.substring(0, limite)
+                );
+
+                palavra =
+                    palavra.substring(limite);
+
+            }
+
+
+            /*
+             * Guarda o restante para tentar
+             * juntar com a próxima palavra.
+             */
+
+            if (palavra.length > 0) {
+
+                linhaAtual = palavra;
+
+            }
+
+            return;
+
+        }
+
+
+        /*
+         * Tenta colocar a palavra na linha atual.
+         */
+
+        const tentativa = linhaAtual
+            ? linhaAtual + " " + palavra
+            : palavra;
+
+
+        /*
+         * Se couber, mantém na mesma linha.
+         */
+
+        if (tentativa.length <= limite) {
+
+            linhaAtual = tentativa;
+
+        } else {
+
+            /*
+             * Caso não caiba, fecha a linha anterior.
+             */
+
+            if (linhaAtual) {
+
+                linhas.push(linhaAtual);
+
+            }
+
+            /*
+             * Começa uma nova linha.
+             */
+
+            linhaAtual = palavra;
+
+        }
+
+    });
+
+
+    /*
+     * Adiciona a última linha.
+     */
+
+    if (linhaAtual) {
+
+        linhas.push(linhaAtual);
+
+    }
+
+
+    return linhas.join("<br>");
+
+}
 
 
 /* =========================================================
-   DESATIVA MENU DE CONTEXTO
+   APLICAÇÃO DA QUEBRA DE TEXTO
+========================================================= */
+
+function aplicarQuebraDeTexto() {
+
+    const elementos =
+        document.querySelectorAll(
+            ".btn .title, .btn .description"
+        );
+
+
+    elementos.forEach(function (elemento) {
+
+        /*
+         * Pega somente o texto.
+         * Isso evita depender do HTML interno.
+         */
+
+        const texto =
+            elemento.textContent
+                .replace(/\s+/g, " ")
+                .trim();
+
+
+        /*
+         * Ignora elementos vazios.
+         */
+
+        if (!texto) {
+            return;
+        }
+
+
+        /*
+         * Até 14 caracteres:
+         * mantém o texto normal.
+         */
+
+        if (texto.length <= 14) {
+
+            elemento.textContent = texto;
+
+            return;
+
+        }
+
+
+        /*
+         * Mais de 14:
+         * aplica a quebra.
+         */
+
+        elemento.innerHTML =
+            quebrarTexto(texto, 14);
+
+    });
+
+}
+
+
+/* =========================================================
+   DESATIVAR MENU DE CONTEXTO
 ========================================================= */
 
 document.addEventListener(
@@ -1442,73 +1692,24 @@ document.addEventListener(
 
         event.preventDefault();
 
-    }
+    },
+    false
 );
 
-</script>
 
-<script>
+/* =========================================================
+   INICIALIZAÇÃO
+========================================================= */
 
-document.querySelectorAll(".btn .title, .btn .description").forEach(function (element) {
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
 
-    const texto = element.textContent.trim();
+        aplicarQuebraDeTexto();
 
-    if (texto.length <= 14) {
-        return;
-    }
-
-    const palavras = texto.split(/\s+/);
-    const linhas = [];
-    let linhaAtual = "";
-
-    palavras.forEach(function (palavra) {
-
-        const tentativa = linhaAtual
-            ? linhaAtual + " " + palavra
-            : palavra;
-
-        if (tentativa.length <= 14) {
-
-            linhaAtual = tentativa;
-
-        } else {
-
-            if (linhaAtual) {
-                linhas.push(linhaAtual);
-            }
-
-            /*
-             * Se a palavra sozinha tiver mais de 14 caracteres,
-             * divide a palavra também.
-             */
-            if (palavra.length > 14) {
-
-                while (palavra.length > 14) {
-
-                    linhas.push(palavra.substring(0, 14));
-                    palavra = palavra.substring(14);
-
-                }
-
-                linhaAtual = palavra;
-
-            } else {
-
-                linhaAtual = palavra;
-
-            }
-
-        }
-
-    });
-
-    if (linhaAtual) {
-        linhas.push(linhaAtual);
-    }
-
-    element.innerHTML = linhas.join("<br>");
-
-});
+    },
+    false
+);
 
 </script>
 
