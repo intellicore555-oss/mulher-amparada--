@@ -79,11 +79,7 @@ dependencies {
     // Lifecycle
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.9.1'
 
-    // Media3
-    implementation 'androidx.media3:media3-exoplayer:1.8.0'
-    implementation 'androidx.media3:media3-ui:1.8.0'
-    implementation 'androidx.media3:media3-common:1.8.0'
-    implementation 'androidx.media3:media3-session:1.8.0'
+    
 
     // ZIP4J
     implementation 'net.lingala.zip4j:zip4j:2.11.5'
