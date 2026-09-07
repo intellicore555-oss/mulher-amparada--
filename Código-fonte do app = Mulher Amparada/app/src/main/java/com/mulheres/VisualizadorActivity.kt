@@ -19,6 +19,7 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.ScrollView
+import android.widget.SeekBar
 import android.widget.TextView
 import android.widget.Toast
 
@@ -33,8 +34,6 @@ import androidx.media3.common.MediaItem
 import androidx.media3.common.Player
 import androidx.media3.session.MediaController
 import androidx.media3.session.SessionToken
-import androidx.media3.ui.DefaultTimeBar
-import androidx.media3.ui.TimeBar
 import androidx.media3.ui.PlayerView
 
 import com.google.common.util.concurrent.ListenableFuture
@@ -56,7 +55,7 @@ class VisualizadorActivity : AppCompatActivity() {
     private lateinit var txtMensagem: TextView
 
     private lateinit var playerControls: View
-    private lateinit var timeBar: DefaultTimeBar
+    private lateinit var timeBar: SeekBar
 
     private lateinit var txtPosicao: TextView
     private lateinit var txtDuracao: TextView
@@ -73,9 +72,6 @@ class VisualizadorActivity : AppCompatActivity() {
 
     private var arquivoAtual: File? = null
 
-    /*
-     * Lista de mídias da pasta atual.
-     */
     private var arquivosDeMidia: List<File> = emptyList()
 
     private val handler = Handler(Looper.getMainLooper())
@@ -104,7 +100,7 @@ class VisualizadorActivity : AppCompatActivity() {
                     formatarTempo(posicao)
 
                 txtDuracao.text =
-                    if (duracao >= 0) {
+                    if (duracao > 0) {
                         formatarTempo(duracao)
                     } else {
                         "00:00"
@@ -342,6 +338,14 @@ class VisualizadorActivity : AppCompatActivity() {
                             Toast.LENGTH_LONG
                         ).show()
                     }
+
+                } else {
+
+                    Toast.makeText(
+                        this,
+                        "Nenhum arquivo foi informado.",
+                        Toast.LENGTH_LONG
+                    ).show()
                 }
 
                 handler.post(
@@ -349,6 +353,12 @@ class VisualizadorActivity : AppCompatActivity() {
                 )
 
             } catch (e: Exception) {
+
+                android.util.Log.e(
+                    "VisualizadorActivity",
+                    "Erro ao iniciar player",
+                    e
+                )
 
                 Toast.makeText(
                     this,
@@ -393,6 +403,59 @@ class VisualizadorActivity : AppCompatActivity() {
                     atualizarBotoes()
 
                     atualizarBarra()
+
+                    when (playbackState) {
+
+                        Player.STATE_BUFFERING -> {
+
+                            progresso.visibility =
+                                View.VISIBLE
+                        }
+
+                        Player.STATE_READY -> {
+
+                            progresso.visibility =
+                                View.GONE
+                        }
+
+                        Player.STATE_ENDED -> {
+
+                            progresso.visibility =
+                                View.GONE
+                        }
+
+                        Player.STATE_IDLE -> {
+
+                            progresso.visibility =
+                                View.GONE
+                        }
+                    }
+                }
+
+                override fun onPlayerError(
+                    error: androidx.media3.common.PlaybackException
+                ) {
+
+                    progresso.visibility =
+                        View.GONE
+
+                    android.util.Log.e(
+                        "VisualizadorActivity",
+                        "Erro Media3: ${error.errorCodeName}",
+                        error
+                    )
+
+                    txtMensagem.visibility =
+                        View.VISIBLE
+
+                    txtMensagem.text =
+                        "Não foi possível reproduzir o arquivo."
+
+                    Toast.makeText(
+                        this@VisualizadorActivity,
+                        "Não foi possível reproduzir o arquivo.",
+                        Toast.LENGTH_LONG
+                    ).show()
                 }
 
                 override fun onMediaItemTransition(
@@ -428,10 +491,6 @@ class VisualizadorActivity : AppCompatActivity() {
 
     private fun configurarBotoes() {
 
-        /*
-         * PLAY / PAUSE
-         */
-
         btnPlayPause.setOnClickListener {
 
             if (!::controller.isInitialized) {
@@ -450,10 +509,6 @@ class VisualizadorActivity : AppCompatActivity() {
             mostrarControles()
         }
 
-        /*
-         * VOLTAR 10 SEGUNDOS
-         */
-
         btnVoltar.setOnClickListener {
 
             if (!::controller.isInitialized) {
@@ -465,10 +520,6 @@ class VisualizadorActivity : AppCompatActivity() {
             mostrarControles()
         }
 
-        /*
-         * AVANÇAR 10 SEGUNDOS
-         */
-
         btnAvancar.setOnClickListener {
 
             if (!::controller.isInitialized) {
@@ -479,10 +530,6 @@ class VisualizadorActivity : AppCompatActivity() {
 
             mostrarControles()
         }
-
-        /*
-         * ANTERIOR
-         */
 
         btnAnterior.setOnClickListener {
 
@@ -508,10 +555,6 @@ class VisualizadorActivity : AppCompatActivity() {
             mostrarControles()
         }
 
-        /*
-         * PRÓXIMO
-         */
-
         btnProximo.setOnClickListener {
 
             if (!::controller.isInitialized) {
@@ -535,18 +578,6 @@ class VisualizadorActivity : AppCompatActivity() {
 
             mostrarControles()
         }
-
-        /*
-         * REPETIÇÃO
-         *
-         * OFF
-         * ↓
-         * UMA FAIXA
-         * ↓
-         * TODAS
-         * ↓
-         * OFF
-         */
 
         btnRepetir.setOnClickListener {
 
@@ -588,10 +619,6 @@ class VisualizadorActivity : AppCompatActivity() {
             mostrarControles()
         }
 
-        /*
-         * ALEATÓRIO
-         */
-
         btnAleatorio.setOnClickListener {
 
             if (!::controller.isInitialized) {
@@ -611,53 +638,55 @@ class VisualizadorActivity : AppCompatActivity() {
 
     /*
      * =========================================================
-     * BARRA DE PROGRESSO
+     * SEEK BAR
      * =========================================================
      */
 
     private fun configurarBarraDeProgresso() {
 
-        timeBar.addListener(
-            object : TimeBar.OnScrubListener {
+        timeBar.setOnSeekBarChangeListener(
+            object : SeekBar.OnSeekBarChangeListener {
 
-                override fun onScrubStart(
-                    timeBar: TimeBar,
-                    position: Long
+                override fun onProgressChanged(
+                    seekBar: SeekBar,
+                    progress: Int,
+                    fromUser: Boolean
+                ) {
+
+                    if (fromUser) {
+
+                        txtPosicao.text =
+                            formatarTempo(
+                                progress.toLong()
+                            )
+                    }
+                }
+
+                override fun onStartTrackingTouch(
+                    seekBar: SeekBar
                 ) {
 
                     estaArrastandoBarra =
                         true
 
+                    handler.removeCallbacks(
+                        esconderControlesRunnable
+                    )
+
                     mostrarControles()
                 }
 
-                override fun onScrubMove(
-                    timeBar: TimeBar,
-                    position: Long
-                ) {
-
-                    txtPosicao.text =
-                        formatarTempo(
-                            position
-                        )
-                }
-
-                override fun onScrubStop(
-                    timeBar: TimeBar,
-                    position: Long,
-                    canceled: Boolean
+                override fun onStopTrackingTouch(
+                    seekBar: SeekBar
                 ) {
 
                     estaArrastandoBarra =
                         false
 
-                    if (
-                        !canceled &&
-                        ::controller.isInitialized
-                    ) {
+                    if (::controller.isInitialized) {
 
                         controller.seekTo(
-                            position
+                            seekBar.progress.toLong()
                         )
                     }
 
@@ -700,11 +729,6 @@ class VisualizadorActivity : AppCompatActivity() {
             true
         }
 
-        /*
-         * Permite que os botões e a barra
-         * recebam os próprios cliques.
-         */
-
         playerControls.setOnTouchListener {
                 _,
                 event ->
@@ -714,7 +738,9 @@ class VisualizadorActivity : AppCompatActivity() {
                 MotionEvent.ACTION_DOWN
             ) {
 
-                mostrarControles()
+                handler.removeCallbacks(
+                    esconderControlesRunnable
+                )
             }
 
             false
@@ -802,7 +828,7 @@ class VisualizadorActivity : AppCompatActivity() {
 
     /*
      * =========================================================
-     * ATUALIZAÇÃO DOS BOTÕES
+     * BOTÕES
      * =========================================================
      */
 
@@ -830,10 +856,6 @@ class VisualizadorActivity : AppCompatActivity() {
             btnPlayPause.contentDescription =
                 "Reproduzir"
         }
-
-        /*
-         * O Media3 agora controla a playlist.
-         */
 
         btnAnterior.isEnabled =
             controller.hasPreviousMediaItem()
@@ -935,9 +957,19 @@ class VisualizadorActivity : AppCompatActivity() {
         }
     }
 
+    /*
+     * =========================================================
+     * ATUALIZAR SEEK BAR
+     * =========================================================
+     */
+
     private fun atualizarBarra() {
 
         if (!::controller.isInitialized) {
+            return
+        }
+
+        if (estaArrastandoBarra) {
             return
         }
 
@@ -945,25 +977,59 @@ class VisualizadorActivity : AppCompatActivity() {
             controller.duration
 
         if (duracao <= 0) {
+
+            timeBar.max =
+                0
+
+            timeBar.progress =
+                0
+
+            timeBar.secondaryProgress =
+                0
+
             return
         }
 
-        timeBar.setDuration(
-            duracao
-        )
+        val duracaoInt =
+            duracao.coerceAtMost(
+                Int.MAX_VALUE.toLong()
+            ).toInt()
 
-        timeBar.setPosition(
+        val posicaoInt =
             controller.currentPosition
-        )
+                .coerceIn(
+                    0L,
+                    duracao
+                )
+                .coerceAtMost(
+                    Int.MAX_VALUE.toLong()
+                )
+                .toInt()
 
-        timeBar.setBufferedPosition(
+        val bufferInt =
             controller.bufferedPosition
-        )
+                .coerceIn(
+                    0L,
+                    duracao
+                )
+                .coerceAtMost(
+                    Int.MAX_VALUE.toLong()
+                )
+                .toInt()
+
+        timeBar.max =
+            duracaoInt
+
+        timeBar.progress =
+            posicaoInt
+
+        timeBar.secondaryProgress =
+            bufferInt
     }
 
     /*
      * =========================================================
-     * ABERTURA DE ARQUIVOS
+     * ABERTURA
      * =========================================================
      */
 
@@ -1093,7 +1159,7 @@ class VisualizadorActivity : AppCompatActivity() {
 
     /*
      * =========================================================
-     * PLAYLIST DA PASTA
+     * PLAYLIST
      * =========================================================
      */
 
@@ -1106,6 +1172,20 @@ class VisualizadorActivity : AppCompatActivity() {
         }
 
         try {
+
+            if (
+                !arquivoInicial.exists() ||
+                !arquivoInicial.isFile
+            ) {
+
+                Toast.makeText(
+                    this,
+                    "Arquivo não encontrado.",
+                    Toast.LENGTH_LONG
+                ).show()
+
+                return
+            }
 
             arquivosDeMidia =
                 obterArquivosDeMidia(
@@ -1125,29 +1205,12 @@ class VisualizadorActivity : AppCompatActivity() {
                 return
             }
 
-            val mediaItems =
-                arquivosDeMidia.map { arquivo ->
-
-                    val uri =
-                        FileProvider
-                            .getUriForFile(
-                                this,
-                                "${packageName}.fileprovider",
-                                arquivo
-                            )
-
-                    MediaItem.Builder()
-                        .setUri(uri)
-                        .build()
-                }
-
             val indiceInicial =
-                arquivosDeMidia
-                    .indexOfFirst {
+                arquivosDeMidia.indexOfFirst {
 
-                        it.absolutePath ==
-                            arquivoInicial.absolutePath
-                    }
+                    it.absolutePath ==
+                        arquivoInicial.absolutePath
+                }
 
             val indiceSeguro =
                 if (
@@ -1159,43 +1222,45 @@ class VisualizadorActivity : AppCompatActivity() {
                 }
 
             /*
-             * Concede acesso aos URIs
-             * para o serviço.
+             * IMPORTANTE:
+             *
+             * A reprodução usa diretamente
+             * file:// através de Uri.fromFile().
+             *
+             * FileProvider continua sendo usado
+             * somente para compartilhar arquivos
+             * com outros aplicativos.
              */
 
-            mediaItems.forEachIndexed {
-                    index,
-                    _ ->
+            val mediaItems =
+                arquivosDeMidia.map { arquivo ->
 
-                val arquivo =
-                    arquivosDeMidia[index]
-
-                val uri =
-                    FileProvider
-                        .getUriForFile(
-                            this,
-                            "${packageName}.fileprovider",
-                            arquivo
+                    MediaItem.Builder()
+                        .setUri(
+                            Uri.fromFile(
+                                arquivo
+                            )
                         )
+                        .setMediaId(
+                            arquivo.absolutePath
+                        )
+                        .setMimeType(
+                            obterMimeType(
+                                arquivo
+                            )
+                        )
+                        .build()
+                }
 
-                grantUriPermission(
-                    packageName,
-                    uri,
-                    Intent.FLAG_GRANT_READ_URI_PERMISSION
-                )
-            }
+            controller.stop()
+
+            controller.clearMediaItems()
 
             controller.setMediaItems(
                 mediaItems,
                 indiceSeguro,
                 0L
             )
-
-            /*
-             * Começa sem aleatório por padrão.
-             * O estado atual de shuffle é preservado
-             * caso o usuário já tenha ativado.
-             */
 
             controller.prepare()
 
@@ -1221,9 +1286,78 @@ class VisualizadorActivity : AppCompatActivity() {
         }
     }
 
+    private fun obterMimeType(
+        arquivo: File
+    ): String? {
+
+        return when (
+            arquivo.extension.lowercase(
+                Locale.getDefault()
+            )
+        ) {
+
+            "mp3" ->
+                "audio/mpeg"
+
+            "m4a" ->
+                "audio/mp4"
+
+            "aac" ->
+                "audio/aac"
+
+            "wav" ->
+                "audio/wav"
+
+            "ogg" ->
+                "audio/ogg"
+
+            "oga" ->
+                "audio/ogg"
+
+            "flac" ->
+                "audio/flac"
+
+            "opus" ->
+                "audio/opus"
+
+            "amr" ->
+                "audio/amr"
+
+            "mp4" ->
+                "video/mp4"
+
+            "mkv" ->
+                "video/x-matroska"
+
+            "webm" ->
+                "video/webm"
+
+            "3gp" ->
+                "video/3gpp"
+
+            "m4v" ->
+                "video/mp4"
+
+            "avi" ->
+                "video/x-msvideo"
+
+            "mov" ->
+                "video/quicktime"
+
+            "ts" ->
+                "video/mp2t"
+
+            "flv" ->
+                "video/x-flv"
+
+            else ->
+                null
+        }
+    }
+
     /*
      * =========================================================
-     * SINCRONIZAR ARQUIVO ATUAL
+     * ARQUIVO ATUAL
      * =========================================================
      */
 
@@ -1255,11 +1389,9 @@ class VisualizadorActivity : AppCompatActivity() {
 
     private fun atualizarNomeAudio() {
 
-        if (
-            arquivoAtual == null
-        ) {
-            return
-        }
+        val arquivo =
+            arquivoAtual
+                ?: return
 
         if (
             playerView.visibility ==
@@ -1269,7 +1401,7 @@ class VisualizadorActivity : AppCompatActivity() {
         ) {
 
             txtMensagem.text =
-                arquivoAtual!!.name
+                arquivo.name
         }
     }
 
@@ -1310,10 +1442,9 @@ class VisualizadorActivity : AppCompatActivity() {
 
             if (bitmap != null) {
 
-                imgVisualizador
-                    .setImageBitmap(
-                        bitmap
-                    )
+                imgVisualizador.setImageBitmap(
+                    bitmap
+                )
 
             } else {
 
