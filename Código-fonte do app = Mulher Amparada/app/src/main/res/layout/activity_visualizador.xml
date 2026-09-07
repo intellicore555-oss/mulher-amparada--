@@ -27,8 +27,6 @@
         app:show_buffering="always"
         app:use_controller="true"
         app:controller_layout_id="@layout/player_controls"
-        app:controller_show_timeout="3000"
-        app:controller_hide_on_touch="true"
         app:animation_enabled="false" />
 
     <ProgressBar
