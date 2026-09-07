@@ -458,10 +458,10 @@ class VisualizadorActivity : AppCompatActivity() {
         timeBar.addListener(
             object : TimeBar.OnScrubListener {
 
-                override fun onScrubStarted(
-                    timeBar: TimeBar,
-                    position: Long
-                ) {
+                override fun onScrubStart(
+    timeBar: TimeBar,
+    position: Long
+) {
 
                     estaArrastandoBarra = true
 
@@ -675,41 +675,29 @@ class VisualizadorActivity : AppCompatActivity() {
 
     private fun atualizarBotaoRepetir() {
 
-        if (!::controller.isInitialized) {
-            return
-        }
-
-        when (controller.repeatMode) {
-
-            Player.REPEAT_MODE_OFF -> {
-
-                btnRepetir.setImageResource(
-                    R.drawable.ic_repeat
-                )
-
-                btnRepetir.alpha = 0.55f
-            }
-
-            Player.REPEAT_MODE_ONE -> {
-
-                btnRepetir.setImageResource(
-                    R.drawable.ic_repeat_one
-                )
-
-                btnRepetir.alpha = 1f
-            }
-
-            Player.REPEAT_MODE_ALL -> {
-
-                btnRepetir.setImageResource(
-                    R.drawable.ic_repeat
-                )
-
-                btnRepetir.alpha = 1f
-            }
-        }
+    if (!::controller.isInitialized) {
+        return
     }
 
+    btnRepetir.setImageResource(
+        R.drawable.ic_player_repeat
+    )
+
+    when (controller.repeatMode) {
+
+        Player.REPEAT_MODE_OFF -> {
+            btnRepetir.alpha = 0.55f
+        }
+
+        Player.REPEAT_MODE_ONE -> {
+            btnRepetir.alpha = 1f
+        }
+
+        Player.REPEAT_MODE_ALL -> {
+            btnRepetir.alpha = 1f
+        }
+    }
+}
     private fun atualizarBotaoAleatorio() {
 
         if (!::controller.isInitialized) {
