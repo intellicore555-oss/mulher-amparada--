@@ -73,11 +73,18 @@ class VisualizadorActivity : AppCompatActivity() {
 
     private var arquivoAtual: File? = null
 
+    /*
+     * Lista de mídias da pasta atual.
+     */
+    private var arquivosDeMidia: List<File> = emptyList()
+
     private val handler = Handler(Looper.getMainLooper())
 
     private val esconderControlesRunnable = Runnable {
         esconderControles()
     }
+
+    private var estaArrastandoBarra = false
 
     private val atualizarTempoRunnable = object : Runnable {
 
@@ -85,16 +92,23 @@ class VisualizadorActivity : AppCompatActivity() {
 
             if (::controller.isInitialized) {
 
-                val posicao = controller.currentPosition
-                val duracao = controller.duration
+                sincronizarArquivoAtual()
 
-                txtPosicao.text = formatarTempo(posicao)
+                val posicao =
+                    controller.currentPosition
 
-                if (duracao >= 0) {
-                    txtDuracao.text = formatarTempo(duracao)
-                } else {
-                    txtDuracao.text = "00:00"
-                }
+                val duracao =
+                    controller.duration
+
+                txtPosicao.text =
+                    formatarTempo(posicao)
+
+                txtDuracao.text =
+                    if (duracao >= 0) {
+                        formatarTempo(duracao)
+                    } else {
+                        "00:00"
+                    }
 
                 if (!estaArrastandoBarra) {
                     atualizarBarra()
@@ -103,37 +117,57 @@ class VisualizadorActivity : AppCompatActivity() {
                 atualizarBotoes()
             }
 
-            handler.postDelayed(this, 500)
+            handler.postDelayed(
+                this,
+                500
+            )
         }
     }
 
-    private var estaArrastandoBarra = false
-
-    override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(
+        savedInstanceState: Bundle?
+    ) {
         super.onCreate(savedInstanceState)
 
-        window.addFlags(WindowManager.LayoutParams.FLAG_SECURE)
+        window.addFlags(
+            WindowManager.LayoutParams.FLAG_SECURE
+        )
 
-        setContentView(R.layout.activity_visualizador)
+        setContentView(
+            R.layout.activity_visualizador
+        )
 
-        WindowCompat.setDecorFitsSystemWindows(window, false)
+        WindowCompat.setDecorFitsSystemWindows(
+            window,
+            false
+        )
 
         window.apply {
 
             addFlags(
-                WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS
+                WindowManager.LayoutParams
+                    .FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS
             )
 
-            statusBarColor = Color.TRANSPARENT
-            navigationBarColor = Color.TRANSPARENT
+            statusBarColor =
+                Color.TRANSPARENT
+
+            navigationBarColor =
+                Color.TRANSPARENT
 
             if (android.os.Build.VERSION.SDK_INT >= 28) {
-                navigationBarDividerColor = Color.TRANSPARENT
+
+                navigationBarDividerColor =
+                    Color.TRANSPARENT
             }
 
             if (android.os.Build.VERSION.SDK_INT >= 29) {
-                isStatusBarContrastEnforced = false
-                isNavigationBarContrastEnforced = false
+
+                isStatusBarContrastEnforced =
+                    false
+
+                isNavigationBarContrastEnforced =
+                    false
             }
         }
 
@@ -142,10 +176,15 @@ class VisualizadorActivity : AppCompatActivity() {
             window.decorView
         ).apply {
 
-            show(WindowInsetsCompat.Type.systemBars())
+            show(
+                WindowInsetsCompat.Type.systemBars()
+            )
 
-            isAppearanceLightStatusBars = false
-            isAppearanceLightNavigationBars = false
+            isAppearanceLightStatusBars =
+                false
+
+            isAppearanceLightNavigationBars =
+                false
         }
 
         fonte = Typeface.createFromAsset(
@@ -157,39 +196,90 @@ class VisualizadorActivity : AppCompatActivity() {
             findViewById(android.R.id.content)
         )
 
-        imgVisualizador = findViewById(R.id.imgVisualizador)
+        imgVisualizador =
+            findViewById(
+                R.id.imgVisualizador
+            )
 
-        playerView = findViewById(R.id.playerView)
+        playerView =
+            findViewById(
+                R.id.playerView
+            )
 
-        progresso = findViewById(R.id.progresso)
+        progresso =
+            findViewById(
+                R.id.progresso
+            )
 
-        txtMensagem = findViewById(R.id.txtMensagem)
+        txtMensagem =
+            findViewById(
+                R.id.txtMensagem
+            )
 
-        scrollEditor = findViewById(R.id.scrollEditor)
+        scrollEditor =
+            findViewById(
+                R.id.scrollEditor
+            )
 
-        txtEditor = findViewById(R.id.txtEditor)
+        txtEditor =
+            findViewById(
+                R.id.txtEditor
+            )
 
-        playerControls = findViewById(R.id.playerControls)
+        playerControls =
+            findViewById(
+                R.id.playerControls
+            )
 
-        timeBar = findViewById(R.id.exo_progress)
+        timeBar =
+            findViewById(
+                R.id.exo_progress
+            )
 
-        txtPosicao = findViewById(R.id.txtPosicao)
+        txtPosicao =
+            findViewById(
+                R.id.txtPosicao
+            )
 
-        txtDuracao = findViewById(R.id.txtDuracao)
+        txtDuracao =
+            findViewById(
+                R.id.txtDuracao
+            )
 
-        btnAnterior = findViewById(R.id.btnAnterior)
+        btnAnterior =
+            findViewById(
+                R.id.btnAnterior
+            )
 
-        btnVoltar = findViewById(R.id.btnVoltar)
+        btnVoltar =
+            findViewById(
+                R.id.btnVoltar
+            )
 
-        btnPlayPause = findViewById(R.id.btnPlayPause)
+        btnPlayPause =
+            findViewById(
+                R.id.btnPlayPause
+            )
 
-        btnAvancar = findViewById(R.id.btnAvancar)
+        btnAvancar =
+            findViewById(
+                R.id.btnAvancar
+            )
 
-        btnProximo = findViewById(R.id.btnProximo)
+        btnProximo =
+            findViewById(
+                R.id.btnProximo
+            )
 
-        btnRepetir = findViewById(R.id.btnRepetir)
+        btnRepetir =
+            findViewById(
+                R.id.btnRepetir
+            )
 
-        btnAleatorio = findViewById(R.id.btnAleatorio)
+        btnAleatorio =
+            findViewById(
+                R.id.btnAleatorio
+            )
 
         prepararControles()
 
@@ -201,13 +291,14 @@ class VisualizadorActivity : AppCompatActivity() {
 
         esconderControlesImediatamente()
 
-        val sessionToken = SessionToken(
-            this,
-            ComponentName(
+        val sessionToken =
+            SessionToken(
                 this,
-                MediaPlaybackService::class.java
+                ComponentName(
+                    this,
+                    MediaPlaybackService::class.java
+                )
             )
-        )
 
         controllerFuture =
             MediaController.Builder(
@@ -219,22 +310,29 @@ class VisualizadorActivity : AppCompatActivity() {
 
             try {
 
-                controller = controllerFuture.get()
+                controller =
+                    controllerFuture.get()
 
-                playerView.player = controller
+                playerView.player =
+                    controller
 
                 configurarListener()
 
                 val caminho =
-                    intent.getStringExtra("arquivo")
+                    intent.getStringExtra(
+                        "arquivo"
+                    )
 
                 if (caminho != null) {
 
-                    val arquivo = File(caminho)
+                    val arquivo =
+                        File(caminho)
 
                     if (arquivo.exists()) {
 
-                        abrirArquivo(arquivo)
+                        abrirArquivo(
+                            arquivo
+                        )
 
                     } else {
 
@@ -262,10 +360,18 @@ class VisualizadorActivity : AppCompatActivity() {
         }, ContextCompat.getMainExecutor(this))
     }
 
+    /*
+     * =========================================================
+     * CONTROLES
+     * =========================================================
+     */
+
     private fun prepararControles() {
 
         playerControls.alpha = 0f
-        playerControls.visibility = View.INVISIBLE
+
+        playerControls.visibility =
+            View.INVISIBLE
     }
 
     private fun configurarListener() {
@@ -285,6 +391,7 @@ class VisualizadorActivity : AppCompatActivity() {
                 ) {
 
                     atualizarBotoes()
+
                     atualizarBarra()
                 }
 
@@ -293,8 +400,13 @@ class VisualizadorActivity : AppCompatActivity() {
                     reason: Int
                 ) {
 
+                    sincronizarArquivoAtual()
+
                     atualizarBotoes()
+
                     atualizarBarra()
+
+                    atualizarNomeAudio()
                 }
 
                 override fun onRepeatModeChanged(
@@ -339,7 +451,7 @@ class VisualizadorActivity : AppCompatActivity() {
         }
 
         /*
-         * VOLTAR ALGUNS SEGUNDOS
+         * VOLTAR 10 SEGUNDOS
          */
 
         btnVoltar.setOnClickListener {
@@ -354,7 +466,7 @@ class VisualizadorActivity : AppCompatActivity() {
         }
 
         /*
-         * AVANÇAR ALGUNS SEGUNDOS
+         * AVANÇAR 10 SEGUNDOS
          */
 
         btnAvancar.setOnClickListener {
@@ -369,37 +481,71 @@ class VisualizadorActivity : AppCompatActivity() {
         }
 
         /*
-         * ARQUIVO ANTERIOR
+         * ANTERIOR
          */
 
         btnAnterior.setOnClickListener {
 
-            val arquivo = arquivoAtual
-                ?: return@setOnClickListener
+            if (!::controller.isInitialized) {
+                return@setOnClickListener
+            }
 
-            irParaArquivoAnterior(arquivo)
+            if (
+                controller.hasPreviousMediaItem()
+            ) {
+
+                controller.seekToPreviousMediaItem()
+
+            } else {
+
+                Toast.makeText(
+                    this,
+                    "Este é o primeiro arquivo da pasta.",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
 
             mostrarControles()
         }
 
         /*
-         * PRÓXIMO ARQUIVO
+         * PRÓXIMO
          */
 
         btnProximo.setOnClickListener {
 
-            val arquivo = arquivoAtual
-                ?: return@setOnClickListener
+            if (!::controller.isInitialized) {
+                return@setOnClickListener
+            }
 
-            irParaProximoArquivo(arquivo)
+            if (
+                controller.hasNextMediaItem()
+            ) {
+
+                controller.seekToNextMediaItem()
+
+            } else {
+
+                Toast.makeText(
+                    this,
+                    "Este é o último arquivo da pasta.",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
 
             mostrarControles()
         }
 
         /*
-         * REPETIR
+         * REPETIÇÃO
          *
-         * OFF -> UM -> TODOS -> OFF
+         * OFF
+         * ↓
+         * UMA FAIXA
+         * ↓
+         * TODAS
+         * ↓
+         * OFF
          */
 
         btnRepetir.setOnClickListener {
@@ -408,7 +554,9 @@ class VisualizadorActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            when (controller.repeatMode) {
+            when (
+                controller.repeatMode
+            ) {
 
                 Player.REPEAT_MODE_OFF -> {
 
@@ -420,6 +568,12 @@ class VisualizadorActivity : AppCompatActivity() {
 
                     controller.repeatMode =
                         Player.REPEAT_MODE_ALL
+                }
+
+                Player.REPEAT_MODE_ALL -> {
+
+                    controller.repeatMode =
+                        Player.REPEAT_MODE_OFF
                 }
 
                 else -> {
@@ -449,9 +603,17 @@ class VisualizadorActivity : AppCompatActivity() {
 
             atualizarBotaoAleatorio()
 
+            atualizarBotoes()
+
             mostrarControles()
         }
     }
+
+    /*
+     * =========================================================
+     * BARRA DE PROGRESSO
+     * =========================================================
+     */
 
     private fun configurarBarraDeProgresso() {
 
@@ -459,11 +621,12 @@ class VisualizadorActivity : AppCompatActivity() {
             object : TimeBar.OnScrubListener {
 
                 override fun onScrubStart(
-    timeBar: TimeBar,
-    position: Long
-) {
+                    timeBar: TimeBar,
+                    position: Long
+                ) {
 
-                    estaArrastandoBarra = true
+                    estaArrastandoBarra =
+                        true
 
                     mostrarControles()
                 }
@@ -474,7 +637,9 @@ class VisualizadorActivity : AppCompatActivity() {
                 ) {
 
                     txtPosicao.text =
-                        formatarTempo(position)
+                        formatarTempo(
+                            position
+                        )
                 }
 
                 override fun onScrubStop(
@@ -483,13 +648,17 @@ class VisualizadorActivity : AppCompatActivity() {
                     canceled: Boolean
                 ) {
 
-                    estaArrastandoBarra = false
+                    estaArrastandoBarra =
+                        false
 
-                    if (!canceled &&
+                    if (
+                        !canceled &&
                         ::controller.isInitialized
                     ) {
 
-                        controller.seekTo(position)
+                        controller.seekTo(
+                            position
+                        )
                     }
 
                     mostrarControles()
@@ -498,13 +667,25 @@ class VisualizadorActivity : AppCompatActivity() {
         )
     }
 
+    /*
+     * =========================================================
+     * TOQUE NO VÍDEO
+     * =========================================================
+     */
+
     private fun configurarToqueVideo() {
 
-        playerView.setOnTouchListener { _, event ->
+        playerView.setOnTouchListener {
+                _,
+                event ->
 
-            if (event.action == MotionEvent.ACTION_UP) {
+            if (
+                event.action ==
+                MotionEvent.ACTION_UP
+            ) {
 
-                if (playerControls.visibility ==
+                if (
+                    playerControls.visibility ==
                     View.VISIBLE
                 ) {
 
@@ -520,13 +701,16 @@ class VisualizadorActivity : AppCompatActivity() {
         }
 
         /*
-         * O overlay não bloqueia os cliques
-         * dos ImageButtons e da barra.
+         * Permite que os botões e a barra
+         * recebam os próprios cliques.
          */
 
-        playerControls.setOnTouchListener { _, event ->
+        playerControls.setOnTouchListener {
+                _,
+                event ->
 
-            if (event.action ==
+            if (
+                event.action ==
                 MotionEvent.ACTION_DOWN
             ) {
 
@@ -545,12 +729,16 @@ class VisualizadorActivity : AppCompatActivity() {
 
         playerControls.animate().cancel()
 
-        if (playerControls.visibility != View.VISIBLE) {
+        if (
+            playerControls.visibility !=
+            View.VISIBLE
+        ) {
 
             playerControls.visibility =
                 View.VISIBLE
 
-            playerControls.alpha = 0f
+            playerControls.alpha =
+                0f
 
             playerControls.animate()
                 .alpha(1f)
@@ -577,7 +765,8 @@ class VisualizadorActivity : AppCompatActivity() {
             esconderControlesRunnable
         )
 
-        if (playerControls.visibility !=
+        if (
+            playerControls.visibility !=
             View.VISIBLE
         ) {
             return
@@ -589,14 +778,6 @@ class VisualizadorActivity : AppCompatActivity() {
             .alpha(0f)
             .setDuration(220)
             .withEndAction {
-
-                /*
-                 * INVISIBLE em vez de GONE.
-                 *
-                 * Isso evita qualquer alteração
-                 * de layout quando os controles
-                 * desaparecem.
-                 */
 
                 playerControls.visibility =
                     View.INVISIBLE
@@ -612,22 +793,24 @@ class VisualizadorActivity : AppCompatActivity() {
 
         playerControls.animate().cancel()
 
-        playerControls.alpha = 0f
+        playerControls.alpha =
+            0f
 
         playerControls.visibility =
             View.INVISIBLE
     }
+
+    /*
+     * =========================================================
+     * ATUALIZAÇÃO DOS BOTÕES
+     * =========================================================
+     */
 
     private fun atualizarBotoes() {
 
         if (!::controller.isInitialized) {
             return
         }
-
-        /*
-         * UM ÚNICO BOTÃO:
-         * PLAY <-> PAUSE
-         */
 
         if (controller.isPlaying) {
 
@@ -649,22 +832,32 @@ class VisualizadorActivity : AppCompatActivity() {
         }
 
         /*
-         * BOTÃO ANTERIOR
+         * O Media3 agora controla a playlist.
          */
 
         btnAnterior.isEnabled =
-            arquivoAtual?.let {
-                encontrarArquivoAnterior(it) != null
-            } ?: false
-
-        /*
-         * BOTÃO PRÓXIMO
-         */
+            controller.hasPreviousMediaItem()
 
         btnProximo.isEnabled =
-            arquivoAtual?.let {
-                encontrarProximoArquivo(it) != null
-            } ?: false
+            controller.hasNextMediaItem()
+
+        btnAnterior.alpha =
+            if (
+                controller.hasPreviousMediaItem()
+            ) {
+                1f
+            } else {
+                0.35f
+            }
+
+        btnProximo.alpha =
+            if (
+                controller.hasNextMediaItem()
+            ) {
+                1f
+            } else {
+                0.35f
+            }
 
         atualizarBotaoRepetir()
 
@@ -675,42 +868,70 @@ class VisualizadorActivity : AppCompatActivity() {
 
     private fun atualizarBotaoRepetir() {
 
-    if (!::controller.isInitialized) {
-        return
+        if (!::controller.isInitialized) {
+            return
+        }
+
+        btnRepetir.setImageResource(
+            R.drawable.ic_player_repeat
+        )
+
+        when (
+            controller.repeatMode
+        ) {
+
+            Player.REPEAT_MODE_OFF -> {
+
+                btnRepetir.alpha =
+                    0.45f
+
+                btnRepetir.contentDescription =
+                    "Repetição desativada"
+            }
+
+            Player.REPEAT_MODE_ONE -> {
+
+                btnRepetir.alpha =
+                    1f
+
+                btnRepetir.contentDescription =
+                    "Repetir esta faixa"
+            }
+
+            Player.REPEAT_MODE_ALL -> {
+
+                btnRepetir.alpha =
+                    1f
+
+                btnRepetir.contentDescription =
+                    "Repetir todas as faixas"
+            }
+        }
     }
 
-    btnRepetir.setImageResource(
-        R.drawable.ic_player_repeat
-    )
-
-    when (controller.repeatMode) {
-
-        Player.REPEAT_MODE_OFF -> {
-            btnRepetir.alpha = 0.55f
-        }
-
-        Player.REPEAT_MODE_ONE -> {
-            btnRepetir.alpha = 1f
-        }
-
-        Player.REPEAT_MODE_ALL -> {
-            btnRepetir.alpha = 1f
-        }
-    }
-}
     private fun atualizarBotaoAleatorio() {
 
         if (!::controller.isInitialized) {
             return
         }
 
-        if (controller.shuffleModeEnabled) {
+        if (
+            controller.shuffleModeEnabled
+        ) {
 
-            btnAleatorio.alpha = 1f
+            btnAleatorio.alpha =
+                1f
+
+            btnAleatorio.contentDescription =
+                "Aleatório ativado"
 
         } else {
 
-            btnAleatorio.alpha = 0.55f
+            btnAleatorio.alpha =
+                0.45f
+
+            btnAleatorio.contentDescription =
+                "Aleatório desativado"
         }
     }
 
@@ -720,13 +941,16 @@ class VisualizadorActivity : AppCompatActivity() {
             return
         }
 
-        val duracao = controller.duration
+        val duracao =
+            controller.duration
 
         if (duracao <= 0) {
             return
         }
 
-        timeBar.setDuration(duracao)
+        timeBar.setDuration(
+            duracao
+        )
 
         timeBar.setPosition(
             controller.currentPosition
@@ -737,48 +961,75 @@ class VisualizadorActivity : AppCompatActivity() {
         )
     }
 
+    /*
+     * =========================================================
+     * ABERTURA DE ARQUIVOS
+     * =========================================================
+     */
+
     private fun abrirArquivo(
         arquivo: File
     ) {
 
-        arquivoAtual = arquivo
+        arquivoAtual =
+            arquivo
 
         val extensao =
-            arquivo.extension.lowercase(Locale.getDefault())
+            arquivo.extension.lowercase(
+                Locale.getDefault()
+            )
 
         when {
 
             ehImagem(extensao) -> {
 
-                abrirImagem(arquivo)
+                abrirImagem(
+                    arquivo
+                )
             }
 
             ehVideo(extensao) -> {
 
-                abrirVideo(arquivo)
+                abrirVideo(
+                    arquivo
+                )
             }
 
             ehAudio(extensao) -> {
 
-                abrirAudio(arquivo)
+                abrirAudio(
+                    arquivo
+                )
             }
 
             ehTexto(extensao) -> {
 
-                abrirTexto(arquivo)
+                abrirTexto(
+                    arquivo
+                )
             }
 
             ehZip(extensao) -> {
 
-                abrirZip(arquivo)
+                abrirZip(
+                    arquivo
+                )
             }
 
             else -> {
 
-                abrirComOutroApp(arquivo)
+                abrirComOutroApp(
+                    arquivo
+                )
             }
         }
     }
+
+    /*
+     * =========================================================
+     * VÍDEO
+     * =========================================================
+     */
 
     private fun abrirVideo(
         arquivo: File
@@ -802,8 +1053,16 @@ class VisualizadorActivity : AppCompatActivity() {
         playerControls.visibility =
             View.INVISIBLE
 
-        tocarArquivo(arquivo)
+        prepararPlaylist(
+            arquivo
+        )
     }
+
+    /*
+     * =========================================================
+     * ÁUDIO
+     * =========================================================
+     */
 
     private fun abrirAudio(
         arquivo: File
@@ -827,11 +1086,19 @@ class VisualizadorActivity : AppCompatActivity() {
         txtMensagem.text =
             arquivo.name
 
-        tocarArquivo(arquivo)
+        prepararPlaylist(
+            arquivo
+        )
     }
 
-    private fun tocarArquivo(
-        arquivo: File
+    /*
+     * =========================================================
+     * PLAYLIST DA PASTA
+     * =========================================================
+     */
+
+    private fun prepararPlaylist(
+        arquivoInicial: File
     ) {
 
         if (!::controller.isInitialized) {
@@ -840,27 +1107,111 @@ class VisualizadorActivity : AppCompatActivity() {
 
         try {
 
-            val uri =
-                FileProvider.getUriForFile(
-                    this,
-                    "${packageName}.fileprovider",
-                    arquivo
+            arquivosDeMidia =
+                obterArquivosDeMidia(
+                    arquivoInicial
                 )
 
-            val mediaItem =
-                MediaItem.fromUri(uri)
+            if (
+                arquivosDeMidia.isEmpty()
+            ) {
 
-            controller.setMediaItem(
-                mediaItem
+                Toast.makeText(
+                    this,
+                    "Nenhum arquivo de mídia encontrado.",
+                    Toast.LENGTH_LONG
+                ).show()
+
+                return
+            }
+
+            val mediaItems =
+                arquivosDeMidia.map { arquivo ->
+
+                    val uri =
+                        FileProvider
+                            .getUriForFile(
+                                this,
+                                "${packageName}.fileprovider",
+                                arquivo
+                            )
+
+                    MediaItem.Builder()
+                        .setUri(uri)
+                        .build()
+                }
+
+            val indiceInicial =
+                arquivosDeMidia
+                    .indexOfFirst {
+
+                        it.absolutePath ==
+                            arquivoInicial.absolutePath
+                    }
+
+            val indiceSeguro =
+                if (
+                    indiceInicial >= 0
+                ) {
+                    indiceInicial
+                } else {
+                    0
+                }
+
+            /*
+             * Concede acesso aos URIs
+             * para o serviço.
+             */
+
+            mediaItems.forEachIndexed {
+                    index,
+                    _ ->
+
+                val arquivo =
+                    arquivosDeMidia[index]
+
+                val uri =
+                    FileProvider
+                        .getUriForFile(
+                            this,
+                            "${packageName}.fileprovider",
+                            arquivo
+                        )
+
+                grantUriPermission(
+                    packageName,
+                    uri,
+                    Intent.FLAG_GRANT_READ_URI_PERMISSION
+                )
+            }
+
+            controller.setMediaItems(
+                mediaItems,
+                indiceSeguro,
+                0L
             )
+
+            /*
+             * Começa sem aleatório por padrão.
+             * O estado atual de shuffle é preservado
+             * caso o usuário já tenha ativado.
+             */
 
             controller.prepare()
 
             controller.play()
 
+            sincronizarArquivoAtual()
+
             atualizarBotoes()
 
         } catch (e: Exception) {
+
+            android.util.Log.e(
+                "VisualizadorActivity",
+                "Erro ao preparar playlist",
+                e
+            )
 
             Toast.makeText(
                 this,
@@ -869,6 +1220,64 @@ class VisualizadorActivity : AppCompatActivity() {
             ).show()
         }
     }
+
+    /*
+     * =========================================================
+     * SINCRONIZAR ARQUIVO ATUAL
+     * =========================================================
+     */
+
+    private fun sincronizarArquivoAtual() {
+
+        if (!::controller.isInitialized) {
+            return
+        }
+
+        if (
+            arquivosDeMidia.isEmpty()
+        ) {
+            return
+        }
+
+        val indice =
+            controller.currentMediaItemIndex
+
+        if (
+            indice < 0 ||
+            indice >= arquivosDeMidia.size
+        ) {
+            return
+        }
+
+        arquivoAtual =
+            arquivosDeMidia[indice]
+    }
+
+    private fun atualizarNomeAudio() {
+
+        if (
+            arquivoAtual == null
+        ) {
+            return
+        }
+
+        if (
+            playerView.visibility ==
+            View.VISIBLE &&
+            txtMensagem.visibility ==
+            View.VISIBLE
+        ) {
+
+            txtMensagem.text =
+                arquivoAtual!!.name
+        }
+    }
+
+    /*
+     * =========================================================
+     * IMAGEM
+     * =========================================================
+     */
 
     private fun abrirImagem(
         arquivo: File
@@ -884,10 +1293,13 @@ class VisualizadorActivity : AppCompatActivity() {
             View.GONE
 
         progresso.visibility =
-            View.VISIBLE
+            View.GONE
 
         txtMensagem.visibility =
             View.GONE
+
+        imgVisualizador.visibility =
+            View.VISIBLE
 
         try {
 
@@ -898,12 +1310,10 @@ class VisualizadorActivity : AppCompatActivity() {
 
             if (bitmap != null) {
 
-                imgVisualizador.visibility =
-                    View.VISIBLE
-
-                imgVisualizador.setImageBitmap(
-                    bitmap
-                )
+                imgVisualizador
+                    .setImageBitmap(
+                        bitmap
+                    )
 
             } else {
 
@@ -929,6 +1339,12 @@ class VisualizadorActivity : AppCompatActivity() {
                 "Não foi possível abrir a imagem."
         }
     }
+
+    /*
+     * =========================================================
+     * TEXTO
+     * =========================================================
+     */
 
     private fun abrirTexto(
         arquivo: File
@@ -964,6 +1380,12 @@ class VisualizadorActivity : AppCompatActivity() {
         }
     }
 
+    /*
+     * =========================================================
+     * ZIP
+     * =========================================================
+     */
+
     private fun abrirZip(
         arquivo: File
     ) {
@@ -990,11 +1412,31 @@ class VisualizadorActivity : AppCompatActivity() {
             "Arquivo ZIP: ${arquivo.name}"
     }
 
+    /*
+     * =========================================================
+     * OUTROS ARQUIVOS
+     * =========================================================
+     */
+
     private fun abrirComOutroApp(
         arquivo: File
     ) {
 
         try {
+
+            if (
+                !arquivo.exists() ||
+                !arquivo.isFile
+            ) {
+
+                Toast.makeText(
+                    this,
+                    "Arquivo não encontrado.",
+                    Toast.LENGTH_LONG
+                ).show()
+
+                return
+            }
 
             val uri =
                 FileProvider.getUriForFile(
@@ -1009,11 +1451,12 @@ class VisualizadorActivity : AppCompatActivity() {
                 )
 
             val mime =
-                MimeTypeMap.getSingleton()
+                MimeTypeMap
+                    .getSingleton()
                     .getMimeTypeFromExtension(
                         extensao
                     )
-                    ?: "*/*"
+                    ?: "application/octet-stream"
 
             val intent =
                 Intent(
@@ -1028,11 +1471,53 @@ class VisualizadorActivity : AppCompatActivity() {
                     addFlags(
                         Intent.FLAG_GRANT_READ_URI_PERMISSION
                     )
+
+                    clipData =
+                        android.content.ClipData
+                            .newRawUri(
+                                arquivo.name,
+                                uri
+                            )
                 }
 
-            startActivity(intent)
+            val resolvedApps =
+                packageManager.queryIntentActivities(
+                    intent,
+                    android.content.pm.PackageManager
+                        .MATCH_DEFAULT_ONLY
+                )
 
-        } catch (e: ActivityNotFoundException) {
+            if (
+                resolvedApps.isEmpty()
+            ) {
+
+                Toast.makeText(
+                    this,
+                    "Nenhum aplicativo pode abrir este arquivo.",
+                    Toast.LENGTH_LONG
+                ).show()
+
+                return
+            }
+
+            for (
+                resolveInfo in resolvedApps
+            ) {
+
+                grantUriPermission(
+                    resolveInfo.activityInfo.packageName,
+                    uri,
+                    Intent.FLAG_GRANT_READ_URI_PERMISSION
+                )
+            }
+
+            startActivity(
+                intent
+            )
+
+        } catch (
+            e: ActivityNotFoundException
+        ) {
 
             Toast.makeText(
                 this,
@@ -1040,11 +1525,29 @@ class VisualizadorActivity : AppCompatActivity() {
                 Toast.LENGTH_LONG
             ).show()
 
-        } catch (e: Exception) {
+        } catch (
+            e: SecurityException
+        ) {
 
             Toast.makeText(
                 this,
-                "Não foi possível abrir o arquivo.",
+                "O sistema não permitiu acessar este arquivo.",
+                Toast.LENGTH_LONG
+            ).show()
+
+        } catch (
+            e: Exception
+        ) {
+
+            android.util.Log.e(
+                "VisualizadorActivity",
+                "Erro ao abrir arquivo externo",
+                e
+            )
+
+            Toast.makeText(
+                this,
+                "Não foi possível abrir este arquivo.",
                 Toast.LENGTH_LONG
             ).show()
         }
@@ -1052,7 +1555,7 @@ class VisualizadorActivity : AppCompatActivity() {
 
     /*
      * =========================================================
-     * NAVEGAÇÃO ENTRE ARQUIVOS DA MESMA PASTA
+     * ARQUIVOS DE MÍDIA
      * =========================================================
      */
 
@@ -1064,7 +1567,8 @@ class VisualizadorActivity : AppCompatActivity() {
             arquivo.parentFile
                 ?: return emptyList()
 
-        if (!pasta.exists() ||
+        if (
+            !pasta.exists() ||
             !pasta.isDirectory
         ) {
             return emptyList()
@@ -1076,7 +1580,6 @@ class VisualizadorActivity : AppCompatActivity() {
 
                 file.isFile &&
                     ehMidia(file)
-
             }
             ?.sortedBy {
 
@@ -1086,150 +1589,6 @@ class VisualizadorActivity : AppCompatActivity() {
             }
             ?: emptyList()
     }
-
-    private fun encontrarArquivoAnterior(
-        arquivo: File
-    ): File? {
-
-        val arquivos =
-            obterArquivosDeMidia(arquivo)
-
-        val indice =
-            arquivos.indexOfFirst {
-
-                it.absolutePath ==
-                    arquivo.absolutePath
-            }
-
-        if (indice <= 0) {
-            return null
-        }
-
-        return arquivos[indice - 1]
-    }
-
-    private fun encontrarProximoArquivo(
-        arquivo: File
-    ): File? {
-
-        val arquivos =
-            obterArquivosDeMidia(arquivo)
-
-        val indice =
-            arquivos.indexOfFirst {
-
-                it.absolutePath ==
-                    arquivo.absolutePath
-            }
-
-        if (indice == -1 ||
-            indice >= arquivos.lastIndex
-        ) {
-            return null
-        }
-
-        return arquivos[indice + 1]
-    }
-
-    private fun irParaArquivoAnterior(
-        arquivo: File
-    ) {
-
-        val anterior =
-            encontrarArquivoAnterior(arquivo)
-
-        if (anterior != null) {
-
-            abrirArquivoDeMidia(
-                anterior
-            )
-
-        } else {
-
-            Toast.makeText(
-                this,
-                "Este é o primeiro arquivo da pasta.",
-                Toast.LENGTH_SHORT
-            ).show()
-        }
-    }
-
-    private fun irParaProximoArquivo(
-        arquivo: File
-    ) {
-
-        if (::controller.isInitialized &&
-            controller.shuffleModeEnabled
-        ) {
-
-            val arquivos =
-                obterArquivosDeMidia(arquivo)
-
-            val outros =
-                arquivos.filter {
-
-                    it.absolutePath !=
-                        arquivo.absolutePath
-                }
-
-            if (outros.isNotEmpty()) {
-
-                val proximo =
-                    outros.random()
-
-                abrirArquivoDeMidia(
-                    proximo
-                )
-
-                return
-            }
-        }
-
-        val proximo =
-            encontrarProximoArquivo(arquivo)
-
-        if (proximo != null) {
-
-            abrirArquivoDeMidia(
-                proximo
-            )
-
-        } else {
-
-            Toast.makeText(
-                this,
-                "Este é o último arquivo da pasta.",
-                Toast.LENGTH_SHORT
-            ).show()
-        }
-    }
-
-    private fun abrirArquivoDeMidia(
-        arquivo: File
-    ) {
-
-        arquivoAtual = arquivo
-
-        val extensao =
-            arquivo.extension.lowercase(
-                Locale.getDefault()
-            )
-
-        if (ehVideo(extensao)) {
-
-            abrirVideo(arquivo)
-
-        } else if (ehAudio(extensao)) {
-
-            abrirAudio(arquivo)
-        }
-    }
-
-    /*
-     * =========================================================
-     * TIPOS DE ARQUIVO
-     * =========================================================
-     */
 
     private fun ehMidia(
         arquivo: File
@@ -1243,6 +1602,12 @@ class VisualizadorActivity : AppCompatActivity() {
         return ehVideo(extensao) ||
             ehAudio(extensao)
     }
+
+    /*
+     * =========================================================
+     * FORMATOS
+     * =========================================================
+     */
 
     private fun ehVideo(
         extensao: String
@@ -1336,7 +1701,9 @@ class VisualizadorActivity : AppCompatActivity() {
         milissegundos: Long
     ): String {
 
-        if (milissegundos < 0) {
+        if (
+            milissegundos < 0
+        ) {
             return "00:00"
         }
 
@@ -1352,7 +1719,9 @@ class VisualizadorActivity : AppCompatActivity() {
         val horas =
             segundosTotal / 3600
 
-        return if (horas > 0) {
+        return if (
+            horas > 0
+        ) {
 
             String.format(
                 Locale.getDefault(),
@@ -1383,17 +1752,21 @@ class VisualizadorActivity : AppCompatActivity() {
         view: View
     ) {
 
-        when (view) {
+        if (
+            view is TextView
+        ) {
 
-            is TextView -> {
-
-                view.typeface = fonte
-            }
+            view.typeface =
+                fonte
         }
 
-        if (view is ViewGroup) {
+        if (
+            view is ViewGroup
+        ) {
 
-            for (i in 0 until view.childCount) {
+            for (
+                i in 0 until view.childCount
+            ) {
 
                 aplicarFonte(
                     view.getChildAt(i)
@@ -1408,15 +1781,6 @@ class VisualizadorActivity : AppCompatActivity() {
      * =========================================================
      */
 
-    override fun onPause() {
-        super.onPause()
-
-        if (::controller.isInitialized) {
-
-            controller.pause()
-        }
-    }
-
     override fun onDestroy() {
 
         handler.removeCallbacks(
@@ -1427,7 +1791,9 @@ class VisualizadorActivity : AppCompatActivity() {
             esconderControlesRunnable
         )
 
-        if (::controllerFuture.isInitialized) {
+        if (
+            ::controllerFuture.isInitialized
+        ) {
 
             MediaController.releaseFuture(
                 controllerFuture
