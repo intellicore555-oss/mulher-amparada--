@@ -532,3 +532,5 @@ e a calculadora falsa realmente faz contas, se digitar:
 2 + 2, aparece 4!
 
 e se digitar a senha ele desbloqueia...
+
+----
