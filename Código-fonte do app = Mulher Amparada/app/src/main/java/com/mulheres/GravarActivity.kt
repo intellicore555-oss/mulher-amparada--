@@ -1816,10 +1816,10 @@ class GravarActivity : AppCompatActivity(),
         // ADICIONAR
         // =====================================================
 
-        container.addView(icon)
-        container.addView(text)
         container.addView(download)
-        container.addView(delete)
+container.addView(icon)
+container.addView(text)
+container.addView(delete)
 
         // =====================================================
         // REPRODUZIR
