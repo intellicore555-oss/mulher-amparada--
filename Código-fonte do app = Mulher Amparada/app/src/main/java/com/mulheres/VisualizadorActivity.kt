@@ -34,30 +34,28 @@ import androidx.media3.common.Player
 import androidx.media3.session.MediaController
 import androidx.media3.session.SessionToken
 import androidx.media3.ui.DefaultTimeBar
+import androidx.media3.ui.TimeBar
 import androidx.media3.ui.PlayerView
 
 import com.google.common.util.concurrent.ListenableFuture
 
 import java.io.File
+import java.util.Locale
 
 class VisualizadorActivity : AppCompatActivity() {
 
     private lateinit var scrollEditor: ScrollView
     private lateinit var txtEditor: TextView
 
-    private lateinit var controllerFuture:
-        ListenableFuture<MediaController>
-
+    private lateinit var controllerFuture: ListenableFuture<MediaController>
     private lateinit var controller: MediaController
 
     private lateinit var imgVisualizador: ImageView
     private lateinit var playerView: PlayerView
-
     private lateinit var progresso: ProgressBar
     private lateinit var txtMensagem: TextView
 
     private lateinit var playerControls: View
-
     private lateinit var timeBar: DefaultTimeBar
 
     private lateinit var txtPosicao: TextView
@@ -73,69 +71,52 @@ class VisualizadorActivity : AppCompatActivity() {
 
     private lateinit var fonte: Typeface
 
-    private lateinit var arquivoAtual: File
+    private var arquivoAtual: File? = null
 
-    private val handler =
-        Handler(Looper.getMainLooper())
+    private val handler = Handler(Looper.getMainLooper())
 
-    private var controlesVisiveis = false
+    private val esconderControlesRunnable = Runnable {
+        esconderControles()
+    }
 
-    private val esconderControlesRunnable =
-        Runnable {
-            esconderControles()
-        }
+    private val atualizarTempoRunnable = object : Runnable {
 
-    private val atualizarTempoRunnable =
-        object : Runnable {
+        override fun run() {
 
-            override fun run() {
+            if (::controller.isInitialized) {
 
-                if (::controller.isInitialized) {
+                val posicao = controller.currentPosition
+                val duracao = controller.duration
 
-                    val posicao =
-                        controller.currentPosition
+                txtPosicao.text = formatarTempo(posicao)
 
-                    val duracao =
-                        controller.duration
-
-                    txtPosicao.text =
-                        formatarTempo(posicao)
-
-                    if (duracao >= 0) {
-
-                        txtDuracao.text =
-                            formatarTempo(duracao)
-                    }
-
-                    atualizarBotoes()
-                    atualizarTimeBar()
+                if (duracao >= 0) {
+                    txtDuracao.text = formatarTempo(duracao)
+                } else {
+                    txtDuracao.text = "00:00"
                 }
 
-                handler.postDelayed(
-                    this,
-                    500
-                )
+                if (!estaArrastandoBarra) {
+                    atualizarBarra()
+                }
+
+                atualizarBotoes()
             }
+
+            handler.postDelayed(this, 500)
         }
+    }
 
-    override fun onCreate(
-        savedInstanceState: Bundle?
-    ) {
+    private var estaArrastandoBarra = false
 
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        window.addFlags(
-            WindowManager.LayoutParams.FLAG_SECURE
-        )
+        window.addFlags(WindowManager.LayoutParams.FLAG_SECURE)
 
-        setContentView(
-            R.layout.activity_visualizador
-        )
+        setContentView(R.layout.activity_visualizador)
 
-        WindowCompat.setDecorFitsSystemWindows(
-            window,
-            false
-        )
+        WindowCompat.setDecorFitsSystemWindows(window, false)
 
         window.apply {
 
@@ -143,29 +124,16 @@ class VisualizadorActivity : AppCompatActivity() {
                 WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS
             )
 
-            statusBarColor =
-                Color.TRANSPARENT
+            statusBarColor = Color.TRANSPARENT
+            navigationBarColor = Color.TRANSPARENT
 
-            navigationBarColor =
-                Color.TRANSPARENT
-
-            if (
-                android.os.Build.VERSION.SDK_INT >= 28
-            ) {
-
-                navigationBarDividerColor =
-                    Color.TRANSPARENT
+            if (android.os.Build.VERSION.SDK_INT >= 28) {
+                navigationBarDividerColor = Color.TRANSPARENT
             }
 
-            if (
-                android.os.Build.VERSION.SDK_INT >= 29
-            ) {
-
-                isStatusBarContrastEnforced =
-                    false
-
-                isNavigationBarContrastEnforced =
-                    false
+            if (android.os.Build.VERSION.SDK_INT >= 29) {
+                isStatusBarContrastEnforced = false
+                isNavigationBarContrastEnforced = false
             }
         }
 
@@ -174,140 +142,72 @@ class VisualizadorActivity : AppCompatActivity() {
             window.decorView
         ).apply {
 
-            show(
-                WindowInsetsCompat.Type.systemBars()
-            )
+            show(WindowInsetsCompat.Type.systemBars())
 
-            isAppearanceLightStatusBars =
-                false
-
-            isAppearanceLightNavigationBars =
-                false
+            isAppearanceLightStatusBars = false
+            isAppearanceLightNavigationBars = false
         }
 
-        fonte =
-            Typeface.createFromAsset(
-                assets,
-                "font.ttf"
-            )
+        fonte = Typeface.createFromAsset(
+            assets,
+            "font.ttf"
+        )
 
         aplicarFonte(
             findViewById(android.R.id.content)
         )
 
-        inicializarViews()
+        imgVisualizador = findViewById(R.id.imgVisualizador)
 
-        configurarControles()
+        playerView = findViewById(R.id.playerView)
+
+        progresso = findViewById(R.id.progresso)
+
+        txtMensagem = findViewById(R.id.txtMensagem)
+
+        scrollEditor = findViewById(R.id.scrollEditor)
+
+        txtEditor = findViewById(R.id.txtEditor)
+
+        playerControls = findViewById(R.id.playerControls)
+
+        timeBar = findViewById(R.id.exo_progress)
+
+        txtPosicao = findViewById(R.id.txtPosicao)
+
+        txtDuracao = findViewById(R.id.txtDuracao)
+
+        btnAnterior = findViewById(R.id.btnAnterior)
+
+        btnVoltar = findViewById(R.id.btnVoltar)
+
+        btnPlayPause = findViewById(R.id.btnPlayPause)
+
+        btnAvancar = findViewById(R.id.btnAvancar)
+
+        btnProximo = findViewById(R.id.btnProximo)
+
+        btnRepetir = findViewById(R.id.btnRepetir)
+
+        btnAleatorio = findViewById(R.id.btnAleatorio)
+
+        prepararControles()
 
         configurarToqueVideo()
 
-        iniciarController()
-    }
+        configurarBotoes()
 
-    private fun inicializarViews() {
+        configurarBarraDeProgresso()
 
-        imgVisualizador =
-            findViewById(
-                R.id.imgVisualizador
-            )
+        esconderControlesImediatamente()
 
-        playerView =
-            findViewById(
-                R.id.playerView
-            )
-
-        progresso =
-            findViewById(
-                R.id.progresso
-            )
-
-        txtMensagem =
-            findViewById(
-                R.id.txtMensagem
-            )
-
-        scrollEditor =
-            findViewById(
-                R.id.scrollEditor
-            )
-
-        txtEditor =
-            findViewById(
-                R.id.txtEditor
-            )
-
-        playerControls =
-            findViewById(
-                R.id.playerControls
-            )
-
-        timeBar =
-            findViewById(
-                R.id.exo_progress
-            )
-
-        txtPosicao =
-            findViewById(
-                R.id.txtPosicao
-            )
-
-        txtDuracao =
-            findViewById(
-                R.id.txtDuracao
-            )
-
-        btnAnterior =
-            findViewById(
-                R.id.btnAnterior
-            )
-
-        btnVoltar =
-            findViewById(
-                R.id.btnVoltar
-            )
-
-        btnPlayPause =
-            findViewById(
-                R.id.btnPlayPause
-            )
-
-        btnAvancar =
-            findViewById(
-                R.id.btnAvancar
-            )
-
-        btnProximo =
-            findViewById(
-                R.id.btnProximo
-            )
-
-        btnRepetir =
-            findViewById(
-                R.id.btnRepetir
-            )
-
-        btnAleatorio =
-            findViewById(
-                R.id.btnAleatorio
-            )
-
-        playerControls.alpha =
-            0f
-
-        playerControls.visibility =
-            View.GONE
-    }
-
-    private fun iniciarController() {
-
-        val sessionToken =
-            SessionToken(
+        val sessionToken = SessionToken(
+            this,
+            ComponentName(
                 this,
-                ComponentName(
-                    this,
-                    MediaPlaybackService::class.java
-                )
+                MediaPlaybackService::class.java
             )
+        )
 
         controllerFuture =
             MediaController.Builder(
@@ -319,36 +219,30 @@ class VisualizadorActivity : AppCompatActivity() {
 
             try {
 
-                controller =
-                    controllerFuture.get()
+                controller = controllerFuture.get()
 
-                playerView.player =
-                    controller
+                playerView.player = controller
 
                 configurarListener()
 
                 val caminho =
-                    intent.getStringExtra(
-                        "arquivo"
-                    )
+                    intent.getStringExtra("arquivo")
 
-                if (
-                    caminho != null
-                ) {
+                if (caminho != null) {
 
-                    val arquivo =
-                        File(caminho)
+                    val arquivo = File(caminho)
 
-                    if (
-                        arquivo.exists()
-                    ) {
+                    if (arquivo.exists()) {
 
-                        arquivoAtual =
-                            arquivo
+                        abrirArquivo(arquivo)
 
-                        abrirArquivo(
-                            arquivo
-                        )
+                    } else {
+
+                        Toast.makeText(
+                            this,
+                            "Arquivo não encontrado.",
+                            Toast.LENGTH_LONG
+                        ).show()
                     }
                 }
 
@@ -368,6 +262,12 @@ class VisualizadorActivity : AppCompatActivity() {
         }, ContextCompat.getMainExecutor(this))
     }
 
+    private fun prepararControles() {
+
+        playerControls.alpha = 0f
+        playerControls.visibility = View.INVISIBLE
+    }
+
     private fun configurarListener() {
 
         controller.addListener(
@@ -385,6 +285,7 @@ class VisualizadorActivity : AppCompatActivity() {
                 ) {
 
                     atualizarBotoes()
+                    atualizarBarra()
                 }
 
                 override fun onMediaItemTransition(
@@ -393,17 +294,30 @@ class VisualizadorActivity : AppCompatActivity() {
                 ) {
 
                     atualizarBotoes()
+                    atualizarBarra()
+                }
+
+                override fun onRepeatModeChanged(
+                    repeatMode: Int
+                ) {
+
+                    atualizarBotaoRepetir()
+                }
+
+                override fun onShuffleModeEnabledChanged(
+                    shuffleModeEnabled: Boolean
+                ) {
+
+                    atualizarBotaoAleatorio()
                 }
             }
         )
     }
 
-    private fun configurarControles() {
+    private fun configurarBotoes() {
 
         /*
          * PLAY / PAUSE
-         *
-         * É UM ÚNICO BOTÃO.
          */
 
         btnPlayPause.setOnClickListener {
@@ -425,7 +339,7 @@ class VisualizadorActivity : AppCompatActivity() {
         }
 
         /*
-         * VOLTAR 10 SEGUNDOS
+         * VOLTAR ALGUNS SEGUNDOS
          */
 
         btnVoltar.setOnClickListener {
@@ -440,7 +354,7 @@ class VisualizadorActivity : AppCompatActivity() {
         }
 
         /*
-         * AVANÇAR 10 SEGUNDOS
+         * AVANÇAR ALGUNS SEGUNDOS
          */
 
         btnAvancar.setOnClickListener {
@@ -455,23 +369,29 @@ class VisualizadorActivity : AppCompatActivity() {
         }
 
         /*
-         * ANTERIOR
+         * ARQUIVO ANTERIOR
          */
 
         btnAnterior.setOnClickListener {
 
-            irParaArquivoAnterior()
+            val arquivo = arquivoAtual
+                ?: return@setOnClickListener
+
+            irParaArquivoAnterior(arquivo)
 
             mostrarControles()
         }
 
         /*
-         * PRÓXIMO
+         * PRÓXIMO ARQUIVO
          */
 
         btnProximo.setOnClickListener {
 
-            irParaProximoArquivo()
+            val arquivo = arquivoAtual
+                ?: return@setOnClickListener
+
+            irParaProximoArquivo(arquivo)
 
             mostrarControles()
         }
@@ -479,13 +399,7 @@ class VisualizadorActivity : AppCompatActivity() {
         /*
          * REPETIR
          *
-         * OFF
-         * ↓
-         * REPETIR UMA
-         * ↓
-         * REPETIR TODOS
-         * ↓
-         * OFF
+         * OFF -> UM -> TODOS -> OFF
          */
 
         btnRepetir.setOnClickListener {
@@ -494,20 +408,28 @@ class VisualizadorActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            controller.repeatMode =
-                when (controller.repeatMode) {
+            when (controller.repeatMode) {
 
-                    Player.REPEAT_MODE_OFF ->
+                Player.REPEAT_MODE_OFF -> {
+
+                    controller.repeatMode =
                         Player.REPEAT_MODE_ONE
-
-                    Player.REPEAT_MODE_ONE ->
-                        Player.REPEAT_MODE_ALL
-
-                    else ->
-                        Player.REPEAT_MODE_OFF
                 }
 
-            atualizarBotoes()
+                Player.REPEAT_MODE_ONE -> {
+
+                    controller.repeatMode =
+                        Player.REPEAT_MODE_ALL
+                }
+
+                else -> {
+
+                    controller.repeatMode =
+                        Player.REPEAT_MODE_OFF
+                }
+            }
+
+            atualizarBotaoRepetir()
 
             mostrarControles()
         }
@@ -525,25 +447,65 @@ class VisualizadorActivity : AppCompatActivity() {
             controller.shuffleModeEnabled =
                 !controller.shuffleModeEnabled
 
-            atualizarBotoes()
+            atualizarBotaoAleatorio()
 
             mostrarControles()
         }
     }
 
+    private fun configurarBarraDeProgresso() {
+
+        timeBar.addListener(
+            object : TimeBar.OnScrubListener {
+
+                override fun onScrubStarted(
+                    timeBar: TimeBar,
+                    position: Long
+                ) {
+
+                    estaArrastandoBarra = true
+
+                    mostrarControles()
+                }
+
+                override fun onScrubMove(
+                    timeBar: TimeBar,
+                    position: Long
+                ) {
+
+                    txtPosicao.text =
+                        formatarTempo(position)
+                }
+
+                override fun onScrubStop(
+                    timeBar: TimeBar,
+                    position: Long,
+                    canceled: Boolean
+                ) {
+
+                    estaArrastandoBarra = false
+
+                    if (!canceled &&
+                        ::controller.isInitialized
+                    ) {
+
+                        controller.seekTo(position)
+                    }
+
+                    mostrarControles()
+                }
+            }
+        )
+    }
+
     private fun configurarToqueVideo() {
 
-        playerView.setOnTouchListener {
-                _,
-                event ->
+        playerView.setOnTouchListener { _, event ->
 
-            if (
-                event.action ==
-                MotionEvent.ACTION_UP
-            ) {
+            if (event.action == MotionEvent.ACTION_UP) {
 
-                if (
-                    controlesVisiveis
+                if (playerControls.visibility ==
+                    View.VISIBLE
                 ) {
 
                     esconderControles()
@@ -556,13 +518,24 @@ class VisualizadorActivity : AppCompatActivity() {
 
             true
         }
-    }
 
-    /*
-     * =========================================================
-     * CONTROLES COM FADE
-     * =========================================================
-     */
+        /*
+         * O overlay não bloqueia os cliques
+         * dos ImageButtons e da barra.
+         */
+
+        playerControls.setOnTouchListener { _, event ->
+
+            if (event.action ==
+                MotionEvent.ACTION_DOWN
+            ) {
+
+                mostrarControles()
+            }
+
+            false
+        }
+    }
 
     private fun mostrarControles() {
 
@@ -570,31 +543,27 @@ class VisualizadorActivity : AppCompatActivity() {
             esconderControlesRunnable
         )
 
-        if (
-            playerControls.visibility ==
-            View.VISIBLE &&
-            controlesVisiveis
-        ) {
+        playerControls.animate().cancel()
 
-            playerControls.animate()
-                .cancel()
-
-        } else {
-
-            playerControls.alpha =
-                0f
+        if (playerControls.visibility != View.VISIBLE) {
 
             playerControls.visibility =
                 View.VISIBLE
+
+            playerControls.alpha = 0f
 
             playerControls.animate()
                 .alpha(1f)
                 .setDuration(220)
                 .start()
-        }
 
-        controlesVisiveis =
-            true
+        } else {
+
+            playerControls.animate()
+                .alpha(1f)
+                .setDuration(120)
+                .start()
+        }
 
         handler.postDelayed(
             esconderControlesRunnable,
@@ -608,45 +577,57 @@ class VisualizadorActivity : AppCompatActivity() {
             esconderControlesRunnable
         )
 
-        if (
-            playerControls.visibility !=
+        if (playerControls.visibility !=
             View.VISIBLE
         ) {
-
-            controlesVisiveis =
-                false
-
             return
         }
+
+        playerControls.animate().cancel()
 
         playerControls.animate()
             .alpha(0f)
             .setDuration(220)
             .withEndAction {
 
+                /*
+                 * INVISIBLE em vez de GONE.
+                 *
+                 * Isso evita qualquer alteração
+                 * de layout quando os controles
+                 * desaparecem.
+                 */
+
                 playerControls.visibility =
-                    View.GONE
-
-                playerControls.alpha =
-                    0f
-
-                controlesVisiveis =
-                    false
+                    View.INVISIBLE
             }
             .start()
     }
 
-    /*
-     * =========================================================
-     * PLAY / PAUSE
-     * =========================================================
-     */
+    private fun esconderControlesImediatamente() {
+
+        handler.removeCallbacks(
+            esconderControlesRunnable
+        )
+
+        playerControls.animate().cancel()
+
+        playerControls.alpha = 0f
+
+        playerControls.visibility =
+            View.INVISIBLE
+    }
 
     private fun atualizarBotoes() {
 
         if (!::controller.isInitialized) {
             return
         }
+
+        /*
+         * UM ÚNICO BOTÃO:
+         * PLAY <-> PAUSE
+         */
 
         if (controller.isPlaying) {
 
@@ -668,571 +649,96 @@ class VisualizadorActivity : AppCompatActivity() {
         }
 
         /*
-         * ANTERIOR
+         * BOTÃO ANTERIOR
          */
 
-        btnAnterior.alpha =
-            if (
-                existeArquivoAnterior()
-            ) {
-
-                1f
-
-            } else {
-
-                0.45f
-            }
+        btnAnterior.isEnabled =
+            arquivoAtual?.let {
+                encontrarArquivoAnterior(it) != null
+            } ?: false
 
         /*
-         * PRÓXIMO
+         * BOTÃO PRÓXIMO
          */
 
-        btnProximo.alpha =
-            if (
-                existeArquivoProximo()
-            ) {
+        btnProximo.isEnabled =
+            arquivoAtual?.let {
+                encontrarProximoArquivo(it) != null
+            } ?: false
 
-                1f
+        atualizarBotaoRepetir()
 
-            } else {
+        atualizarBotaoAleatorio()
 
-                0.45f
-            }
-
-        /*
-         * ALEATÓRIO
-         */
-
-        btnAleatorio.alpha =
-            if (
-                controller.shuffleModeEnabled
-            ) {
-
-                1f
-
-            } else {
-
-                0.5f
-            }
-
-        /*
-         * REPETIÇÃO
-         */
-
-        btnRepetir.alpha =
-            when (
-                controller.repeatMode
-            ) {
-
-                Player.REPEAT_MODE_ONE ->
-                    1f
-
-                Player.REPEAT_MODE_ALL ->
-                    1f
-
-                else ->
-                    0.5f
-            }
+        atualizarBarra()
     }
 
-    /*
-     * =========================================================
-     * PRÓXIMO ARQUIVO
-     * =========================================================
-     */
+    private fun atualizarBotaoRepetir() {
 
-    private fun irParaProximoArquivo() {
+        if (!::controller.isInitialized) {
+            return
+        }
 
-        val proximo =
-            encontrarArquivoVizinho(
-                +1
-            )
+        when (controller.repeatMode) {
 
-        if (
-            proximo != null
-        ) {
+            Player.REPEAT_MODE_OFF -> {
 
-            abrirArquivoDeMidia(
-                proximo
-            )
+                btnRepetir.setImageResource(
+                    R.drawable.ic_repeat
+                )
+
+                btnRepetir.alpha = 0.55f
+            }
+
+            Player.REPEAT_MODE_ONE -> {
+
+                btnRepetir.setImageResource(
+                    R.drawable.ic_repeat_one
+                )
+
+                btnRepetir.alpha = 1f
+            }
+
+            Player.REPEAT_MODE_ALL -> {
+
+                btnRepetir.setImageResource(
+                    R.drawable.ic_repeat
+                )
+
+                btnRepetir.alpha = 1f
+            }
+        }
+    }
+
+    private fun atualizarBotaoAleatorio() {
+
+        if (!::controller.isInitialized) {
+            return
+        }
+
+        if (controller.shuffleModeEnabled) {
+
+            btnAleatorio.alpha = 1f
 
         } else {
 
-            Toast.makeText(
-                this,
-                "Não há outro arquivo de mídia.",
-                Toast.LENGTH_SHORT
-            ).show()
+            btnAleatorio.alpha = 0.55f
         }
     }
 
-    /*
-     * =========================================================
-     * ARQUIVO ANTERIOR
-     * =========================================================
-     */
+    private fun atualizarBarra() {
 
-    private fun irParaArquivoAnterior() {
-
-        val anterior =
-            encontrarArquivoVizinho(
-                -1
-            )
-
-        if (
-            anterior != null
-        ) {
-
-            abrirArquivoDeMidia(
-                anterior
-            )
-
-        } else {
-
-            Toast.makeText(
-                this,
-                "Não há outro arquivo de mídia.",
-                Toast.LENGTH_SHORT
-            ).show()
-        }
-    }
-
-    /*
-     * =========================================================
-     * PROCURA ARQUIVO VIZINHO
-     * =========================================================
-     */
-
-    private fun encontrarArquivoVizinho(
-        direcao: Int
-    ): File? {
-
-        if (
-            !::arquivoAtual.isInitialized
-        ) {
-            return null
-        }
-
-        val pasta =
-            arquivoAtual.parentFile
-                ?: return null
-
-        val arquivos =
-            pasta.listFiles()
-                ?.filter {
-                    it.isFile &&
-                    ehMidia(it)
-                }
-                ?.sortedBy {
-                    it.name.lowercase()
-                }
-                ?: return null
-
-        if (
-            arquivos.isEmpty()
-        ) {
-            return null
-        }
-
-        val indice =
-            arquivos.indexOfFirst {
-                it.absolutePath ==
-                arquivoAtual.absolutePath
-            }
-
-        if (
-            indice == -1
-        ) {
-            return null
-        }
-
-        var novoIndice =
-            indice + direcao
-
-        /*
-         * ALEATÓRIO
-         */
-
-        if (
-            ::controller.isInitialized &&
-            controller.shuffleModeEnabled
-        ) {
-
-            val candidatos =
-                arquivos.filter {
-                    it.absolutePath !=
-                    arquivoAtual.absolutePath
-                }
-
-            if (
-                candidatos.isEmpty()
-            ) {
-                return null
-            }
-
-            return candidatos.random()
-        }
-
-        /*
-         * REPETIÇÃO DE TODOS
-         */
-
-        if (
-            novoIndice >= arquivos.size &&
-            ::controller.isInitialized &&
-            controller.repeatMode ==
-            Player.REPEAT_MODE_ALL
-        ) {
-
-            novoIndice = 0
-        }
-
-        if (
-            novoIndice < 0 &&
-            ::controller.isInitialized &&
-            controller.repeatMode ==
-            Player.REPEAT_MODE_ALL
-        ) {
-
-            novoIndice =
-                arquivos.lastIndex
-        }
-
-        if (
-            novoIndice !in
-            arquivos.indices
-        ) {
-
-            return null
-        }
-
-        return arquivos[novoIndice]
-    }
-
-    private fun existeArquivoAnterior():
-        Boolean {
-
-        if (
-            !::arquivoAtual.isInitialized
-        ) {
-            return false
-        }
-
-        val pasta =
-            arquivoAtual.parentFile
-                ?: return false
-
-        val arquivos =
-            pasta.listFiles()
-                ?.filter {
-                    it.isFile &&
-                    ehMidia(it)
-                }
-                ?.sortedBy {
-                    it.name.lowercase()
-                }
-                ?: return false
-
-        val indice =
-            arquivos.indexOfFirst {
-                it.absolutePath ==
-                arquivoAtual.absolutePath
-            }
-
-        return indice > 0 ||
-            (
-                ::controller.isInitialized &&
-                controller.repeatMode ==
-                Player.REPEAT_MODE_ALL &&
-                arquivos.size > 1
-            )
-    }
-
-    private fun existeArquivoProximo():
-        Boolean {
-
-        if (
-            !::arquivoAtual.isInitialized
-        ) {
-            return false
-        }
-
-        val pasta =
-            arquivoAtual.parentFile
-                ?: return false
-
-        val arquivos =
-            pasta.listFiles()
-                ?.filter {
-                    it.isFile &&
-                    ehMidia(it)
-                }
-                ?.sortedBy {
-                    it.name.lowercase()
-                }
-                ?: return false
-
-        val indice =
-            arquivos.indexOfFirst {
-                it.absolutePath ==
-                arquivoAtual.absolutePath
-            }
-
-        return indice >= 0 &&
-            (
-                indice < arquivos.lastIndex ||
-                (
-                    ::controller.isInitialized &&
-                    controller.repeatMode ==
-                    Player.REPEAT_MODE_ALL &&
-                    arquivos.size > 1
-                )
-            )
-    }
-
-    private fun abrirArquivoDeMidia(
-        arquivo: File
-    ) {
-
-        if (
-            !arquivo.exists()
-        ) {
+        if (!::controller.isInitialized) {
             return
         }
 
-        arquivoAtual =
-            arquivo
+        val duracao = controller.duration
 
-        imgVisualizador.visibility =
-            View.GONE
-
-        scrollEditor.visibility =
-            View.GONE
-
-        playerView.visibility =
-            View.VISIBLE
-
-        playerControls.visibility =
-            View.VISIBLE
-
-        playerControls.alpha =
-            1f
-
-        val uri =
-            FileProvider.getUriForFile(
-                this,
-                "$packageName.provider",
-                arquivo
-            )
-
-        val mediaItem =
-            MediaItem.fromUri(
-                uri
-            )
-
-        controller.setMediaItem(
-            mediaItem
-        )
-
-        controller.prepare()
-        controller.play()
-
-        atualizarBotoes()
-
-        mostrarControles()
-    }
-
-    /*
-     * =========================================================
-     * ABERTURA DO ARQUIVO
-     * =========================================================
-     */
-
-    private fun abrirArquivo(
-        arquivo: File
-    ) {
-
-        when (
-            arquivo.extension.lowercase()
-        ) {
-
-            "png",
-            "jpg",
-            "jpeg",
-            "webp",
-            "gif",
-            "bmp" -> {
-
-                abrirImagem(
-                    arquivo
-                )
-            }
-
-            "mp4",
-            "mkv",
-            "avi",
-            "mov",
-            "3gp",
-            "webm" -> {
-
-                abrirVideo(
-                    arquivo
-                )
-            }
-
-            "mp3",
-            "wav",
-            "ogg",
-            "flac",
-            "aac",
-            "m4a" -> {
-
-                abrirAudio(
-                    arquivo
-                )
-            }
-
-            "zip" -> {
-
-                abrirZip(
-                    arquivo
-                )
-            }
-
-            else -> {
-
-                if (
-                    ehArquivoTexto(
-                        arquivo
-                    )
-                ) {
-
-                    abrirTexto(
-                        arquivo
-                    )
-
-                } else {
-
-                    abrirComOutroApp(
-                        arquivo
-                    )
-
-                    finish()
-                }
-            }
-        }
-    }
-
-    private fun abrirVideo(
-        arquivo: File
-    ) {
-
-        arquivoAtual =
-            arquivo
-
-        imgVisualizador.visibility =
-            View.GONE
-
-        scrollEditor.visibility =
-            View.GONE
-
-        playerView.visibility =
-            View.VISIBLE
-
-        playerControls.visibility =
-            View.VISIBLE
-
-        tocarArquivo(
-            arquivo
-        )
-
-        mostrarControles()
-    }
-
-    private fun abrirAudio(
-        arquivo: File
-    ) {
-
-        arquivoAtual =
-            arquivo
-
-        imgVisualizador.visibility =
-            View.GONE
-
-        scrollEditor.visibility =
-            View.GONE
-
-        playerView.visibility =
-            View.VISIBLE
-
-        playerControls.visibility =
-            View.VISIBLE
-
-        tocarArquivo(
-            arquivo
-        )
-
-        mostrarControles()
-    }
-
-    private fun tocarArquivo(
-        arquivo: File
-    ) {
-
-        if (
-            !::controller.isInitialized
-        ) {
+        if (duracao <= 0) {
             return
         }
 
-        val uri =
-            FileProvider.getUriForFile(
-                this,
-                "$packageName.provider",
-                arquivo
-            )
-
-        val mediaItem =
-            MediaItem.fromUri(
-                uri
-            )
-
-        controller.setMediaItem(
-            mediaItem
-        )
-
-        controller.prepare()
-        controller.play()
-
-        atualizarBotoes()
-    }
-
-    /*
-     * =========================================================
-     * TIME BAR
-     * =========================================================
-     */
-
-    private fun atualizarTimeBar() {
-
-        if (
-            !::controller.isInitialized
-        ) {
-            return
-        }
-
-        val duracao =
-            controller.duration
-
-        if (
-            duracao <= 0
-        ) {
-            return
-        }
-
-        timeBar.setDuration(
-            duracao
-        )
+        timeBar.setDuration(duracao)
 
         timeBar.setPosition(
             controller.currentPosition
@@ -1243,74 +749,196 @@ class VisualizadorActivity : AppCompatActivity() {
         )
     }
 
-    /*
-     * =========================================================
-     * IMAGEM
-     * =========================================================
-     */
+    private fun abrirArquivo(
+        arquivo: File
+    ) {
+
+        arquivoAtual = arquivo
+
+        val extensao =
+            arquivo.extension.lowercase(Locale.getDefault())
+
+        when {
+
+            ehImagem(extensao) -> {
+
+                abrirImagem(arquivo)
+            }
+
+            ehVideo(extensao) -> {
+
+                abrirVideo(arquivo)
+            }
+
+            ehAudio(extensao) -> {
+
+                abrirAudio(arquivo)
+            }
+
+            ehTexto(extensao) -> {
+
+                abrirTexto(arquivo)
+            }
+
+            ehZip(extensao) -> {
+
+                abrirZip(arquivo)
+            }
+
+            else -> {
+
+                abrirComOutroApp(arquivo)
+            }
+        }
+    }
+
+    private fun abrirVideo(
+        arquivo: File
+    ) {
+
+        imgVisualizador.visibility =
+            View.GONE
+
+        scrollEditor.visibility =
+            View.GONE
+
+        txtMensagem.visibility =
+            View.GONE
+
+        progresso.visibility =
+            View.GONE
+
+        playerView.visibility =
+            View.VISIBLE
+
+        playerControls.visibility =
+            View.INVISIBLE
+
+        tocarArquivo(arquivo)
+    }
+
+    private fun abrirAudio(
+        arquivo: File
+    ) {
+
+        imgVisualizador.visibility =
+            View.GONE
+
+        scrollEditor.visibility =
+            View.GONE
+
+        progresso.visibility =
+            View.GONE
+
+        playerView.visibility =
+            View.VISIBLE
+
+        txtMensagem.visibility =
+            View.VISIBLE
+
+        txtMensagem.text =
+            arquivo.name
+
+        tocarArquivo(arquivo)
+    }
+
+    private fun tocarArquivo(
+        arquivo: File
+    ) {
+
+        if (!::controller.isInitialized) {
+            return
+        }
+
+        try {
+
+            val uri =
+                FileProvider.getUriForFile(
+                    this,
+                    "${packageName}.fileprovider",
+                    arquivo
+                )
+
+            val mediaItem =
+                MediaItem.fromUri(uri)
+
+            controller.setMediaItem(
+                mediaItem
+            )
+
+            controller.prepare()
+
+            controller.play()
+
+            atualizarBotoes()
+
+        } catch (e: Exception) {
+
+            Toast.makeText(
+                this,
+                "Não foi possível reproduzir o arquivo.",
+                Toast.LENGTH_LONG
+            ).show()
+        }
+    }
 
     private fun abrirImagem(
         arquivo: File
     ) {
 
-        progresso.visibility =
-            View.VISIBLE
-
-        txtMensagem.visibility =
-            View.VISIBLE
-
         playerView.visibility =
             View.GONE
 
         playerControls.visibility =
+            View.INVISIBLE
+
+        scrollEditor.visibility =
             View.GONE
-
-        val bitmap =
-            BitmapFactory.decodeFile(
-                arquivo.absolutePath
-            )
-
-        imgVisualizador.setImageBitmap(
-            bitmap
-        )
-
-        imgVisualizador.visibility =
-            View.VISIBLE
 
         progresso.visibility =
-            View.GONE
+            View.VISIBLE
 
         txtMensagem.visibility =
             View.GONE
-    }
 
-    /*
-     * =========================================================
-     * TEXTO
-     * =========================================================
-     */
+        try {
 
-    private fun ehArquivoTexto(
-        arquivo: File
-    ): Boolean {
+            val bitmap =
+                BitmapFactory.decodeFile(
+                    arquivo.absolutePath
+                )
 
-        return try {
+            if (bitmap != null) {
 
-            val bytes =
-                arquivo.inputStream()
-                    .readNBytes(
-                        4096
-                    )
+                imgVisualizador.visibility =
+                    View.VISIBLE
 
-            bytes.none {
-                it.toInt() == 0
+                imgVisualizador.setImageBitmap(
+                    bitmap
+                )
+
+            } else {
+
+                imgVisualizador.visibility =
+                    View.GONE
+
+                txtMensagem.visibility =
+                    View.VISIBLE
+
+                txtMensagem.text =
+                    "Não foi possível abrir a imagem."
             }
 
-        } catch (
-            e: Exception
-        ) {
+        } catch (e: Exception) {
 
-            false
+            imgVisualizador.visibility =
+                View.GONE
+
+            txtMensagem.visibility =
+                View.VISIBLE
+
+            txtMensagem.text =
+                "Não foi possível abrir a imagem."
         }
     }
 
@@ -1318,38 +946,442 @@ class VisualizadorActivity : AppCompatActivity() {
         arquivo: File
     ) {
 
+        playerView.visibility =
+            View.GONE
+
+        imgVisualizador.visibility =
+            View.GONE
+
+        playerControls.visibility =
+            View.INVISIBLE
+
+        progresso.visibility =
+            View.GONE
+
+        txtMensagem.visibility =
+            View.GONE
+
+        scrollEditor.visibility =
+            View.VISIBLE
+
         try {
 
-            val texto =
+            txtEditor.text =
                 arquivo.readText()
 
-            playerView.visibility =
-                View.GONE
-
-            playerControls.visibility =
-                View.GONE
-
-            imgVisualizador.visibility =
-                View.GONE
-
-            scrollEditor.visibility =
-                View.VISIBLE
-
-            txtEditor.visibility =
-                View.VISIBLE
+        } catch (e: Exception) {
 
             txtEditor.text =
-                texto
+                "Não foi possível ler o arquivo."
+        }
+    }
 
-        } catch (
-            e: Exception
-        ) {
+    private fun abrirZip(
+        arquivo: File
+    ) {
+
+        playerView.visibility =
+            View.GONE
+
+        imgVisualizador.visibility =
+            View.GONE
+
+        playerControls.visibility =
+            View.INVISIBLE
+
+        scrollEditor.visibility =
+            View.GONE
+
+        progresso.visibility =
+            View.GONE
+
+        txtMensagem.visibility =
+            View.VISIBLE
+
+        txtMensagem.text =
+            "Arquivo ZIP: ${arquivo.name}"
+    }
+
+    private fun abrirComOutroApp(
+        arquivo: File
+    ) {
+
+        try {
+
+            val uri =
+                FileProvider.getUriForFile(
+                    this,
+                    "${packageName}.fileprovider",
+                    arquivo
+                )
+
+            val extensao =
+                arquivo.extension.lowercase(
+                    Locale.getDefault()
+                )
+
+            val mime =
+                MimeTypeMap.getSingleton()
+                    .getMimeTypeFromExtension(
+                        extensao
+                    )
+                    ?: "*/*"
+
+            val intent =
+                Intent(
+                    Intent.ACTION_VIEW
+                ).apply {
+
+                    setDataAndType(
+                        uri,
+                        mime
+                    )
+
+                    addFlags(
+                        Intent.FLAG_GRANT_READ_URI_PERMISSION
+                    )
+                }
+
+            startActivity(intent)
+
+        } catch (e: ActivityNotFoundException) {
 
             Toast.makeText(
                 this,
-                "Não foi possível ler o arquivo: ${e.message}",
+                "Nenhum aplicativo pode abrir este arquivo.",
                 Toast.LENGTH_LONG
             ).show()
+
+        } catch (e: Exception) {
+
+            Toast.makeText(
+                this,
+                "Não foi possível abrir o arquivo.",
+                Toast.LENGTH_LONG
+            ).show()
+        }
+    }
+
+    /*
+     * =========================================================
+     * NAVEGAÇÃO ENTRE ARQUIVOS DA MESMA PASTA
+     * =========================================================
+     */
+
+    private fun obterArquivosDeMidia(
+        arquivo: File
+    ): List<File> {
+
+        val pasta =
+            arquivo.parentFile
+                ?: return emptyList()
+
+        if (!pasta.exists() ||
+            !pasta.isDirectory
+        ) {
+            return emptyList()
+        }
+
+        return pasta
+            .listFiles()
+            ?.filter { file ->
+
+                file.isFile &&
+                    ehMidia(file)
+
+            }
+            ?.sortedBy {
+
+                it.name.lowercase(
+                    Locale.getDefault()
+                )
+            }
+            ?: emptyList()
+    }
+
+    private fun encontrarArquivoAnterior(
+        arquivo: File
+    ): File? {
+
+        val arquivos =
+            obterArquivosDeMidia(arquivo)
+
+        val indice =
+            arquivos.indexOfFirst {
+
+                it.absolutePath ==
+                    arquivo.absolutePath
+            }
+
+        if (indice <= 0) {
+            return null
+        }
+
+        return arquivos[indice - 1]
+    }
+
+    private fun encontrarProximoArquivo(
+        arquivo: File
+    ): File? {
+
+        val arquivos =
+            obterArquivosDeMidia(arquivo)
+
+        val indice =
+            arquivos.indexOfFirst {
+
+                it.absolutePath ==
+                    arquivo.absolutePath
+            }
+
+        if (indice == -1 ||
+            indice >= arquivos.lastIndex
+        ) {
+            return null
+        }
+
+        return arquivos[indice + 1]
+    }
+
+    private fun irParaArquivoAnterior(
+        arquivo: File
+    ) {
+
+        val anterior =
+            encontrarArquivoAnterior(arquivo)
+
+        if (anterior != null) {
+
+            abrirArquivoDeMidia(
+                anterior
+            )
+
+        } else {
+
+            Toast.makeText(
+                this,
+                "Este é o primeiro arquivo da pasta.",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+    }
+
+    private fun irParaProximoArquivo(
+        arquivo: File
+    ) {
+
+        if (::controller.isInitialized &&
+            controller.shuffleModeEnabled
+        ) {
+
+            val arquivos =
+                obterArquivosDeMidia(arquivo)
+
+            val outros =
+                arquivos.filter {
+
+                    it.absolutePath !=
+                        arquivo.absolutePath
+                }
+
+            if (outros.isNotEmpty()) {
+
+                val proximo =
+                    outros.random()
+
+                abrirArquivoDeMidia(
+                    proximo
+                )
+
+                return
+            }
+        }
+
+        val proximo =
+            encontrarProximoArquivo(arquivo)
+
+        if (proximo != null) {
+
+            abrirArquivoDeMidia(
+                proximo
+            )
+
+        } else {
+
+            Toast.makeText(
+                this,
+                "Este é o último arquivo da pasta.",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+    }
+
+    private fun abrirArquivoDeMidia(
+        arquivo: File
+    ) {
+
+        arquivoAtual = arquivo
+
+        val extensao =
+            arquivo.extension.lowercase(
+                Locale.getDefault()
+            )
+
+        if (ehVideo(extensao)) {
+
+            abrirVideo(arquivo)
+
+        } else if (ehAudio(extensao)) {
+
+            abrirAudio(arquivo)
+        }
+    }
+
+    /*
+     * =========================================================
+     * TIPOS DE ARQUIVO
+     * =========================================================
+     */
+
+    private fun ehMidia(
+        arquivo: File
+    ): Boolean {
+
+        val extensao =
+            arquivo.extension.lowercase(
+                Locale.getDefault()
+            )
+
+        return ehVideo(extensao) ||
+            ehAudio(extensao)
+    }
+
+    private fun ehVideo(
+        extensao: String
+    ): Boolean {
+
+        return extensao in setOf(
+            "mp4",
+            "mkv",
+            "webm",
+            "avi",
+            "mov",
+            "3gp",
+            "m4v",
+            "ts",
+            "flv"
+        )
+    }
+
+    private fun ehAudio(
+        extensao: String
+    ): Boolean {
+
+        return extensao in setOf(
+            "mp3",
+            "wav",
+            "ogg",
+            "oga",
+            "m4a",
+            "aac",
+            "flac",
+            "opus",
+            "amr",
+            "3gp"
+        )
+    }
+
+    private fun ehImagem(
+        extensao: String
+    ): Boolean {
+
+        return extensao in setOf(
+            "jpg",
+            "jpeg",
+            "png",
+            "gif",
+            "webp",
+            "bmp",
+            "heic",
+            "heif"
+        )
+    }
+
+    private fun ehTexto(
+        extensao: String
+    ): Boolean {
+
+        return extensao in setOf(
+            "txt",
+            "kt",
+            "java",
+            "xml",
+            "html",
+            "css",
+            "js",
+            "json",
+            "md",
+            "csv"
+        )
+    }
+
+    private fun ehZip(
+        extensao: String
+    ): Boolean {
+
+        return extensao in setOf(
+            "zip",
+            "rar",
+            "7z",
+            "tar",
+            "gz"
+        )
+    }
+
+    /*
+     * =========================================================
+     * TEMPO
+     * =========================================================
+     */
+
+    private fun formatarTempo(
+        milissegundos: Long
+    ): String {
+
+        if (milissegundos < 0) {
+            return "00:00"
+        }
+
+        val segundosTotal =
+            milissegundos / 1000
+
+        val segundos =
+            segundosTotal % 60
+
+        val minutos =
+            (segundosTotal / 60) % 60
+
+        val horas =
+            segundosTotal / 3600
+
+        return if (horas > 0) {
+
+            String.format(
+                Locale.getDefault(),
+                "%02d:%02d:%02d",
+                horas,
+                minutos,
+                segundos
+            )
+
+        } else {
+
+            String.format(
+                Locale.getDefault(),
+                "%02d:%02d",
+                minutos,
+                segundos
+            )
         }
     }
 
@@ -1363,21 +1395,17 @@ class VisualizadorActivity : AppCompatActivity() {
         view: View
     ) {
 
-        if (
-            view is TextView
-        ) {
+        when (view) {
 
-            view.typeface =
-                fonte
+            is TextView -> {
+
+                view.typeface = fonte
+            }
         }
 
-        if (
-            view is ViewGroup
-        ) {
+        if (view is ViewGroup) {
 
-            for (
-                i in 0 until view.childCount
-            ) {
+            for (i in 0 until view.childCount) {
 
                 aplicarFonte(
                     view.getChildAt(i)
@@ -1388,221 +1416,30 @@ class VisualizadorActivity : AppCompatActivity() {
 
     /*
      * =========================================================
-     * TEMPO
+     * CICLO DE VIDA
      * =========================================================
      */
 
-    private fun formatarTempo(
-        millis: Long
-    ): String {
+    override fun onPause() {
+        super.onPause()
 
-        if (
-            millis < 0
-        ) {
+        if (::controller.isInitialized) {
 
-            return "00:00"
-        }
-
-        val totalSegundos =
-            millis / 1000
-
-        val segundos =
-            totalSegundos % 60
-
-        val minutos =
-            (totalSegundos / 60) % 60
-
-        val horas =
-            totalSegundos / 3600
-
-        return if (
-            horas > 0
-        ) {
-
-            String.format(
-                "%d:%02d:%02d",
-                horas,
-                minutos,
-                segundos
-            )
-
-        } else {
-
-            String.format(
-                "%02d:%02d",
-                minutos,
-                segundos
-            )
+            controller.pause()
         }
     }
-
-    /*
-     * =========================================================
-     * TIPOS DE MÍDIA
-     * =========================================================
-     */
-
-    private fun ehMidia(
-        arquivo: File
-    ): Boolean {
-
-        return when (
-            arquivo.extension.lowercase()
-        ) {
-
-            "mp3",
-            "wav",
-            "ogg",
-            "flac",
-            "aac",
-            "m4a",
-            "mp4",
-            "mkv",
-            "avi",
-            "mov",
-            "3gp",
-            "webm" -> true
-
-            else -> false
-        }
-    }
-
-    /*
-     * =========================================================
-     * ZIP
-     * =========================================================
-     */
-
-    private fun abrirZip(
-        arquivo: File
-    ) {
-
-        val uri =
-            FileProvider.getUriForFile(
-                this,
-                "$packageName.provider",
-                arquivo
-            )
-
-        val intent =
-            Intent(
-                Intent.ACTION_VIEW
-            ).apply {
-
-                setDataAndType(
-                    uri,
-                    "application/zip"
-                )
-
-                addFlags(
-                    Intent.FLAG_GRANT_READ_URI_PERMISSION
-                )
-            }
-
-        try {
-
-            startActivity(
-                intent
-            )
-
-        } catch (
-            _: ActivityNotFoundException
-        ) {
-
-            Toast.makeText(
-                this,
-                "Nenhum aplicativo para abrir arquivos ZIP.",
-                Toast.LENGTH_SHORT
-            ).show()
-        }
-    }
-
-    /*
-     * =========================================================
-     * OUTRO APLICATIVO
-     * =========================================================
-     */
-
-    private fun abrirComOutroApp(
-        arquivo: File
-    ) {
-
-        val uri =
-            FileProvider.getUriForFile(
-                this,
-                "$packageName.provider",
-                arquivo
-            )
-
-        val mime =
-            MimeTypeMap.getSingleton()
-                .getMimeTypeFromExtension(
-                    arquivo.extension.lowercase()
-                )
-                ?: "*/*"
-
-        val intent =
-            Intent(
-                Intent.ACTION_VIEW
-            ).apply {
-
-                setDataAndType(
-                    uri,
-                    mime
-                )
-
-                addFlags(
-                    Intent.FLAG_GRANT_READ_URI_PERMISSION
-                )
-            }
-
-        try {
-
-            startActivity(
-                Intent.createChooser(
-                    intent,
-                    "Abrir com"
-                )
-            )
-
-        } catch (
-            _: ActivityNotFoundException
-        ) {
-
-            Toast.makeText(
-                this,
-                "Nenhum aplicativo compatível encontrado.",
-                Toast.LENGTH_SHORT
-            ).show()
-        }
-    }
-
-    /*
-     * =========================================================
-     * DESTROY
-     * =========================================================
-     */
 
     override fun onDestroy() {
-
-        handler.removeCallbacks(
-            esconderControlesRunnable
-        )
 
         handler.removeCallbacks(
             atualizarTempoRunnable
         )
 
-        if (
-            ::controller.isInitialized
-        ) {
+        handler.removeCallbacks(
+            esconderControlesRunnable
+        )
 
-            controller.release()
-        }
-
-        if (
-            ::controllerFuture.isInitialized
-        ) {
+        if (::controllerFuture.isInitialized) {
 
             MediaController.releaseFuture(
                 controllerFuture
