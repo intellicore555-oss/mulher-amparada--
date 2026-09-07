@@ -7,9 +7,9 @@
     android:layout_height="match_parent"
     android:background="#000000">
 
-    <!-- ================================================= -->
-    <!-- IMAGEM -->
-    <!-- ================================================= -->
+    <!-- =========================================================
+         IMAGEM
+    ========================================================== -->
 
     <ImageView
         android:id="@+id/imgVisualizador"
@@ -17,12 +17,12 @@
         android:layout_height="match_parent"
         android:visibility="gone"
         android:adjustViewBounds="true"
-        android:scaleType="fitCenter" />
+        android:scaleType="fitCenter"
+        android:background="#000000" />
 
-
-    <!-- ================================================= -->
-    <!-- PLAYER -->
-    <!-- ================================================= -->
+    <!-- =========================================================
+         PLAYER
+    ========================================================== -->
 
     <androidx.media3.ui.PlayerView
         android:id="@+id/playerView"
@@ -35,14 +35,12 @@
         app:show_buffering="always"
         app:use_controller="true"
         app:controller_layout_id="@layout/player_controls"
-        app:show_timeout="3000"
-        app:hide_on_touch="true"
-        app:resize_mode="fit" />
+        app:controller_show_timeout="3000"
+        app:controller_hide_on_touch="true" />
 
-
-    <!-- ================================================= -->
-    <!-- PROGRESSO -->
-    <!-- ================================================= -->
+    <!-- =========================================================
+         CARREGAMENTO
+    ========================================================== -->
 
     <ProgressBar
         android:id="@+id/progresso"
@@ -51,10 +49,9 @@
         android:layout_gravity="center"
         android:visibility="gone" />
 
-
-    <!-- ================================================= -->
-    <!-- MENSAGEM -->
-    <!-- ================================================= -->
+    <!-- =========================================================
+         MENSAGEM
+    ========================================================== -->
 
     <TextView
         android:id="@+id/txtMensagem"
@@ -66,10 +63,9 @@
         android:textSize="18sp"
         android:visibility="gone" />
 
-
-    <!-- ================================================= -->
-    <!-- EDITOR DE TEXTO -->
-    <!-- ================================================= -->
+    <!-- =========================================================
+         EDITOR DE TEXTO
+    ========================================================== -->
 
     <ScrollView
         android:id="@+id/scrollEditor"
@@ -77,15 +73,16 @@
         android:layout_height="match_parent"
         android:fillViewport="true"
         android:scrollbarThumbVertical="@drawable/scrollbar_personalizado"
-        android:visibility="gone">
+        android:visibility="gone"
+        android:background="#000000">
 
         <TextView
             android:id="@+id/txtEditor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingStart="16dp"
-            android:paddingTop="32dp"
             android:paddingEnd="16dp"
+            android:paddingTop="32dp"
             android:paddingBottom="16dp"
             android:gravity="top"
             android:textColor="#FFFFFF"
