@@ -2,7 +2,7 @@
 
 ## um projeto totalmente gratuito e livre de anúncios, projetado por um menino autista nível 1 de 15 anos!, usando o apoio do chatgpt, sem curso formal!
 
-O**Mulher Amparada** é um aplicativo de segurança e proteção desenvolvido especialmente para mulheres que desejam se sentir mais seguras em situações do dia a dia. O objetivo principal do aplicativo é oferecer suporte rápido, eficiente e acessível em momentos de risco, permitindo que a usuária consiga pedir ajuda de forma simples e imediata. Em um cenário onde muitas mulheres enfrentam situações de vulnerabilidade, ter uma ferramenta confiável pode fazer toda a diferença, e é exatamente isso que o Mulher Amparada busca proporcionar.
+O **Mulher Amparada** é um aplicativo de segurança e proteção desenvolvido especialmente para mulheres que desejam se sentir mais seguras em situações do dia a dia. O objetivo principal do aplicativo é oferecer suporte rápido, eficiente e acessível em momentos de risco, permitindo que a usuária consiga pedir ajuda de forma simples e imediata. Em um cenário onde muitas mulheres enfrentam situações de vulnerabilidade, ter uma ferramenta confiável pode fazer toda a diferença, e é exatamente isso que o Mulher Amparada busca proporcionar.
 
 O aplicativo foi pensado para funcionar como um apoio digital em momentos críticos, permitindo acesso rápido a serviços essenciais como**Polícia (190)**,**SAMU (192)**e**Central de Atendimento à Mulher (180)**. Com apenas alguns toques, a usuária pode realizar ligações de emergência, reduzindo o tempo de reação em situações onde cada segundo é importante. Essa agilidade pode ser decisiva para evitar agravamentos e garantir assistência o mais rápido possível.
 
@@ -522,6 +522,6 @@ porque ele e mais leve, sim ele e mais leve sim, um exemplo e o instagram lite, 
 
 Porque usei a permissão de Administrador do dispositivo e não serviço de acessibilidade?
 
-porque os serviços de acessibilidade para os ativar precisa ir para a tela de acessibilidade e conceder as permissões restritas, enquanto o administrador do dispositivo ele só precisa ativar e as permissões restritas só acontece quando o desativa!
+porque os serviços de acessibilidade para os ativar precisa ir para a tela de acessibilidade e conceder as permissões restritas, enquanto o administrador do dispositivo ele só precisa ativar e as permissões restritas só acontece quando o desativa!, exceto quando desinstala o app quando clica em informações do app!
 
 ----
