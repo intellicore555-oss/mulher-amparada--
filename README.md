@@ -4,8 +4,6 @@
 
 O **Mulher Amparada** é um aplicativo de segurança e proteção desenvolvido especialmente para mulheres que desejam se sentir mais seguras em situações do dia a dia. O objetivo principal do aplicativo é oferecer suporte rápido, eficiente e acessível em momentos de risco, permitindo que a usuária consiga pedir ajuda de forma simples e imediata. Em um cenário onde muitas mulheres enfrentam situações de vulnerabilidade, ter uma ferramenta confiável pode fazer toda a diferença, e é exatamente isso que o Mulher Amparada busca proporcionar.
 
-❤️Mulher Amparada❤️, 
-
 O aplicativo foi pensado para funcionar como um apoio digital em momentos críticos, permitindo acesso rápido a serviços essenciais como **Polícia (190)**, **SAMU (192)** e **Central de Atendimento à Mulher (180)**. Com apenas alguns toques, a usuária pode realizar ligações de emergência, reduzindo o tempo de reação em situações onde cada segundo é importante. Essa agilidade pode ser decisiva para evitar agravamentos e garantir assistência o mais rápido possível.
 
 ## Avisos:
@@ -477,7 +475,6 @@ todas as activitys tem a flag secure!
 e no application do AndroidManifest do app tem allowBackup="false" 
 
 O aplicativo possui um navegador interno. A navegação para o Google é feita diretamente pelo código usando window location replace(), sem disponibilizar o endereço como um link na interface. O aplicativo também não implementa um sistema próprio de registro de histórico de navegação, (ou pelo ou menos eu não coloquei na página)
-
 
 E temos um recurso na área protegida que é um especial de dia das mulheree: consiste em um jogo clicker que ao ganhar pontos (1 => 2) ou 1 ponto por segundo, você avança na história delas entre cada era da humanidade (antiguidade, idade média, e etc!)
 
