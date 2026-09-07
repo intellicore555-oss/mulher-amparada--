@@ -2,6 +2,7 @@
 
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000000">
@@ -18,8 +19,7 @@
         android:background="#000000"
         android:keepScreenOn="true"
         android:elevation="0dp"
-        app:use_controller="false"
-        xmlns:app="http://schemas.android.com/apk/res-auto" />
+        app:use_controller="false" />
 
     <!-- =========================================================
          IMAGEM
@@ -57,7 +57,7 @@
 
     <!-- =========================================================
          CONTROLES PERSONALIZADOS
-         FICA ACIMA DO PLAYER
+         CAMADA ACIMA DO VÍDEO
     ========================================================== -->
 
     <LinearLayout
@@ -77,7 +77,7 @@
         android:background="@drawable/bg_player_controls">
 
         <!-- =====================================================
-             BARRA
+             BARRA DE PROGRESSO
         ====================================================== -->
 
         <androidx.media3.ui.DefaultTimeBar
@@ -86,7 +86,6 @@
             android:layout_height="28dp"
             android:layout_marginStart="2dp"
             android:layout_marginEnd="2dp"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
             app:bar_height="6dp"
             app:touch_target_height="28dp"
             app:scrubber_enabled_size="14dp"
@@ -125,7 +124,7 @@
         </LinearLayout>
 
         <!-- =====================================================
-             BOTÕES
+             CONTROLES PRINCIPAIS
         ====================================================== -->
 
         <LinearLayout
@@ -158,10 +157,13 @@
                 android:src="@drawable/ic_player_rewind"
                 android:contentDescription="Voltar 10 segundos" />
 
-            <!-- PLAY -->
+            <!-- =================================================
+                 PLAY / PAUSE
+                 UM ÚNICO BOTÃO
+            ================================================== -->
 
             <ImageButton
-                android:id="@+id/btnPlay"
+                android:id="@+id/btnPlayPause"
                 android:layout_width="58dp"
                 android:layout_height="58dp"
                 android:layout_marginStart="6dp"
@@ -169,21 +171,7 @@
                 android:background="@drawable/bg_player_button_main"
                 android:padding="16dp"
                 android:src="@drawable/exo_styled_controls_play"
-                android:contentDescription="Reproduzir" />
-
-            <!-- PAUSE -->
-
-            <ImageButton
-                android:id="@+id/btnPause"
-                android:layout_width="58dp"
-                android:layout_height="58dp"
-                android:layout_marginStart="6dp"
-                android:layout_marginEnd="6dp"
-                android:background="@drawable/bg_player_button_main"
-                android:padding="16dp"
-                android:src="@drawable/exo_styled_controls_pause"
-                android:contentDescription="Pausar"
-                android:visibility="gone" />
+                android:contentDescription="Reproduzir ou pausar" />
 
             <!-- AVANÇAR -->
 
@@ -244,7 +232,7 @@
     </LinearLayout>
 
     <!-- =========================================================
-         EDITOR
+         EDITOR DE TEXTO
     ========================================================== -->
 
     <ScrollView
