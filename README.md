@@ -1,4 +1,4 @@
-# ❤️Mulher Amparada❤️,
+# ❤️Mulher Amparada❤️
 
 ## um projeto totalmente gratuito e livre de anúncios, projetado por um menino autista nível 1 de 15 anos!, usando o apoio do chatgpt, sem curso formal!
 
@@ -534,5 +534,17 @@ e a calculadora falsa realmente faz contas, se digitar:
 2 + 2, aparece 4!
 
 e se digitar a senha ele desbloqueia...
+
+----
+
+# Decisões técnicas:
+
+Porque usei webview e html?
+
+porque ele e mais leve, sim ele e mais leve sim, um exemplo e o instagram lite, e porque nao precisa gerar muitos xml ou muito texto em kotlin para fazer todas as telas e além disso html com WebView é mais difícil de manter
+
+Porque usei a permissão de Administrador do dispositivo e não serviço de acessibilidade?
+
+porque os serviços de acessibilidade para os ativar precisa ir para a tela de acessibilidade e conceder as permissões restritas, enquanto o administrador do dispositivo ele só precisa ativar e as permissões restritas só acontece quando o desativa!
 
 ----
