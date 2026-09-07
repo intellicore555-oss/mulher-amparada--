@@ -14,6 +14,8 @@ então, não acredite nas mentiras dele, acredite em si mesma e na esperança qu
 
 ---
 
+# Números de apoio:
+
 uma dica valiosa: se você estiver em sofrimento, ligue para o CVV = centro de Valorização da vida = 188, gratuito, sigiloso, funciona 24 horas, e você não precisa de créditos no chip para ligar pra esse número e tem profissionais treinados para ouvir você!, mas ele serve para apoio emocional, e não um canal de denúncia como a polícia!
 
 se quiser denunciar algo, ligue para o 190 = polícia, e 180 = central de atendimento á mulher),
