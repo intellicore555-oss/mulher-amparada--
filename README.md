@@ -40,11 +40,6 @@ e os contatos de confiança, quando são cadrastados eles também são criptogra
 
 e o bloqueio do celular por barulho é assim: bloqueia, voce desbloqueia e pra ter denovo tem que desativar e ativar denovo!
 
-# Sobre a permissão de sms:
-
-é um avanço, pois é uma permissão a menos pro app!, deixei esses registros dessa permissão nesse repositório porque pode ser que precise... (esse aviso serve apenas pro app do Mulher Amparada!)
-
-
 ---- 
 
 # Direitos que toda mulher tem!
