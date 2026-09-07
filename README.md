@@ -26,6 +26,8 @@ e os apps são compilados com o workflow, gera o código sha-256 e o zip com o a
 
 no repositório tem um yml que ativa todos os dias, procura no codigo fonte dos 3 apps o arquivo build do módulo do app, e se ele ver que saiu uma versão android nova, ele atualiza, totalmente sozinho!, garantindo que elas tenham os apps mais recentes possíveis!
 
+e todas as activitys tem o android exported="false", menos a MainActivity porque a partir das versões mais recentes do android, a tela inicial do app tem que estar obrigatoriamente com android exported="true"
+
 ## Sobre como eu automatizo o projeto:
 
 E eu também já consegui configurar um ssh na conta, e 2fa nela tambem, e com o ssh, eu consegui mover pastas inteiras para o repositório, e transformei 4 em 1, e mais de 100 commits em 1,
