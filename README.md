@@ -547,4 +547,20 @@ Porque usei a permissão de Administrador do dispositivo e não serviço de aces
 
 porque os serviços de acessibilidade para os ativar precisa ir para a tela de acessibilidade e conceder as permissões restritas, enquanto o administrador do dispositivo ele só precisa ativar e as permissões restritas só acontece quando o desativa!
 
+
+----
+
+# Decisões técnicas:
+
+Porque usei webview e html?
+
+porque ele e mais leve, sim ele e mais leve sim, um exemplo e o instagram lite, e porque nao precisa gerar muitos xml ou muito texto em kotlin para fazer todas as telas e além disso html com WebView é mais difícil de manter
+
+Porque usei a permissão de Administrador do dispositivo e não serviço de acessibilidade?
+
+porque os serviços de acessibilidade para os ativar precisa ir para a tela de acessibilidade e conceder as permissões restritas, enquanto o administrador do dispositivo ele só precisa ativar e as permissões restritas só acontece quando o desativa!
+
+
+e principalmente, esse app não está na play store porque sou de menor (não vou colocar esse projeto em nome de outra pessoa, prefiro esperar), não tenho cartão de crédito internacional e 25 dólares, quando eu conseguir tudo isso eu adapto as permissões do app e publico nessa loja de aplicativos!
+
 ----
