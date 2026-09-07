@@ -2,9 +2,9 @@
 
 ## um projeto totalmente gratuito e livre de anúncios, projetado por um menino autista nível 1 de 15 anos!, usando o apoio do chatgpt, sem curso formal!
 
-O **Mulher Amparada** é um aplicativo de segurança e proteção desenvolvido especialmente para mulheres que desejam se sentir mais seguras em situações do dia a dia. O objetivo principal do aplicativo é oferecer suporte rápido, eficiente e acessível em momentos de risco, permitindo que a usuária consiga pedir ajuda de forma simples e imediata. Em um cenário onde muitas mulheres enfrentam situações de vulnerabilidade, ter uma ferramenta confiável pode fazer toda a diferença, e é exatamente isso que o Mulher Amparada busca proporcionar.
+O **Mulher Amparada**é um aplicativo de segurança e proteção desenvolvido especialmente para mulheres que desejam se sentir mais seguras em situações do dia a dia. O objetivo principal do aplicativo é oferecer suporte rápido, eficiente e acessível em momentos de risco, permitindo que a usuária consiga pedir ajuda de forma simples e imediata. Em um cenário onde muitas mulheres enfrentam situações de vulnerabilidade, ter uma ferramenta confiável pode fazer toda a diferença, e é exatamente isso que o Mulher Amparada busca proporcionar.
 
-O aplicativo foi pensado para funcionar como um apoio digital em momentos críticos, permitindo acesso rápido a serviços essenciais como **Polícia (190)**, **SAMU (192)** e **Central de Atendimento à Mulher (180)**. Com apenas alguns toques, a usuária pode realizar ligações de emergência, reduzindo o tempo de reação em situações onde cada segundo é importante. Essa agilidade pode ser decisiva para evitar agravamentos e garantir assistência o mais rápido possível.
+O aplicativo foi pensado para funcionar como um apoio digital em momentos críticos, permitindo acesso rápido a serviços essenciais como **Polícia (190)**, **SAMU (192)**e **Central de Atendimento à Mulher (180)**. Com apenas alguns toques, a usuária pode realizar ligações de emergência, reduzindo o tempo de reação em situações onde cada segundo é importante. Essa agilidade pode ser decisiva para evitar agravamentos e garantir assistência o mais rápido possível.
 
 Para desinstalar o aplicativo, primeiro será necessário desativar a permissão de Administrador do dispositivo. Em alguns aparelhos, também poderá ser necessário permitir Configurações restritas. Se essa opção estiver disponível, pressione e segure o ícone do aplicativo, toque em Informações do aplicativo, abra o menu de três pontos e ative Permitir configurações restritas.
 
@@ -77,7 +77,7 @@ Para acessar o conteúdo completo sobre finanças, consulte a [Carta do desenvol
 
 ## Todas as funções do aplicativo!:
 
-** Disfarce do app (assistente de saúde falso!): **
+**Disfarce do app (assistente de saúde falso!): 
 tutorial: ao entrar no app, clique no canto superior direito com o icone de calculadora. e ai quando ele for iniciado, ele pedirá para criar uma senha (e salva em uma classe kt de criptografia), assim so acessa com a senha informada, para resetar essa senha (dê 5 toques em menos de 2 segundos, e digite como você gosta de ser chamada, e digite sua nova senha!), mas antes dessa tela, tem outra tipo uma gaveta de apps..., porém, agora no mulher amparada, ele já vem com o icone de calculadora e o nome calculadora, só dá para mudar o icone, ou seja, o app ja vem com icone de (Assistente de saúde), uma tela genérica de elementos de medição de saúde (bpm e etc), e vale lembrar que:
 
 Os dados da primeira página do app são meramente fictícios e não representam informações reais!
@@ -86,35 +86,35 @@ e tambem, reforcando que no canto superior direito tem um icone de calculadora q
 
 ----
 
-** Botão de Pânico: **
+**Botão de Pânico: 
 Botão de Pânico, com ligação ao 180 de forma direta no primeiro clique.
 
 ----
 
-** Proteção por Barulho: **
+**Proteção por Barulho: 
 Ative a proteção, faça barulho alto e ele liga para o 180.
 
 ----
 
-** Balançar o Celular para Pedir Ajuda: **
+**Balançar o Celular para Pedir Ajuda: 
 Ative e, ao chacoalhar o celular, ele liga para o 180.
 
-** Escurecimento por inclinação: **
+**Escurecimento por inclinação: 
 com isso, voce pode controlar o brilho da tela clicando em um botão..., porém, e tipo como se fosse o menor brilho do celular, e ai depois ele deixa a tela preta (nao com brilho e sim colocando a cor), (honestamente, antes aparecia as duas barras, agora elas se escondem!), e o efeito e vitalicio ate fechar e abrir o app!
 
 ----
 
-** Desligar o celular pelo barulho: **
+**Desligar o celular pelo barulho: 
 ao ativado, ao fazer barulho alto, ele usa o administrador do dispositivo e desliga o celular!, e o melhor e que da para ativar essa e a proteção por barulho ao mesmo tempo!, (sim, eu testei isso no dia 06/09/2026, e não só isso, se o agressor jogar o celular e ele não quebrar, a proteção por barulho se tiver ativa em teoria pode iniciar a ligação pro 180!)
 
 ----
 
-** Emergência: **
+**Emergência: 
 Saindo dessa área, existem botões que abrem o aplicativo nativo do telefone nos números 190, 192 e 180.
 
 ----
 
-** Compartilhamento Rápido de Localização: **
+**Compartilhamento Rápido de Localização: 
 Além disso, existe um botão dentro do app que pega a localização atual, monta um link do Google Maps e já manda para o WhatsApp do 180, precisando apenas clicar no botão de enviar.
 
 ----
@@ -173,42 +173,42 @@ Os dados são protegidos por uma chave segura do próprio Android e não ficam v
 
 ----
 
-** Calendário Menstrual: **
+**Calendário Menstrual: 
 Registre como dói cada dia e, com isso, o aplicativo monta um calendário.
 
 ----
 
-** Calendário de eventos: **
+**Calendário de eventos: 
 Registra eventos da usuária quando ela precisar
 
 ----
 
-** Rotina: **
+**Rotina: 
 Sistema de pontos, com registro de comidas e bebidas boas e ruins, bem como a adição de registro de exercícios físicos fáceis, médios ou difíceis e contagem de tempo de cada um deles, além de sistema de nível e conquistas.
 
 ----
 
-** Mapa: **
+**Mapa: 
 Mostra um mapa da região da usuária, com funções que dá para ver onde ela está
 
 ----
 
-** Diário: **
+**Diário: 
 Usando criptografia, a usuária poderá anotar o que quiser. Com a senha, ficará seguro e também não some, pois estará guardado.
 
 ----
 
-** Relógio: **
+**Relógio: 
 Mostra o mapa do local atual, o país e outros dados, bem como o ano, semestre, bimestre, mês, quinzena, semana, dia, hora, minuto e segundo.
 
 ----
 
-** Calculadora: **
+**Calculadora: 
 A calculadora pode ser usada para cálculos rápidos do dia a dia.
 
 ----
 
-** Tarefas: ** 
+**Tarefas:  
 O sistema permite categorizar tarefas em áreas como estudos, trabalho, pessoal e saúde.
 
 As tarefas podem ser marcadas como concluídas para acompanhamento do progresso.
@@ -219,7 +219,7 @@ Os dados ficam armazenados localmente no dispositivo do usuário.
 
 ----
 
-** Gravador de voz: **
+**Gravador de voz: 
 Usando uma activity (uma tela) em kotlin, é possivel ter um gravador de voz no app, sendo possível registrar evidências e provas, além do que a usuária quiser, sempre usando permissoes android e com o consentimento da usuária!
 
 GRAVAÇÕES — COMPORTAMENTO E METADADOS
@@ -342,32 +342,32 @@ O SHA-256 permite verificar se os bytes de um arquivo correspondem ao conteúdo 
 
 ----
 
-** Meus arquivos: **
+**Meus arquivos: 
 Dentro do app, ele só visualiza as pastas e ao clicar em um arquivo, abre um seletor de apps para executar/visualizar ele
 
 ----
 
-** Desligar o celular: **
+**Desligar o celular: 
 Ao tocar neste botão, o aplicativo solicitará a permissão de Administrador do dispositivo, caso ela ainda não tenha sido concedida. Quando essa permissão estiver ativa, o aplicativo poderá bloquear imediatamente a tela do dispositivo, (aviso: possivelmente você não poderá usar a sua biometria!)
 
 ----
 
-** Tela de aplicativos: **
+**Tela de aplicativos: 
 Ao tocar neste botão, o app mostrará um site dentro do app que lista todos os outros apps com a permissão query all packpages...
 
 ----
 
 ## FUNÇÕES AVANÇADAS DA ÁREA PROTEGIDA!:
 
-**lembrando que, sobre esses apps, ja tem o código fonte dele dentro do repositório no site!:**
+**lembrando que, sobre esses apps, ja tem o código fonte dele dentro do repositório no site!:
 
-**Lembrando que o app de gerenciador de arquivos so visualiza arquivos  nao copia, nao exclui, nao move e nao renomeia, e ele também precisa desbloquear com biometria**
+**Lembrando que o app de gerenciador de arquivos so visualiza arquivos  nao copia, nao exclui, nao move e nao renomeia, e ele também precisa desbloquear com biometria
 
 e o de comando de voz, também precisa desbloquear com biometria 
 
 ----
 
-** Gerenciador de Arquivos do Mulher Amparada 📁💗 **
+**Gerenciador de Arquivos do Mulher Amparada 📁💗 
 
 Conheça um gerenciador de arquivos pensado para ser leve, rápido e fácil de usar. Tudo foi desenvolvido para que você encontre seus documentos, fotos, vídeos e músicas sem complicação.
 
@@ -387,7 +387,7 @@ Seja para abrir um documento, encontrar uma foto especial, ouvir uma música ou 
 
 ----
 
-** Assistente Inteligente do Mulher Amparada 🤖💗 **
+**Assistente Inteligente do Mulher Amparada 🤖💗 
 
 O Assistente Inteligente do Mulher Amparada permite controlar diversas funções do aplicativo utilizando comandos em linguagem natural, tornando o uso mais rápido e acessível.
 
@@ -425,7 +425,7 @@ Todas essas funções foram desenvolvidas para oferecer praticidade, rapidez e f
 
 ----
     
-** Comandos do Assistente Inteligente 🤖💗 **
+**Comandos do Assistente Inteligente 🤖💗 
 
 O Assistente Inteligente reconhece comandos em linguagem natural. Veja alguns exemplos:
 
