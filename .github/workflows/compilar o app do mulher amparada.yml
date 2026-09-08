@@ -36,6 +36,7 @@ jobs:
     env:
       App1_DIR: "Código-fonte do app = Mulher Amparada"
       RELEASE_TAG: "app"
+      RELEASE_APK_NAME: "app-release.apk"
 
 
     steps:
@@ -91,7 +92,7 @@ jobs:
 
 
       # =========================================================
-      # COMPILAR
+      # COMPILAR APK
       # =========================================================
 
       - name: Compilar APK
@@ -125,40 +126,162 @@ jobs:
 
 
       # =========================================================
-      # CALCULAR TAMANHO REAL DO APK
-      #
-      # IMPORTANTE:
-      # O tamanho é calculado diretamente no .apk.
-      # App1.zip NÃO participa desse cálculo.
+      # REUTILIZAR KEYSTORE E ASSINAR APK
       # =========================================================
 
-      - name: Calcular tamanho real do APK
-        id: apk_size
+      - name: Assinar APK
+        working-directory: ${{ env.App1_DIR }}
+        env:
+          KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+        run: |
+
+          if [ -z "$KEYSTORE_BASE64" ]; then
+            echo "ERRO: KEYSTORE_BASE64 não configurado."
+            exit 1
+          fi
+
+          if [ -z "$KEYSTORE_PASSWORD" ]; then
+            echo "ERRO: KEYSTORE_PASSWORD não configurado."
+            exit 1
+          fi
+
+          if [ -z "$KEY_ALIAS" ]; then
+            echo "ERRO: KEY_ALIAS não configurado."
+            exit 1
+          fi
+
+          if [ -z "$KEY_PASSWORD" ]; then
+            echo "ERRO: KEY_PASSWORD não configurado."
+            exit 1
+          fi
+
+
+          echo "$KEYSTORE_BASE64" | base64 --decode > mulher-amparada.jks
+
+
+          APK="${{ steps.apk.outputs.apk }}"
+
+
+          if [ ! -f "$APK" ]; then
+            echo "ERRO: APK não encontrado:"
+            echo "$APK"
+            rm -f mulher-amparada.jks
+            exit 1
+          fi
+
+
+          APKSIGNER=$(find "$ANDROID_HOME/build-tools" \
+            -type f \
+            -name "apksigner" \
+            | sort -V \
+            | tail -n 1)
+
+
+          if [ -z "$APKSIGNER" ]; then
+            echo "ERRO: apksigner não encontrado."
+            rm -f mulher-amparada.jks
+            exit 1
+          fi
+
+
+          echo "Assinando APK..."
+
+
+          "$APKSIGNER" sign \
+            --ks mulher-amparada.jks \
+            --ks-key-alias "$KEY_ALIAS" \
+            --ks-pass "pass:$KEYSTORE_PASSWORD" \
+            --key-pass "pass:$KEY_PASSWORD" \
+            --out app-assinado.apk \
+            "$APK"
+
+
+          mv app-assinado.apk "$APK"
+
+
+          echo "Verificando assinatura..."
+
+
+          "$APKSIGNER" verify \
+            --verbose \
+            "$APK"
+
+
+          rm -f mulher-amparada.jks
+
+
+          echo "APK assinado e verificado com sucesso."
+
+
+      # =========================================================
+      # PREPARAR APK DA RELEASE
+      # =========================================================
+
+      - name: Preparar APK da Release
         working-directory: ${{ env.App1_DIR }}
         run: |
 
           APK="${{ steps.apk.outputs.apk }}"
+
+          cp "$APK" "$GITHUB_WORKSPACE/$RELEASE_APK_NAME"
+
+          echo "APK preparado:"
+          echo "$GITHUB_WORKSPACE/$RELEASE_APK_NAME"
+
+
+      # =========================================================
+      # ARTIFACT APK ASSINADO
+      # =========================================================
+
+      - name: Enviar APK como artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: APK-Kotlin-Assinado
+          path: "${{ github.workspace }}/${{ env.RELEASE_APK_NAME }}"
+          if-no-files-found: error
+
+
+      # =========================================================
+      # CALCULAR TAMANHO REAL DO APK
+      #
+      # O cálculo acontece DEPOIS da assinatura.
+      # =========================================================
+
+      - name: Calcular tamanho real do APK
+        id: apk_size
+        run: |
+
+          APK="$GITHUB_WORKSPACE/$RELEASE_APK_NAME"
+
 
           if [ ! -f "$APK" ]; then
             echo "ERRO: APK não encontrado."
             exit 1
           fi
 
+
           BYTES=$(stat -c%s "$APK")
+
 
           SIZE_MB=$(awk "BEGIN {
             printf \"%.2f\", $BYTES / 1024 / 1024
           }")
 
+
           SIZE_FORMATADO="${SIZE_MB} MB"
 
+
           echo "========================================"
-          echo "TAMANHO REAL DO APK"
+          echo "TAMANHO REAL DO APK ASSINADO"
           echo "========================================"
           echo "Arquivo: $APK"
           echo "Bytes: $BYTES"
           echo "MB: $SIZE_FORMATADO"
           echo "========================================"
+
 
           echo "bytes=$BYTES" >> "$GITHUB_OUTPUT"
           echo "size_mb=$SIZE_MB" >> "$GITHUB_OUTPUT"
@@ -171,104 +294,65 @@ jobs:
 
       - name: Calcular SHA-256
         id: sha256
-        working-directory: ${{ env.App1_DIR }}
         run: |
 
-          APK="${{ steps.apk.outputs.apk }}"
+          APK="$GITHUB_WORKSPACE/$RELEASE_APK_NAME"
+
+
+          if [ ! -f "$APK" ]; then
+            echo "ERRO: APK não encontrado."
+            exit 1
+          fi
+
 
           SHA256=$(sha256sum "$APK" | awk '{print $1}')
 
+
           echo "SHA-256:"
           echo "$SHA256"
+
 
           echo "sha256=$SHA256" >> "$GITHUB_OUTPUT"
 
 
       # =========================================================
-      # CRIAR ZIP
+      # ATUALIZAR APK NO MAIN
       #
-      # O ZIP é criado somente DEPOIS do cálculo do tamanho.
+      # O App1.zip existente não é criado nem alterado.
       # =========================================================
 
-      - name: Criar App1.zip
-        working-directory: ${{ env.App1_DIR }}
-        run: |
-
-          rm -f App1.zip
-
-          zip -j App1.zip "${{ steps.apk.outputs.apk }}"
-
-          echo "========================================"
-          echo "App1.zip criado"
-          echo "========================================"
-
-          unzip -l App1.zip
-
-
-      # =========================================================
-      # ARTIFACT APK
-      # =========================================================
-
-      - name: Enviar APK como artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: APK-Kotlin-Debug
-          path: "${{ env.App1_DIR }}/app/build/outputs/apk/debug/*.apk"
-          if-no-files-found: error
-
-
-      # =========================================================
-      # ARTIFACT ZIP
-      # =========================================================
-
-      - name: Enviar App1.zip como artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: App1
-          path: "${{ env.App1_DIR }}/App1.zip"
-          if-no-files-found: error
-
-
-      # =========================================================
-      # ATUALIZAR App1.zip NO MAIN
-      #
-      # Não usa pull --rebase.
-      # Isso evita conflito de merge com arquivo binário.
-      # =========================================================
-
-      - name: Atualizar App1.zip no main
-        working-directory: ${{ env.App1_DIR }}
+      - name: Atualizar APK no main
         run: |
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          ZIP="App1.zip"
 
-          if [ ! -f "$ZIP" ]; then
-            echo "ERRO: App1.zip não encontrado."
-            exit 1
-          fi
+          TARGET="${App1_DIR}/app-release.apk"
 
-          cd "$GITHUB_WORKSPACE"
 
-          echo "Atualizando referência do main..."
+          cp "$GITHUB_WORKSPACE/$RELEASE_APK_NAME" "$TARGET"
+
 
           git fetch origin main
 
+
           git reset --hard origin/main
 
-          echo "Adicionando novo App1.zip..."
 
-          git add "$App1_DIR/App1.zip"
+          cp "$GITHUB_WORKSPACE/$RELEASE_APK_NAME" "$TARGET"
+
+
+          git add "$TARGET"
+
 
           if git diff --cached --quiet; then
 
-            echo "App1.zip já está atualizado."
+            echo "APK já está atualizado."
 
           else
 
-            git commit -m "Atualizar App1.zip [skip ci]"
+            git commit -m "Atualizar APK assinado [skip ci]"
 
             git push origin main
 
@@ -289,58 +373,60 @@ jobs:
 
             echo "ERRO: A Release '$RELEASE_TAG' não existe."
             exit 1
-
           fi
+
 
           echo "Release encontrada."
 
 
       # =========================================================
-      # EXCLUIR App1.zip ANTIGO DA RELEASE
+      # EXCLUIR APK ANTIGO DA RELEASE
       # =========================================================
 
-      - name: Excluir App1.zip antigo da Release
+      - name: Excluir APK antigo da Release
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
 
           ASSET_ID=$(gh api \
             "repos/$GITHUB_REPOSITORY/releases/tags/$RELEASE_TAG" \
-            --jq '.assets[] | select(.name == "App1.zip") | .id' \
+            --jq ".assets[] | select(.name == \"$RELEASE_APK_NAME\") | .id" \
             | head -n 1)
+
 
           if [ -n "$ASSET_ID" ]; then
 
-            echo "Excluindo App1.zip antigo..."
+            echo "Excluindo APK antigo..."
 
             gh api \
               --method DELETE \
               "repos/$GITHUB_REPOSITORY/releases/assets/$ASSET_ID"
 
-            echo "App1.zip antigo excluído."
+            echo "APK antigo excluído."
 
           else
 
-            echo "Nenhum App1.zip antigo encontrado."
+            echo "Nenhum APK antigo encontrado."
 
           fi
 
 
       # =========================================================
-      # ENVIAR NOVO ZIP PARA RELEASE
+      # ENVIAR APK PARA RELEASE
       # =========================================================
 
-      - name: Enviar novo App1.zip para a Release
-        working-directory: ${{ env.App1_DIR }}
+      - name: Enviar APK para a Release
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
 
-          gh release upload "$RELEASE_TAG" \
-            "App1.zip" \
+          gh release upload \
+            "$RELEASE_TAG" \
+            "$GITHUB_WORKSPACE/$RELEASE_APK_NAME" \
             --repo "$GITHUB_REPOSITORY"
 
-          echo "Novo App1.zip enviado para a Release."
+
+          echo "Novo APK enviado para a Release."
 
 
       # =========================================================
@@ -354,10 +440,12 @@ jobs:
 
           SHA256="${{ steps.sha256.outputs.sha256 }}"
 
+
           gh release view "$RELEASE_TAG" \
             --repo "$GITHUB_REPOSITORY" \
             --json body \
             --jq '.body' > release-notes.txt
+
 
           if grep -q "SHA-256 gerado nesta compilação:" release-notes.txt; then
 
@@ -372,67 +460,35 @@ jobs:
 
           fi
 
+
           gh release edit "$RELEASE_TAG" \
             --repo "$GITHUB_REPOSITORY" \
             --notes-file release-notes.txt
+
 
           echo "SHA-256 atualizado:"
           echo "$SHA256"
 
 
       # =========================================================
-      # EXCLUIR APK DA RELEASE
-      # =========================================================
-
-      - name: Excluir APK da Release
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-
-          for APK_NAME in \
-            "App1-debug.apk" \
-            "app-debug.apk"; do
-
-            ASSET_ID=$(gh api \
-              "repos/$GITHUB_REPOSITORY/releases/tags/$RELEASE_TAG" \
-              --jq ".assets[] | select(.name == \"$APK_NAME\") | .id" \
-              | head -n 1)
-
-            if [ -n "$ASSET_ID" ]; then
-
-              echo "Excluindo $APK_NAME da Release..."
-
-              gh api \
-                --method DELETE \
-                "repos/$GITHUB_REPOSITORY/releases/assets/$ASSET_ID"
-
-              echo "$APK_NAME excluído."
-
-            else
-
-              echo "$APK_NAME não está na Release."
-
-            fi
-
-          done
-
-
-      # =========================================================
       # ATUALIZAR download.html
       #
-      # O tamanho usado aqui é o tamanho REAL DO APK.
+      # Agora o link aponta DIRETAMENTE para o APK.
       # =========================================================
 
       - name: Atualizar link e tamanho do APK no download.html
         working-directory: ${{ github.workspace }}
         run: |
 
-          ASSET_URL="https://github.com/$GITHUB_REPOSITORY/releases/download/$RELEASE_TAG/App1.zip"
+          ASSET_URL="https://github.com/$GITHUB_REPOSITORY/releases/download/$RELEASE_TAG/$RELEASE_APK_NAME"
+
 
           APK_SIZE="${{ steps.apk_size.outputs.size_formatado }}"
 
+
           echo "Novo link:"
           echo "$ASSET_URL"
+
 
           echo "Tamanho REAL do APK:"
           echo "$APK_SIZE"
@@ -443,16 +499,20 @@ jobs:
           from pathlib import Path
           import re
 
+
           arquivo = Path("download.html")
+
 
           if not arquivo.exists():
               raise SystemExit(
                   "ERRO: download.html não encontrado."
               )
 
+
           texto = arquivo.read_text(
               encoding="utf-8"
           )
+
 
           novo_url = """$ASSET_URL"""
           novo_tamanho = """$APK_SIZE"""
@@ -468,6 +528,7 @@ jobs:
               r'(")'
           )
 
+
           texto, quantidade_url = re.subn(
               padrao_url,
               lambda m:
@@ -477,6 +538,7 @@ jobs:
               texto,
               count=1
           )
+
 
           if quantidade_url == 0:
               raise SystemExit(
@@ -494,6 +556,7 @@ jobs:
               r'(\s*</strong>)'
           )
 
+
           texto, quantidade_resumo = re.subn(
               padrao_resumo,
               lambda m:
@@ -503,6 +566,7 @@ jobs:
               texto,
               count=1
           )
+
 
           if quantidade_resumo == 0:
               raise SystemExit(
@@ -520,6 +584,7 @@ jobs:
               r'(\s*</strong>)'
           )
 
+
           texto, quantidade_detalhe = re.subn(
               padrao_detalhe,
               lambda m:
@@ -530,6 +595,7 @@ jobs:
               texto,
               count=1
           )
+
 
           if quantidade_detalhe == 0:
               raise SystemExit(
@@ -546,6 +612,7 @@ jobs:
               encoding="utf-8"
           )
 
+
           print("download.html atualizado.")
           print("Novo link:", novo_url)
           print("Novo tamanho REAL do APK:", novo_tamanho)
@@ -555,8 +622,6 @@ jobs:
 
       # =========================================================
       # ATUALIZAR download.html NO MAIN
-      #
-      # Faz fetch + reset e depois reaplica somente download.html.
       # =========================================================
 
       - name: Enviar download.html atualizado para o main
@@ -565,7 +630,9 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
+
           git add download.html
+
 
           if git diff --cached --quiet; then
 
@@ -597,12 +664,12 @@ jobs:
           echo "**Branch:** main" \
             >> "$GITHUB_STEP_SUMMARY"
 
-          echo "**Release recebe:** App1.zip" \
+          echo "**Release recebe:** $RELEASE_APK_NAME" \
             >> "$GITHUB_STEP_SUMMARY"
 
           echo "" >> "$GITHUB_STEP_SUMMARY"
 
-          echo "**Tamanho REAL do APK:** ${{ steps.apk_size.outputs.size_formatado }}" \
+          echo "**Tamanho REAL do APK assinado:** ${{ steps.apk_size.outputs.size_formatado }}" \
             >> "$GITHUB_STEP_SUMMARY"
 
           echo "**Tamanho em bytes:** ${{ steps.apk_size.outputs.bytes }}" \
