@@ -518,10 +518,16 @@ lembre-se que hoje em dia uso github para compilar os apps e o a16 5g da samsung
 
 Porque usei webview e html?
 
-porque ele e mais leve, sim ele e mais leve sim, um exemplo e o instagram lite, e porque nao precisa gerar muitos xml ou muito texto em kotlin para fazer todas as telas e além disso html com WebView é mais difícil de manter
+porque ele e mais leve, sim ele e mais leve sim, um exemplo e o instagram lite, e porque nao precisa gerar muitos xml ou muito texto em kotlin para fazer todas as telas e além disso html com WebView é mais difícil de manter, mas eu tenho sim activitys em kotlin em xml, mas eu também tenho páginas em html
+
+ah, mas o webview carrega uma versão cromium inteira...
+
+e as activitys em kotlin e jetpack compose ou xml carrega imports do build, muitos arquivos e muitos textos para algo que dá para ser feito facilmente em html, e o html acaba sendo mais leve e por isso mais otimizado..., a proposta e ele ser otimizado para ser mais rápido, e o webview chama metodos expostos via js que chama o android, e sobre injeção de código, o app guarda os dados usando criptografia..., e TODAS AS PÁGINAS EM HTML, estão dentro da pasta assets (menos o navegador que usa o Google, mas aí eu não controlo e é com eles lá!)
 
 Porque usei a permissão de Administrador do dispositivo e não serviço de acessibilidade?
 
 porque os serviços de acessibilidade para os ativar precisa ir para a tela de acessibilidade e conceder as permissões restritas, enquanto o administrador do dispositivo ele só precisa ativar e as permissões restritas só acontece quando o desativa!, exceto quando desinstala o app quando clica em informações do app!
+
+e bem verdade que ele está ficando deprecated, mas também é verdade que a parte de bloquear a tela não esta deprecated, o resto sim (alterar a senha e etc)
 
 ----
