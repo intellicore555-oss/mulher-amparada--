@@ -426,42 +426,52 @@ class MainActivity : AppCompatActivity() {
               
             webView.overScrollMode = View.OVER_SCROLL_NEVER  
   
-        webView.isVerticalScrollBarEnabled =  
-            false  
-  
-        webView.isHorizontalScrollBarEnabled =  
-            false  
-  
-        webView.scrollBarStyle =  
-            View.SCROLLBARS_INSIDE_OVERLAY  
-  
-        settings.javaScriptEnabled =  
-            true  
-  
-        settings.mediaPlaybackRequiresUserGesture =  
-            false  
-  
-        settings.domStorageEnabled =  
-            true  
-  
-        settings.setGeolocationEnabled(  
-            true  
-        )  
-  
-        settings.allowFileAccess =  
-            true  
-  
-        settings.allowContentAccess =  
-            true  
-  
-        settings.javaScriptCanOpenWindowsAutomatically =  
-            true  
-  
-        settings.allowFileAccessFromFileURLs =  
-            true  
-  
-        settings.allowUniversalAccessFromFileURLs =  
-            true  
+  webView.isVerticalScrollBarEnabled =
+    false
+
+webView.isHorizontalScrollBarEnabled =
+    false
+
+webView.scrollBarStyle =
+    View.SCROLLBARS_INSIDE_OVERLAY
+
+settings.javaScriptEnabled =
+    true
+
+settings.mediaPlaybackRequiresUserGesture =
+    false
+
+settings.domStorageEnabled =
+    true
+
+settings.setGeolocationEnabled(
+    true
+)
+
+// Necessário para o seu uso com android_asset
+settings.allowFileAccess =
+    true
+
+// Não é necessário para as páginas locais
+settings.allowContentAccess =
+    false
+
+// Evita que páginas file:// acessem outros file://
+settings.allowFileAccessFromFileURLs =
+    false
+
+// Evita que páginas file:// acessem outras origens
+settings.allowUniversalAccessFromFileURLs =
+    false
+
+// Reduz abertura automática de novas janelas
+settings.javaScriptCanOpenWindowsAutomatically =
+    false
+
+settings.setSupportMultipleWindows(
+    false
+)
+
   
   
         // =====================================================  
