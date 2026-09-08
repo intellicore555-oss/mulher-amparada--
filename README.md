@@ -28,6 +28,19 @@ no repositório tem um yml que ativa todos os dias, procura no codigo fonte dos 
 
 e todas as activitys tem o android exported="false", menos a MainActivity porque a partir das versões mais recentes do android, a tela inicial do app tem que estar obrigatoriamente com android exported="true"
 
+E nao faz sentido usar proguard8 porque o app tem o código-fonte publico, ou seja ele é open-source, então não faz sentido esconder o código-fonte 
+
+E ele tem uma chave que assina os apps, usando essas 4 informações:
+
+KEYSTORE_BASE64
+KEYSTORE_PASSWORD
+KEY_ALIAS
+KEY_PASSWORD
+
+Em:
+
+/settings/secrets and variables/actions/repository secrets/
+
 ## Sobre como eu automatizo o projeto:
 
 E eu também já consegui configurar um ssh na conta, e 2fa nela tambem, e com o ssh, eu consegui mover pastas inteiras para o repositório, e transformei 4 em 1, e mais de 100 commits em 1,
